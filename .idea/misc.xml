@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Kalkula-ka-master/app/src/main/res/layout/activity_main.xml" value="0.28442028985507245" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.166015625" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/drawable/ic_kreslic__pl_tno_1.xml" value="0.166015625" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/drawable/ic_launcher_background.xml" value="0.166015625" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/drawable/outline_backspace_24.xml" value="0.19144144144144143" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/drawable/ripple_effect.xml" value="0.287109375" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout-land/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout-v26/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout-v28/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout/menu.xml" value="0.275" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/layout/navigation_header.xml" value="0.275" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/menu/navigation_menu.xml" value="0.275" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
+        <entry key="..\:/Users/ninja/AndroidStudioProjects/Programovatelna_Kalkulacka/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2203125" />
+        <entry key="..\:/Users/ninja/Desktop/Kalkula-ka-master/app/src/main/res/drawable/ic_kreslic__pl_tno_1.xml" value="0.37743589743589745" />
+        <entry key="..\:/Users/ninja/Desktop/Kalkula-ka-master/app/src/main/res/layout-land/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/ninja/Desktop/Kalkula-ka-master/app/src/main/res/layout/activity_dialog.xml" value="0.28442028985507245" />
+        <entry key="..\:/Users/ninja/Desktop/Kalkula-ka-master/app/src/main/res/layout/activity_main.xml" value="0.17857142857142858" />
+        <entry key="..\:/Users/ninja/Desktop/Kalkula-ka-master/app/src/main/res/layout/activity_main2.xml" value="0.20572916666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
