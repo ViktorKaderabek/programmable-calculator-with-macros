@@ -10,9 +10,10 @@
 - the values that are stored into values are stored into database
 - solving the Quadratic Equation
 
-# To Do List()
+# To Do List(3/7)
 
 ✔️ - It's done and it works well
+
 ❌ - Not finished yet and i'm working on it
 
 - [✔️] solving the casual mathematic problems
