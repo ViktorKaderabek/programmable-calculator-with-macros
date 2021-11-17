@@ -15,7 +15,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
 
-
 import android.view.LayoutInflater
 import android.view.View
 
@@ -52,35 +51,35 @@ class MainActivity : AppCompatActivity()
 	    .observe(
 	         this,
 	         {
-		    activityMainBinding.txtMem1Value?.text = it
+		    activityMainBinding.txtMem1Value.text = it
 	         })
 	
 	mainViewModel.getM2()
 	    .observe(
 	         this,
 	         {
-		    activityMainBinding.txtMem2Value?.text = it
+		    activityMainBinding.txtMem2Value.text = it
 	         })
 	
 	mainViewModel.getM3()
 	    .observe(
 	         this,
 	         {
-		    activityMainBinding.txtMem3Value?.text = it
+		    activityMainBinding.txtMem3Value.text = it
 	         })
 	
 	mainViewModel.getM4()
 	    .observe(
 	         this,
 	         {
-		    activityMainBinding.txtMem4Value?.text = it
+		    activityMainBinding.txtMem4Value.text = it
 	         })
 	
 	mainViewModel.getM5()
 	    .observe(
 	         this,
 	         {
-		    activityMainBinding.txtMem5Value?.text = it
+		    activityMainBinding.txtMem5Value.text = it
 	         })
 	
 	mainViewModel.getResult()
@@ -148,7 +147,7 @@ class MainActivity : AppCompatActivity()
 				 DialogInterface.OnClickListener { dlg, sumthin -> })
 	     
 	     alertadd.show()
-	
+	     
 	}
 	
 	activityMainBinding.btnNumber1.setOnClickListener { //Odkazuje na tlacitko btnNumber1 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel

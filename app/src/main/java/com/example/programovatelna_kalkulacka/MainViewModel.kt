@@ -1389,6 +1389,17 @@ class MainViewModel : ViewModel()
      {
 	try
 	{
+	     if(processHolder.isEmpty()){
+	          
+	          processHolder = "0"
+		resultHolder = processHolder
+		
+		lastResult.value = resultHolder
+		result.value = "0"
+		proccessResult.value = resultHolder
+		ansHolder = resultHolder
+	     }
+	     
 	     val expression = ExpressionBuilder(processHolder).build()
 	     val processHolderResult : Double = expression.evaluate()
 	     
