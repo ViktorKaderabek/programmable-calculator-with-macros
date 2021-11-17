@@ -1,12 +1,13 @@
 package com.example.programovatelna_kalkulacka
 
 
-import android.accessibilityservice.GestureDescription
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.LayoutInflater
+import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.Toast
@@ -14,9 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
-
-import android.view.LayoutInflater
-import android.view.View
 
 
 class MainActivity : AppCompatActivity()
