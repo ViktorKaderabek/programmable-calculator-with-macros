@@ -16,6 +16,7 @@ class MainViewModel : ViewModel()
      private var processHolder : String = ""
      private var resultHolderLenght : Int = 0
      private var ansHolder : String = ""
+     private var symbolClicked : String = ""
      
      private var mem1Holder : String = "0"
      private var mem2Holder : String = "0"
@@ -659,43 +660,56 @@ class MainViewModel : ViewModel()
      fun plus()
      {
 	isClickedCount += 1
-	
-	if (processHolder.isEmpty())
+	symbolClicked = "+"
+	try
 	{
-	     
-	     processHolder = ""
-	     isClickedCount = 0
-	     
-	}
-	else
-	{
-	     
-	     if (isClickedCount == 2)
+	     if (processHolder.isEmpty())
 	     {
 		
-		val expression = ExpressionBuilder(processHolder).build()
-		val processHolderResult = expression.evaluate()
-		if (processHolderResult.toString()
-		        .contains(".0"))
+		processHolder = ""
+		isClickedCount = 0
+		
+	     }
+	     else
+	     {
+		
+		if (isClickedCount == 2)
 		{
 		     
-		     processHolder = processHolderResult.toInt()
-		         .toString()
-		     isClickedCount = 1
+		     val expression = ExpressionBuilder(processHolder).build()
+		     val processHolderResult = expression.evaluate()
+		     if (processHolderResult.toString()
+			   .contains(".0"))
+		     {
+			
+			processHolder = processHolderResult.toInt()
+			    .toString()
+			isClickedCount = 1
+		     }
+		     else
+		     {
+			processHolder = processHolderResult.toDouble()
+			    .toString()
+			isClickedCount = 1
+		     }
 		}
-		else
-		{
-		     processHolder = processHolderResult.toDouble()
-		         .toString()
-		     isClickedCount = 1
-		}
+		
+		resultHolder = "0"
+		processHolder = processHolder.plus("+")
 	     }
+	     proccessResult.value = processHolder
+	     result.value = resultHolder
 	     
-	     resultHolder = "0"
-	     processHolder = processHolder.plus("+")
 	}
-	proccessResult.value = processHolder
-	result.value = resultHolder
+	catch (e : Exception)
+	{
+	     
+	     processHolder = processHolder.dropLast(1)
+	     processHolder = processHolder.plus(symbolClicked)
+	     
+	     proccessResult.value = processHolder
+	     
+	}
 	
      }
      
@@ -703,43 +717,55 @@ class MainViewModel : ViewModel()
      {
 	
 	isClickedCount += 1
-	
-	if (processHolder.isEmpty())
+	symbolClicked = "-"
+	try
 	{
-	     
-	     processHolder = ""
-	     isClickedCount = 0
-	     
-	}
-	else
-	{
-	     
-	     if (isClickedCount == 2)
+	     if (processHolder.isEmpty())
 	     {
 		
-		val expression = ExpressionBuilder(processHolder).build()
-		val processHolderResult = expression.evaluate()
-		if (processHolderResult.toString()
-		        .contains(".0"))
+		processHolder = ""
+		isClickedCount = 0
+		
+	     }
+	     else
+	     {
+		
+		if (isClickedCount == 2)
 		{
 		     
-		     processHolder = processHolderResult.toInt()
-		         .toString()
-		     isClickedCount = 1
+		     val expression = ExpressionBuilder(processHolder).build()
+		     val processHolderResult = expression.evaluate()
+		     if (processHolderResult.toString()
+			   .contains(".0"))
+		     {
+			
+			processHolder = processHolderResult.toInt()
+			    .toString()
+			isClickedCount = 1
+		     }
+		     else
+		     {
+			processHolder = processHolderResult.toDouble()
+			    .toString()
+			isClickedCount = 1
+		     }
 		}
-		else
-		{
-		     processHolder = processHolderResult.toDouble()
-		         .toString()
-		     isClickedCount = 1
-		}
+		
+		resultHolder = "0"
+		processHolder = processHolder.plus("-")
 	     }
-	     
-	     resultHolder = "0"
-	     processHolder = processHolder.plus("-")
+	     proccessResult.value = processHolder
+	     result.value = resultHolder
 	}
-	proccessResult.value = processHolder
-	result.value = resultHolder
+	catch (e : Exception)
+	{
+	     
+	     processHolder = processHolder.dropLast(1)
+	     processHolder = processHolder.plus(symbolClicked)
+	     
+	     proccessResult.value = processHolder
+	     
+	}
 	
      }
      
@@ -747,87 +773,112 @@ class MainViewModel : ViewModel()
      {
 	
 	isClickedCount += 1
+	symbolClicked = "*"
 	
-	if (processHolder.isEmpty())
+	try
 	{
-	     
-	     processHolder = ""
-	     isClickedCount = 0
-	     
-	}
-	else
-	{
-	     
-	     if (isClickedCount == 2)
+	     if (processHolder.isEmpty())
 	     {
 		
-		val expression = ExpressionBuilder(processHolder).build()
-		val processHolderResult = expression.evaluate()
-		if (processHolderResult.toString()
-		        .contains(".0"))
+		processHolder = ""
+		isClickedCount = 0
+		
+	     }
+	     else
+	     {
+		
+		if (isClickedCount == 2)
 		{
 		     
-		     processHolder = processHolderResult.toInt()
-		         .toString()
-		     isClickedCount = 1
+		     val expression = ExpressionBuilder(processHolder).build()
+		     val processHolderResult = expression.evaluate()
+		     if (processHolderResult.toString()
+			   .contains(".0"))
+		     {
+			
+			processHolder = processHolderResult.toInt()
+			    .toString()
+			isClickedCount = 1
+		     }
+		     else
+		     {
+			processHolder = processHolderResult.toDouble()
+			    .toString()
+			isClickedCount = 1
+		     }
 		}
-		else
-		{
-		     processHolder = processHolderResult.toDouble()
-		         .toString()
-		     isClickedCount = 1
-		}
+		
+		resultHolder = "0"
+		processHolder = processHolder.plus("*")
 	     }
-	     
-	     resultHolder = "0"
-	     processHolder = processHolder.plus("*")
+	     proccessResult.value = processHolder
+	     result.value = resultHolder
 	}
-	proccessResult.value = processHolder
-	result.value = resultHolder
-	
+	catch (e : Exception)
+	{
+	     
+	     processHolder = processHolder.dropLast(1)
+	     processHolder = processHolder.plus(symbolClicked)
+	     
+	     proccessResult.value = processHolder
+	     
+	}
      }
      
      fun divide()
      {
 	
 	isClickedCount += 1
+	symbolClicked = "/"
 	
-	if (processHolder.isEmpty())
+	try
 	{
-	     
-	     processHolder = ""
-	     isClickedCount = 0
-	     
-	}
-	else
-	{
-	     
-	     if (isClickedCount == 2)
+	     if (processHolder.isEmpty())
 	     {
 		
-		val expression = ExpressionBuilder(processHolder).build()
-		val processHolderResult = expression.evaluate()
-		if (processHolderResult.toString()
-		        .contains(".0"))
+		processHolder = ""
+		isClickedCount = 0
+		
+	     }
+	     else
+	     {
+		
+		if (isClickedCount == 2)
 		{
 		     
-		     processHolder = processHolderResult.toInt()
-		         .toString()
-		     isClickedCount = 1
+		     val expression = ExpressionBuilder(processHolder).build()
+		     val processHolderResult = expression.evaluate()
+		     if (processHolderResult.toString()
+			   .contains(".0"))
+		     {
+			
+			processHolder = processHolderResult.toInt()
+			    .toString()
+			isClickedCount = 1
+		     }
+		     else
+		     {
+			processHolder = processHolderResult.toDouble()
+			    .toString()
+			isClickedCount = 1
+		     }
 		}
-		else
-		{
-		     processHolder = processHolderResult.toDouble()
-		         .toString()
-		     isClickedCount = 1
-		}
+		
+		resultHolder = "0"
+		processHolder = processHolder.plus("/")
 	     }
-	     
-	     resultHolder = "0"
-	     processHolder = processHolder.plus("/")
+	     proccessResult.value = processHolder
+	     result.value = resultHolder
 	}
-	proccessResult.value = processHolder
-	result.value = resultHolder
+	catch (e : Exception)
+	{
+	     
+	     processHolder = processHolder.dropLast(1)
+	     processHolder = processHolder.plus(symbolClicked)
+	     
+	     proccessResult.value = processHolder
+	     
+	}
 	
      }
      
@@ -1336,37 +1387,51 @@ class MainViewModel : ViewModel()
      
      fun equal()
      {
-	
-	val expression = ExpressionBuilder(processHolder).build()
-	val processHolderResult : Double = expression.evaluate()
-	
-	if (processHolderResult.toString()
-	        .contains(".0"))
+	try
 	{
+	     val expression = ExpressionBuilder(processHolder).build()
+	     val processHolderResult : Double = expression.evaluate()
 	     
-	     processHolder = processHolderResult.toInt()
-	         .toString()
-	     resultHolder = processHolderResult.toInt()
-	         .toString()
-	     
-	     lastResult.value = resultHolder
-	     result.value = "0"
-	     proccessResult.value = resultHolder
-	     ansHolder = resultHolder
-	     
+	     if (processHolderResult.toString()
+		   .contains(".0"))
+	     {
+		
+		processHolder = processHolderResult.toInt()
+		    .toString()
+		resultHolder = processHolderResult.toInt()
+		    .toString()
+		
+		lastResult.value = resultHolder
+		result.value = "0"
+		proccessResult.value = resultHolder
+		ansHolder = resultHolder
+		
+	     }
+	     else
+	     {
+		
+		processHolder = processHolderResult.toDouble()
+		    .toString()
+		resultHolder = processHolderResult.toDouble()
+		    .toString()
+		
+		lastResult.value = resultHolder
+		result.value = "0"
+		proccessResult.value = resultHolder
+		ansHolder = resultHolder
+	     }
 	}
-	else
+	catch (e : Exception)
 	{
 	     
-	     processHolder = processHolderResult.toDouble()
-	         .toString()
-	     resultHolder = processHolderResult.toDouble()
-	         .toString()
+	     processHolder = processHolder.dropLast(1)
+	     resultHolder = processHolder
 	     
-	     lastResult.value = resultHolder
+	     lastResult.value = processHolder
 	     result.value = "0"
-	     proccessResult.value = resultHolder
-	     ansHolder = resultHolder
+	     proccessResult.value = processHolder
+	     ansHolder = processHolder
+	     
 	}
      }
      
