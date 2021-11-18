@@ -303,7 +303,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="left|center"
-                    android:text="0"
+                    android:text=""
                     android:textColor="@color/white" />
 
             </LinearLayout>

@@ -107,35 +107,35 @@ class MainActivity : AppCompatActivity()
 	         {
 		    activityMainBinding.txtThirdNumber.text = it
 	         })
-     
+	
 	mainViewModel.firstOperation()
 	    .observe(
 	         this,
 	         {
 		    activityMainBinding.txtFirstOperator.text = it
 	         })
-     
+	
 	mainViewModel.secondOperation()
 	    .observe(
 	         this,
 	         {
 		    activityMainBinding.txtSecondOperator.text = it
 	         })
-     
+	
 	mainViewModel.getX1Root()
 	    .observe(
 	         this,
 	         {
 		    activityMainBinding.txtX1RootNumber.text = it
 	         })
-     
+	
 	mainViewModel.getX2Root()
 	    .observe(
 	         this,
 	         {
 		    activityMainBinding.txtX2RootNumber.text = it
 	         })
-     
+	
 	mainViewModel.getDeterminant()
 	    .observe(
 	         this,
@@ -219,6 +219,9 @@ class MainActivity : AppCompatActivity()
 	
 	activityMainBinding.btnQuadraticEqFun?.setOnClickListener {
 	     
+	     var count : Int = 0
+	     count += 1
+	     
 	     if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
 	     {
 		
@@ -242,6 +245,17 @@ class MainActivity : AppCompatActivity()
 		activityMainBinding.txtLastResult.visibility = View.VISIBLE
 		activityMainBinding.txtResult.visibility = View.VISIBLE
 		activityMainBinding.txtProcess.visibility = View.VISIBLE
+	     }
+	     
+	     if (count == 1)
+	     {
+		activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.parseColor("#616596"))
+	     }
+	     else
+	     {
+		
+		activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.TRANSPARENT)
+		count = 0
 	     }
 	     
 	     mainViewModel.quadraticEqualation()

@@ -27,9 +27,9 @@ class MainViewModel : ViewModel()
      private var secondOperation : String = ""
      private var x1RootHolder : Double = 0.0
      private var x2RootHolder : Double = 0.0
-     private var a = 0
-     private var b = 0
-     private var c = 0
+     private var a : Double = 0.0
+     private var b : Double = 0.0
+     private var c : Double = 0.0
      
      private var mem1Holder : String = ""
      private var mem2Holder : String = ""
@@ -787,47 +787,52 @@ class MainViewModel : ViewModel()
      
      fun deleteAll()
      {
-	
-	floatHolder = 0f
-	longHolder = 0
-	resultHolder = "0"
-	processHolder = ""
-	resultHolderLenght = 0
-	ansHolder = ""
-	symbolClicked = ""
-	
-	quadraticEqualationIsClickedCount = 0
-	quadraticNum1Holder = ""
-	quadraticNum2Holder = ""
-	quadraticNum3Holder = ""
-	firstOperation = ""
-	secondOperation = ""
-	x1RootHolder = 0.0
-	x2RootHolder = 0.0
-	a = 0
-	b = 0
-	c = 0
-	
-	isClicked = false
-	memRecordIsClicked = false
-	memCLearIsClicked = false
-	
-	isClickedCount = 0
-	memIsClickedCount = 0
-	symbolIsClickedCount = 0
-	macroResult = 0
-	
-	quadraticNum1Result.value = ""
-	quadraticNum2Result.value = ""
-	quadraticNum3Result.value = ""
-	determinantResult.value = ""
-	firstOperationResult.value = ""
-	secondOperationResult.value = ""
-	x1RootResult.value = ""
-	x2RootResult.value = ""
-	
-	proccessResult.value = ""
-	result.value = "0"
+	if (quadraticEqualationIsClicked)
+	{
+	     
+	     quadraticEqualationIsClickedCount = 0
+	     quadraticNum1Holder = ""
+	     quadraticNum2Holder = ""
+	     quadraticNum3Holder = ""
+	     firstOperation = ""
+	     secondOperation = ""
+	     x1RootHolder = 0.0
+	     x2RootHolder = 0.0
+	     a = 0.0
+	     b = 0.0
+	     c = 0.0
+	     
+	     quadraticNum1Result.value = ""
+	     quadraticNum2Result.value = ""
+	     quadraticNum3Result.value = ""
+	     determinantResult.value = ""
+	     firstOperationResult.value = ""
+	     secondOperationResult.value = ""
+	     x1RootResult.value = ""
+	     x2RootResult.value = ""
+	}
+	else
+	{
+	     floatHolder = 0f
+	     longHolder = 0
+	     resultHolder = "0"
+	     processHolder = ""
+	     resultHolderLenght = 0
+	     ansHolder = ""
+	     symbolClicked = ""
+	     
+	     isClicked = false
+	     memRecordIsClicked = false
+	     memCLearIsClicked = false
+	     
+	     isClickedCount = 0
+	     memIsClickedCount = 0
+	     symbolIsClickedCount = 0
+	     macroResult = 0
+	     
+	     proccessResult.value = ""
+	     result.value = "0"
+	}
      }
      
      fun deleteOneChar()
@@ -991,7 +996,12 @@ class MainViewModel : ViewModel()
      {
 	if (quadraticEqualationIsClicked)
 	{
-	     if (firstOperation.isEmpty())
+	     if (quadraticNum1Holder.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("-")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isEmpty())
 	     {
 		firstOperation = "-"
 		firstOperationResult.value = firstOperation
@@ -1706,34 +1716,67 @@ class MainViewModel : ViewModel()
      
      fun equal()
      {
-	if(quadraticEqualationIsClicked){
+	if (quadraticEqualationIsClicked)
+	{
 	     
-	     a = 2
-	     b = -5
-	     c = -3
+	     a = quadraticNum1Holder.toDouble()
 	     
-	     val determinantHolder = b * b - 4.0 * a * c
+	     if (firstOperation == "-")
+	     {
+		
+		b = ("-$quadraticNum2Holder").toDouble()
+	     }
+	     else if (firstOperation == "+")
+	     {
+		
+		b = ("$quadraticNum2Holder").toDouble()
+	     }
 	     
-	     if (determinantHolder > 0) {
-		x1RootHolder = (-b + Math.sqrt(determinantHolder)) / (2 * a)
-		x2RootHolder = (-b - Math.sqrt(determinantHolder)) / (2 * a)
-	 
+	     if (secondOperation == "-")
+	     {
+		
+		c = ("-$quadraticNum3Holder").toDouble()
+	     }
+	     else if (secondOperation == "+")
+	     {
+		
+		c = ("$quadraticNum3Holder").toDouble()
+	     }
+	     
+	     val determinantHolder : Double = b * b - 4.0 * a * c
+	     
+	     if (determinantHolder > 0)
+	     {
+		x1RootHolder = (- b + Math.sqrt(determinantHolder)) / (2 * a)
+		x2RootHolder = (- b - Math.sqrt(determinantHolder)) / (2 * a)
+		
 		x1RootResult.value = x1RootHolder.toString()
 		x2RootResult.value = x2RootHolder.toString()
 		determinantResult.value = determinantHolder.toString()
 	     }
 	     // Condition for real and equal roots
-	     else if (determinantHolder == 0.0) {
-	     
-		x2RootHolder = ((-b / (2 * a)).toDouble())
+	     else if (determinantHolder == 0.0)
+	     {
+		
+		x2RootHolder = ((- b / (2 * a)).toDouble())
 		x1RootHolder = x2RootHolder
-	 
+		
 		x1RootResult.value = x1RootHolder.toString()
 		x2RootResult.value = x2RootHolder.toString()
 		determinantResult.value = determinantHolder.toString()
 	     }
+	     else
+	     {
+		
+		val realPart = - b / (2 * a)
+		
+		x1RootResult.value = realPart.toString()
+		x2RootResult.value = realPart.toString()
+		determinantResult.value = determinantHolder.toString()
+	     }
 	     
-	}else
+	}
+	else
 	{
 	     try
 	     {
