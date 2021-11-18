@@ -87,6 +87,62 @@ class MainActivity : AppCompatActivity()
 		    activityMainBinding.txtResult.text = it
 	         })
 	
+	mainViewModel.quadraticResult1()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtFirstNumber.text = it
+	         })
+	
+	mainViewModel.quadraticResult2()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtSecondNumber.text = it
+	         })
+	
+	mainViewModel.quadraticResult3()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtThirdNumber.text = it
+	         })
+     
+	mainViewModel.firstOperation()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtFirstOperator.text = it
+	         })
+     
+	mainViewModel.secondOperation()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtSecondOperator.text = it
+	         })
+     
+	mainViewModel.getX1Root()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtX1RootNumber.text = it
+	         })
+     
+	mainViewModel.getX2Root()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtX2RootNumber.text = it
+	         })
+     
+	mainViewModel.getDeterminant()
+	    .observe(
+	         this,
+	         {
+		    activityMainBinding.txtDeterminantNumber.text = it
+	         })
+	
 	
 	activityMainBinding.determinantLayout !!.visibility = View.INVISIBLE
 	activityMainBinding.x1RootLayout !!.visibility = View.INVISIBLE
@@ -163,28 +219,32 @@ class MainActivity : AppCompatActivity()
 	
 	activityMainBinding.btnQuadraticEqFun?.setOnClickListener {
 	     
-	     if(activityMainBinding.determinantLayout.visibility == View.INVISIBLE){
-	     
+	     if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
+	     {
+		
 		activityMainBinding.determinantLayout.visibility = View.VISIBLE
 		activityMainBinding.x1RootLayout.visibility = View.VISIBLE
 		activityMainBinding.x2RootLayout.visibility = View.VISIBLE
 		activityMainBinding.quadraticEqualation.visibility = View.VISIBLE
-	 
+		
 		activityMainBinding.txtLastResult.visibility = View.INVISIBLE
 		activityMainBinding.txtResult.visibility = View.INVISIBLE
 		activityMainBinding.txtProcess.visibility = View.INVISIBLE
-	     }else{
-	     
+	     }
+	     else
+	     {
+		
 		activityMainBinding.determinantLayout.visibility = View.INVISIBLE
 		activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
 		activityMainBinding.x2RootLayout.visibility = View.INVISIBLE
 		activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
-	 
+		
 		activityMainBinding.txtLastResult.visibility = View.VISIBLE
 		activityMainBinding.txtResult.visibility = View.VISIBLE
 		activityMainBinding.txtProcess.visibility = View.VISIBLE
 	     }
 	     
+	     mainViewModel.quadraticEqualation()
 	}
 	
 	activityMainBinding.btnNumber1.setOnClickListener { //Odkazuje na tlacitko btnNumber1 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel

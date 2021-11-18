@@ -82,7 +82,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="center"
-                    android:text="+"
+                    android:text=""
                     android:textColor="@color/white" />
 
 
@@ -125,7 +125,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="center"
-                    android:text="+"
+                    android:text=""
                     android:textColor="@color/white" />
 
                 <TextView
@@ -152,7 +152,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="left|center"
-                    android:text="c"
+                    android:text=""
                     android:textColor="@color/white" />
 
                 <TextView

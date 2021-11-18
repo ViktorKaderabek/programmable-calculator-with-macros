@@ -23,11 +23,13 @@ class MainViewModel : ViewModel()
      private var quadraticNum1Holder : String = ""
      private var quadraticNum2Holder : String = ""
      private var quadraticNum3Holder : String = ""
-     private var determinantHolder : String = ""
      private var firstOperation : String = ""
      private var secondOperation : String = ""
-     private var x1RootHolder : String = ""
-     private var x2RootHolder : String = ""
+     private var x1RootHolder : Double = 0.0
+     private var x2RootHolder : Double = 0.0
+     private var a = 0
+     private var b = 0
+     private var c = 0
      
      private var mem1Holder : String = ""
      private var mem2Holder : String = ""
@@ -68,434 +70,640 @@ class MainViewModel : ViewModel()
      
      fun addNumber1()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
 	     {
-		
-		processHolder = processHolder.drop(1)
-		processHolder = processHolder.plus("1")
+		quadraticNum1Holder = quadraticNum1Holder.plus("1")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("1")
+		quadraticNum2Result.value = quadraticNum2Holder
 	     }
 	     else
 	     {
 		
-		processHolder = processHolder.plus("1")
+		quadraticNum3Holder = quadraticNum3Holder.plus("1")
+		quadraticNum3Result.value = quadraticNum3Holder
 	     }
-	     resultHolder = resultHolder.plus("1")
-	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-1")
-	     resultHolder = resultHolder.plus("-1")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("1")
-	     resultHolder = resultHolder.plus("1")
-	     isClicked = false
-	     
 	}
 	else
 	{
-	     processHolder = processHolder.plus("1")
-	     resultHolder = resultHolder.plus("1")
+	     
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("1")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("1")
+		}
+		resultHolder = resultHolder.plus("1")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-1")
+		resultHolder = resultHolder.plus("-1")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("1")
+		resultHolder = resultHolder.plus("1")
+		isClicked = false
+		
+	     }
+	     else
+	     {
+		processHolder = processHolder.plus("1")
+		resultHolder = resultHolder.plus("1")
+	     }
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber2()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("2")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("2")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("2")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("2")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("2")
+		}
+		resultHolder = resultHolder.plus("2")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-2")
+		resultHolder = resultHolder.plus("-2")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("2")
+		resultHolder = resultHolder.plus("2")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("2")
+		resultHolder = resultHolder.plus("2")
 	     }
-	     resultHolder = resultHolder.plus("2")
-	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-2")
-	     resultHolder = resultHolder.plus("-2")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("2")
-	     resultHolder = resultHolder.plus("2")
-	     isClicked = false
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	     
 	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("2")
-	     resultHolder = resultHolder.plus("2")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
 	
      }
      
      fun addNumber3()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("3")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("3")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("3")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("3")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("3")
+		}
+		resultHolder = resultHolder.plus("3")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-3")
+		resultHolder = resultHolder.plus("-3")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("3")
+		resultHolder = resultHolder.plus("3")
+		isClicked = false
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("3")
+		resultHolder = resultHolder.plus("3")
 	     }
-	     resultHolder = resultHolder.plus("3")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-3")
-	     resultHolder = resultHolder.plus("-3")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("3")
-	     resultHolder = resultHolder.plus("3")
-	     isClicked = false
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("3")
-	     resultHolder = resultHolder.plus("3")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
 	
      }
      
      fun addNumber4()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("4")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("4")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("4")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("4")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("4")
+		}
+		resultHolder = resultHolder.plus("4")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-4")
+		resultHolder = resultHolder.plus("-4")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("4")
+		resultHolder = resultHolder.plus("4")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("4")
+		resultHolder = resultHolder.plus("4")
 	     }
-	     resultHolder = resultHolder.plus("4")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-4")
-	     resultHolder = resultHolder.plus("-4")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("4")
-	     resultHolder = resultHolder.plus("4")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("4")
-	     resultHolder = resultHolder.plus("4")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber5()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("5")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("5")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("5")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("5")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("5")
+		}
+		resultHolder = resultHolder.plus("5")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-5")
+		resultHolder = resultHolder.plus("-5")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("5")
+		resultHolder = resultHolder.plus("5")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("5")
+		resultHolder = resultHolder.plus("5")
 	     }
-	     resultHolder = resultHolder.plus("5")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-5")
-	     resultHolder = resultHolder.plus("-5")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("5")
-	     resultHolder = resultHolder.plus("5")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("5")
-	     resultHolder = resultHolder.plus("5")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber6()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("6")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("6")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("6")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("6")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("6")
+		}
+		resultHolder = resultHolder.plus("6")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-6")
+		resultHolder = resultHolder.plus("-6")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("6")
+		resultHolder = resultHolder.plus("6")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("6")
+		resultHolder = resultHolder.plus("6")
 	     }
-	     resultHolder = resultHolder.plus("6")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-6")
-	     resultHolder = resultHolder.plus("-6")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("6")
-	     resultHolder = resultHolder.plus("6")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("6")
-	     resultHolder = resultHolder.plus("6")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber7()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("7")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("7")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("7")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("7")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("7")
+		}
+		resultHolder = resultHolder.plus("7")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-7")
+		resultHolder = resultHolder.plus("-7")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("7")
+		resultHolder = resultHolder.plus("7")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("7")
+		resultHolder = resultHolder.plus("7")
 	     }
-	     resultHolder = resultHolder.plus("7")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-7")
-	     resultHolder = resultHolder.plus("-7")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("7")
-	     resultHolder = resultHolder.plus("7")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("7")
-	     resultHolder = resultHolder.plus("7")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber8()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("8")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("8")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("8")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("8")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("8")
+		}
+		resultHolder = resultHolder.plus("8")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-8")
+		resultHolder = resultHolder.plus("-8")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("8")
+		resultHolder = resultHolder.plus("8")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("8")
+		resultHolder = resultHolder.plus("8")
 	     }
-	     resultHolder = resultHolder.plus("8")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-8")
-	     resultHolder = resultHolder.plus("-8")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("8")
-	     resultHolder = resultHolder.plus("8")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("8")
-	     resultHolder = resultHolder.plus("8")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber9()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("9")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("9")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("9")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("9")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("9")
+		}
+		resultHolder = resultHolder.plus("9")
+	     }
+	     else if (resultHolder == "-0")
+	     {
+		resultHolder = ""
+		processHolder = processHolder.plus("-9")
+		resultHolder = resultHolder.plus("-9")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("9")
+		resultHolder = resultHolder.plus("9")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("9")
+		resultHolder = resultHolder.plus("9")
 	     }
-	     resultHolder = resultHolder.plus("9")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (resultHolder == "-0")
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("-9")
-	     resultHolder = resultHolder.plus("-9")
-	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("9")
-	     resultHolder = resultHolder.plus("9")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("9")
-	     resultHolder = resultHolder.plus("9")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      fun addNumber0()
      {
-	
-	if (resultHolder == "0" || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = ""
-	     if (processHolder == "0" || processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.plus("0")
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
+	     {
+		quadraticNum2Holder = quadraticNum2Holder.plus("0")
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
 	     {
 		
-		processHolder = processHolder.drop(1)
+		quadraticNum3Holder = quadraticNum3Holder.plus("0")
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	}
+	else
+	{
+	     if (resultHolder == "0" || resultHolder == "Error")
+	     {
+		resultHolder = ""
+		if (processHolder == "0" || processHolder.isEmpty())
+		{
+		     
+		     processHolder = processHolder.drop(1)
+		     processHolder = processHolder.plus("0")
+		}
+		else
+		{
+		     
+		     processHolder = processHolder.plus("0")
+		}
+		resultHolder = resultHolder.plus("0")
+	     }
+	     else if (isClicked)
+	     {
+		resultHolder = ""
 		processHolder = processHolder.plus("0")
+		resultHolder = resultHolder.plus("0")
+		isClicked = false
+		
 	     }
 	     else
 	     {
 		
 		processHolder = processHolder.plus("0")
+		resultHolder = resultHolder.plus("0")
 	     }
-	     resultHolder = resultHolder.plus("0")
+	     result.value = resultHolder
+	     proccessResult.value = processHolder
 	}
-	else if (isClicked)
-	{
-	     resultHolder = ""
-	     processHolder = processHolder.plus("0")
-	     resultHolder = resultHolder.plus("0")
-	     isClicked = false
-	     
-	}
-	else
-	{
-	     
-	     processHolder = processHolder.plus("0")
-	     resultHolder = resultHolder.plus("0")
-	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
-	
      }
      
      
@@ -585,13 +793,41 @@ class MainViewModel : ViewModel()
 	resultHolder = "0"
 	processHolder = ""
 	resultHolderLenght = 0
+	ansHolder = ""
+	symbolClicked = ""
+	
+	quadraticEqualationIsClickedCount = 0
+	quadraticNum1Holder = ""
+	quadraticNum2Holder = ""
+	quadraticNum3Holder = ""
+	firstOperation = ""
+	secondOperation = ""
+	x1RootHolder = 0.0
+	x2RootHolder = 0.0
+	a = 0
+	b = 0
+	c = 0
 	
 	isClicked = false
+	memRecordIsClicked = false
+	memCLearIsClicked = false
 	
 	isClickedCount = 0
+	memIsClickedCount = 0
 	symbolIsClickedCount = 0
-	result.value = resultHolder
-	proccessResult.value = processHolder
+	macroResult = 0
+	
+	quadraticNum1Result.value = ""
+	quadraticNum2Result.value = ""
+	quadraticNum3Result.value = ""
+	determinantResult.value = ""
+	firstOperationResult.value = ""
+	secondOperationResult.value = ""
+	x1RootResult.value = ""
+	x2RootResult.value = ""
+	
+	proccessResult.value = ""
+	result.value = "0"
      }
      
      fun deleteOneChar()
@@ -679,112 +915,145 @@ class MainViewModel : ViewModel()
      
      fun plus()
      {
-	isClickedCount += 1
-	symbolClicked = "+"
-	try
+	
+	if (quadraticEqualationIsClicked)
 	{
-	     if (processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
 	     {
-		
-		processHolder = ""
-		isClickedCount = 0
-		
+		firstOperation = "+"
+		firstOperationResult.value = firstOperation
 	     }
-	     else
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
 	     {
-		
-		if (isClickedCount == 2)
+		secondOperation = "+"
+		secondOperationResult.value = secondOperation
+	     }
+	}
+	else
+	{
+	     isClickedCount += 1
+	     symbolClicked = "+"
+	     
+	     try
+	     {
+		if (processHolder.isEmpty())
 		{
 		     
-		     val expression = ExpressionBuilder(processHolder).build()
-		     val processHolderResult = expression.evaluate()
-		     if (processHolderResult.toString()
-			   .contains(".0"))
+		     processHolder = ""
+		     isClickedCount = 0
+		     
+		}
+		else
+		{
+		     
+		     if (isClickedCount == 2)
 		     {
 			
-			processHolder = processHolderResult.toInt()
-			    .toString()
-			isClickedCount = 1
+			val expression = ExpressionBuilder(processHolder).build()
+			val processHolderResult = expression.evaluate()
+			if (processHolderResult.toString()
+			        .contains(".0"))
+			{
+			     
+			     processHolder = processHolderResult.toInt()
+			         .toString()
+			     isClickedCount = 1
+			}
+			else
+			{
+			     processHolder = processHolderResult.toDouble()
+			         .toString()
+			     isClickedCount = 1
+			}
 		     }
-		     else
-		     {
-			processHolder = processHolderResult.toDouble()
-			    .toString()
-			isClickedCount = 1
-		     }
+		     
+		     resultHolder = "0"
+		     processHolder = processHolder.plus("+")
 		}
+		proccessResult.value = processHolder
+		result.value = resultHolder
 		
-		resultHolder = "0"
-		processHolder = processHolder.plus("+")
 	     }
-	     proccessResult.value = processHolder
-	     result.value = resultHolder
-	     
-	}
-	catch (e : Exception)
-	{
-	     
-	     processHolder = processHolder.dropLast(1)
-	     processHolder = processHolder.plus(symbolClicked)
-	     
-	     proccessResult.value = processHolder
-	     
+	     catch (e : Exception)
+	     {
+		
+		processHolder = processHolder.dropLast(1)
+		processHolder = processHolder.plus(symbolClicked)
+		
+		proccessResult.value = processHolder
+		
+	     }
 	}
 	
      }
      
      fun minus()
      {
-	
-	isClickedCount += 1
-	symbolClicked = "-"
-	try
+	if (quadraticEqualationIsClicked)
 	{
-	     if (processHolder.isEmpty())
+	     if (firstOperation.isEmpty())
 	     {
-		
-		processHolder = ""
-		isClickedCount = 0
-		
+		firstOperation = "-"
+		firstOperationResult.value = firstOperation
 	     }
-	     else
+	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
 	     {
-		
-		if (isClickedCount == 2)
+		secondOperation = "-"
+		secondOperationResult.value = secondOperation
+	     }
+	}
+	else
+	{
+	     isClickedCount += 1
+	     symbolClicked = "-"
+	     try
+	     {
+		if (processHolder.isEmpty())
 		{
 		     
-		     val expression = ExpressionBuilder(processHolder).build()
-		     val processHolderResult = expression.evaluate()
-		     if (processHolderResult.toString()
-			   .contains(".0"))
+		     processHolder = ""
+		     isClickedCount = 0
+		     
+		}
+		else
+		{
+		     
+		     if (isClickedCount == 2)
 		     {
 			
-			processHolder = processHolderResult.toInt()
-			    .toString()
-			isClickedCount = 1
+			val expression = ExpressionBuilder(processHolder).build()
+			val processHolderResult = expression.evaluate()
+			if (processHolderResult.toString()
+			        .contains(".0"))
+			{
+			     
+			     processHolder = processHolderResult.toInt()
+			         .toString()
+			     isClickedCount = 1
+			}
+			else
+			{
+			     processHolder = processHolderResult.toDouble()
+			         .toString()
+			     isClickedCount = 1
+			}
 		     }
-		     else
-		     {
-			processHolder = processHolderResult.toDouble()
-			    .toString()
-			isClickedCount = 1
-		     }
+		     
+		     resultHolder = "0"
+		     processHolder = processHolder.plus("-")
 		}
-		
-		resultHolder = "0"
-		processHolder = processHolder.plus("-")
+		proccessResult.value = processHolder
+		result.value = resultHolder
 	     }
-	     proccessResult.value = processHolder
-	     result.value = resultHolder
-	}
-	catch (e : Exception)
-	{
-	     
-	     processHolder = processHolder.dropLast(1)
-	     processHolder = processHolder.plus(symbolClicked)
-	     
-	     proccessResult.value = processHolder
-	     
+	     catch (e : Exception)
+	     {
+		
+		processHolder = processHolder.dropLast(1)
+		processHolder = processHolder.plus(symbolClicked)
+		
+		proccessResult.value = processHolder
+		
+	     }
 	}
 	
      }
@@ -1437,64 +1706,99 @@ class MainViewModel : ViewModel()
      
      fun equal()
      {
-	try
+	if(quadraticEqualationIsClicked){
+	     
+	     a = 2
+	     b = -5
+	     c = -3
+	     
+	     val determinantHolder = b * b - 4.0 * a * c
+	     
+	     if (determinantHolder > 0) {
+		x1RootHolder = (-b + Math.sqrt(determinantHolder)) / (2 * a)
+		x2RootHolder = (-b - Math.sqrt(determinantHolder)) / (2 * a)
+	 
+		x1RootResult.value = x1RootHolder.toString()
+		x2RootResult.value = x2RootHolder.toString()
+		determinantResult.value = determinantHolder.toString()
+	     }
+	     // Condition for real and equal roots
+	     else if (determinantHolder == 0.0) {
+	     
+		x2RootHolder = ((-b / (2 * a)).toDouble())
+		x1RootHolder = x2RootHolder
+	 
+		x1RootResult.value = x1RootHolder.toString()
+		x2RootResult.value = x2RootHolder.toString()
+		determinantResult.value = determinantHolder.toString()
+	     }
+	     
+	}else
 	{
-	     if (processHolder.isEmpty())
+	     try
+	     {
+		if (processHolder.isEmpty())
+		{
+		     
+		     processHolder = "0"
+		     resultHolder = processHolder
+		     
+		     lastResult.value = resultHolder
+		     result.value = "0"
+		     proccessResult.value = resultHolder
+		     ansHolder = resultHolder
+		}
+		
+		val expression = ExpressionBuilder(processHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if (processHolderResult.toString()
+		        .contains(".0"))
+		{
+		     
+		     processHolder = processHolderResult.toInt()
+		         .toString()
+		     resultHolder = processHolderResult.toInt()
+		         .toString()
+		     
+		     lastResult.value = resultHolder
+		     result.value = "0"
+		     proccessResult.value = resultHolder
+		     ansHolder = resultHolder
+		     
+		}
+		else
+		{
+		     
+		     processHolder = processHolderResult.toDouble()
+		         .toString()
+		     resultHolder = processHolderResult.toDouble()
+		         .toString()
+		     
+		     lastResult.value = resultHolder
+		     result.value = "0"
+		     proccessResult.value = resultHolder
+		     ansHolder = resultHolder
+		}
+	     }
+	     catch (e : Exception)
 	     {
 		
-		processHolder = "0"
+		processHolder = processHolder.dropLast(1)
 		resultHolder = processHolder
 		
-		lastResult.value = resultHolder
+		lastResult.value = processHolder
 		result.value = "0"
-		proccessResult.value = resultHolder
-		ansHolder = resultHolder
-	     }
-	     
-	     val expression = ExpressionBuilder(processHolder).build()
-	     val processHolderResult : Double = expression.evaluate()
-	     
-	     if (processHolderResult.toString()
-		   .contains(".0"))
-	     {
+		proccessResult.value = processHolder
+		ansHolder = processHolder
 		
-		processHolder = processHolderResult.toInt()
-		    .toString()
-		resultHolder = processHolderResult.toInt()
-		    .toString()
-		
-		lastResult.value = resultHolder
-		result.value = "0"
-		proccessResult.value = resultHolder
-		ansHolder = resultHolder
-		
-	     }
-	     else
-	     {
-		
-		processHolder = processHolderResult.toDouble()
-		    .toString()
-		resultHolder = processHolderResult.toDouble()
-		    .toString()
-		
-		lastResult.value = resultHolder
-		result.value = "0"
-		proccessResult.value = resultHolder
-		ansHolder = resultHolder
 	     }
 	}
-	catch (e : Exception)
-	{
-	     
-	     processHolder = processHolder.dropLast(1)
-	     resultHolder = processHolder
-	     
-	     lastResult.value = processHolder
-	     result.value = "0"
-	     proccessResult.value = processHolder
-	     ansHolder = processHolder
-	     
-	}
+     }
+     
+     fun quadraticEqualation()
+     {
+	quadraticEqualationIsClicked = true
      }
      
      fun ansShow()
@@ -1571,4 +1875,43 @@ class MainViewModel : ViewModel()
 	return proccessResult
      }
      
+     fun quadraticResult1() : LiveData<String>
+     {
+	return quadraticNum1Result
+     }
+     
+     fun quadraticResult2() : LiveData<String>
+     {
+	return quadraticNum2Result
+     }
+     
+     fun quadraticResult3() : LiveData<String>
+     {
+	return quadraticNum3Result
+     }
+     
+     fun firstOperation() : LiveData<String>
+     {
+	return firstOperationResult
+     }
+     
+     fun secondOperation() : LiveData<String>
+     {
+	return secondOperationResult
+     }
+     
+     fun getX1Root() : LiveData<String>
+     {
+	return x1RootResult
+     }
+     
+     fun getX2Root() : LiveData<String>
+     {
+	return x2RootResult
+     }
+     
+     fun getDeterminant() : LiveData<String>
+     {
+	return determinantResult
+     }
 }
