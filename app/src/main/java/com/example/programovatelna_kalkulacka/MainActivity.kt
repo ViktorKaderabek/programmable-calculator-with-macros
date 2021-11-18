@@ -1,7 +1,6 @@
 package com.example.programovatelna_kalkulacka
 
 
-import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
@@ -11,6 +10,7 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -88,6 +88,12 @@ class MainActivity : AppCompatActivity()
 	         })
 	
 	
+	activityMainBinding.determinantLayout !!.visibility = View.INVISIBLE
+	activityMainBinding.x1RootLayout !!.visibility = View.INVISIBLE
+	activityMainBinding.x2RootLayout !!.visibility = View.INVISIBLE
+	activityMainBinding.quadraticEqualation !!.visibility = View.INVISIBLE
+	
+	
 	if (activityMainBinding.txtResult.text.isEmpty())
 	{ //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
 	     activityMainBinding.txtResult.text = "0"
@@ -145,6 +151,13 @@ class MainActivity : AppCompatActivity()
 				 DialogInterface.OnClickListener { dlg, sumthin -> })
 	     
 	     alertadd.show()
+	     
+	     /* if(activityMainBinding.btnMem1.visibility == View.INVISIBLE){
+	     
+		 activityMainBinding.btnMem1.visibility == View.VISIBLE
+	      }else {
+		 activityMainBinding.btnMem1.visibility == View.INVISIBLE
+	      }*/
 	     
 	}
 	

@@ -18,11 +18,20 @@ class MainViewModel : ViewModel()
      private var ansHolder : String = ""
      private var symbolClicked : String = ""
      
-     private var mem1Holder : String = "0"
-     private var mem2Holder : String = "0"
-     private var mem3Holder : String = "0"
-     private var mem4Holder : String = "0"
-     private var mem5Holder : String = "0"
+     private var quadraticEqualationIsClickedCount : Int = 0
+     private var quadraticEqualationIsClicked : Boolean = false
+     private var quadraticNum1Holder : String = ""
+     private var quadraticNum2Holder : String = ""
+     private var quadraticNum3Holder : String = ""
+     private var determinantHolder : String = ""
+     private var x1RootHolder : String = ""
+     private var x2RootHolder : String = ""
+     
+     private var mem1Holder : String = ""
+     private var mem2Holder : String = ""
+     private var mem3Holder : String = ""
+     private var mem4Holder : String = ""
+     private var mem5Holder : String = ""
      
      private var isClicked : Boolean = false
      private var memRecordIsClicked : Boolean = false
@@ -33,6 +42,13 @@ class MainViewModel : ViewModel()
      private var symbolIsClickedCount : Int = 0
      
      private var macroResult : Int = 0
+     
+     private var quadraticNum1Result = MutableLiveData<String>()
+     private var quadraticNum2Result = MutableLiveData<String>()
+     private var quadraticNum3Result = MutableLiveData<String>()
+     private var determinantResult = MutableLiveData<String>()
+     private var x1RootResult = MutableLiveData<String>()
+     private var x2RootResult = MutableLiveData<String>()
      
      private val lastResult = MutableLiveData<String>()
      private val proccessResult = MutableLiveData<String>()
@@ -1123,16 +1139,21 @@ class MainViewModel : ViewModel()
      
      fun mem1()
      {
-	
 	memIsClickedCount += 1
 	
-	if (memCLearIsClicked == true)
+	if (mem1Holder == "")
 	{
-	     mem1Holder = "0"
+	     
+	     resultHolder = "0"
+	}
+	
+	if (memCLearIsClicked)
+	{
+	     mem1Holder = ""
 	     memCLearIsClicked = false
 	}
 	
-	if (memRecordIsClicked == true)
+	if (memRecordIsClicked)
 	{
 	     mem1Holder = ansHolder
 	     Log.e("message",
@@ -1150,7 +1171,7 @@ class MainViewModel : ViewModel()
 		    "/")
 	     )
 	     {
-		processHolder = processHolder + mem1Holder
+		processHolder += mem1Holder
 		proccessResult.value = processHolder
 		
 	     }
@@ -1163,7 +1184,7 @@ class MainViewModel : ViewModel()
 	     if (resultHolder == "0")
 	     {
 		
-		resultHolder = mem1Holder
+		resultHolder = "0"
 		
 	     }
 	     result.value = resultHolder
@@ -1178,13 +1199,19 @@ class MainViewModel : ViewModel()
 	
 	memIsClickedCount += 1
 	
-	if (memCLearIsClicked == true)
+	if (mem2Holder == "")
 	{
-	     mem2Holder = "0"
+	     
+	     resultHolder = "0"
+	}
+	
+	if (memCLearIsClicked)
+	{
+	     mem2Holder = ""
 	     memCLearIsClicked = false
 	}
 	
-	if (memRecordIsClicked == true)
+	if (memRecordIsClicked)
 	{
 	     
 	     mem2Holder = ansHolder
@@ -1203,7 +1230,7 @@ class MainViewModel : ViewModel()
 		    "/")
 	     )
 	     {
-		processHolder = processHolder + mem2Holder
+		processHolder += mem2Holder
 		proccessResult.value = processHolder
 		
 	     }
@@ -1216,7 +1243,7 @@ class MainViewModel : ViewModel()
 	     if (resultHolder == "0")
 	     {
 		
-		resultHolder = mem2Holder
+		resultHolder = "0"
 		
 	     }
 	     result.value = resultHolder
@@ -1231,13 +1258,19 @@ class MainViewModel : ViewModel()
 	
 	memIsClickedCount += 1
 	
-	if (memCLearIsClicked == true)
+	if (mem3Holder == "")
 	{
-	     mem3Holder = "0"
+	     
+	     resultHolder = "0"
+	}
+	
+	if (memCLearIsClicked)
+	{
+	     mem3Holder = ""
 	     memCLearIsClicked = false
 	}
 	
-	if (memRecordIsClicked == true)
+	if (memRecordIsClicked)
 	{
 	     
 	     mem3Holder = ansHolder
@@ -1256,7 +1289,7 @@ class MainViewModel : ViewModel()
 		    "/")
 	     )
 	     {
-		processHolder = processHolder + mem3Holder
+		processHolder += mem3Holder
 		proccessResult.value = processHolder
 		
 	     }
@@ -1269,7 +1302,7 @@ class MainViewModel : ViewModel()
 	     if (resultHolder == "0")
 	     {
 		
-		resultHolder = mem3Holder
+		resultHolder = "0"
 		
 	     }
 	     result.value = resultHolder
@@ -1284,13 +1317,19 @@ class MainViewModel : ViewModel()
 	
 	memIsClickedCount += 1
 	
-	if (memCLearIsClicked == true)
+	if (mem4Holder == "")
 	{
-	     mem1Holder = "0"
+	     
+	     resultHolder = "0"
+	}
+	
+	if (memCLearIsClicked)
+	{
+	     mem1Holder = ""
 	     memCLearIsClicked = false
 	}
 	
-	if (memRecordIsClicked == true)
+	if (memRecordIsClicked)
 	{
 	     
 	     mem4Holder = ansHolder
@@ -1309,7 +1348,7 @@ class MainViewModel : ViewModel()
 		    "/")
 	     )
 	     {
-		processHolder = processHolder + mem4Holder
+		processHolder += mem4Holder
 		proccessResult.value = processHolder
 		
 	     }
@@ -1322,7 +1361,7 @@ class MainViewModel : ViewModel()
 	     if (resultHolder == "0")
 	     {
 		
-		resultHolder = mem4Holder
+		resultHolder = "0"
 		
 	     }
 	     result.value = resultHolder
@@ -1337,13 +1376,20 @@ class MainViewModel : ViewModel()
 	
 	memIsClickedCount += 1
 	
-	if (memCLearIsClicked == true)
+	if (mem5Holder == "")
 	{
-	     mem5Holder = "0"
+	     
+	     resultHolder = "0"
+	     result.value = resultHolder
+	}
+	
+	if (memCLearIsClicked)
+	{
+	     mem5Holder = ""
 	     memCLearIsClicked = false
 	}
 	
-	if (memRecordIsClicked == true)
+	if (memRecordIsClicked)
 	{
 	     
 	     mem5Holder = ansHolder
@@ -1362,7 +1408,7 @@ class MainViewModel : ViewModel()
 		    "/")
 	     )
 	     {
-		processHolder = processHolder + mem5Holder
+		processHolder += mem5Holder
 		proccessResult.value = processHolder
 		
 	     }
@@ -1375,7 +1421,7 @@ class MainViewModel : ViewModel()
 	     if (resultHolder == "0")
 	     {
 		
-		resultHolder = mem5Holder
+		resultHolder = "0"
 		
 	     }
 	     result.value = resultHolder
@@ -1389,9 +1435,10 @@ class MainViewModel : ViewModel()
      {
 	try
 	{
-	     if(processHolder.isEmpty()){
-	          
-	          processHolder = "0"
+	     if (processHolder.isEmpty())
+	     {
+		
+		processHolder = "0"
 		resultHolder = processHolder
 		
 		lastResult.value = resultHolder
@@ -1458,7 +1505,7 @@ class MainViewModel : ViewModel()
 	         "/")
 	)
 	{
-	     processHolder = processHolder + ansHolder
+	     processHolder += ansHolder
 	     proccessResult.value = processHolder
 	     
 	}
