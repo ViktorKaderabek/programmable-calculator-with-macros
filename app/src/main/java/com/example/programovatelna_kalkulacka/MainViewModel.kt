@@ -24,6 +24,8 @@ class MainViewModel : ViewModel()
      private var quadraticNum2Holder : String = ""
      private var quadraticNum3Holder : String = ""
      private var determinantHolder : String = ""
+     private var firstOperation : String = ""
+     private var secondOperation : String = ""
      private var x1RootHolder : String = ""
      private var x2RootHolder : String = ""
      
@@ -47,6 +49,8 @@ class MainViewModel : ViewModel()
      private var quadraticNum2Result = MutableLiveData<String>()
      private var quadraticNum3Result = MutableLiveData<String>()
      private var determinantResult = MutableLiveData<String>()
+     private var firstOperationResult = MutableLiveData<String>()
+     private var secondOperationResult = MutableLiveData<String>()
      private var x1RootResult = MutableLiveData<String>()
      private var x2RootResult = MutableLiveData<String>()
      

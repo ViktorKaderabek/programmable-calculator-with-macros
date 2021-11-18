@@ -32,7 +32,7 @@
             <LinearLayout
                 android:id="@+id/quadratic_equalation"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="30dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:weightSum="7.75"
@@ -187,7 +187,7 @@
 
                 android:id="@+id/determinant_layout"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:weightSum="2"
@@ -229,7 +229,7 @@
 
                 android:id="@+id/x1_root_layout"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:weightSum="2"
@@ -270,7 +270,7 @@
             <LinearLayout
                 android:id="@+id/x2_root_layout"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:weightSum="2"
@@ -649,13 +649,26 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:weightSum="5"
+                    android:weightSum="6"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0">
+
+                    <Button
+                        android:id="@+id/btn_quadratic_eq_fun"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:autoSizeMaxTextSize="30sp"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeStepGranularity="2sp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@android:color/transparent"
+                        android:text="QE"
+                        android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/btn_change_the_symbol"

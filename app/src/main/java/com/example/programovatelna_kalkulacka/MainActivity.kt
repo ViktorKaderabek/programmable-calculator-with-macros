@@ -161,6 +161,32 @@ class MainActivity : AppCompatActivity()
 	     
 	}
 	
+	activityMainBinding.btnQuadraticEqFun?.setOnClickListener {
+	     
+	     if(activityMainBinding.determinantLayout.visibility == View.INVISIBLE){
+	     
+		activityMainBinding.determinantLayout.visibility = View.VISIBLE
+		activityMainBinding.x1RootLayout.visibility = View.VISIBLE
+		activityMainBinding.x2RootLayout.visibility = View.VISIBLE
+		activityMainBinding.quadraticEqualation.visibility = View.VISIBLE
+	 
+		activityMainBinding.txtLastResult.visibility = View.INVISIBLE
+		activityMainBinding.txtResult.visibility = View.INVISIBLE
+		activityMainBinding.txtProcess.visibility = View.INVISIBLE
+	     }else{
+	     
+		activityMainBinding.determinantLayout.visibility = View.INVISIBLE
+		activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
+		activityMainBinding.x2RootLayout.visibility = View.INVISIBLE
+		activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
+	 
+		activityMainBinding.txtLastResult.visibility = View.VISIBLE
+		activityMainBinding.txtResult.visibility = View.VISIBLE
+		activityMainBinding.txtProcess.visibility = View.VISIBLE
+	     }
+	     
+	}
+	
 	activityMainBinding.btnNumber1.setOnClickListener { //Odkazuje na tlacitko btnNumber1 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
 	     
 	     activityMainBinding.btnNumber1.setBackgroundColor(Color.parseColor("#616596"))
