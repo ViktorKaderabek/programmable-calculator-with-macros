@@ -21,7 +21,7 @@
 - [✔️] working with memories
 - [❌] record what the user types
 - [❌] work with dataBase
-- [❌] solving the Quadratic Equation
+- [✔️] solving the Quadratic Equation
 - [❌] showing data from DataBase
 
 
