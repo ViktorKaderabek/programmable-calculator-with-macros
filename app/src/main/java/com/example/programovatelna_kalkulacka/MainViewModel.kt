@@ -1422,59 +1422,87 @@ class MainViewModel : ViewModel()
      
      fun mem1()
      {
-	memIsClickedCount += 1
 	
-	if (mem1Holder == "")
+	if (quadraticEqualationIsClicked)
 	{
 	     
-	     resultHolder = "0"
-	}
-	
-	if (memCLearIsClicked)
-	{
-	     mem1Holder = ""
-	     memCLearIsClicked = false
-	}
-	
-	if (memRecordIsClicked)
-	{
-	     mem1Holder = ansHolder
-	     Log.e("message",
-		 mem1Holder.toString())
-	     Log.e("message",
-		 memRecordIsClicked.toString())
-	     memRecordIsClicked = false
-	}
-	
-	if (memIsClickedCount == 2)
-	{
-	     
-	     if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
-		    "*") || processHolder.contains(
-		    "/")
-	     )
-	     {
-		processHolder += mem1Holder
-		proccessResult.value = processHolder
-		
-	     }
-	     else if (processHolder == "")
+	     if (quadraticNum1Holder.isEmpty())
 	     {
 		
-		processHolder = mem1Holder
+		quadraticNum1Holder = mem1Holder.toString()
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     {
+		
+		quadraticNum2Holder = mem1Holder.toString()
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
+	     {
+		
+		quadraticNum3Holder = mem1Holder.toString()
+		quadraticNum3Result.value = quadraticNum3Holder
 	     }
 	     
-	     if (resultHolder == "0")
+	}
+	else
+	{
+	     
+	     memIsClickedCount += 1
+	     
+	     if (mem1Holder == "")
 	     {
 		
 		resultHolder = "0"
-		
 	     }
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
-	     memIsClickedCount = 1
+	     
+	     if (memCLearIsClicked)
+	     {
+		mem1Holder = ""
+		memCLearIsClicked = false
+	     }
+	     
+	     if (memRecordIsClicked)
+	     {
+		mem1Holder = ansHolder
+		Log.e("message",
+		      mem1Holder.toString())
+		Log.e("message",
+		      memRecordIsClicked.toString())
+		memRecordIsClicked = false
+	     }
+	     
+	     if (memIsClickedCount == 2)
+	     {
+		
+		if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
+		         "*") || processHolder.contains(
+		         "/")
+		)
+		{
+		     processHolder += mem1Holder
+		     proccessResult.value = processHolder
+		     
+		}
+		else if (processHolder == "")
+		{
+		     
+		     processHolder = mem1Holder
+		}
+		
+		if (resultHolder == "0")
+		{
+		     
+		     resultHolder = "0"
+		     
+		}
+		result.value = resultHolder
+		proccessResult.value = processHolder
+		memIsClickedCount = 1
+	     }
+	     mem1Value.value = mem1Holder
 	}
-	mem1Value.value = mem1Holder
      }
      
      fun mem2()
@@ -1750,9 +1778,43 @@ class MainViewModel : ViewModel()
 		x1RootHolder = (- b + Math.sqrt(determinantHolder)) / (2 * a)
 		x2RootHolder = (- b - Math.sqrt(determinantHolder)) / (2 * a)
 		
-		x1RootResult.value = x1RootHolder.toString()
-		x2RootResult.value = x2RootHolder.toString()
-		determinantResult.value = determinantHolder.toString()
+		if (x2RootHolder.toString()
+		        .contains(".0"))
+		{
+		     
+		     x2RootResult.value = x2RootHolder.toInt()
+		         .toString()
+		     
+		}
+		else
+		{
+		     
+		     x1RootResult.value = x1RootHolder.toString()
+		}
+		
+		if (x1RootHolder.toString()
+		        .contains(".0"))
+		{
+		     
+		     x1RootResult.value = x1RootHolder.toInt()
+		         .toString()
+		     
+		}
+		else
+		{
+		     
+		     x2RootResult.value = x2RootHolder.toString()
+		}
+		
+		if (determinantHolder.toString()
+		        .contains(".0"))
+		{
+		     
+		     determinantResult.value = determinantHolder
+		         .toInt()
+		         .toString()
+		}
+		
 	     }
 	     // Condition for real and equal roots
 	     else if (determinantHolder == 0.0)
@@ -1761,17 +1823,73 @@ class MainViewModel : ViewModel()
 		x2RootHolder = ((- b / (2 * a)).toDouble())
 		x1RootHolder = x2RootHolder
 		
-		x1RootResult.value = x1RootHolder.toString()
-		x2RootResult.value = x2RootHolder.toString()
-		determinantResult.value = determinantHolder.toString()
+		if (x2RootHolder.toString()
+		        .contains(".0"))
+		{
+		     
+		     x2RootResult.value = x2RootHolder.toInt()
+		         .toString()
+		     
+		}
+		else
+		{
+		     
+		     x1RootResult.value = x1RootHolder.toString()
+		}
+		
+		if (x1RootHolder.toString()
+		        .contains(".0"))
+		{
+		     
+		     x1RootResult.value = x1RootHolder.toInt()
+		         .toString()
+		     
+		}
+		else
+		{
+		     
+		     x2RootResult.value = x2RootHolder.toString()
+		}
+		
+		if (determinantHolder.toString()
+		        .contains(".0"))
+		{
+		     
+		     determinantResult.value = determinantHolder
+		         .toInt()
+		         .toString()
+		}
+		
 	     }
 	     else
 	     {
 		
-		val realPart = - b / (2 * a)
+		x1RootHolder = (- b + Math.sqrt(determinantHolder)) / (2 * a)
+		x2RootHolder = (- b - Math.sqrt(determinantHolder)) / (2 * a)
 		
-		x1RootResult.value = realPart.toString()
-		x2RootResult.value = realPart.toString()
+		if (x1RootHolder.toString() == "NaN")
+		{
+		     
+		     x1RootResult.value = "No real solutions"
+		     
+		}
+		else
+		{
+		     
+		     x2RootResult.value = x2RootHolder.toString()
+		     
+		}
+		
+		if (x2RootHolder.toString() == "NaN")
+		{
+		     x2RootResult.value = "No real solutions"
+		}
+		else
+		{
+		     x1RootResult.value = x1RootHolder.toString()
+		     
+		}
+		
 		determinantResult.value = determinantHolder.toString()
 	     }
 	     
@@ -1841,7 +1959,18 @@ class MainViewModel : ViewModel()
      
      fun quadraticEqualation()
      {
-	quadraticEqualationIsClicked = true
+	var click : Int = 0
+	click += 1
+	
+	if (click == 1)
+	{
+	     quadraticEqualationIsClicked = true
+	}
+	else
+	{
+	     quadraticEqualationIsClicked = false
+	}
+	
      }
      
      fun ansShow()
