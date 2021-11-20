@@ -26,12 +26,9 @@
 
 
 # The look of the application
+![kalkulacka_main](https://user-images.githubusercontent.com/66387359/142734127-d27bc722-c8ce-4e2c-9685-03e6f7f50f66.png)  ! [kalkulacka_qe](https://user-images.githubusercontent.com/66387359/142734129-3141e051-a2cb-48d7-830e-52922647a38a.png)  ![kalkulacka](https://user-images.githubusercontent.com/66387359/142734125-ba7eccbc-ba27-4498-961a-44074b211d1a.png)
 
-![kalkulacka](https://user-images.githubusercontent.com/66387359/142734125-ba7eccbc-ba27-4498-961a-44074b211d1a.png)
 
-![kalkulacka_main](https://user-images.githubusercontent.com/66387359/142734127-d27bc722-c8ce-4e2c-9685-03e6f7f50f66.png)
-
-![kalkulacka_qe](https://user-images.githubusercontent.com/66387359/142734129-3141e051-a2cb-48d7-830e-52922647a38a.png)
 
 
 
