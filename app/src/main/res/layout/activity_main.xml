@@ -191,9 +191,11 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:weightSum="2"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
-                app:layout_constraintStart_toStartOf="@id/quadratic_equalation"
-                app:layout_constraintTop_toBottomOf="@id/quadratic_equalation">
+                app:layout_constraintStart_toStartOf="@+id/txt_result"
+                app:layout_constraintTop_toBottomOf="@id/quadratic_equalation"
+                app:layout_constraintVertical_bias="0.1">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -235,7 +237,8 @@
                 android:weightSum="2"
                 app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
                 app:layout_constraintStart_toStartOf="@id/quadratic_equalation"
-                app:layout_constraintTop_toBottomOf="@+id/determinant_layout">
+                app:layout_constraintTop_toBottomOf="@+id/determinant_layout"
+                >
 
                 <TextView
 
@@ -347,6 +350,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
 
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 app:layout_constraintBottom_toBottomOf="parent">
