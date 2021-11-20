@@ -154,7 +154,6 @@ class MainActivity : AppCompatActivity()
 	{ //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
 	     activityMainBinding.txtResult.text = "0"
 	}
-	
 	activityMainBinding.btnLastResult.setOnClickListener {
 	     
 	     activityMainBinding.btnLastResult.setBackgroundColor(Color.parseColor("#616596"))
@@ -216,7 +215,7 @@ class MainActivity : AppCompatActivity()
 	      }*/
 	     
 	}
- 
+	
 	activityMainBinding.btnQuadraticEqFun.setOnClickListener {
 	     
 	     if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
@@ -597,8 +596,6 @@ class MainActivity : AppCompatActivity()
 	     mainViewModel.multiply()
 	}
 	
-	
-	
 	activityMainBinding.btnDevided.setOnClickListener {
 	     
 	     activityMainBinding.btnDevided.setBackgroundColor(Color.parseColor("#616596"))
@@ -653,10 +650,6 @@ class MainActivity : AppCompatActivity()
 		    }) // zmeni text v labelu kde se zobrazuje lastResult na text, ktery je v hlavnim labelu
 	}
 	
-	/* activityMainBinding.btnMinus.setOnClickListener {
-	     //mainViewModel.minus()
-	 }
-   */
 	activityMainBinding.btnPercent.setOnClickListener { //Odkazuje na tlacitko btnPercent a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
 	     
 	     activityMainBinding.btnPercent.setBackgroundColor(Color.parseColor("#616596"))
@@ -842,7 +835,7 @@ class MainActivity : AppCompatActivity()
 			     "yout result",
 			     Toast.LENGTH_LONG)
 		    .show()
-	     
+		
 	     }
 	     mainViewModel.memoryRecord()
 	}
@@ -876,7 +869,7 @@ class MainActivity : AppCompatActivity()
 			     "made",
 			     Toast.LENGTH_LONG)
 		    .show()
-	     
+		
 	     }
 	}
 	
@@ -909,10 +902,9 @@ class MainActivity : AppCompatActivity()
 			     "record",
 			     Toast.LENGTH_LONG)
 		    .show()
-	     
+		
 	     }
 	}
-	
 	
 	activityMainBinding.btnMemoryClear.setOnClickListener {
 	     
@@ -939,7 +931,7 @@ class MainActivity : AppCompatActivity()
 			     "Chose one of those memories to be delted",
 			     Toast.LENGTH_LONG)
 		    .show()
-	     
+		
 	     }
 	     mainViewModel.memoryClear()
 	}
