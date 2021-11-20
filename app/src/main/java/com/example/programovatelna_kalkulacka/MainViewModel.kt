@@ -68,7 +68,6 @@ class MainViewModel : ViewModel()
      private val mem3Value = MutableLiveData<String>()
      private val mem4Value = MutableLiveData<String>()
      private val mem5Value = MutableLiveData<String>()
-     
      //---------------------------------------------------\\
      
      fun addNumber1()
@@ -2187,8 +2186,8 @@ class MainViewModel : ViewModel()
 	     else
 	     {
 		
-		x1RootHolder = (- b + Math.sqrt(determinantHolder)) / (2 * a)
-		x2RootHolder = (- b - Math.sqrt(determinantHolder)) / (2 * a)
+		x1RootHolder = (- b + sqrt(determinantHolder)) / (2 * a)
+		x2RootHolder = (- b - sqrt(determinantHolder)) / (2 * a)
 		
 		if (x1RootHolder.toString() == "NaN")
 		{
