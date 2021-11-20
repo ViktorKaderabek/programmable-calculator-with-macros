@@ -763,19 +763,39 @@ class MainViewModel : ViewModel()
 	{
 	     if (firstOperation.isEmpty())
 	     {
-		quadraticNum1Holder = quadraticNum1Holder.plus(".")
-		quadraticNum1Result.value = quadraticNum1Holder
+		if (quadraticNum1Holder.contains("."))
+		{
+		     quadraticNum1Result.value = quadraticNum1Holder
+		}
+		else
+		{
+		     quadraticNum1Holder = quadraticNum1Holder.plus(".")
+		     quadraticNum1Result.value = quadraticNum1Holder
+		}
 	     }
 	     else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
 	     {
-		quadraticNum2Holder = quadraticNum2Holder.plus(".")
-		quadraticNum2Result.value = quadraticNum2Holder
+		if (quadraticNum2Holder.contains("."))
+		{
+		     quadraticNum2Result.value = quadraticNum2Holder
+		}
+		else
+		{
+		     quadraticNum2Holder = quadraticNum2Holder.plus(".")
+		     quadraticNum2Result.value = quadraticNum2Holder
+		}
 	     }
 	     else
 	     {
-		
-		quadraticNum3Holder = quadraticNum3Holder.plus(".")
-		quadraticNum3Result.value = quadraticNum3Holder
+		if (quadraticNum3Holder.contains("."))
+		{
+		     quadraticNum3Result.value = quadraticNum3Holder
+		}
+		else
+		{
+		     quadraticNum3Holder = quadraticNum3Holder.plus(".")
+		     quadraticNum3Result.value = quadraticNum3Holder
+		}
 	     }
 	}
 	else
@@ -2174,28 +2194,28 @@ class MainViewModel : ViewModel()
 		
 		x2RootHolder = ((- b / (2 * a)).toDouble())
 		x1RootHolder = x2RootHolder
-	 
+		
 		if (x2RootHolder.toString()
 		        .contains(".0"))
 		{
-		
+		     
 		     x2RootResult.value = x2RootHolder.toInt()
 		         .toString()
-		
+		     
 		}
 		else
 		{
 		     x2RootResult.value = x2RootHolder.toString()
 		     x1RootResult.value = x1RootHolder.toString()
 		}
-	 
+		
 		if (x1RootHolder.toString()
 		        .contains(".0"))
 		{
-		
+		     
 		     x1RootResult.value = x1RootHolder.toInt()
 		         .toString()
-		
+		     
 		}
 		else
 		{
