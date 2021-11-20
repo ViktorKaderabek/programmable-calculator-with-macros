@@ -16,6 +16,7 @@ class MainViewModel : ViewModel()
      private var processHolder : String = ""
      private var resultHolderLenght : Int = 0
      private var ansHolder : String = ""
+     private var stringHolder : String = ""
      private var symbolClicked : String = ""
      
      private var quadraticEqualationIsClickedCount : Int = 0
@@ -1426,6 +1427,7 @@ class MainViewModel : ViewModel()
      
      fun memoryRecord()
      {
+	isClicked = true
 	memRecordIsClicked = true
      }
      
@@ -1446,17 +1448,51 @@ class MainViewModel : ViewModel()
 		quadraticNum1Holder = mem1Holder.toString()
 		quadraticNum1Result.value = quadraticNum1Holder
 	     }
-	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
 	     {
+		if (mem1Holder.toString()
+		        .contains("-"))
+		{
+		     
+		     firstOperation = "-"
+		     stringHolder = mem1Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		     
+		}
+		else
+		{
+		     firstOperation = "+"
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		}
 		
-		quadraticNum2Holder = mem1Holder.toString()
-		quadraticNum2Result.value = quadraticNum2Holder
 	     }
 	     else
 	     {
 		
-		quadraticNum3Holder = mem1Holder.toString()
-		quadraticNum3Result.value = quadraticNum3Holder
+		if (mem1Holder.toString()
+		        .contains("-"))
+		{
+		     secondOperation = "-"
+		     stringHolder = mem1Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
+		     
+		}
+		else
+		{
+		     secondOperation = "+"
+		     stringHolder = mem1Holder
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
+		}
 	     }
 	     
 	}
@@ -1531,17 +1567,51 @@ class MainViewModel : ViewModel()
 		quadraticNum1Holder = mem2Holder.toString()
 		quadraticNum1Result.value = quadraticNum1Holder
 	     }
-	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
 	     {
+		if (mem2Holder.toString()
+		        .contains("-"))
+		{
 		
-		quadraticNum2Holder = mem2Holder.toString()
-		quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperation = "-"
+		     stringHolder = mem2Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		
+		}
+		else
+		{
+		     firstOperation = "+"
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		}
+	     
 	     }
 	     else
 	     {
+	     
+		if (mem2Holder.toString()
+		        .contains("-"))
+		{
+		     secondOperation = "-"
+		     stringHolder = mem2Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
 		
-		quadraticNum3Holder = mem1Holder.toString()
-		quadraticNum3Result.value = quadraticNum3Holder
+		}
+		else
+		{
+		     secondOperation = "+"
+		     stringHolder = mem2Holder
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
+		}
 	     }
 	     
 	}
@@ -1616,17 +1686,51 @@ class MainViewModel : ViewModel()
 		quadraticNum1Holder = mem3Holder.toString()
 		quadraticNum1Result.value = quadraticNum1Holder
 	     }
-	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
 	     {
+		if (mem3Holder.toString()
+		        .contains("-"))
+		{
 		
-		quadraticNum2Holder = mem3Holder.toString()
-		quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperation = "-"
+		     stringHolder = mem3Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		
+		}
+		else
+		{
+		     firstOperation = "+"
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		}
+	     
 	     }
 	     else
 	     {
+	     
+		if (mem3Holder.toString()
+		        .contains("-"))
+		{
+		     secondOperation = "-"
+		     stringHolder = mem3Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
 		
-		quadraticNum3Holder = mem3Holder.toString()
-		quadraticNum3Result.value = quadraticNum3Holder
+		}
+		else
+		{
+		     secondOperation = "+"
+		     stringHolder = mem3Holder
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
+		}
 	     }
 	     
 	}
@@ -1701,17 +1805,51 @@ class MainViewModel : ViewModel()
 		quadraticNum1Holder = mem4Holder.toString()
 		quadraticNum1Result.value = quadraticNum1Holder
 	     }
-	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
 	     {
+		if (mem4Holder.toString()
+		        .contains("-"))
+		{
 		
-		quadraticNum2Holder = mem4Holder.toString()
-		quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperation = "-"
+		     stringHolder = mem4Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		
+		}
+		else
+		{
+		     firstOperation = "+"
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		}
+	     
 	     }
 	     else
 	     {
+	     
+		if (mem4Holder.toString()
+		        .contains("-"))
+		{
+		     secondOperation = "-"
+		     stringHolder = mem4Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
 		
-		quadraticNum3Holder = mem4Holder.toString()
-		quadraticNum3Result.value = quadraticNum3Holder
+		}
+		else
+		{
+		     secondOperation = "+"
+		     stringHolder = mem4Holder
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
+		}
 	     }
 	     
 	}
@@ -1786,17 +1924,51 @@ class MainViewModel : ViewModel()
 		quadraticNum1Holder = mem5Holder.toString()
 		quadraticNum1Result.value = quadraticNum1Holder
 	     }
-	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
 	     {
+		if (mem5Holder.toString()
+		        .contains("-"))
+		{
 		
-		quadraticNum2Holder = mem5Holder.toString()
-		quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperation = "-"
+		     stringHolder = mem5Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		
+		}
+		else
+		{
+		     firstOperation = "+"
+		     quadraticNum2Holder = stringHolder.toString()
+		     quadraticNum2Result.value = quadraticNum2Holder
+		     firstOperationResult.value = firstOperation
+		}
+	     
 	     }
 	     else
 	     {
+	     
+		if (mem5Holder.toString()
+		        .contains("-"))
+		{
+		     secondOperation = "-"
+		     stringHolder = mem5Holder
+		     stringHolder = stringHolder.drop(1)
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
 		
-		quadraticNum3Holder = mem5Holder.toString()
-		quadraticNum3Result.value = quadraticNum3Holder
+		}
+		else
+		{
+		     secondOperation = "+"
+		     stringHolder = mem5Holder
+		     quadraticNum3Holder = stringHolder.toString()
+		     quadraticNum3Result.value = quadraticNum3Holder
+		     secondOperationResult.value = secondOperation
+		}
 	     }
 	     
 	}
