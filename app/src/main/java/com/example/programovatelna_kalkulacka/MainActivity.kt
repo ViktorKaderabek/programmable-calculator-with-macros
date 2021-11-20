@@ -219,9 +219,6 @@ class MainActivity : AppCompatActivity()
 	
 	activityMainBinding.btnQuadraticEqFun?.setOnClickListener {
 	     
-	     var count : Int = 0
-	     count += 1
-	     
 	     if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
 	     {
 		
@@ -247,15 +244,13 @@ class MainActivity : AppCompatActivity()
 		activityMainBinding.txtProcess.visibility = View.VISIBLE
 	     }
 	     
-	     if (count == 1)
+	     if (activityMainBinding.determinantLayout.visibility == View.VISIBLE)
 	     {
 		activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.parseColor("#616596"))
 	     }
 	     else
 	     {
-		
 		activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.TRANSPARENT)
-		count = 0
 	     }
 	     
 	     mainViewModel.quadraticEqualation()

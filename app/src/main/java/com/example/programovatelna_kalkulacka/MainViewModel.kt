@@ -30,6 +30,7 @@ class MainViewModel : ViewModel()
      private var a : Double = 0.0
      private var b : Double = 0.0
      private var c : Double = 0.0
+     private var click : Int = 0
      
      private var mem1Holder : String = ""
      private var mem2Holder : String = ""
@@ -116,6 +117,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("1")
 		resultHolder = resultHolder.plus("1")
@@ -180,6 +182,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("2")
 		resultHolder = resultHolder.plus("2")
@@ -247,6 +250,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("3")
 		resultHolder = resultHolder.plus("3")
@@ -311,6 +315,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("4")
 		resultHolder = resultHolder.plus("4")
@@ -375,6 +380,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("5")
 		resultHolder = resultHolder.plus("5")
@@ -439,6 +445,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("6")
 		resultHolder = resultHolder.plus("6")
@@ -497,12 +504,14 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (resultHolder == "-0")
 	     {
+		
 		resultHolder = ""
 		processHolder = processHolder.plus("-7")
 		resultHolder = resultHolder.plus("-7")
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("7")
 		resultHolder = resultHolder.plus("7")
@@ -561,12 +570,14 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (resultHolder == "-0")
 	     {
+		
 		resultHolder = ""
 		processHolder = processHolder.plus("-8")
 		resultHolder = resultHolder.plus("-8")
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("8")
 		resultHolder = resultHolder.plus("8")
@@ -631,6 +642,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("9")
 		resultHolder = resultHolder.plus("9")
@@ -689,6 +701,7 @@ class MainViewModel : ViewModel()
 	     }
 	     else if (isClicked)
 	     {
+		processHolder = ""
 		resultHolder = ""
 		processHolder = processHolder.plus("0")
 		resultHolder = resultHolder.plus("0")
@@ -727,6 +740,7 @@ class MainViewModel : ViewModel()
 	}
 	else if (isClicked)
 	{
+	     processHolder = ""
 	     resultHolder = ""
 	     processHolder = processHolder.plus("00")
 	     resultHolder = resultHolder.plus("00")
@@ -818,7 +832,6 @@ class MainViewModel : ViewModel()
 	     resultHolder = "0"
 	     processHolder = ""
 	     resultHolderLenght = 0
-	     ansHolder = ""
 	     symbolClicked = ""
 	     
 	     isClicked = false
@@ -920,7 +933,7 @@ class MainViewModel : ViewModel()
      
      fun plus()
      {
-	
+	isClicked = false
 	if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
@@ -994,6 +1007,7 @@ class MainViewModel : ViewModel()
      
      fun minus()
      {
+	isClicked = false
 	if (quadraticEqualationIsClicked)
 	{
 	     if (quadraticNum1Holder.isEmpty())
@@ -1070,7 +1084,7 @@ class MainViewModel : ViewModel()
      
      fun multiply()
      {
-	
+	isClicked = false
 	isClickedCount += 1
 	symbolClicked = "*"
 	
@@ -1126,7 +1140,7 @@ class MainViewModel : ViewModel()
      
      fun divide()
      {
-	
+	isClicked = false
 	isClickedCount += 1
 	symbolClicked = "/"
 	
@@ -1508,242 +1522,346 @@ class MainViewModel : ViewModel()
      fun mem2()
      {
 	
-	memIsClickedCount += 1
-	
-	if (mem2Holder == "")
+	if (quadraticEqualationIsClicked)
 	{
 	     
-	     resultHolder = "0"
-	}
-	
-	if (memCLearIsClicked)
-	{
-	     mem2Holder = ""
-	     memCLearIsClicked = false
-	}
-	
-	if (memRecordIsClicked)
-	{
-	     
-	     mem2Holder = ansHolder
-	     Log.e("message",
-		 mem2Holder.toString())
-	     Log.e("message",
-		 memRecordIsClicked.toString())
-	     memRecordIsClicked = false
-	}
-	
-	if (memIsClickedCount == 2)
-	{
-	     
-	     if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
-		    "*") || processHolder.contains(
-		    "/")
-	     )
-	     {
-		processHolder += mem2Holder
-		proccessResult.value = processHolder
-		
-	     }
-	     else if (processHolder == "")
+	     if (quadraticNum1Holder.isEmpty())
 	     {
 		
-		processHolder = mem2Holder
+		quadraticNum1Holder = mem2Holder.toString()
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     {
+		
+		quadraticNum2Holder = mem2Holder.toString()
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
+	     {
+		
+		quadraticNum3Holder = mem1Holder.toString()
+		quadraticNum3Result.value = quadraticNum3Holder
 	     }
 	     
-	     if (resultHolder == "0")
+	}
+	else
+	{
+	     
+	     memIsClickedCount += 1
+	     
+	     if (mem2Holder == "")
 	     {
 		
 		resultHolder = "0"
-		
 	     }
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
-	     memIsClickedCount = 1
+	     
+	     if (memCLearIsClicked)
+	     {
+		mem2Holder = ""
+		memCLearIsClicked = false
+	     }
+	     
+	     if (memRecordIsClicked)
+	     {
+		mem2Holder = ansHolder
+		Log.e("message",
+		      mem2Holder.toString())
+		Log.e("message",
+		      memRecordIsClicked.toString())
+		memRecordIsClicked = false
+	     }
+	     
+	     if (memIsClickedCount == 2)
+	     {
+		
+		if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
+		         "*") || processHolder.contains(
+		         "/")
+		)
+		{
+		     processHolder += mem2Holder
+		     proccessResult.value = processHolder
+		     
+		}
+		else if (processHolder == "")
+		{
+		     
+		     processHolder = mem2Holder
+		}
+		
+		if (resultHolder == "0")
+		{
+		     
+		     resultHolder = "0"
+		     
+		}
+		result.value = resultHolder
+		proccessResult.value = processHolder
+		memIsClickedCount = 1
+	     }
+	     mem2Value.value = mem2Holder
 	}
-	mem2Value.value = mem2Holder
      }
      
      fun mem3()
      {
 	
-	memIsClickedCount += 1
-	
-	if (mem3Holder == "")
+	if (quadraticEqualationIsClicked)
 	{
 	     
-	     resultHolder = "0"
-	}
-	
-	if (memCLearIsClicked)
-	{
-	     mem3Holder = ""
-	     memCLearIsClicked = false
-	}
-	
-	if (memRecordIsClicked)
-	{
-	     
-	     mem3Holder = ansHolder
-	     Log.e("message",
-		 mem2Holder.toString())
-	     Log.e("message",
-		 memRecordIsClicked.toString())
-	     memRecordIsClicked = false
-	}
-	
-	if (memIsClickedCount == 2)
-	{
-	     
-	     if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
-		    "*") || processHolder.contains(
-		    "/")
-	     )
-	     {
-		processHolder += mem3Holder
-		proccessResult.value = processHolder
-		
-	     }
-	     else if (processHolder == "")
+	     if (quadraticNum1Holder.isEmpty())
 	     {
 		
-		processHolder = mem3Holder
+		quadraticNum1Holder = mem3Holder.toString()
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     {
+		
+		quadraticNum2Holder = mem3Holder.toString()
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
+	     {
+		
+		quadraticNum3Holder = mem3Holder.toString()
+		quadraticNum3Result.value = quadraticNum3Holder
 	     }
 	     
-	     if (resultHolder == "0")
+	}
+	else
+	{
+	     
+	     memIsClickedCount += 1
+	     
+	     if (mem3Holder == "")
 	     {
 		
 		resultHolder = "0"
-		
 	     }
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
-	     memIsClickedCount = 1
+	     
+	     if (memCLearIsClicked)
+	     {
+		mem3Holder = ""
+		memCLearIsClicked = false
+	     }
+	     
+	     if (memRecordIsClicked)
+	     {
+		mem3Holder = ansHolder
+		Log.e("message",
+		      mem3Holder.toString())
+		Log.e("message",
+		      memRecordIsClicked.toString())
+		memRecordIsClicked = false
+	     }
+	     
+	     if (memIsClickedCount == 2)
+	     {
+		
+		if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
+		         "*") || processHolder.contains(
+		         "/")
+		)
+		{
+		     processHolder += mem3Holder
+		     proccessResult.value = processHolder
+		     
+		}
+		else if (processHolder == "")
+		{
+		     
+		     processHolder = mem3Holder
+		}
+		
+		if (resultHolder == "0")
+		{
+		     
+		     resultHolder = "0"
+		     
+		}
+		result.value = resultHolder
+		proccessResult.value = processHolder
+		memIsClickedCount = 1
+	     }
+	     mem3Value.value = mem3Holder
 	}
-	mem3Value.value = mem3Holder
      }
      
      fun mem4()
      {
 	
-	memIsClickedCount += 1
-	
-	if (mem4Holder == "")
+	if (quadraticEqualationIsClicked)
 	{
 	     
-	     resultHolder = "0"
-	}
-	
-	if (memCLearIsClicked)
-	{
-	     mem1Holder = ""
-	     memCLearIsClicked = false
-	}
-	
-	if (memRecordIsClicked)
-	{
-	     
-	     mem4Holder = ansHolder
-	     Log.e("message",
-		 mem2Holder.toString())
-	     Log.e("message",
-		 memRecordIsClicked.toString())
-	     memRecordIsClicked = false
-	}
-	
-	if (memIsClickedCount == 2)
-	{
-	     
-	     if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
-		    "*") || processHolder.contains(
-		    "/")
-	     )
-	     {
-		processHolder += mem4Holder
-		proccessResult.value = processHolder
-		
-	     }
-	     else if (processHolder == "")
+	     if (quadraticNum1Holder.isEmpty())
 	     {
 		
-		processHolder = mem4Holder
+		quadraticNum1Holder = mem4Holder.toString()
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     {
+		
+		quadraticNum2Holder = mem4Holder.toString()
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
+	     {
+		
+		quadraticNum3Holder = mem4Holder.toString()
+		quadraticNum3Result.value = quadraticNum3Holder
 	     }
 	     
-	     if (resultHolder == "0")
+	}
+	else
+	{
+	     
+	     memIsClickedCount += 1
+	     
+	     if (mem4Holder == "")
 	     {
 		
 		resultHolder = "0"
-		
 	     }
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
-	     memIsClickedCount = 1
+	     
+	     if (memCLearIsClicked)
+	     {
+		mem4Holder = ""
+		memCLearIsClicked = false
+	     }
+	     
+	     if (memRecordIsClicked)
+	     {
+		mem4Holder = ansHolder
+		Log.e("message",
+		      mem4Holder.toString())
+		Log.e("message",
+		      memRecordIsClicked.toString())
+		memRecordIsClicked = false
+	     }
+	     
+	     if (memIsClickedCount == 2)
+	     {
+		
+		if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
+		         "*") || processHolder.contains(
+		         "/")
+		)
+		{
+		     processHolder += mem4Holder
+		     proccessResult.value = processHolder
+		     
+		}
+		else if (processHolder == "")
+		{
+		     
+		     processHolder = mem4Holder
+		}
+		
+		if (resultHolder == "0")
+		{
+		     
+		     resultHolder = "0"
+		     
+		}
+		result.value = resultHolder
+		proccessResult.value = processHolder
+		memIsClickedCount = 1
+	     }
+	     mem4Value.value = mem4Holder
 	}
-	mem4Value.value = mem4Holder
      }
      
      fun mem5()
      {
 	
-	memIsClickedCount += 1
-	
-	if (mem5Holder == "")
+	if (quadraticEqualationIsClicked)
 	{
 	     
-	     resultHolder = "0"
-	     result.value = resultHolder
-	}
-	
-	if (memCLearIsClicked)
-	{
-	     mem5Holder = ""
-	     memCLearIsClicked = false
-	}
-	
-	if (memRecordIsClicked)
-	{
-	     
-	     mem5Holder = ansHolder
-	     Log.e("message",
-		 mem2Holder.toString())
-	     Log.e("message",
-		 memRecordIsClicked.toString())
-	     memRecordIsClicked = false
-	}
-	
-	if (memIsClickedCount == 2)
-	{
-	     
-	     if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
-		    "*") || processHolder.contains(
-		    "/")
-	     )
-	     {
-		processHolder += mem5Holder
-		proccessResult.value = processHolder
-		
-	     }
-	     else if (processHolder == "")
+	     if (quadraticNum1Holder.isEmpty())
 	     {
 		
-		processHolder = mem5Holder
+		quadraticNum1Holder = mem5Holder.toString()
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
+	     else if (firstOperation.isNotEmpty() && quadraticNum2Holder.isEmpty())
+	     {
+		
+		quadraticNum2Holder = mem5Holder.toString()
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else
+	     {
+		
+		quadraticNum3Holder = mem5Holder.toString()
+		quadraticNum3Result.value = quadraticNum3Holder
 	     }
 	     
-	     if (resultHolder == "0")
+	}
+	else
+	{
+	     
+	     memIsClickedCount += 1
+	     
+	     if (mem5Holder == "")
 	     {
 		
 		resultHolder = "0"
-		
 	     }
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
-	     memIsClickedCount = 1
+	     
+	     if (memCLearIsClicked)
+	     {
+		mem5Holder = ""
+		memCLearIsClicked = false
+	     }
+	     
+	     if (memRecordIsClicked)
+	     {
+		mem5Holder = ansHolder
+		Log.e("message",
+		      mem5Holder.toString())
+		Log.e("message",
+		      memRecordIsClicked.toString())
+		memRecordIsClicked = false
+	     }
+	     
+	     if (memIsClickedCount == 2)
+	     {
+		
+		if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
+		         "*") || processHolder.contains(
+		         "/")
+		)
+		{
+		     processHolder += mem5Holder
+		     proccessResult.value = processHolder
+		     
+		}
+		else if (processHolder == "")
+		{
+		     
+		     processHolder = mem5Holder
+		}
+		
+		if (resultHolder == "0")
+		{
+		     
+		     resultHolder = "0"
+		     
+		}
+		result.value = resultHolder
+		proccessResult.value = processHolder
+		memIsClickedCount = 1
+	     }
+	     mem5Value.value = mem5Holder
 	}
-	mem5Value.value = mem5Holder
      }
      
      fun equal()
      {
+	isClicked = true
 	if (quadraticEqualationIsClicked)
 	{
 	     
@@ -1959,16 +2077,16 @@ class MainViewModel : ViewModel()
      
      fun quadraticEqualation()
      {
-	var click : Int = 0
 	click += 1
 	
 	if (click == 1)
 	{
 	     quadraticEqualationIsClicked = true
 	}
-	else
+	else if (click == 2)
 	{
 	     quadraticEqualationIsClicked = false
+	     click = 0
 	}
 	
      }
