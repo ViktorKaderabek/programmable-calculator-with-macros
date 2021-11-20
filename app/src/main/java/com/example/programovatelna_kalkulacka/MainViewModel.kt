@@ -872,27 +872,62 @@ class MainViewModel : ViewModel()
      
      fun deleteOneChar()
      {
-	if (resultHolder == " " || resultHolder == "Error")
+	if (quadraticEqualationIsClicked)
 	{
-	     resultHolder = "0"
-	     processHolder = "0"
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
+	     if (quadraticNum3Holder.isNotEmpty())
+	     {
+		
+		quadraticNum3Holder = quadraticNum3Holder.dropLast(1)
+		quadraticNum3Result.value = quadraticNum3Holder
+	     }
+	     else if (quadraticNum3Holder.isEmpty() && secondOperation.isNotEmpty())
+	     {
+		
+		secondOperation = secondOperation.dropLast(1)
+		secondOperationResult.value = secondOperation
+	     }
+	     else if (quadraticNum2Holder.isNotEmpty())
+	     {
+		
+		quadraticNum2Holder = quadraticNum2Holder.dropLast(1)
+		quadraticNum2Result.value = quadraticNum2Holder
+	     }
+	     else if (quadraticNum2Holder.isEmpty() && firstOperation.isNotEmpty())
+	     {
+		
+		firstOperation = firstOperation.dropLast(1)
+		firstOperationResult.value = firstOperation
+	     }
+	     else
+	     {
+		quadraticNum1Holder = quadraticNum1Holder.dropLast(1)
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
 	}
 	else
 	{
-	     resultHolder = resultHolder.dropLast(1)
-	     processHolder = processHolder.dropLast(1)
-	     
-	     if (resultHolder.isEmpty() || resultHolder == "-")
+	     if (resultHolder == " " || resultHolder == "Error")
 	     {
 		resultHolder = "0"
+		processHolder = "0"
+		result.value = resultHolder
+		proccessResult.value = processHolder
+	     }
+	     else
+	     {
+		resultHolder = resultHolder.dropLast(1)
+		processHolder = processHolder.dropLast(1)
+		
+		if (resultHolder.isEmpty() || resultHolder == "-")
+		{
+		     resultHolder = "0"
+		}
+		result.value = resultHolder
+		proccessResult.value = processHolder
 	     }
 	     result.value = resultHolder
 	     proccessResult.value = processHolder
 	}
-	result.value = resultHolder
-	proccessResult.value = processHolder
      }
      
      fun changeSymbol()
@@ -2100,7 +2135,7 @@ class MainViewModel : ViewModel()
 		}
 		else
 		{
-		     
+		     x2RootResult.value = x2RootHolder.toString()
 		     x1RootResult.value = x1RootHolder.toString()
 		}
 		
@@ -2114,7 +2149,7 @@ class MainViewModel : ViewModel()
 		}
 		else
 		{
-		     
+		     x1RootResult.value = x1RootHolder.toString()
 		     x2RootResult.value = x2RootHolder.toString()
 		}
 		
@@ -2139,32 +2174,32 @@ class MainViewModel : ViewModel()
 		
 		x2RootHolder = ((- b / (2 * a)).toDouble())
 		x1RootHolder = x2RootHolder
-		
+	 
 		if (x2RootHolder.toString()
 		        .contains(".0"))
 		{
-		     
+		
 		     x2RootResult.value = x2RootHolder.toInt()
 		         .toString()
-		     
+		
 		}
 		else
 		{
-		     
+		     x2RootResult.value = x2RootHolder.toString()
 		     x1RootResult.value = x1RootHolder.toString()
 		}
-		
+	 
 		if (x1RootHolder.toString()
 		        .contains(".0"))
 		{
-		     
+		
 		     x1RootResult.value = x1RootHolder.toInt()
 		         .toString()
-		     
+		
 		}
 		else
 		{
-		     
+		     x1RootResult.value = x1RootHolder.toString()
 		     x2RootResult.value = x2RootHolder.toString()
 		}
 		
