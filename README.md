@@ -26,7 +26,7 @@
 
 
 # The look of the application
-![kalkulacka_main](https://user-images.githubusercontent.com/66387359/142734127-d27bc722-c8ce-4e2c-9685-03e6f7f50f66.png)  ![kalkulacka_qe](https://user-images.githubusercontent.com/66387359/142734129-3141e051-a2cb-48d7-830e-52922647a38a.png)  ![kalkulacka](https://user-images.githubusercontent.com/66387359/142734125-ba7eccbc-ba27-4498-961a-44074b211d1a.png)
+![kal_main](https://user-images.githubusercontent.com/66387359/142734257-93886bad-defd-4dcb-af17-a130d0deea20.png)  ![qe](https://user-images.githubusercontent.com/66387359/142734258-766f798a-f455-4df8-8256-1d467c88c1dc.png)  ![idk](https://user-images.githubusercontent.com/66387359/142734261-238265ab-3c76-4ad0-b7bb-7738b52247fe.png)
 
 
 
