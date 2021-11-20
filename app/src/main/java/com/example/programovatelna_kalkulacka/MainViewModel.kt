@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import net.objecthunter.exp4j.ExpressionBuilder
+import kotlin.math.sqrt
 
 
 class MainViewModel : ViewModel()
@@ -2065,8 +2066,8 @@ class MainViewModel : ViewModel()
 	     
 	     if (determinantHolder > 0)
 	     {
-		x1RootHolder = (- b + Math.sqrt(determinantHolder)) / (2 * a)
-		x2RootHolder = (- b - Math.sqrt(determinantHolder)) / (2 * a)
+		x1RootHolder = (- b + sqrt(determinantHolder)) / (2 * a)
+		x2RootHolder = (- b - sqrt(determinantHolder)) / (2 * a)
 		
 		if (x2RootHolder.toString()
 		        .contains(".0"))
@@ -2154,8 +2155,8 @@ class MainViewModel : ViewModel()
 	     else
 	     {
 		
-		x1RootHolder = (- b + Math.sqrt(determinantHolder)) / (2 * a)
-		x2RootHolder = (- b - Math.sqrt(determinantHolder)) / (2 * a)
+		x1RootHolder = (- b + sqrt(determinantHolder)) / (2 * a)
+		x2RootHolder = (- b - sqrt(determinantHolder)) / (2 * a)
 		
 		if (x1RootHolder.toString() == "NaN")
 		{

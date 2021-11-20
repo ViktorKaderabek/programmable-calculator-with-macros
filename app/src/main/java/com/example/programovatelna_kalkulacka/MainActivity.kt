@@ -144,10 +144,10 @@ class MainActivity : AppCompatActivity()
 	         })
 	
 	
-	activityMainBinding.determinantLayout !!.visibility = View.INVISIBLE
-	activityMainBinding.x1RootLayout !!.visibility = View.INVISIBLE
-	activityMainBinding.x2RootLayout !!.visibility = View.INVISIBLE
-	activityMainBinding.quadraticEqualation !!.visibility = View.INVISIBLE
+	activityMainBinding.determinantLayout.visibility = View.INVISIBLE
+	activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
+	activityMainBinding.x2RootLayout.visibility = View.INVISIBLE
+	activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 	
 	
 	if (activityMainBinding.txtResult.text.isEmpty())
@@ -216,8 +216,8 @@ class MainActivity : AppCompatActivity()
 	      }*/
 	     
 	}
-	
-	activityMainBinding.btnQuadraticEqFun?.setOnClickListener {
+ 
+	activityMainBinding.btnQuadraticEqFun.setOnClickListener {
 	     
 	     if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
 	     {
@@ -842,8 +842,7 @@ class MainActivity : AppCompatActivity()
 			     "yout result",
 			     Toast.LENGTH_LONG)
 		    .show()
-		
-		isClickedCount = 0
+	     
 	     }
 	     mainViewModel.memoryRecord()
 	}
@@ -877,8 +876,7 @@ class MainActivity : AppCompatActivity()
 			     "made",
 			     Toast.LENGTH_LONG)
 		    .show()
-		
-		isClickedCount = 0
+	     
 	     }
 	}
 	
@@ -911,8 +909,7 @@ class MainActivity : AppCompatActivity()
 			     "record",
 			     Toast.LENGTH_LONG)
 		    .show()
-		
-		isClickedCount = 0
+	     
 	     }
 	}
 	
@@ -942,8 +939,7 @@ class MainActivity : AppCompatActivity()
 			     "Chose one of those memories to be delted",
 			     Toast.LENGTH_LONG)
 		    .show()
-		
-		isClickedCount = 0
+	     
 	     }
 	     mainViewModel.memoryClear()
 	}
