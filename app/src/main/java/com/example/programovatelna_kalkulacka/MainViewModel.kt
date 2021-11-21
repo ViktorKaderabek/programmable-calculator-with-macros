@@ -952,59 +952,67 @@ class MainViewModel : ViewModel()
      
      fun changeSymbol()
      {
-	try
+	if (quadraticEqualationIsClicked)
 	{
-	     isClickedCount += 1
-	     resultHolderLenght = resultHolder.length
-	     
-	     if (isClickedCount == 1 && resultHolder.contains("-"))
-	     {
-		resultHolder = resultHolder.drop(1)
-		processHolder = processHolder.drop(1)
-		Log.e("tady",
-		      "tady1")
-		isClickedCount = 0
-		
-	     }
-	     else if (isClickedCount == 1 && resultHolder.toInt()
-		   .toString() == "0")
-	     {
-		
-		resultHolder = "0"
-		processHolder = ""
-		isClickedCount = 0
-		Log.e("tady",
-		      "tady2")
-		
-	     }
-	     else if (isClickedCount == 1)
-	     {
-		
-		resultHolder = "-$resultHolder"
-		processHolder = "-$processHolder"
-		isClickedCount = 0
-		Log.e("tady",
-		      "tady3")
-		
-	     }
-	     else
-	     {
-		
-		resultHolder = "-$resultHolder"
-		processHolder = processHolder.dropLast(resultHolderLenght)
-		processHolder += "($resultHolder)"
-		isClickedCount = 0
-	     }
-	     
-	     result.value = resultHolder
-	     proccessResult.value = processHolder
-	     
+	
 	}
-	catch (e : Exception)
+	else
 	{
 	     
-	     Log.e("message",
-		 e.message.toString())
+	     try
+	     {
+		isClickedCount += 1
+		resultHolderLenght = resultHolder.length
+		
+		if (isClickedCount == 1 && resultHolder.contains("-"))
+		{
+		     resultHolder = resultHolder.drop(1)
+		     processHolder = processHolder.drop(1)
+		     Log.e("tady",
+			 "tady1")
+		     isClickedCount = 0
+		     
+		}
+		else if (isClickedCount == 1 && resultHolder.toInt()
+		        .toString() == "0")
+		{
+		     
+		     resultHolder = "0"
+		     processHolder = ""
+		     isClickedCount = 0
+		     Log.e("tady",
+			 "tady2")
+		  
+		}
+		else if (isClickedCount == 1)
+		{
+		     
+		     resultHolder = "-$resultHolder"
+		     processHolder = "-$processHolder"
+		     isClickedCount = 0
+		     Log.e("tady",
+			 "tady3")
+		  
+		}
+		else
+		{
+		     
+		     resultHolder = "-$resultHolder"
+		     processHolder = processHolder.dropLast(resultHolderLenght)
+		     processHolder += "($resultHolder)"
+		     isClickedCount = 0
+		}
+		
+		result.value = resultHolder
+		proccessResult.value = processHolder
+		
+	     }
+	     catch (e : Exception)
+	     {
+		
+		Log.e("message",
+		      e.message.toString())
+	     }
 	}
      }
      
