@@ -954,7 +954,44 @@ class MainViewModel : ViewModel()
      {
 	if (quadraticEqualationIsClicked)
 	{
-	
+	     
+	     if (secondOperation.isNotEmpty() && quadraticNum2Holder.isNotEmpty())
+	     {
+		if (secondOperation == "-")
+		{
+		     secondOperation = "+"
+		}
+		else
+		{
+		     secondOperation = "-"
+		}
+		secondOperationResult.value = secondOperation
+	     }
+	     else if (firstOperation.isNotEmpty() && quadraticNum1Holder.isNotEmpty())
+	     {
+		if (firstOperation == "-")
+		{
+		     firstOperation = "+"
+		}
+		else
+		{
+		     firstOperation = "-"
+		}
+		firstOperationResult.value = firstOperation
+	     }
+	     else
+	     {
+		
+		if (quadraticNum1Holder.contains("-"))
+		{
+		     quadraticNum1Holder = quadraticNum1Holder.drop(1)
+		}
+		else
+		{
+		     quadraticNum1Holder = ("-$quadraticNum1Holder")
+		}
+		quadraticNum1Result.value = quadraticNum1Holder
+	     }
 	}
 	else
 	{
