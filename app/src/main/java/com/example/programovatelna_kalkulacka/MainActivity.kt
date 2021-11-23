@@ -213,7 +213,7 @@ class MainActivity : AppCompatActivity()
 	      }else {
 		 activityMainBinding.btnMem1.visibility == View.INVISIBLE
 	      }*/
-	     
+	      
 	}
 	
 	activityMainBinding.btnQuadraticEqFun.setOnClickListener {
