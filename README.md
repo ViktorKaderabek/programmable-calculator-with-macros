@@ -13,7 +13,7 @@ This project is part of my seminar work for school. The task was to create a pro
 - the values that are stored into values are stored into database
 - solving the Quadratic Equation
 
-# To Do List(3/7)
+# To Do List(4/8)
 
 ✔️ - It's done and it works well
 
@@ -23,7 +23,8 @@ This project is part of my seminar work for school. The task was to create a pro
 - [✔️] solving the casual mathematic problems
 - [✔️] working with memories
 - [❌] record what the user types
-- [❌] work with dataBase
+- [❌] Insert into DataBase
+- [❌] Upload data from DataBase
 - [✔️] solving the Quadratic Equation
 - [❌] showing data from DataBase
 
