@@ -35,13 +35,15 @@ This project is part of my seminar work for school. The task was to create a pro
 ![kalkulacka](https://user-images.githubusercontent.com/66387359/142734292-5d0706a2-3b9a-4a31-bc51-9658917e78a0.png)
 
 # Used Technologies
-- https://github.com/mikepenz/FastAdapter
-- https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=Cj0KCQiAhf2MBhDNARIsAKXU5GSV4I3_o2ttSyKvOeH-JBWkHOEjRSM2NNg3kORfZWbpYuM7kjc1dHAaArMYEALw_wcB&gclsrc=aw.ds
-- https://kotlinlang.org/docs/coroutines-overview.html
-- https://developer.android.com/training/data-storage/room
-- https://developer.android.com/topic/libraries/architecture/livedata
 
- [ahoj](https://github.com/user/repo/blob/branch/other_file.md)
+-[Mike Penz - FastAdapter](https://github.com/mikepenz/FastAdapter)
+-[Android Developer - ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=Cj0KCQiAhf2MBhDNARIsAKXU5GSV4I3_o2ttSyKvOeH-JBWkHOEjRSM2NNg3kORfZWbpYuM7kjc1dHAaArMYEALw_wcB&gclsrc=aw.ds)
+-[Kotlinlang - Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
+-[Android Developer - Room Database](https://developer.android.com/training/data-storage/room)
+-[Android Developer - Live Data](https://developer.android.com/training/data-storage/room)
+-[Android Developer - Data Binding](https://developer.android.com/training/data-storage/room)
+
+
 
 
 
