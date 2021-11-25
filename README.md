@@ -40,7 +40,9 @@ This project is part of my seminar work for school. The task was to create a pro
 - https://kotlinlang.org/docs/coroutines-overview.html
 - https://developer.android.com/training/data-storage/room
 - https://developer.android.com/topic/libraries/architecture/livedata
-![alt ahoj](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Title Text 1")
+
 
 
 
