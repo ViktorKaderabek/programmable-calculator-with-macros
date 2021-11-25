@@ -19,14 +19,14 @@ This project is part of my seminar work for school. The task was to create a pro
 
 ❌ - Not finished yet and i'm working on it
 
-- [✔️] solving the casual mathematic problems
-- [✔️] solving the casual mathematic problems
-- [✔️] working with memories
-- [❌] record what the user types
+- [✔️] Solving the casual mathematic problems
+- [✔️] Solving the casual mathematic problems
+- [✔️] Working with memories
+- [❌] Record what the user types
 - [❌] Insert into DataBase
 - [❌] Upload data from DataBase
-- [✔️] solving the Quadratic Equation
-- [❌] showing data from DataBase
+- [✔️] Solving the Quadratic Equation
+- [❌] Showing data from DataBase
 
 
 # The look of the application
