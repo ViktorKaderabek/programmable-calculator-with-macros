@@ -3,15 +3,15 @@ This project is part of my seminar work for school. The task was to create a pro
 
 # What it does
 
-- solving normal mathematic problems
-- power and sqrt functions 
-- storing results into 5 avaliable memories signed as M1...
-- clearing the memories
-- recording the what user types
-- store those records into the numbers where it could be called back
-- comunicating with db
-- the values that are stored into values are stored into database
-- solving the Quadratic Equation
+- Solving normal mathematic problems
+- Power and sqrt functions 
+- Storing results into 5 avaliable memories signed as M1...
+- Clearing the memories
+- Recording the what user types
+- Store those records into the numbers where it could be called back
+- Comunicating with db
+- The values that are stored into values are stored into database
+- Solving the Quadratic Equation
 
 # To Do List(4/8)
 
