@@ -1638,10 +1638,6 @@ class MainViewModel : ViewModel()
 	     if (memRecordIsClicked)
 	     {
 		mem1Holder = ansHolder
-		Log.e("message",
-		      mem1Holder.toString())
-		Log.e("message",
-		      memRecordIsClicked.toString())
 		memRecordIsClicked = false
 	     }
 	     

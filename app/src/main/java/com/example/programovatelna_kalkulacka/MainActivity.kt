@@ -840,13 +840,15 @@ class MainActivity : AppCompatActivity()
 	     mainViewModel.memoryRecord()
 	}
 	
-	activityMainBinding.btnStarRecord.setOnClickListener {
+	activityMainBinding.btnStarRecord?.setOnClickListener {
 	     var isClickedCount = 0
 	     isClickedCount += 1
 	     
 	     if (isClickedCount == 1)
 	     {
-		
+	     
+		activityMainBinding.btnMem5.setBackgroundColor(Color.parseColor("#616596"))
+	 
 		val anim : Animation = AlphaAnimation(0.0f,
 					        1.0f)
 		anim.duration = 500 //You can manage the blinking time with this parameter
@@ -870,6 +872,9 @@ class MainActivity : AppCompatActivity()
 			     Toast.LENGTH_LONG)
 		    .show()
 		
+	     }else{
+		activityMainBinding.btnMem5.setBackgroundColor(Color.TRANSPARENT)
+		isClickedCount = 0
 	     }
 	}
 	
