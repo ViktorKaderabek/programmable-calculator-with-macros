@@ -40,6 +40,9 @@ This project is part of my seminar work for school. The task was to create a pro
 - https://kotlinlang.org/docs/coroutines-overview.html
 - https://developer.android.com/training/data-storage/room
 - https://developer.android.com/topic/libraries/architecture/livedata
+- https://<!--This is a comment-->gist.github.com/<!--This is, too-->alexpeattie/4729247
+# give: dfdf
+https://gist.github.com/alexpeattie/4729247
 
 
 
