@@ -41,7 +41,7 @@ This project is part of my seminar work for school. The task was to create a pro
 - https://developer.android.com/training/data-storage/room
 - https://developer.android.com/topic/libraries/architecture/livedata
 
-ahoj [a link](https://github.com/user/repo/blob/branch/other_file.md)
+ [ahoj](https://github.com/user/repo/blob/branch/other_file.md)
 
 
 
