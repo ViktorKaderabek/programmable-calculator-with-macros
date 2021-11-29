@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity()
      
      private lateinit var mainViewModel : MainViewModel //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
      private lateinit var activityMainBinding : ActivityMainBinding//Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
-     
+     private var count = 0
      override fun onCreate(savedInstanceState : Bundle?)
      { //vytvari Activitu
 	super.onCreate(savedInstanceState)
@@ -154,6 +154,7 @@ class MainActivity : AppCompatActivity()
 	{ //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
 	     activityMainBinding.txtResult.text = "0"
 	}
+	
 	activityMainBinding.btnLastResult.setOnClickListener {
 	     
 	     activityMainBinding.btnLastResult.setBackgroundColor(Color.parseColor("#616596"))
@@ -195,6 +196,50 @@ class MainActivity : AppCompatActivity()
 	     
 	}
 	
+	activityMainBinding.btnStartRecord?.setOnClickListener {
+	     
+	     
+	     count += 1
+	     
+	     if (count == 1)
+	     {
+		mainViewModel.macroRecord()
+		activityMainBinding.btnStartRecord?.setText("Stop Record")
+		activityMainBinding.btnStartRecord?.setBackgroundColor(Color.parseColor
+		     ("#616596"))
+		
+		val anim : Animation = AlphaAnimation(0.0f,
+					        1.0f)
+		anim.duration = 500 //You can manage the blinking time with this parameter
+		
+		anim.startOffset = 50
+		anim.repeatMode = Animation.ABSOLUTE
+		anim.repeatCount = 5
+		activityMainBinding.btnNumber1.startAnimation(anim)
+		activityMainBinding.btnNumber2.startAnimation(anim)
+		activityMainBinding.btnNumber3.startAnimation(anim)
+		activityMainBinding.btnNumber4.startAnimation(anim)
+		activityMainBinding.btnNumber5.startAnimation(anim)
+		activityMainBinding.btnNumber6.startAnimation(anim)
+		activityMainBinding.btnNumber7.startAnimation(anim)
+		activityMainBinding.btnNumber8.startAnimation(anim)
+		activityMainBinding.btnNumber9.startAnimation(anim)
+		
+		Toast.makeText(applicationContext,
+			     "Please set one of those numbers to store the record that you " +
+			     "made",
+			     Toast.LENGTH_SHORT)
+		    .show()
+		
+	     }else{
+		activityMainBinding.btnStartRecord?.setText("Start Record")
+		activityMainBinding.btnStartRecord?.setBackgroundColor(Color.TRANSPARENT)
+		mainViewModel.macroStopRecord()
+		count = 0
+	     }
+	     
+	}
+	
 	activityMainBinding.btnInfo.setOnClickListener {
 	     
 	     val alertadd = AlertDialog.Builder(this)
@@ -213,7 +258,7 @@ class MainActivity : AppCompatActivity()
 	      }else {
 		 activityMainBinding.btnMem1.visibility == View.INVISIBLE
 	      }*/
-	      
+	     
 	}
 	
 	activityMainBinding.btnQuadraticEqFun.setOnClickListener {
@@ -840,43 +885,7 @@ class MainActivity : AppCompatActivity()
 	     mainViewModel.memoryRecord()
 	}
 	
-	activityMainBinding.btnStarRecord?.setOnClickListener {
-	     var isClickedCount = 0
-	     isClickedCount += 1
-	     
-	     if (isClickedCount == 1)
-	     {
-	     
-		activityMainBinding.btnMem5.setBackgroundColor(Color.parseColor("#616596"))
-	 
-		val anim : Animation = AlphaAnimation(0.0f,
-					        1.0f)
-		anim.duration = 500 //You can manage the blinking time with this parameter
-		
-		anim.startOffset = 50
-		anim.repeatMode = Animation.ABSOLUTE
-		anim.repeatCount = 5
-		activityMainBinding.btnNumber1.startAnimation(anim)
-		activityMainBinding.btnNumber2.startAnimation(anim)
-		activityMainBinding.btnNumber3.startAnimation(anim)
-		activityMainBinding.btnNumber4.startAnimation(anim)
-		activityMainBinding.btnNumber5.startAnimation(anim)
-		activityMainBinding.btnNumber6.startAnimation(anim)
-		activityMainBinding.btnNumber7.startAnimation(anim)
-		activityMainBinding.btnNumber8.startAnimation(anim)
-		activityMainBinding.btnNumber9.startAnimation(anim)
-		
-		Toast.makeText(applicationContext,
-			     "Please set one of those numbers to store the record that you " +
-			     "made",
-			     Toast.LENGTH_LONG)
-		    .show()
-		
-	     }else{
-		activityMainBinding.btnMem5.setBackgroundColor(Color.TRANSPARENT)
-		isClickedCount = 0
-	     }
-	}
+	
 	
 	activityMainBinding.btnRecallRecord.setOnClickListener {
 	     var isClickedCount = 0
@@ -902,11 +911,15 @@ class MainActivity : AppCompatActivity()
 		activityMainBinding.btnNumber8.startAnimation(anim)
 		activityMainBinding.btnNumber9.startAnimation(anim)
 		
-		Toast.makeText(applicationContext,
-			     "Please select of one of those numbers where you stored the " +
-			     "record",
-			     Toast.LENGTH_LONG)
-		    .show()
+		
+	     }
+	     mainViewModel.macroRecall()
+	     
+	     if(mainViewModel.arraySize < 0){
+		
+		Toast.makeText(applicationContext,"Please enter ${mainViewModel.arraySize} " +
+					    "numbers", Toast.LENGTH_SHORT).show()
+		
 		
 	     }
 	}

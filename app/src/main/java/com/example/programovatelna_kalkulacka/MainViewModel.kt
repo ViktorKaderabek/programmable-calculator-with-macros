@@ -11,6 +11,9 @@ import kotlin.math.sqrt
 class MainViewModel : ViewModel()
 {
      
+     var arraySize : Int = 0
+     private var count : Int = -1
+     
      private var floatHolder : Float = 0f
      private var longHolder : Long = 0
      private var resultHolder : String = "0"
@@ -39,6 +42,21 @@ class MainViewModel : ViewModel()
      private var mem3Holder : String = ""
      private var mem4Holder : String = ""
      private var mem5Holder : String = ""
+     
+     private var macroRecordIsClicked : Boolean = false
+     private var macroRecallIsClicked : Boolean = false
+     private var macroSet : String = "0"
+     private var macroChoosed : String = "0"
+     private var array1Holder : MutableList<String> = ArrayList()
+     private var array2Holder : MutableList<String> = ArrayList()
+     private var array3Holder : MutableList<String> = ArrayList()
+     private var array4Holder : MutableList<String> = ArrayList()
+     private var array5Holder : MutableList<String> = ArrayList()
+     private var array6Holder : MutableList<String> = ArrayList()
+     private var array7Holder : MutableList<String> = ArrayList()
+     private var array8Holder : MutableList<String> = ArrayList()
+     private var array9Holder : MutableList<String> = ArrayList()
+     private var numberArrayHolder : MutableList<String> = ArrayList()
      
      private var isClicked : Boolean = false
      private var memRecordIsClicked : Boolean = false
@@ -72,7 +90,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber1()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array1Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "1"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "1"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -137,7 +169,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber2()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array2Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "2"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "2"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -205,7 +251,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber3()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array3Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "3"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "3"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -271,7 +331,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber4()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array4Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "4"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "4"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -336,7 +410,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber5()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array5Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "5"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "5"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -401,7 +489,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber6()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array6Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "6"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "6"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -466,7 +568,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber7()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array7Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "7"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "7"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -532,7 +648,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber8()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array8Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "8"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "8"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -598,7 +728,21 @@ class MainViewModel : ViewModel()
      
      fun addNumber9()
      {
-	if (quadraticEqualationIsClicked)
+	if (macroRecallIsClicked)
+	{
+	     arraySize = array9Holder.size
+	     resultHolder.plus(1)
+	     macroChoosed = "9"
+	     macroRecallIsClicked = false
+	     
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     macroSet = "9"
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -869,6 +1013,15 @@ class MainViewModel : ViewModel()
 	}
 	else
 	{
+	     numberArrayHolder.removeAll(numberArrayHolder)
+	     count = - 1
+	     macroChoosed = "0"
+	     arraySize = 0
+	     macroRecordIsClicked = false
+	     macroRecallIsClicked = false
+	     macroSet = "0"
+	     macroChoosed = "0"
+	     
 	     floatHolder = 0f
 	     longHolder = 0
 	     resultHolder = "0"
@@ -1056,7 +1209,561 @@ class MainViewModel : ViewModel()
      fun plus()
      {
 	isClicked = false
-	if (quadraticEqualationIsClicked)
+	resultHolderLenght = resultHolder.length
+	
+	if (macroChoosed == "1")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array1Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "2")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array2Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "3")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array3Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "4")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array4Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "5")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array5Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "6")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array6Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "7")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array7Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "8")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array8Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	  
+	}
+	else if (macroChoosed == "9")
+	{
+	     
+	     count += 1
+	     if(count == arraySize){
+		
+		numberArrayHolder.add(resultHolder)
+	     }else{
+		
+		numberArrayHolder.add(resultHolder + array9Holder[count])
+	     }
+	     resultHolder = "0"
+	     processHolder = "0"
+	     
+	     result.value = resultHolder
+	     
+	     if(arraySize + 1== numberArrayHolder.size){
+		
+		resultHolder = numberArrayHolder.toString()
+		resultHolder = resultHolder.drop(1)
+		resultHolder = resultHolder.dropLast(1)
+		resultHolder = resultHolder.replace(",",
+					      "")
+		
+		val expression = ExpressionBuilder(resultHolder).build()
+		val processHolderResult : Double = expression.evaluate()
+		
+		if(processHolderResult.toString().contains(".0")){
+		     
+		     result.value = processHolderResult.toInt().toString()
+		}else{
+		     result.value = processHolderResult.toString()
+		}
+		
+		numberArrayHolder.removeAll(numberArrayHolder)
+		count = - 1
+		macroChoosed = "0"
+		arraySize = 0
+		macroRecordIsClicked = false
+		macroRecallIsClicked = false
+		macroSet = "0"
+		macroChoosed = "0"
+		
+	     }
+	     Log.e("message",
+		 numberArrayHolder.toString())
+	  
+	}
+	else if (macroRecordIsClicked)
+	{
+	     
+	     if (macroSet == "1")
+	     {
+		
+		array1Holder.add("+")
+		Log.e("array",
+		      array1Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array1Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "2")
+	     {
+		
+		array2Holder.add("+")
+		Log.e("array",
+		      array2Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array2Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "3")
+	     {
+		
+		array3Holder.add("+")
+		Log.e("array",
+		      array3Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array3Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "4")
+	     {
+		
+		array4Holder.add("+")
+		Log.e("array",
+		      array4Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array4Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "5")
+	     {
+		
+		array5Holder.add("+")
+		Log.e("array",
+		      array5Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array5Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "6")
+	     {
+		
+		array6Holder.add("+")
+		Log.e("array",
+		      array6Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array6Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "7")
+	     {
+		
+		array7Holder.add("+")
+		Log.e("array",
+		      array7Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array7Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "8")
+	     {
+		
+		array8Holder.add("+")
+		Log.e("array",
+		      array8Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array8Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "9")
+	     {
+		
+		array9Holder.add("+")
+		Log.e("array",
+		      array9Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array9Holder.size.toString())
+	     }
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (firstOperation.isEmpty())
 	     {
@@ -1130,7 +1837,119 @@ class MainViewModel : ViewModel()
      fun minus()
      {
 	isClicked = false
-	if (quadraticEqualationIsClicked)
+	if (macroRecordIsClicked)
+	{
+	     
+	     if (macroSet == "1")
+	     {
+		
+		array1Holder.add("-")
+		Log.e("array",
+		      array1Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array1Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "2")
+	     {
+		
+		array2Holder.add("-")
+		Log.e("array",
+		      array2Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array2Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "3")
+	     {
+		
+		array3Holder.add("-")
+		Log.e("array",
+		      array3Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array3Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "4")
+	     {
+		
+		array4Holder.add("-")
+		Log.e("array",
+		      array4Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array4Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "5")
+	     {
+		
+		array5Holder.add("-")
+		Log.e("array",
+		      array5Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array5Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "6")
+	     {
+		
+		array6Holder.add("-")
+		Log.e("array",
+		      array6Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array6Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "7")
+	     {
+		
+		array7Holder.add("-")
+		Log.e("array",
+		      array7Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array7Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "8")
+	     {
+		
+		array8Holder.add("-")
+		Log.e("array",
+		      array8Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array8Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "9")
+	     {
+		
+		array9Holder.add("-")
+		Log.e("array",
+		      array9Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array9Holder.size.toString())
+	     }
+	     
+	}
+	else if (quadraticEqualationIsClicked)
 	{
 	     if (quadraticNum1Holder.isEmpty())
 	     {
@@ -1207,112 +2026,343 @@ class MainViewModel : ViewModel()
      fun multiply()
      {
 	isClicked = false
-	isClickedCount += 1
-	symbolClicked = "*"
-	
-	try
+	if (macroRecordIsClicked)
 	{
-	     if (processHolder.isEmpty())
+	     
+	     if (macroSet == "1")
 	     {
 		
-		processHolder = ""
-		isClickedCount = 0
+		array1Holder.add("*")
+		Log.e("array",
+		      array1Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array1Holder.size.toString())
 		
 	     }
-	     else
+	     else if (macroSet == "2")
 	     {
 		
-		if (isClickedCount == 2)
+		array2Holder.add("*")
+		Log.e("array",
+		      array2Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array2Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "3")
+	     {
+		
+		array3Holder.add("*")
+		Log.e("array",
+		      array3Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array3Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "4")
+	     {
+		
+		array4Holder.add("*")
+		Log.e("array",
+		      array4Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array4Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "5")
+	     {
+		
+		array5Holder.add("*")
+		Log.e("array",
+		      array5Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array5Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "6")
+	     {
+		
+		array6Holder.add("*")
+		Log.e("array",
+		      array6Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array6Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "7")
+	     {
+		
+		array7Holder.add("*")
+		Log.e("array",
+		      array7Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array7Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "8")
+	     {
+		
+		array8Holder.add("*")
+		Log.e("array",
+		      array8Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array8Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "9")
+	     {
+		
+		array9Holder.add("*")
+		Log.e("array",
+		      array9Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array9Holder.size.toString())
+	     }
+	     
+	}
+	else
+	{
+	     
+	     isClickedCount += 1
+	     symbolClicked = "*"
+	     
+	     try
+	     {
+		if (processHolder.isEmpty())
 		{
 		     
-		     val expression = ExpressionBuilder(processHolder).build()
-		     val processHolderResult = expression.evaluate()
-		     if (processHolderResult.toString()
-			   .contains(".0"))
+		     processHolder = ""
+		     isClickedCount = 0
+		     
+		}
+		else
+		{
+		     
+		     if (isClickedCount == 2)
 		     {
 			
-			processHolder = processHolderResult.toInt()
-			    .toString()
-			isClickedCount = 1
+			val expression = ExpressionBuilder(processHolder).build()
+			val processHolderResult = expression.evaluate()
+			if (processHolderResult.toString()
+			        .contains(".0"))
+			{
+			     
+			     processHolder = processHolderResult.toInt()
+			         .toString()
+			     isClickedCount = 1
+			}
+			else
+			{
+			     processHolder = processHolderResult.toDouble()
+			         .toString()
+			     isClickedCount = 1
+			}
 		     }
-		     else
-		     {
-			processHolder = processHolderResult.toDouble()
-			    .toString()
-			isClickedCount = 1
-		     }
+		     
+		     resultHolder = "0"
+		     processHolder = processHolder.plus("*")
 		}
-		
-		resultHolder = "0"
-		processHolder = processHolder.plus("*")
+		proccessResult.value = processHolder
+		result.value = resultHolder
 	     }
-	     proccessResult.value = processHolder
-	     result.value = resultHolder
-	}
-	catch (e : Exception)
-	{
-	     
-	     processHolder = processHolder.dropLast(1)
-	     processHolder = processHolder.plus(symbolClicked)
-	     
-	     proccessResult.value = processHolder
-	     
+	     catch (e : Exception)
+	     {
+		
+		processHolder = processHolder.dropLast(1)
+		processHolder = processHolder.plus(symbolClicked)
+		
+		proccessResult.value = processHolder
+		
+	     }
 	}
      }
      
      fun divide()
      {
 	isClicked = false
-	isClickedCount += 1
-	symbolClicked = "/"
-	
-	try
+	if (macroRecordIsClicked)
 	{
-	     if (processHolder.isEmpty())
+	     
+	     if (macroSet == "1")
 	     {
 		
-		processHolder = ""
-		isClickedCount = 0
+		array1Holder.add("/")
+		Log.e("array",
+		      array1Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array1Holder.size.toString())
 		
 	     }
-	     else
+	     else if (macroSet == "2")
 	     {
 		
-		if (isClickedCount == 2)
+		array2Holder.add("/")
+		Log.e("array",
+		      array2Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array2Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "3")
+	     {
+		
+		array3Holder.add("/")
+		Log.e("array",
+		      array3Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array3Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "4")
+	     {
+		
+		array4Holder.add("/")
+		Log.e("array",
+		      array4Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array4Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "5")
+	     {
+		
+		array5Holder.add("/")
+		Log.e("array",
+		      array5Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array5Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "6")
+	     {
+		
+		array6Holder.add("/")
+		Log.e("array",
+		      array6Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array6Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "7")
+	     {
+		
+		array7Holder.add("/")
+		Log.e("array",
+		      array7Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array7Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "8")
+	     {
+		
+		array8Holder.add("/")
+		Log.e("array",
+		      array8Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array8Holder.size.toString())
+		
+	     }
+	     else if (macroSet == "9")
+	     {
+		
+		array9Holder.add("/")
+		Log.e("array",
+		      array9Holder.toString())
+		Log.e("set",
+		      macroSet.toString())
+		Log.e("length",
+		      array9Holder.size.toString())
+	     }
+	     
+	}
+	else
+	{
+	     isClickedCount += 1
+	     symbolClicked = "/"
+	     
+	     try
+	     {
+		if (processHolder.isEmpty())
 		{
 		     
-		     val expression = ExpressionBuilder(processHolder).build()
-		     val processHolderResult = expression.evaluate()
-		     if (processHolderResult.toString()
-			   .contains(".0"))
+		     processHolder = ""
+		     isClickedCount = 0
+		     
+		}
+		else
+		{
+		     
+		     if (isClickedCount == 2)
 		     {
 			
-			processHolder = processHolderResult.toInt()
-			    .toString()
-			isClickedCount = 1
+			val expression = ExpressionBuilder(processHolder).build()
+			val processHolderResult = expression.evaluate()
+			if (processHolderResult.toString()
+			        .contains(".0"))
+			{
+			     
+			     processHolder = processHolderResult.toInt()
+			         .toString()
+			     isClickedCount = 1
+			}
+			else
+			{
+			     processHolder = processHolderResult.toDouble()
+			         .toString()
+			     isClickedCount = 1
+			}
 		     }
-		     else
-		     {
-			processHolder = processHolderResult.toDouble()
-			    .toString()
-			isClickedCount = 1
-		     }
+		     
+		     resultHolder = "0"
+		     processHolder = processHolder.plus("/")
 		}
-		
-		resultHolder = "0"
-		processHolder = processHolder.plus("/")
+		proccessResult.value = processHolder
+		result.value = resultHolder
 	     }
-	     proccessResult.value = processHolder
-	     result.value = resultHolder
-	}
-	catch (e : Exception)
-	{
-	     
-	     processHolder = processHolder.dropLast(1)
-	     processHolder = processHolder.plus(symbolClicked)
-	     
-	     proccessResult.value = processHolder
-	     
+	     catch (e : Exception)
+	     {
+		
+		processHolder = processHolder.dropLast(1)
+		processHolder = processHolder.plus(symbolClicked)
+		
+		proccessResult.value = processHolder
+		
+	     }
 	}
 	
      }
@@ -1556,6 +2606,27 @@ class MainViewModel : ViewModel()
      fun memoryClear()
      {
 	memCLearIsClicked = true
+     }
+     
+     fun macroRecord()
+     {
+	
+	macroRecordIsClicked = true
+	processHolder = ""
+	resultHolder = "0"
+	result.value = resultHolder
+	proccessResult.value = processHolder
+     }
+     
+     fun macroStopRecord()
+     {
+	macroRecordIsClicked = false
+	macroSet = ""
+     }
+     
+     fun macroRecall()
+     {
+	macroRecallIsClicked = true
      }
      
      fun mem1()
