@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity()
 	activityMainBinding =
 	     DataBindingUtil.setContentView(
 		this,
-		R.layout.activity_main) //tato promenna nastavuje co bude ridit MainActivita
+		R.layout.activity_main) //tato promenna nastavuje co bude ridit MainActivita d
 	
 	mainViewModel =
 	     ViewModelProvider(
