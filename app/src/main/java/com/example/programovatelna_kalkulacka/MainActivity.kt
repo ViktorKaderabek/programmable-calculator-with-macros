@@ -17,25 +17,27 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()
+{
 
-    private lateinit var mainViewModel: MainViewModel //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
-    private lateinit var activityMainBinding: ActivityMainBinding//Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
+    private lateinit var mainViewModel : MainViewModel //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
+    private lateinit var activityMainBinding : ActivityMainBinding//Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
     private var count = 0
-    override fun onCreate(savedInstanceState: Bundle?) { //vytvari Activitu
+    override fun onCreate(savedInstanceState : Bundle?)
+    { //vytvari Activitu
         super.onCreate(savedInstanceState)
 
         activityMainBinding =
-            DataBindingUtil.setContentView(
-                this,
-                R.layout.activity_main
-            ) //tato promenna nastavuje co bude ridit MainActivita d
+                DataBindingUtil.setContentView(
+                    this,
+                    R.layout.activity_main
+                ) //tato promenna nastavuje co bude ridit MainActivita d
 
         mainViewModel =
-            ViewModelProvider(
-                this,
-                defaultViewModelProviderFactory
-            ).get(MainViewModel::class.java)//Umoznuje pristup do ViewModelu
+                ViewModelProvider(
+                    this,
+                    defaultViewModelProviderFactory
+                ).get(MainViewModel::class.java)//Umoznuje pristup do ViewModelu
 
         mainViewModel.getProcessResult()
             .observe(
@@ -149,7 +151,8 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 
 
-        if (activityMainBinding.txtResult.text.isEmpty()) { //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
+        if (activityMainBinding.txtResult.text.isEmpty())
+        { //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
             activityMainBinding.txtResult.text = "0"
         }
 
@@ -159,12 +162,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnLastResult.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -178,12 +184,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber00.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -197,7 +206,8 @@ class MainActivity : AppCompatActivity() {
 
             count += 1
 
-            if (count == 1) {
+            if (count == 1)
+            {
                 mainViewModel.macroRecord()
                 activityMainBinding.btnStartRecord?.setText("Stop Record")
                 activityMainBinding.btnStartRecord?.setBackgroundColor(
@@ -205,7 +215,7 @@ class MainActivity : AppCompatActivity() {
                         ("#616596")
                 )
 
-                val anim: Animation = AlphaAnimation(
+                val anim : Animation = AlphaAnimation(
                     0.0f,
                     1.0f
                 )
@@ -232,7 +242,9 @@ class MainActivity : AppCompatActivity() {
                 )
                     .show()
 
-            } else {
+            }
+            else
+            {
                 activityMainBinding.btnStartRecord?.setText("Start Record")
                 activityMainBinding.btnStartRecord?.setBackgroundColor(Color.TRANSPARENT)
                 mainViewModel.macroStopRecord()
@@ -245,7 +257,7 @@ class MainActivity : AppCompatActivity() {
 
             val alertadd = AlertDialog.Builder(this)
             val factory = LayoutInflater.from(applicationContext)
-            val view: View = factory.inflate(
+            val view : View = factory.inflate(
                 R.layout.activity_dialog,
                 null
             )
@@ -266,7 +278,8 @@ class MainActivity : AppCompatActivity() {
 
         activityMainBinding.btnQuadraticEqFun.setOnClickListener {
 
-            if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE) {
+            if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
+            {
 
                 activityMainBinding.determinantLayout.visibility = View.VISIBLE
                 activityMainBinding.x1RootLayout.visibility = View.VISIBLE
@@ -276,7 +289,9 @@ class MainActivity : AppCompatActivity() {
                 activityMainBinding.txtLastResult.visibility = View.INVISIBLE
                 activityMainBinding.txtResult.visibility = View.INVISIBLE
                 activityMainBinding.txtProcess.visibility = View.INVISIBLE
-            } else {
+            }
+            else
+            {
 
                 activityMainBinding.determinantLayout.visibility = View.INVISIBLE
                 activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
@@ -288,9 +303,12 @@ class MainActivity : AppCompatActivity() {
                 activityMainBinding.txtProcess.visibility = View.VISIBLE
             }
 
-            if (activityMainBinding.determinantLayout.visibility == View.VISIBLE) {
+            if (activityMainBinding.determinantLayout.visibility == View.VISIBLE)
+            {
                 activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.parseColor("#616596"))
-            } else {
+            }
+            else
+            {
                 activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.TRANSPARENT)
             }
 
@@ -303,12 +321,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber1.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -322,12 +343,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber2.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -341,12 +365,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber3.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -360,12 +387,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber4.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -379,12 +409,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber5.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -398,12 +431,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber6.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -417,12 +453,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber7.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -436,12 +475,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber8.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -455,12 +497,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber9.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -474,12 +519,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnNumber0.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -493,12 +541,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnDot.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -512,12 +563,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnDeleteAll.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -531,12 +585,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnDeleteOneObject.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -550,12 +607,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnChangeTheSymbol.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -569,12 +629,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnPlus.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -589,12 +652,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMinus.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -608,12 +674,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMultiply.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -627,12 +696,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnDevided.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -646,12 +718,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnEqual.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -679,12 +754,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnPercent.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -698,12 +776,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnPower2.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -717,12 +798,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnPower3.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -736,12 +820,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMem1.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -755,12 +842,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMem2.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -774,12 +864,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMem3.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -793,12 +886,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMem4.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -812,12 +908,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnMem5.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
@@ -829,9 +928,10 @@ class MainActivity : AppCompatActivity() {
             var isClickedCount = 0
             isClickedCount += 1
 
-            if (isClickedCount == 1) {
+            if (isClickedCount == 1)
+            {
 
-                val anim: Animation = AlphaAnimation(
+                val anim : Animation = AlphaAnimation(
                     0.0f,
                     1.0f
                 )
@@ -864,9 +964,10 @@ class MainActivity : AppCompatActivity() {
             var isClickedCount = 0
             isClickedCount += 1
 
-            if (isClickedCount == 1) {
+            if (isClickedCount == 1)
+            {
 
-                val anim: Animation = AlphaAnimation(
+                val anim : Animation = AlphaAnimation(
                     0.0f,
                     1.0f
                 )
@@ -889,12 +990,14 @@ class MainActivity : AppCompatActivity() {
             }
             mainViewModel.macroRecall()
 
-            if (mainViewModel.arraySize < 0) {
+            if (mainViewModel.arraySize < 0)
+            {
 
                 Toast.makeText(
                     applicationContext, "Please enter ${mainViewModel.arraySize} " +
                             "numbers", Toast.LENGTH_SHORT
-                ).show()
+                )
+                    .show()
 
 
             }
@@ -905,9 +1008,10 @@ class MainActivity : AppCompatActivity() {
             var isClickedCount = 0
             isClickedCount += 1
 
-            if (isClickedCount == 1) {
+            if (isClickedCount == 1)
+            {
 
-                val anim: Animation = AlphaAnimation(
+                val anim : Animation = AlphaAnimation(
                     0.0f,
                     1.0f
                 )
@@ -939,12 +1043,15 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(
                 55,
                 110
-            ) {
-                override fun onTick(arg0: Long) {
+            )
+            {
+                override fun onTick(arg0 : Long)
+                {
                     // TODO Auto-generated method stub
                 }
 
-                override fun onFinish() {
+                override fun onFinish()
+                {
                     activityMainBinding.btnSquareRoot.setBackgroundColor(Color.TRANSPARENT)
                 }
             }.start()
