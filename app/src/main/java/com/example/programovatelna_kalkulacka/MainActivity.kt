@@ -802,6 +802,41 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnMem3.text = "M13"
                 activityMainBinding.btnMem4.text = "M14"
                 activityMainBinding.btnMem5.text = "M15"
+
+                mainViewModel.getM11()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem1Value.text = it
+                        })
+
+                mainViewModel.getM12()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem2Value.text = it
+                        })
+
+                mainViewModel.getM13()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem3Value.text = it
+                        })
+
+                mainViewModel.getM14()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem4Value.text = it
+                        })
+
+                mainViewModel.getM15()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem5Value.text = it
+                        })
             }
             else if (activityMainBinding.btnMem1.text == "M11")
             {
@@ -810,6 +845,42 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnMem3.text = "M8"
                 activityMainBinding.btnMem4.text = "M9"
                 activityMainBinding.btnMem5.text = "M10"
+
+                mainViewModel.getM6()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem1Value.text = it
+                        })
+
+                mainViewModel.getM7()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem2Value.text = it
+                        })
+
+                mainViewModel.getM8()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem3Value.text = it
+                        })
+
+                mainViewModel.getM9()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem4Value.text = it
+                        })
+
+                mainViewModel.getM10()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem5Value.text = it
+                        })
+
             }
             else
             {
@@ -818,6 +889,41 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnMem3.text = "M3"
                 activityMainBinding.btnMem4.text = "M4"
                 activityMainBinding.btnMem5.text = "M5"
+
+                mainViewModel.getM1()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem1Value.text = it
+                        })
+
+                mainViewModel.getM2()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem2Value.text = it
+                        })
+
+                mainViewModel.getM3()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem3Value.text = it
+                        })
+
+                mainViewModel.getM4()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem4Value.text = it
+                        })
+
+                mainViewModel.getM5()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem5Value.text = it
+                        })
             }
 
 
