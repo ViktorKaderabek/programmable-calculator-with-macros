@@ -37,21 +37,21 @@ class MainViewModel : ViewModel()
     private var c : Double = 0.0
     private var click : Int = 0
 
-    private var mem1Holder : String = ""
-    private var mem2Holder : String = ""
-    private var mem3Holder : String = ""
-    private var mem4Holder : String = ""
-    private var mem5Holder : String = ""
-    private var mem6Holder : String = ""
-    private var mem7Holder : String = ""
-    private var mem8Holder : String = ""
-    private var mem9Holder : String = ""
-    private var mem10Holder : String = ""
-    private var mem11Holder : String = ""
-    private var mem12Holder : String = ""
-    private var mem13Holder : String = ""
-    private var mem14Holder : String = ""
-    private var mem15Holder : String = ""
+    private var mem1Holder : String = "0"
+    private var mem2Holder : String = "0"
+    private var mem3Holder : String = "0"
+    private var mem4Holder : String = "0"
+    private var mem5Holder : String = "0"
+    private var mem6Holder : String = "0"
+    private var mem7Holder : String = "0"
+    private var mem8Holder : String = "0"
+    private var mem9Holder : String = "0"
+    private var mem10Holder : String = "0"
+    private var mem11Holder : String = "0"
+    private var mem12Holder : String = "0"
+    private var mem13Holder : String = "0"
+    private var mem14Holder : String = "0"
+    private var mem15Holder : String = "0"
 
     private var macroRecordIsClicked : Boolean = false
     private var macroRecallIsClicked : Boolean = false
@@ -3085,7 +3085,7 @@ class MainViewModel : ViewModel()
 
             memIsClickedCount += 1
 
-            if (mem1Holder == "")
+            if (mem1Holder == "0")
             {
 
                 resultHolder = "0"
@@ -3093,7 +3093,7 @@ class MainViewModel : ViewModel()
 
             if (memCLearIsClicked)
             {
-                mem1Holder = ""
+                mem1Holder = "0"
                 memCLearIsClicked = false
             }
 
@@ -3712,7 +3712,7 @@ class MainViewModel : ViewModel()
 
             memIsClickedCount += 1
 
-            if (mem6Holder == "")
+            if (mem6Holder == "0")
             {
 
                 resultHolder = "0"
@@ -3720,7 +3720,7 @@ class MainViewModel : ViewModel()
 
             if (memCLearIsClicked)
             {
-                mem6Holder = ""
+                mem6Holder = "0"
                 memCLearIsClicked = false
             }
 
@@ -4307,7 +4307,7 @@ class MainViewModel : ViewModel()
 
             memIsClickedCount += 1
 
-            if (mem11Holder == "")
+            if (mem11Holder == "0")
             {
 
                 resultHolder = "0"
@@ -4315,7 +4315,7 @@ class MainViewModel : ViewModel()
 
             if (memCLearIsClicked)
             {
-                mem11Holder = ""
+                mem11Holder = "0"
                 memCLearIsClicked = false
             }
 
@@ -5209,76 +5209,91 @@ class MainViewModel : ViewModel()
 
     fun getM1() : LiveData<String>
     {
+        mem1Value.value = mem1Holder
         return mem1Value
     }
 
     fun getM2() : LiveData<String>
     {
+        mem2Value.value = mem2Holder
         return mem2Value
     }
 
     fun getM3() : LiveData<String>
     {
+        mem3Value.value = mem3Holder
         return mem3Value
     }
 
     fun getM4() : LiveData<String>
     {
+        mem4Value.value = mem4Holder
         return mem4Value
     }
 
     fun getM5() : LiveData<String>
     {
+        mem5Value.value = mem5Holder
         return mem5Value
     }
 
     fun getM6() : LiveData<String>
     {
+        mem6Value.value = mem6Holder
         return mem6Value
     }
 
     fun getM7() : LiveData<String>
     {
+        mem7Value.value = mem7Holder
         return mem7Value
     }
 
     fun getM8() : LiveData<String>
     {
+        mem8Value.value = mem8Holder
         return mem8Value
     }
 
     fun getM9() : LiveData<String>
     {
+        mem9Value.value = mem9Holder
         return mem9Value
     }
 
     fun getM10() : LiveData<String>
     {
+        mem10Value.value = mem10Holder
         return mem10Value
     }
 
     fun getM11() : LiveData<String>
     {
+        mem11Value.value = mem11Holder
         return mem11Value
     }
 
     fun getM12() : LiveData<String>
     {
+        mem12Value.value = mem12Holder
         return mem12Value
     }
 
     fun getM13() : LiveData<String>
     {
+        mem13Value.value = mem13Holder
         return mem13Value
     }
 
     fun getM14() : LiveData<String>
     {
+        mem14Value.value = mem14Holder
         return mem14Value
     }
 
     fun getM15() : LiveData<String>
     {
+        mem15Value.value = mem15Holder
         return mem15Value
     }
 
