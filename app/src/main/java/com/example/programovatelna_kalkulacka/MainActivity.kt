@@ -579,6 +579,69 @@ class MainActivity : AppCompatActivity()
             mainViewModel.deleteAll() //vymaze vse co zatim bylo v labelu result zapsano a nastavi hodnotu na "0" takze pokud tam bylo napsano treba cislo "22",tak po stisku tohot tlacitka bude hodnota "0"
         }
 
+        activityMainBinding.btnArrowFor!!.setOnClickListener {
+
+            if (activityMainBinding.btnMem1.text == "M1")
+            {
+
+                activityMainBinding.btnMem1.text = "M6"
+                activityMainBinding.btnMem2.text = "M7"
+                activityMainBinding.btnMem3.text = "M8"
+                activityMainBinding.btnMem4.text = "M9"
+                activityMainBinding.btnMem5.text = "M10"
+            }
+            else if (activityMainBinding.btnMem1.text == "M6")
+            {
+
+                activityMainBinding.btnMem1.text = "M11"
+                activityMainBinding.btnMem2.text = "M12"
+                activityMainBinding.btnMem3.text = "M13"
+                activityMainBinding.btnMem4.text = "M14"
+                activityMainBinding.btnMem5.text = "M15"
+            }
+            else
+            {
+                activityMainBinding.btnMem1.text = "M1"
+                activityMainBinding.btnMem2.text = "M2"
+                activityMainBinding.btnMem3.text = "M3"
+                activityMainBinding.btnMem4.text = "M4"
+                activityMainBinding.btnMem5.text = "M5"
+            }
+
+
+        }
+
+        activityMainBinding.btnArrowBack!!.setOnClickListener {
+
+            if (activityMainBinding.btnMem1.text == "M1")
+            {
+
+                activityMainBinding.btnMem1.text = "M11"
+                activityMainBinding.btnMem2.text = "M12"
+                activityMainBinding.btnMem3.text = "M13"
+                activityMainBinding.btnMem4.text = "M14"
+                activityMainBinding.btnMem5.text = "M15"
+            }
+            else if (activityMainBinding.btnMem1.text == "M11")
+            {
+                activityMainBinding.btnMem1.text = "M6"
+                activityMainBinding.btnMem2.text = "M7"
+                activityMainBinding.btnMem3.text = "M8"
+                activityMainBinding.btnMem4.text = "M9"
+                activityMainBinding.btnMem5.text = "M10"
+            }
+            else
+            {
+                activityMainBinding.btnMem1.text = "M1"
+                activityMainBinding.btnMem2.text = "M2"
+                activityMainBinding.btnMem3.text = "M3"
+                activityMainBinding.btnMem4.text = "M4"
+                activityMainBinding.btnMem5.text = "M5"
+            }
+
+
+        }
+
         activityMainBinding.btnDeleteOneObject.setOnClickListener {//Odkazuje na tlacitko btnDeleteOneObject a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
 
             activityMainBinding.btnDeleteOneObject.setBackgroundColor(Color.parseColor("#616596"))

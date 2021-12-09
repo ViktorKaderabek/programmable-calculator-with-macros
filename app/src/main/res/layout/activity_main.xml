@@ -644,13 +644,27 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:weightSum="5"
+                    android:weightSum="7"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0">
+
+                    <ImageButton
+                        android:id="@+id/btn_arrow_back"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:autoSizeMaxTextSize="30sp"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeStepGranularity="2sp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/baseline_arrow_forward_ios_red_400_36dp"
+                        android:textColor="#FF6F32"
+                        android:rotation="180"/>
 
                     <Button
                         android:id="@+id/btn_mem1"
@@ -717,7 +731,23 @@
                         android:text="M5"
                         android:textColor="#FF6F32" />
 
+                    <ImageButton
+                        android:id="@+id/btn_arrow_for"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:autoSizeMaxTextSize="30sp"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeStepGranularity="2sp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/baseline_arrow_forward_ios_red_400_36dp"
+                        android:textColor="#FF6F32" />
+
+
                 </LinearLayout>
+
+
 
                 <LinearLayout
 
