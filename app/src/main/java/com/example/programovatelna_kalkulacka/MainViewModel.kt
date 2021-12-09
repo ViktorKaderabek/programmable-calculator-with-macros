@@ -37,21 +37,21 @@ class MainViewModel : ViewModel()
     private var c : Double = 0.0
     private var click : Int = 0
 
-    private var mem1Holder : String = "0"
-    private var mem2Holder : String = "0"
-    private var mem3Holder : String = "0"
-    private var mem4Holder : String = "0"
-    private var mem5Holder : String = "0"
-    private var mem6Holder : String = "0"
-    private var mem7Holder : String = "0"
-    private var mem8Holder : String = "0"
-    private var mem9Holder : String = "0"
-    private var mem10Holder : String = "0"
-    private var mem11Holder : String = "0"
-    private var mem12Holder : String = "0"
-    private var mem13Holder : String = "0"
-    private var mem14Holder : String = "0"
-    private var mem15Holder : String = "0"
+    private var mem1Holder : String = ""
+    private var mem2Holder : String = ""
+    private var mem3Holder : String = ""
+    private var mem4Holder : String = ""
+    private var mem5Holder : String = ""
+    private var mem6Holder : String = ""
+    private var mem7Holder : String = ""
+    private var mem8Holder : String = ""
+    private var mem9Holder : String = ""
+    private var mem10Holder : String = ""
+    private var mem11Holder : String = ""
+    private var mem12Holder : String = ""
+    private var mem13Holder : String = ""
+    private var mem14Holder : String = ""
+    private var mem15Holder : String = ""
 
     private var macroRecordIsClicked : Boolean = false
     private var macroRecallIsClicked : Boolean = false
