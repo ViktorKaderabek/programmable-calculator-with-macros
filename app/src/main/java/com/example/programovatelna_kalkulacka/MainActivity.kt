@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.txtProcess.text = it
                 })//Pokazde kdyz se vysledek getResult(), ktery je v MainViewModel zmeni, tak se zmeni i tady.
 
+
         mainViewModel.getM1()
             .observe(
                 this,
@@ -75,6 +77,76 @@ class MainActivity : AppCompatActivity()
                 })
 
         mainViewModel.getM5()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem5Value.text = it
+                })
+
+        mainViewModel.getM6()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem1Value.text = it
+                })
+
+        mainViewModel.getM7()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem2Value.text = it
+                })
+
+        mainViewModel.getM8()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem3Value.text = it
+                })
+
+        mainViewModel.getM9()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem4Value.text = it
+                })
+
+        mainViewModel.getM10()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem5Value.text = it
+                })
+
+        mainViewModel.getM11()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem1Value.text = it
+                })
+
+        mainViewModel.getM12()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem2Value.text = it
+                })
+
+        mainViewModel.getM13()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem3Value.text = it
+                })
+
+        mainViewModel.getM14()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem4Value.text = it
+                })
+
+        mainViewModel.getM15()
             .observe(
                 this,
                 {
@@ -143,6 +215,7 @@ class MainActivity : AppCompatActivity()
                 {
                     activityMainBinding.txtDeterminantNumber.text = it
                 })
+
 
 
         activityMainBinding.determinantLayout.visibility = View.INVISIBLE
@@ -589,6 +662,42 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnMem3.text = "M8"
                 activityMainBinding.btnMem4.text = "M9"
                 activityMainBinding.btnMem5.text = "M10"
+
+                mainViewModel.getM6()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem1Value.text = it
+                        })
+
+                mainViewModel.getM7()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem2Value.text = it
+                        })
+
+                mainViewModel.getM8()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem3Value.text = it
+                        })
+
+                mainViewModel.getM9()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem4Value.text = it
+                        })
+
+                mainViewModel.getM10()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem5Value.text = it
+                        })
+
             }
             else if (activityMainBinding.btnMem1.text == "M6")
             {
@@ -598,6 +707,45 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnMem3.text = "M13"
                 activityMainBinding.btnMem4.text = "M14"
                 activityMainBinding.btnMem5.text = "M15"
+
+
+                mainViewModel.getM11()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem1Value.text = it
+                        })
+
+                mainViewModel.getM12()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem2Value.text = it
+                        })
+
+                mainViewModel.getM13()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem3Value.text = it
+                        })
+
+                mainViewModel.getM14()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem4Value.text = it
+                        })
+
+                mainViewModel.getM15()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem5Value.text = it
+                        })
+
+
+
             }
             else
             {
@@ -606,8 +754,42 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnMem3.text = "M3"
                 activityMainBinding.btnMem4.text = "M4"
                 activityMainBinding.btnMem5.text = "M5"
-            }
 
+                mainViewModel.getM1()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem1Value.text = it
+                        })
+
+                mainViewModel.getM2()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem2Value.text = it
+                        })
+
+                mainViewModel.getM3()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem3Value.text = it
+                        })
+
+                mainViewModel.getM4()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem4Value.text = it
+                        })
+
+                mainViewModel.getM5()
+                    .observe(
+                        this,
+                        {
+                            activityMainBinding.txtMem5Value.text = it
+                        })
+            }
 
         }
 
@@ -896,7 +1078,20 @@ class MainActivity : AppCompatActivity()
                 }
             }.start()
 
-            mainViewModel.mem1()
+            if (activityMainBinding.btnMem1.text == "M1")
+            {
+                mainViewModel.mem1()
+            }
+            else if (activityMainBinding.btnMem1.text == "M6")
+            {
+                mainViewModel.mem6()
+            }
+            else
+            {
+                mainViewModel.mem11()
+            }
+
+
         }
 
         activityMainBinding.btnMem2.setOnClickListener {
@@ -918,7 +1113,18 @@ class MainActivity : AppCompatActivity()
                 }
             }.start()
 
-            mainViewModel.mem2()
+            if (activityMainBinding.btnMem1.text == "M2")
+            {
+                mainViewModel.mem2()
+            }
+            else if (activityMainBinding.btnMem1.text == "M7")
+            {
+                mainViewModel.mem7()
+            }
+            else
+            {
+                mainViewModel.mem12()
+            }
         }
 
         activityMainBinding.btnMem3.setOnClickListener {
@@ -940,7 +1146,18 @@ class MainActivity : AppCompatActivity()
                 }
             }.start()
 
-            mainViewModel.mem3()
+            if (activityMainBinding.btnMem3.text == "M3")
+            {
+                mainViewModel.mem3()
+            }
+            else if (activityMainBinding.btnMem3.text == "M8")
+            {
+                mainViewModel.mem8()
+            }
+            else
+            {
+                mainViewModel.mem13()
+            }
         }
 
         activityMainBinding.btnMem4.setOnClickListener {
@@ -962,7 +1179,18 @@ class MainActivity : AppCompatActivity()
                 }
             }.start()
 
-            mainViewModel.mem4()
+            if (activityMainBinding.btnMem4.text == "M4")
+            {
+                mainViewModel.mem4()
+            }
+            else if (activityMainBinding.btnMem4.text == "M9")
+            {
+                mainViewModel.mem9()
+            }
+            else
+            {
+                mainViewModel.mem14()
+            }
         }
 
         activityMainBinding.btnMem5.setOnClickListener {
@@ -984,7 +1212,18 @@ class MainActivity : AppCompatActivity()
                 }
             }.start()
 
-            mainViewModel.mem5()
+            if (activityMainBinding.btnMem5.text == "M5")
+            {
+                mainViewModel.mem5()
+            }
+            else if (activityMainBinding.btnMem5.text == "M10")
+            {
+                mainViewModel.mem10()
+            }
+            else
+            {
+                mainViewModel.mem15()
+            }
         }
 
         activityMainBinding.btnMemoryRecord.setOnClickListener {
