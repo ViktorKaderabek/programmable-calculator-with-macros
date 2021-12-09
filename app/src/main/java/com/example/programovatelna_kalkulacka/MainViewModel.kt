@@ -1037,7 +1037,6 @@ class MainViewModel : ViewModel()
             memCLearIsClicked = false
 
             isClickedCount = 0
-            memIsClickedCount = 0
             symbolIsClickedCount = 0
             macroResult = 0
 

@@ -360,14 +360,26 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:weightSum="15"
+                    android:weightSum="6"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0">
-
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:autoSizeMaxTextSize="15sp"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeStepGranularity="2sp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/white" />
                     <TextView
                         android:id="@+id/txt_mem1_value"
                         android:layout_width="0dp"
@@ -444,146 +456,9 @@
                         android:textColor="@color/white" />
 
                     <TextView
-                        android:id="@+id/txt_mem6_value"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem7_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem8_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem9_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem10_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-
-                    <TextView
-                        android:id="@+id/txt_mem11_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem12_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem13_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem14_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/txt_mem15_value"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="0.5"
                         android:autoSizeMaxTextSize="15sp"
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeStepGranularity="2sp"
@@ -644,7 +519,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:weightSum="7"
+                    android:weightSum="6"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -656,7 +531,7 @@
                         android:id="@+id/btn_arrow_back"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="0.5"
                         android:autoSizeMaxTextSize="30sp"
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeStepGranularity="2sp"
@@ -735,7 +610,7 @@
                         android:id="@+id/btn_arrow_for"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="0.5"
                         android:autoSizeMaxTextSize="30sp"
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeStepGranularity="2sp"
