@@ -237,8 +237,7 @@
                 android:weightSum="2"
                 app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
                 app:layout_constraintStart_toStartOf="@id/quadratic_equalation"
-                app:layout_constraintTop_toBottomOf="@+id/determinant_layout"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/determinant_layout">
 
                 <TextView
 
@@ -367,6 +366,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0">
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -380,6 +380,7 @@
                         android:maxLines="1"
                         android:text=""
                         android:textColor="@color/white" />
+
                     <TextView
                         android:id="@+id/txt_mem1_value"
                         android:layout_width="0dp"
@@ -537,9 +538,9 @@
                         android:autoSizeStepGranularity="2sp"
                         android:autoSizeTextType="uniform"
                         android:background="@android:color/transparent"
+                        android:rotation="180"
                         android:src="@drawable/baseline_arrow_forward_ios_red_400_36dp"
-                        android:textColor="#FF6F32"
-                        android:rotation="180"/>
+                        android:textColor="#FF6F32" />
 
                     <Button
                         android:id="@+id/btn_mem1"
@@ -621,7 +622,6 @@
 
 
                 </LinearLayout>
-
 
 
                 <LinearLayout

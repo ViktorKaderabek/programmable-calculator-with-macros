@@ -745,7 +745,6 @@ class MainActivity : AppCompatActivity()
                         })
 
 
-
             }
             else
             {
