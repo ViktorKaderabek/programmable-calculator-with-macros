@@ -1249,31 +1249,45 @@ class MainViewModel : ViewModel()
             if (count == arraySize)
             {
 
+                Log.e("message", "tady1")
+
                 numberArrayHolder.add(resultHolder)
 
             }
-            else if(array1Holder[count].toString() == "x2" && array1Holder[count+1].toString() == "x2"){
+            else if (array1Holder[count].toString() == "x2")
+            {
+                Log.e("message", "tady2")
 
-                numberArrayHolder.add(resultHolder + "*")
-                numberArrayHolder.add(resultHolder + "*")
+                if (array1Holder[count + 1].toString() == "x2")
+                {
+
+                    Log.e("message", "tady3")
+
+                    numberArrayHolder.add(resultHolder + "*")
+                    numberArrayHolder.add(resultHolder + "*")
+
+                }
+                else if (array1Holder[count + 1].toString() != "x2")
+                {
+                    Log.e("message", "tady4")
+
+                    numberArrayHolder.add(resultHolder + "*")
+                    numberArrayHolder.add(resultHolder + array1Holder[count + 1])
+
+                }
+                else
+                {
+                    numberArrayHolder.add(resultHolder + "*")
+                    numberArrayHolder.add(resultHolder)
+
+                }
+
 
                 count += 1
-            }
-            else if(array1Holder[count].toString() == "x2" && array1Holder[count+1].toString() != "x2"){
-
-                numberArrayHolder.add(resultHolder + "*")
-                numberArrayHolder.add(resultHolder + array1Holder[count+1])
-
-                count += 1
-            }
-            else if(array1Holder[count].toString() == "x2"){
-
-                numberArrayHolder.add(resultHolder + "*")
-                numberArrayHolder.add(resultHolder)
-
             }
             else
             {
+                Log.e("message", "tady5")
 
                 numberArrayHolder.add(resultHolder + array1Holder[count])
             }
@@ -1336,12 +1350,37 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array2Holder[count].toString() == "x2" && array2Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array2Holder[count].toString() == "x2" && array2Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array2Holder[count + 1])
+
+                count += 1
+            }
+            else if (array2Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
 
                 numberArrayHolder.add(resultHolder + array2Holder[count])
             }
+
             resultHolder = "0"
             processHolder = "0"
 
@@ -1399,6 +1438,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array3Holder[count].toString() == "x2" && array3Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array3Holder[count].toString() == "x2" && array3Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array3Holder[count + 1])
+
+                count += 1
+            }
+            else if (array3Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -1462,6 +1525,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array4Holder[count].toString() == "x2" && array4Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array4Holder[count].toString() == "x2" && array4Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array4Holder[count + 1])
+
+                count += 1
+            }
+            else if (array4Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -1525,6 +1612,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array5Holder[count].toString() == "x2" && array5Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array5Holder[count].toString() == "x2" && array5Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array5Holder[count + 1])
+
+                count += 1
+            }
+            else if (array5Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -1588,6 +1699,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array6Holder[count].toString() == "x2" && array6Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array6Holder[count].toString() == "x2" && array6Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array6Holder[count + 1])
+
+                count += 1
+            }
+            else if (array6Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -1651,6 +1786,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array7Holder[count].toString() == "x2" && array7Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array7Holder[count].toString() == "x2" && array7Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array7Holder[count + 1])
+
+                count += 1
+            }
+            else if (array7Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -1714,6 +1873,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array8Holder[count].toString() == "x2" && array8Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array8Holder[count].toString() == "x2" && array8Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array8Holder[count + 1])
+
+                count += 1
+            }
+            else if (array8Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -1777,6 +1960,30 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if (array9Holder[count].toString() == "x2" && array9Holder[count + 1].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if (array9Holder[count].toString() == "x2" && array9Holder[count + 1].toString() != "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array9Holder[count + 1])
+
+                count += 1
+            }
+            else if (array9Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
@@ -3061,61 +3268,232 @@ class MainViewModel : ViewModel()
     {
         isClicked = true
         resultHolderLenght = resultHolder.length
-        when
+
+        if (macroRecordIsClicked)
         {
-            resultHolder.isEmpty() || resultHolder == "Error" ->
-            {
-                resultHolder = "Error"
-            }
-            resultHolder == "0" ->
-            {
-            }
-            else ->
+
+            if (macroSet == "1")
             {
 
-                if (resultHolder.toString()
-                        .contains(".")
+                array1Holder.add("x3")
+                Log.e(
+                    "array",
+                    array1Holder.toString()
                 )
-                {
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array1Holder.size.toString()
+                )
 
-                    floatHolder =
-                            resultHolder.toFloat() * resultHolder.toFloat() * resultHolder.toFloat()
-                    resultHolder = floatHolder.toString()
-                    isClicked = false
-                }
-                else
-                {
-                    longHolder =
-                            resultHolder.toLong() * resultHolder.toLong() * resultHolder.toLong()
-                    resultHolder = longHolder.toString()
-                    isClicked = false
-                    // processHolder = processHolder.dropLast(1) + intHolder.toString()
-                }
             }
-        }
-        if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
-                "/"
-            )
-        )
-        {
+            else if (macroSet == "2")
+            {
 
-            processHolder = processHolder.dropLast(resultHolderLenght)
-            processHolder += resultHolder
-            proccessResult.value = processHolder
-            Log.e(
-                "lenght",
-                resultHolderLenght.toString()
-            )
+                array2Holder.add("x3")
+                Log.e(
+                    "array",
+                    array2Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array2Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "3")
+            {
+
+                array3Holder.add("x3")
+                Log.e(
+                    "array",
+                    array3Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array3Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "4")
+            {
+
+                array4Holder.add("x3")
+                Log.e(
+                    "array",
+                    array4Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array4Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "5")
+            {
+
+                array5Holder.add("x3")
+                Log.e(
+                    "array",
+                    array5Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array5Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "6")
+            {
+
+                array6Holder.add("x3")
+                Log.e(
+                    "array",
+                    array6Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array6Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "7")
+            {
+
+                array7Holder.add("x3")
+                Log.e(
+                    "array",
+                    array7Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array7Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "8")
+            {
+
+                array8Holder.add("x3")
+                Log.e(
+                    "array",
+                    array8Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array8Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "9")
+            {
+
+                array9Holder.add("x3")
+                Log.e(
+                    "array",
+                    array9Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array9Holder.size.toString()
+                )
+            }
 
         }
         else
         {
-            processHolder = resultHolder
-            proccessResult.value = processHolder
-        }
 
-        result.value = resultHolder
-        //proccessResult.value = processHolder
+            when
+            {
+                resultHolder.isEmpty() || resultHolder == "Error" ->
+                {
+                    resultHolder = "Error"
+                }
+                resultHolder == "0" ->
+                {
+                }
+                else ->
+                {
+
+                    if (resultHolder.toString()
+                            .contains(".")
+                    )
+                    {
+
+                        floatHolder =
+                                resultHolder.toFloat() * resultHolder.toFloat() * resultHolder.toFloat()
+                        resultHolder = floatHolder.toString()
+                        isClicked = false
+                    }
+                    else
+                    {
+                        longHolder =
+                                resultHolder.toLong() * resultHolder.toLong() * resultHolder.toLong()
+                        resultHolder = longHolder.toString()
+                        isClicked = false
+                        // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                    }
+                }
+            }
+            if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
+                    "/"
+                )
+            )
+            {
+
+                processHolder = processHolder.dropLast(resultHolderLenght)
+                processHolder += resultHolder
+                proccessResult.value = processHolder
+                Log.e(
+                    "lenght",
+                    resultHolderLenght.toString()
+                )
+
+            }
+            else
+            {
+                processHolder = resultHolder
+                proccessResult.value = processHolder
+            }
+
+            result.value = resultHolder
+            //proccessResult.value = processHolder
+        }
     }
 
     fun squareRoot()
