@@ -3093,7 +3093,7 @@ class MainViewModel : ViewModel()
 
             if (memCLearIsClicked)
             {
-                mem1Holder = "0"
+                mem1Holder = ""
                 memCLearIsClicked = false
             }
 
@@ -3720,7 +3720,7 @@ class MainViewModel : ViewModel()
 
             if (memCLearIsClicked)
             {
-                mem6Holder = "0"
+                mem6Holder = ""
                 memCLearIsClicked = false
             }
 
