@@ -1250,12 +1250,35 @@ class MainViewModel : ViewModel()
             {
 
                 numberArrayHolder.add(resultHolder)
+
+            }
+            else if(array1Holder[count].toString() == "x2" && array1Holder[count+1].toString() == "x2"){
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
+
+                count += 1
+            }
+            else if(array1Holder[count].toString() == "x2" && array1Holder[count+1].toString() != "x2"){
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array1Holder[count+1])
+
+                count += 1
+            }
+            else if(array1Holder[count].toString() == "x2"){
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
 
                 numberArrayHolder.add(resultHolder + array1Holder[count])
             }
+
+
             resultHolder = "0"
             processHolder = "0"
 
@@ -2807,61 +2830,231 @@ class MainViewModel : ViewModel()
     {
 
         isClicked = true
-        resultHolderLenght = resultHolder.length
 
-        if (resultHolder.isEmpty() || resultHolder == "Error")
+        isClicked = false
+        if (macroRecordIsClicked)
         {
-            resultHolder = "Error"
-        }
-        else if (resultHolder == "0")
-        {
-            result.value = resultHolder
+
+            if (macroSet == "1")
+            {
+
+                array1Holder.add("x2")
+                Log.e(
+                    "array",
+                    array1Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array1Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "2")
+            {
+
+                array2Holder.add("x2")
+                Log.e(
+                    "array",
+                    array2Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array2Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "3")
+            {
+
+                array3Holder.add("x2")
+                Log.e(
+                    "array",
+                    array3Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array3Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "4")
+            {
+
+                array4Holder.add("x2")
+                Log.e(
+                    "array",
+                    array4Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array4Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "5")
+            {
+
+                array5Holder.add("x2")
+                Log.e(
+                    "array",
+                    array5Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array5Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "6")
+            {
+
+                array6Holder.add("x2")
+                Log.e(
+                    "array",
+                    array6Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array6Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "7")
+            {
+
+                array7Holder.add("x2")
+                Log.e(
+                    "array",
+                    array7Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array7Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "8")
+            {
+
+                array8Holder.add("x2")
+                Log.e(
+                    "array",
+                    array8Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array8Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "9")
+            {
+
+                array9Holder.add("x2")
+                Log.e(
+                    "array",
+                    array9Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array9Holder.size.toString()
+                )
+            }
+
         }
         else
         {
-            if (resultHolder.toString()
-                    .contains(".")
-            )
-            {
+            resultHolderLenght = resultHolder.length
 
-                floatHolder = resultHolder.toFloat() * resultHolder.toFloat()
-                resultHolder = floatHolder.toString()
-                isClicked = false
+            if (resultHolder.isEmpty() || resultHolder == "Error")
+            {
+                resultHolder = "Error"
+            }
+            else if (resultHolder == "0")
+            {
+                result.value = resultHolder
             }
             else
             {
-                longHolder = resultHolder.toLong() * resultHolder.toLong()
-                resultHolder = longHolder.toString()
-                isClicked = false
-                // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                if (resultHolder.toString()
+                        .contains(".")
+                )
+                {
+
+                    floatHolder = resultHolder.toFloat() * resultHolder.toFloat()
+                    resultHolder = floatHolder.toString()
+                    isClicked = false
+                }
+                else
+                {
+                    longHolder = resultHolder.toLong() * resultHolder.toLong()
+                    resultHolder = longHolder.toString()
+                    isClicked = false
+                    // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                }
             }
-        }
 
 
-        if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
-                "/"
+            if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
+                    "/"
+                )
             )
-        )
-        {
+            {
 
-            processHolder = processHolder.dropLast(resultHolderLenght)
-            processHolder += resultHolder
-            proccessResult.value = processHolder
-            Log.e(
-                "lenght",
-                resultHolderLenght.toString()
-            )
+                processHolder = processHolder.dropLast(resultHolderLenght)
+                processHolder += resultHolder
+                proccessResult.value = processHolder
+                Log.e(
+                    "lenght",
+                    resultHolderLenght.toString()
+                )
 
+            }
+            else
+            {
+                processHolder = resultHolder
+                proccessResult.value = processHolder
+            }
+
+            result.value = resultHolder
+            // proccessResult.value = processHolder
         }
-        else
-        {
-            processHolder = resultHolder
-            proccessResult.value = processHolder
-        }
-
-        result.value = resultHolder
-        // proccessResult.value = processHolder
-
     }
 
     fun power3()
