@@ -1245,7 +1245,9 @@ class MainViewModel : ViewModel()
         if (macroChoosed == "1")
         {
 
+
             count += 1
+
             if (count == arraySize)
             {
 
@@ -1282,6 +1284,24 @@ class MainViewModel : ViewModel()
 
                 }
 
+
+                count += 1
+            }
+            else if (array1Holder[count + 1].toString() == "x2")
+            {
+                if (array1Holder[count].toString() == "*" || array1Holder[count].toString() == "/")
+                {
+
+                    numberArrayHolder.add(resultHolder + array1Holder[count])
+                    numberArrayHolder.add("1" + array1Holder[count])
+
+                }
+                else
+                {
+
+                    numberArrayHolder.add(resultHolder + array1Holder[count])
+                    numberArrayHolder.add("0" + array1Holder[count])
+                }
 
                 count += 1
             }
@@ -1336,10 +1356,12 @@ class MainViewModel : ViewModel()
 
             }
             Log.e(
-                "message",
+                "arrayHolder",
                 numberArrayHolder.toString()
             )
 
+            Log.e("count", count.toString())
+            Log.e("count", (arraySize + 1).toString())
 
         }
         else if (macroChoosed == "2")
