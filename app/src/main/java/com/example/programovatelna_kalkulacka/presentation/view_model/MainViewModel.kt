@@ -1,4 +1,4 @@
-package com.example.programovatelna_kalkulacka
+package com.example.programovatelna_kalkulacka.presentation.view_model
 
 import android.util.Log
 import androidx.lifecycle.LiveData
