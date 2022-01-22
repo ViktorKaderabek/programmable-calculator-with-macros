@@ -17,12 +17,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.programovatelna_kalkulacka.R
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
 import com.example.programovatelna_kalkulacka.presentation.view_model.MainViewModel
+import org.koin.android.ext.android.inject
 
 
 class MainActivity : AppCompatActivity()
 {
 
-    private lateinit var mainViewModel : MainViewModel //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
+    private val mainViewModel : MainViewModel by inject() //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
     private lateinit var activityMainBinding : ActivityMainBinding//Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
     private var count = 0
     override fun onCreate(savedInstanceState : Bundle?)
@@ -35,11 +36,6 @@ class MainActivity : AppCompatActivity()
                     R.layout.activity_main
                 ) //tato promenna nastavuje co bude ridit MainActivita d
 
-        mainViewModel =
-                ViewModelProvider(
-                    this,
-                    defaultViewModelProviderFactory
-                ).get(MainViewModel::class.java)//Umoznuje pristup do ViewModelu
 
         mainViewModel.getProcessResult()
             .observe(
