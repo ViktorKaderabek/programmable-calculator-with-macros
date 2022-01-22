@@ -3,6 +3,7 @@
     package="com.example.programovatelna_kalkulacka" >
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic_kreslic__pl_tno_1"
         android:label="@string/app_name"
@@ -13,7 +14,7 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
