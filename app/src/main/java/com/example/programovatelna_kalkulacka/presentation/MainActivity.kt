@@ -1,11 +1,10 @@
-package com.example.programovatelna_kalkulacka
+package com.example.programovatelna_kalkulacka.presentation
 
 
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -15,7 +14,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.programovatelna_kalkulacka.R
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
+import com.example.programovatelna_kalkulacka.presentation.view_model.MainViewModel
 
 
 class MainActivity : AppCompatActivity()
