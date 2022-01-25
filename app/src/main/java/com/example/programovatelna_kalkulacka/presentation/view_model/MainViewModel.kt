@@ -4,12 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.programovatelna_kalkulacka.data.ConnectionHelper
 import net.objecthunter.exp4j.ExpressionBuilder
+import java.sql.ResultSet
+import java.sql.Statement
 import kotlin.math.sqrt
 
 
 class MainViewModel : ViewModel()
 {
+
+    private val connect = ConnectionHelper().getConnection()
 
     var arraySize : Int = 0
     private var count : Int = -1
@@ -107,6 +112,175 @@ class MainViewModel : ViewModel()
     private val mem14Value = MutableLiveData<String>()
     private val mem15Value = MutableLiveData<String>()
     //---------------------------------------------------\\
+
+
+    init
+    {
+        getMemories()
+    }
+
+    private fun getMemories()
+    {
+        if (connect != null)
+        { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+            var statement : Statement? = null
+            var count : Int
+            try
+            {
+                statement = connect!!.createStatement()
+                var query1 : ResultSet =
+                        statement.executeQuery("SELECT COUNT(1) as NumberOfRows FROM MemoryHolder")
+                if (query1.next())
+                {
+                    count = query1.getInt(1)
+                    for (i in 1 .. count)
+                    {
+                        query1 =
+                                statement.executeQuery("select value from MemoryHolder where id = ('1')")
+                        if (query1.next())
+                        {
+                            mem1Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem1Value.value = mem1Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('2')")
+                        }
+                        if (query1.next())
+                        {
+                            mem2Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem2Value.value = mem2Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('3')")
+                        }
+                        if (query1.next())
+                        {
+                            mem3Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem1Value.value = mem3Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('4')")
+                        }
+                        if (query1.next())
+                        {
+                            mem4Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem4Value.value = mem4Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('5')")
+                        }
+                        if (query1.next())
+                        {
+                            mem5Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem5Value.value = mem5Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('6')")
+                        }
+                        if (query1.next())
+                        {
+                            mem6Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem6Value.value = mem6Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('7')")
+                        }
+                        if (query1.next())
+                        {
+                            mem7Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem7Value.value = mem7Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('8')")
+                        }
+                        if (query1.next())
+                        {
+                            mem8Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem8Value.value = mem8Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('9')")
+                        }
+                        if (query1.next())
+                        {
+                            mem9Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem9Value.value = mem9Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('10')")
+                        }
+                        if (query1.next())
+                        {
+                            mem10Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem10Value.value = mem10Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('11')")
+                        }
+                        if (query1.next())
+                        {
+                            mem11Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem11Value.value = mem11Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('12')")
+                        }
+                        if (query1.next())
+                        {
+                            mem12Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem12Value.value = mem12Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('13')")
+                        }
+                        if (query1.next())
+                        {
+                            mem13Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem13Value.value = mem13Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('14')")
+                        }
+                        if (query1.next())
+                        {
+                            mem14Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem14Value.value = mem14Holder
+                            query1 =
+                                    statement.executeQuery("select value from MemoryHolder where id = ('15')")
+                        }
+                        if (query1.next())
+                        {
+                            mem15Holder =
+                                    query1.getInt(1)
+                                        .toString()
+                            mem15Value.value = mem15Holder
+                        }
+
+                    }
+                }
+            }
+            catch (e : Exception)
+            {
+
+            }
+        }
+    }
 
     fun addNumber1()
     {
@@ -1245,73 +1419,41 @@ class MainViewModel : ViewModel()
         if (macroChoosed == "1")
         {
 
-
             count += 1
-
             if (count == arraySize)
             {
-
-                Log.e("message", "tady1")
 
                 numberArrayHolder.add(resultHolder)
 
             }
-            else if (array1Holder[count].toString() == "x2")
+            else if (array1Holder[count].toString() == "x2" && array1Holder[count + 1].toString() == "x2")
             {
-                Log.e("message", "tady2")
 
-                if (array1Holder[count + 1].toString() == "x2")
-                {
-
-                    Log.e("message", "tady3")
-
-                    numberArrayHolder.add(resultHolder + "*")
-                    numberArrayHolder.add(resultHolder + "*")
-
-                }
-                else if (array1Holder[count + 1].toString() != "x2")
-                {
-                    Log.e("message", "tady4")
-
-                    numberArrayHolder.add(resultHolder + "*")
-                    numberArrayHolder.add(resultHolder + array1Holder[count + 1])
-
-                }
-                else
-                {
-                    numberArrayHolder.add(resultHolder + "*")
-                    numberArrayHolder.add(resultHolder)
-
-                }
-
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + "*")
 
                 count += 1
             }
-            else if (array1Holder[count + 1].toString() == "x2")
+            else if (array1Holder[count].toString() == "x2" && array1Holder[count + 1].toString() != "x2")
             {
-                if (array1Holder[count].toString() == "*" || array1Holder[count].toString() == "/")
-                {
 
-                    numberArrayHolder.add(resultHolder + array1Holder[count])
-                    numberArrayHolder.add("1" + array1Holder[count])
-
-                }
-                else
-                {
-
-                    numberArrayHolder.add(resultHolder + array1Holder[count])
-                    numberArrayHolder.add("0" + array1Holder[count])
-                }
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder + array1Holder[count + 1])
 
                 count += 1
+            }
+            else if (array1Holder[count].toString() == "x2")
+            {
+
+                numberArrayHolder.add(resultHolder + "*")
+                numberArrayHolder.add(resultHolder)
+
             }
             else
             {
-                Log.e("message", "tady5")
 
                 numberArrayHolder.add(resultHolder + array1Holder[count])
             }
-
 
             resultHolder = "0"
             processHolder = "0"
@@ -1356,12 +1498,10 @@ class MainViewModel : ViewModel()
 
             }
             Log.e(
-                "arrayHolder",
+                "message",
                 numberArrayHolder.toString()
             )
 
-            Log.e("count", count.toString())
-            Log.e("count", (arraySize + 1).toString())
 
         }
         else if (macroChoosed == "2")
@@ -3694,6 +3834,23 @@ class MainViewModel : ViewModel()
             {
                 mem1Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('1')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -3821,6 +3978,23 @@ class MainViewModel : ViewModel()
                     memRecordIsClicked.toString()
                 )
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('2')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -3948,6 +4122,23 @@ class MainViewModel : ViewModel()
                     memRecordIsClicked.toString()
                 )
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('3')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4075,6 +4266,23 @@ class MainViewModel : ViewModel()
                     memRecordIsClicked.toString()
                 )
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('4')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4202,6 +4410,23 @@ class MainViewModel : ViewModel()
                     memRecordIsClicked.toString()
                 )
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('5')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4321,6 +4546,23 @@ class MainViewModel : ViewModel()
             {
                 mem6Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('6')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4440,6 +4682,23 @@ class MainViewModel : ViewModel()
             {
                 mem7Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('7')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4559,6 +4818,23 @@ class MainViewModel : ViewModel()
             {
                 mem8Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('8')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4678,6 +4954,23 @@ class MainViewModel : ViewModel()
             {
                 mem9Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('9')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4797,6 +5090,23 @@ class MainViewModel : ViewModel()
             {
                 mem10Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('10')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -4916,6 +5226,23 @@ class MainViewModel : ViewModel()
             {
                 mem11Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('11')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -5035,6 +5362,23 @@ class MainViewModel : ViewModel()
             {
                 mem12Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('12')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -5154,6 +5498,23 @@ class MainViewModel : ViewModel()
             {
                 mem13Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('13')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -5273,6 +5634,23 @@ class MainViewModel : ViewModel()
             {
                 mem14Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('14')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)
@@ -5392,6 +5770,23 @@ class MainViewModel : ViewModel()
             {
                 mem15Holder = ansHolder
                 memRecordIsClicked = false
+
+                if (connect != null)
+                { //pokud se pripojeni k dbs zdarilo stane se podminka
+
+                    var statement : Statement? = null
+                    var count : Int
+                    try
+                    {
+                        statement = connect!!.createStatement()
+                        var query1 : ResultSet =
+                                statement.executeQuery("Update MemoryHolder set value = ${ansHolder.toInt()} where id = ('15')")
+                    }
+                    catch (e : Exception)
+                    {
+                        Log.e("message", "An Error has occured")
+                    }
+                }
             }
 
             if (memIsClickedCount == 2)

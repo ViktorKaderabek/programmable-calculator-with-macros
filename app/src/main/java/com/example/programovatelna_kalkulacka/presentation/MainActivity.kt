@@ -43,43 +43,6 @@ class MainActivity : AppCompatActivity()
                 {
                     activityMainBinding.txtProcess.text = it
                 })//Pokazde kdyz se vysledek getResult(), ktery je v MainViewModel zmeni, tak se zmeni i tady.
-
-
-        mainViewModel.getM1()
-            .observe(
-                this,
-                {
-                    activityMainBinding.txtMem1Value.text = it
-                })
-
-        mainViewModel.getM2()
-            .observe(
-                this,
-                {
-                    activityMainBinding.txtMem2Value.text = it
-                })
-
-        mainViewModel.getM3()
-            .observe(
-                this,
-                {
-                    activityMainBinding.txtMem3Value.text = it
-                })
-
-        mainViewModel.getM4()
-            .observe(
-                this,
-                {
-                    activityMainBinding.txtMem4Value.text = it
-                })
-
-        mainViewModel.getM5()
-            .observe(
-                this,
-                {
-                    activityMainBinding.txtMem5Value.text = it
-                })
-
         mainViewModel.getM6()
             .observe(
                 this,
@@ -149,6 +112,42 @@ class MainActivity : AppCompatActivity()
                 {
                     activityMainBinding.txtMem5Value.text = it
                 })
+
+        mainViewModel.getM1()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem1Value.text = it
+                })
+
+        mainViewModel.getM2()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem2Value.text = it
+                })
+
+        mainViewModel.getM3()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem3Value.text = it
+                })
+
+        mainViewModel.getM4()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem4Value.text = it
+                })
+
+        mainViewModel.getM5()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtMem5Value.text = it
+                })
+
 
         mainViewModel.getResult()
             .observe(
