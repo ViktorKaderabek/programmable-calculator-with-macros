@@ -14,7 +14,7 @@ import kotlin.math.sqrt
 class MainViewModel : ViewModel()
 {
 
-    private val connect = ConnectionHelper().getConnection()
+    //private val connect = ConnectionHelper().getConnection()
 
     var arraySize : Int = 0
     private var count : Int = -1
@@ -114,7 +114,7 @@ class MainViewModel : ViewModel()
     //---------------------------------------------------\\
 
 
-    init
+  /*  init
     {
         getMemories()
     }
@@ -281,6 +281,7 @@ class MainViewModel : ViewModel()
             }
         }
     }
+   */
 
     fun addNumber1()
     {
@@ -3835,7 +3836,7 @@ class MainViewModel : ViewModel()
                 mem1Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -3851,6 +3852,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -3979,7 +3982,7 @@ class MainViewModel : ViewModel()
                 )
                 memRecordIsClicked = false
 
-                if (connect != null)
+              /*  if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -3995,6 +3998,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+               */
             }
 
             if (memIsClickedCount == 2)
@@ -4123,7 +4128,7 @@ class MainViewModel : ViewModel()
                 )
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4139,6 +4144,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -4267,7 +4274,7 @@ class MainViewModel : ViewModel()
                 )
                 memRecordIsClicked = false
 
-                if (connect != null)
+                /*if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4283,6 +4290,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                 */
             }
 
             if (memIsClickedCount == 2)
@@ -4411,7 +4420,7 @@ class MainViewModel : ViewModel()
                 )
                 memRecordIsClicked = false
 
-                if (connect != null)
+                /*if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4427,6 +4436,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                 */
             }
 
             if (memIsClickedCount == 2)
@@ -4547,7 +4558,7 @@ class MainViewModel : ViewModel()
                 mem6Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+                /*if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4563,6 +4574,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                 */
             }
 
             if (memIsClickedCount == 2)
@@ -4683,7 +4696,7 @@ class MainViewModel : ViewModel()
                 mem7Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4699,6 +4712,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -4819,7 +4834,7 @@ class MainViewModel : ViewModel()
                 mem8Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4835,6 +4850,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -4955,7 +4972,7 @@ class MainViewModel : ViewModel()
                 mem9Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -4971,6 +4988,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -5091,7 +5110,7 @@ class MainViewModel : ViewModel()
                 mem10Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+                /*if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -5107,6 +5126,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                 */
             }
 
             if (memIsClickedCount == 2)
@@ -5227,7 +5248,7 @@ class MainViewModel : ViewModel()
                 mem11Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -5243,6 +5264,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -5363,7 +5386,7 @@ class MainViewModel : ViewModel()
                 mem12Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+              /*  if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -5379,6 +5402,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+               */
             }
 
             if (memIsClickedCount == 2)
@@ -5499,7 +5524,7 @@ class MainViewModel : ViewModel()
                 mem13Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+              /*  if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -5515,6 +5540,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+               */
             }
 
             if (memIsClickedCount == 2)
@@ -5635,7 +5662,7 @@ class MainViewModel : ViewModel()
                 mem14Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -5651,6 +5678,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
@@ -5771,7 +5800,7 @@ class MainViewModel : ViewModel()
                 mem15Holder = ansHolder
                 memRecordIsClicked = false
 
-                if (connect != null)
+               /* if (connect != null)
                 { //pokud se pripojeni k dbs zdarilo stane se podminka
 
                     var statement : Statement? = null
@@ -5787,6 +5816,8 @@ class MainViewModel : ViewModel()
                         Log.e("message", "An Error has occured")
                     }
                 }
+
+                */
             }
 
             if (memIsClickedCount == 2)
