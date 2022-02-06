@@ -58,7 +58,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
-
+                    android:id="@+id/x1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -68,7 +68,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="left|center"
-                    android:text="x²"
+                    android:text="x"
                     android:textColor="@color/white" />
 
                 <TextView
@@ -102,6 +102,7 @@
 
 
                 <TextView
+                    android:id="@+id/x2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -183,49 +184,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-
-                android:id="@+id/determinant_layout"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-                app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
-                app:layout_constraintStart_toStartOf="@+id/txt_result"
-                app:layout_constraintTop_toBottomOf="@id/quadratic_equalation"
-                app:layout_constraintVertical_bias="0.1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.05"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:background="@android:color/transparent"
-                    android:gravity="left|center"
-                    android:text="Determinant :"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/txt_determinant_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.95"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:background="@android:color/transparent"
-                    android:gravity="left|center"
-                    android:text=""
-                    android:textColor="@color/white" />
-
-
-            </LinearLayout>
 
             <LinearLayout
 
@@ -237,7 +195,7 @@
                 android:weightSum="2"
                 app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
                 app:layout_constraintStart_toStartOf="@id/quadratic_equalation"
-                app:layout_constraintTop_toBottomOf="@+id/determinant_layout">
+                app:layout_constraintTop_toBottomOf="@+id/quadratic_equalation">
 
                 <TextView
 
@@ -250,7 +208,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="left|center"
-                    android:text="x1 root :"
+                    android:text="root :"
                     android:textColor="@color/white" />
 
                 <TextView
@@ -269,46 +227,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/x2_root_layout"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
-                app:layout_constraintStart_toStartOf="@id/quadratic_equalation"
-                app:layout_constraintTop_toBottomOf="@+id/x1_root_layout">
 
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.05"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:background="@android:color/transparent"
-                    android:gravity="left|center"
-                    android:text="x2 root :"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/txt_x2Root_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.95"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:background="@android:color/transparent"
-                    android:gravity="left|center"
-                    android:text=""
-                    android:textColor="@color/white" />
-
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/txt_result"
@@ -707,7 +626,7 @@
                     app:layout_constraintVertical_bias="0.0">
 
                     <Button
-                        android:id="@+id/btn_quadratic_eq_fun"
+                        android:id="@+id/btn_falsi_method"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -716,7 +635,7 @@
                         android:autoSizeStepGranularity="2sp"
                         android:autoSizeTextType="uniform"
                         android:background="@android:color/transparent"
-                        android:text="QE"
+                        android:text="FM"
                         android:textColor="@color/white" />
 
                     <Button

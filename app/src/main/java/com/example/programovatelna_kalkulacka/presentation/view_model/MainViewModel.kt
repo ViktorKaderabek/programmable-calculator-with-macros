@@ -4,10 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.programovatelna_kalkulacka.data.ConnectionHelper
 import net.objecthunter.exp4j.ExpressionBuilder
-import java.sql.ResultSet
-import java.sql.Statement
 import kotlin.math.sqrt
 
 
@@ -26,11 +23,12 @@ class MainViewModel : ViewModel()
     private var stringHolder : String = ""
     private var symbolClicked : String = ""
 
-    private var quadraticEqualationIsClickedCount : Int = 0
-    private var quadraticEqualationIsClicked : Boolean = false
-    private var quadraticNum1Holder : String = ""
-    private var quadraticNum2Holder : String = ""
-    private var quadraticNum3Holder : String = ""
+    private var falsiMethodIsClickedCount : Int = 0
+    private val MAX_ITER : Int = 10000000
+    private var falsiMethodIsClicked : Boolean = false
+    private var falsiNum1Holder : String = ""
+    private var falsiNum2Holder : String = ""
+    private var falsiNum3Holder : String = ""
     private var firstOperation : String = ""
     private var secondOperation : String = ""
     private var x1RootHolder : Double = 0.0
@@ -39,6 +37,8 @@ class MainViewModel : ViewModel()
     private var b : Double = 0.0
     private var c : Double = 0.0
     private var click : Int = 0
+    private var x1 : String = ""
+    private var x2 : String = ""
 
     private var mem1Holder : String = ""
     private var mem2Holder : String = ""
@@ -89,6 +89,8 @@ class MainViewModel : ViewModel()
     private var secondOperationResult = MutableLiveData<String>()
     private var x1RootResult = MutableLiveData<String>()
     private var x2RootResult = MutableLiveData<String>()
+    private var x1Result = MutableLiveData<String>()
+    private var x2Result = MutableLiveData<String>()
 
     private val lastResult = MutableLiveData<String>()
     private val proccessResult = MutableLiveData<String>()
@@ -127,23 +129,27 @@ class MainViewModel : ViewModel()
             macroSet = "1"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("1")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("1")
+                quadraticNum1Result.value = falsiNum1Holder
+
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("1")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("1")
+                quadraticNum2Result.value = falsiNum2Holder
+
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("1")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("1")
+                quadraticNum3Result.value = falsiNum3Holder
+
             }
         }
         else
@@ -206,22 +212,25 @@ class MainViewModel : ViewModel()
             macroSet = "2"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("2")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("2")
+                quadraticNum1Result.value = falsiNum1Holder
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("2")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("2")
+                quadraticNum2Result.value = falsiNum2Holder
+
             }
             else
             {
-                quadraticNum3Holder = quadraticNum3Holder.plus("2")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("2")
+                quadraticNum3Result.value = falsiNum3Holder
+
             }
         }
         else
@@ -287,23 +296,26 @@ class MainViewModel : ViewModel()
             macroSet = "3"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("3")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("3")
+                quadraticNum1Result.value = falsiNum1Holder
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("3")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("3")
+                quadraticNum2Result.value = falsiNum2Holder
+
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("3")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("3")
+                quadraticNum3Result.value = falsiNum3Holder
+
             }
         }
         else
@@ -367,23 +379,27 @@ class MainViewModel : ViewModel()
             macroSet = "4"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("4")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("4")
+                quadraticNum1Result.value = falsiNum1Holder
+
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("4")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("4")
+                quadraticNum2Result.value = falsiNum2Holder
+
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("4")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("4")
+                quadraticNum3Result.value = falsiNum3Holder
+
             }
         }
         else
@@ -446,23 +462,25 @@ class MainViewModel : ViewModel()
             macroSet = "5"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("5")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("5")
+                quadraticNum1Result.value = falsiNum1Holder
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("5")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("5")
+                quadraticNum2Result.value = falsiNum2Holder
+
             }
             else
             {
+                falsiNum3Holder = falsiNum3Holder.plus("5")
+                quadraticNum3Result.value = falsiNum3Holder
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("5")
-                quadraticNum3Result.value = quadraticNum3Holder
             }
         }
         else
@@ -525,23 +543,24 @@ class MainViewModel : ViewModel()
             macroSet = "6"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("6")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("6")
+                quadraticNum1Result.value = falsiNum1Holder
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("6")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("6")
+                quadraticNum2Result.value = falsiNum2Holder
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("6")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("6")
+                quadraticNum3Result.value = falsiNum3Holder
             }
         }
         else
@@ -604,23 +623,23 @@ class MainViewModel : ViewModel()
             macroSet = "7"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("7")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("7")
+                quadraticNum1Result.value = falsiNum1Holder
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("7")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("7")
+                quadraticNum2Result.value = falsiNum2Holder
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("7")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("7")
+                quadraticNum3Result.value = falsiNum3Holder
             }
         }
         else
@@ -684,23 +703,23 @@ class MainViewModel : ViewModel()
             macroSet = "8"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("8")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("8")
+                quadraticNum1Result.value = falsiNum1Holder
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("8")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("8")
+                quadraticNum2Result.value = falsiNum2Holder
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("8")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("8")
+                quadraticNum3Result.value = falsiNum3Holder
             }
         }
         else
@@ -764,23 +783,27 @@ class MainViewModel : ViewModel()
             macroSet = "9"
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("9")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("9")
+                quadraticNum1Result.value = falsiNum1Holder
+
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("9")
-                quadraticNum2Result.value = quadraticNum2Holder
+
+                falsiNum2Holder = falsiNum2Holder.plus("9")
+                quadraticNum2Result.value = falsiNum2Holder
+
             }
-            else
+            else if (firstOperation.isNotEmpty() && secondOperation.isNotEmpty())
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("9")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("9")
+                quadraticNum3Result.value = falsiNum3Holder
+
             }
         }
         else
@@ -829,23 +852,23 @@ class MainViewModel : ViewModel()
 
     fun addNumber0()
     {
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("0")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("0")
+                quadraticNum1Result.value = falsiNum1Holder
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                quadraticNum2Holder = quadraticNum2Holder.plus("0")
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.plus("0")
+                quadraticNum2Result.value = falsiNum2Holder
             }
             else
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.plus("0")
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.plus("0")
+                quadraticNum3Result.value = falsiNum3Holder
             }
         }
         else
@@ -925,42 +948,42 @@ class MainViewModel : ViewModel()
 
     fun addDot()
     {
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
-                if (quadraticNum1Holder.contains("."))
+                if (falsiNum1Holder.contains("."))
                 {
-                    quadraticNum1Result.value = quadraticNum1Holder
+                    quadraticNum1Result.value = falsiNum1Holder
                 }
                 else
                 {
-                    quadraticNum1Holder = quadraticNum1Holder.plus(".")
-                    quadraticNum1Result.value = quadraticNum1Holder
+                    falsiNum1Holder = falsiNum1Holder.plus(".")
+                    quadraticNum1Result.value = falsiNum1Holder
                 }
             }
             else if (firstOperation.isNotEmpty() && secondOperation.isEmpty())
             {
-                if (quadraticNum2Holder.contains("."))
+                if (falsiNum2Holder.contains("."))
                 {
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    quadraticNum2Result.value = falsiNum2Holder
                 }
                 else
                 {
-                    quadraticNum2Holder = quadraticNum2Holder.plus(".")
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = falsiNum2Holder.plus(".")
+                    quadraticNum2Result.value = falsiNum2Holder
                 }
             }
             else
             {
-                if (quadraticNum3Holder.contains("."))
+                if (falsiNum3Holder.contains("."))
                 {
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    quadraticNum3Result.value = falsiNum3Holder
                 }
                 else
                 {
-                    quadraticNum3Holder = quadraticNum3Holder.plus(".")
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = falsiNum3Holder.plus(".")
+                    quadraticNum3Result.value = falsiNum3Holder
                 }
             }
         }
@@ -1013,13 +1036,13 @@ class MainViewModel : ViewModel()
 
     fun deleteAll()
     {
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            quadraticEqualationIsClickedCount = 0
-            quadraticNum1Holder = ""
-            quadraticNum2Holder = ""
-            quadraticNum3Holder = ""
+            falsiMethodIsClickedCount = 0
+            falsiNum1Holder = ""
+            falsiNum2Holder = ""
+            falsiNum3Holder = ""
             firstOperation = ""
             secondOperation = ""
             x1RootHolder = 0.0
@@ -1027,6 +1050,8 @@ class MainViewModel : ViewModel()
             a = 0.0
             b = 0.0
             c = 0.0
+            x1 = "x"
+            x2 = "x"
 
             quadraticNum1Result.value = ""
             quadraticNum2Result.value = ""
@@ -1070,27 +1095,27 @@ class MainViewModel : ViewModel()
 
     fun deleteOneChar()
     {
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
-            if (quadraticNum3Holder.isNotEmpty())
+            if (falsiNum3Holder.isNotEmpty())
             {
 
-                quadraticNum3Holder = quadraticNum3Holder.dropLast(1)
-                quadraticNum3Result.value = quadraticNum3Holder
+                falsiNum3Holder = falsiNum3Holder.dropLast(1)
+                quadraticNum3Result.value = falsiNum3Holder
             }
-            else if (quadraticNum3Holder.isEmpty() && secondOperation.isNotEmpty())
+            else if (falsiNum3Holder.isEmpty() && secondOperation.isNotEmpty())
             {
 
                 secondOperation = secondOperation.dropLast(1)
                 secondOperationResult.value = secondOperation
             }
-            else if (quadraticNum2Holder.isNotEmpty())
+            else if (falsiNum2Holder.isNotEmpty())
             {
 
-                quadraticNum2Holder = quadraticNum2Holder.dropLast(1)
-                quadraticNum2Result.value = quadraticNum2Holder
+                falsiNum2Holder = falsiNum2Holder.dropLast(1)
+                quadraticNum2Result.value = falsiNum2Holder
             }
-            else if (quadraticNum2Holder.isEmpty() && firstOperation.isNotEmpty())
+            else if (falsiNum2Holder.isEmpty() && firstOperation.isNotEmpty())
             {
 
                 firstOperation = firstOperation.dropLast(1)
@@ -1098,8 +1123,8 @@ class MainViewModel : ViewModel()
             }
             else
             {
-                quadraticNum1Holder = quadraticNum1Holder.dropLast(1)
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.dropLast(1)
+                quadraticNum1Result.value = falsiNum1Holder
             }
         }
         else
@@ -1130,10 +1155,10 @@ class MainViewModel : ViewModel()
 
     fun changeSymbol()
     {
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (secondOperation.isNotEmpty() && quadraticNum2Holder.isNotEmpty())
+            if (secondOperation.isNotEmpty() && falsiNum2Holder.isNotEmpty())
             {
                 if (secondOperation == "-")
                 {
@@ -1145,7 +1170,7 @@ class MainViewModel : ViewModel()
                 }
                 secondOperationResult.value = secondOperation
             }
-            else if (firstOperation.isNotEmpty() && quadraticNum1Holder.isNotEmpty())
+            else if (firstOperation.isNotEmpty() && falsiNum1Holder.isNotEmpty())
             {
                 if (firstOperation == "-")
                 {
@@ -1160,15 +1185,15 @@ class MainViewModel : ViewModel()
             else
             {
 
-                if (quadraticNum1Holder.contains("-"))
+                if (falsiNum1Holder.contains("-"))
                 {
-                    quadraticNum1Holder = quadraticNum1Holder.drop(1)
+                    falsiNum1Holder = falsiNum1Holder.drop(1)
                 }
                 else
                 {
-                    quadraticNum1Holder = ("-$quadraticNum1Holder")
+                    falsiNum1Holder = ("-$falsiNum1Holder")
                 }
-                quadraticNum1Result.value = quadraticNum1Holder
+                quadraticNum1Result.value = falsiNum1Holder
             }
         }
         else
@@ -2195,7 +2220,7 @@ class MainViewModel : ViewModel()
             }
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
             {
@@ -2436,12 +2461,12 @@ class MainViewModel : ViewModel()
             }
 
         }
-        else if (quadraticEqualationIsClicked)
+        else if (falsiMethodIsClicked)
         {
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
-                quadraticNum1Holder = quadraticNum1Holder.plus("-")
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = falsiNum1Holder.plus("-")
+                quadraticNum1Result.value = falsiNum1Holder
             }
             else if (firstOperation.isEmpty())
             {
@@ -2968,266 +2993,55 @@ class MainViewModel : ViewModel()
     fun percent()
     {
         isClicked = true
-        resultHolderLenght = resultHolder.length
-        when
+
+        if (falsiMethodIsClicked)
         {
-            resultHolder.isEmpty() || resultHolder == "Error" ->
+            if (firstOperation.isEmpty())
             {
-                resultHolder = "Error"
-            }
-            resultHolder == "0" ->
-            {
-
-            }
-            else ->
-            {
-                floatHolder = resultHolder.toFloat() / 100
-                if (floatHolder.toString()
-                        .contains(".00")
-                )
-                {
-
-                    longHolder = floatHolder.toLong()
-                    resultHolder = longHolder.toString()
-                    isClicked = false
-                }
-                else
-                {
-                    resultHolder = floatHolder.toString()
-                    isClicked = false
-                    // processHolder = processHolder.dropLast(1) + intHolder.toString()
-                }
-            }
-        }
-
-        if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
-                "/"
-            )
-        )
-        {
-
-            processHolder = processHolder.dropLast(resultHolderLenght)
-            processHolder += resultHolder
-            proccessResult.value = processHolder
-            Log.e(
-                "lenght",
-                resultHolderLenght.toString()
-            )
-
-        }
-        else
-        {
-            processHolder = resultHolder
-            proccessResult.value = processHolder
-        }
-        result.value = resultHolder
-
-    }
-
-    fun power2()
-    {
-
-        isClicked = true
-
-        isClicked = false
-        if (macroRecordIsClicked)
-        {
-
-            if (macroSet == "1")
-            {
-
-                array1Holder.add("x2")
-                Log.e(
-                    "array",
-                    array1Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array1Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "2")
-            {
-
-                array2Holder.add("x2")
-                Log.e(
-                    "array",
-                    array2Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array2Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "3")
-            {
-
-                array3Holder.add("x2")
-                Log.e(
-                    "array",
-                    array3Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array3Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "4")
-            {
-
-                array4Holder.add("x2")
-                Log.e(
-                    "array",
-                    array4Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array4Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "5")
-            {
-
-                array5Holder.add("x2")
-                Log.e(
-                    "array",
-                    array5Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array5Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "6")
-            {
-
-                array6Holder.add("x2")
-                Log.e(
-                    "array",
-                    array6Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array6Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "7")
-            {
-
-                array7Holder.add("x2")
-                Log.e(
-                    "array",
-                    array7Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array7Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "8")
-            {
-
-                array8Holder.add("x2")
-                Log.e(
-                    "array",
-                    array8Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array8Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "9")
-            {
-
-                array9Holder.add("x2")
-                Log.e(
-                    "array",
-                    array9Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array9Holder.size.toString()
-                )
-            }
-
-        }
-        else
-        {
-            resultHolderLenght = resultHolder.length
-
-            if (resultHolder.isEmpty() || resultHolder == "Error")
-            {
-                resultHolder = "Error"
-            }
-            else if (resultHolder == "0")
-            {
-                result.value = resultHolder
+                x1 = "x4"
+                x1Result.value = x1
             }
             else
             {
-                if (resultHolder.toString()
-                        .contains(".")
-                )
+                x2 = "x4"
+                x2Result.value = x2
+            }
+        }
+        else
+        {
+
+
+            resultHolderLenght = resultHolder.length
+            when
+            {
+                resultHolder.isEmpty() || resultHolder == "Error" ->
+                {
+                    resultHolder = "Error"
+                }
+                resultHolder == "0" ->
                 {
 
-                    floatHolder = resultHolder.toFloat() * resultHolder.toFloat()
-                    resultHolder = floatHolder.toString()
-                    isClicked = false
                 }
-                else
+                else ->
                 {
-                    longHolder = resultHolder.toLong() * resultHolder.toLong()
-                    resultHolder = longHolder.toString()
-                    isClicked = false
-                    // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                    floatHolder = resultHolder.toFloat() / 100
+                    if (floatHolder.toString()
+                            .contains(".00")
+                    )
+                    {
+
+                        longHolder = floatHolder.toLong()
+                        resultHolder = longHolder.toString()
+                        isClicked = false
+                    }
+                    else
+                    {
+                        resultHolder = floatHolder.toString()
+                        isClicked = false
+                        // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                    }
                 }
             }
-
 
             if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
                     "/"
@@ -3249,186 +3063,527 @@ class MainViewModel : ViewModel()
                 processHolder = resultHolder
                 proccessResult.value = processHolder
             }
-
             result.value = resultHolder
-            // proccessResult.value = processHolder
+        }
+    }
+
+    fun power2()
+    {
+        if (falsiMethodIsClicked)
+        {
+            if (firstOperation.isEmpty())
+            {
+                x1 = "x2"
+                x1Result.value = x1
+            }
+            else
+            {
+                x2 = "x2"
+                x2Result.value = x2
+            }
+        }
+        else
+        {
+
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("x2")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+
+            }
+            else
+            {
+                resultHolderLenght = resultHolder.length
+
+                if (resultHolder.isEmpty() || resultHolder == "Error")
+                {
+                    resultHolder = "Error"
+                }
+                else if (resultHolder == "0")
+                {
+                    result.value = resultHolder
+                }
+                else
+                {
+                    if (resultHolder.toString()
+                            .contains(".")
+                    )
+                    {
+
+                        floatHolder = resultHolder.toFloat() * resultHolder.toFloat()
+                        resultHolder = floatHolder.toString()
+                        isClicked = false
+                    }
+                    else
+                    {
+                        longHolder = resultHolder.toLong() * resultHolder.toLong()
+                        resultHolder = longHolder.toString()
+                        isClicked = false
+                        // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                    }
+                }
+
+
+                if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
+                        "/"
+                    )
+                )
+                {
+
+                    processHolder = processHolder.dropLast(resultHolderLenght)
+                    processHolder += resultHolder
+                    proccessResult.value = processHolder
+                    Log.e(
+                        "lenght",
+                        resultHolderLenght.toString()
+                    )
+
+                }
+                else
+                {
+                    processHolder = resultHolder
+                    proccessResult.value = processHolder
+                }
+
+                result.value = resultHolder
+                // proccessResult.value = processHolder
+            }
         }
     }
 
     fun power3()
     {
-        isClicked = true
-        resultHolderLenght = resultHolder.length
 
-        if (macroRecordIsClicked)
+        if (falsiMethodIsClicked)
         {
+            if (firstOperation.isEmpty())
+            {
+                x1 = "x3"
+                x1Result.value = x1
+            }
+            else
+            {
+                x2 = "x3"
+                x2Result.value = x2
+            }
+        }
+        else
+        {
+            isClicked = true
 
-            if (macroSet == "1")
+            resultHolderLenght = resultHolder.length
+
+            if (macroRecordIsClicked)
             {
 
-                array1Holder.add("x3")
-                Log.e(
-                    "array",
-                    array1Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array1Holder.size.toString()
-                )
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("x3")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
 
             }
-            else if (macroSet == "2")
+            else
             {
 
-                array2Holder.add("x3")
-                Log.e(
-                    "array",
-                    array2Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array2Holder.size.toString()
-                )
+                when
+                {
+                    resultHolder.isEmpty() || resultHolder == "Error" ->
+                    {
+                        resultHolder = "Error"
+                    }
+                    resultHolder == "0" ->
+                    {
+                    }
+                    else ->
+                    {
 
+                        if (resultHolder.toString()
+                                .contains(".")
+                        )
+                        {
+
+                            floatHolder =
+                                    resultHolder.toFloat() * resultHolder.toFloat() * resultHolder.toFloat()
+                            resultHolder = floatHolder.toString()
+                            isClicked = false
+                        }
+                        else
+                        {
+                            longHolder =
+                                    resultHolder.toLong() * resultHolder.toLong() * resultHolder.toLong()
+                            resultHolder = longHolder.toString()
+                            isClicked = false
+                            // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                        }
+                    }
+                }
+                if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
+                        "/"
+                    )
+                )
+                {
+
+                    processHolder = processHolder.dropLast(resultHolderLenght)
+                    processHolder += resultHolder
+                    proccessResult.value = processHolder
+                    Log.e(
+                        "lenght",
+                        resultHolderLenght.toString()
+                    )
+
+                }
+                else
+                {
+                    processHolder = resultHolder
+                    proccessResult.value = processHolder
+                }
+
+                result.value = resultHolder
+                //proccessResult.value = processHolder
             }
-            else if (macroSet == "3")
+        }
+    }
+
+    fun squareRoot()
+    {
+        if (falsiMethodIsClicked)
+        {
+            if (firstOperation.isEmpty())
             {
-
-                array3Holder.add("x3")
-                Log.e(
-                    "array",
-                    array3Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array3Holder.size.toString()
-                )
-
+                x1 = "x5"
+                x1Result.value = x1
             }
-            else if (macroSet == "4")
+            else
             {
-
-                array4Holder.add("x3")
-                Log.e(
-                    "array",
-                    array4Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array4Holder.size.toString()
-                )
-
+                x2 = "x5"
+                x2Result.value = x2
             }
-            else if (macroSet == "5")
-            {
-
-                array5Holder.add("x3")
-                Log.e(
-                    "array",
-                    array5Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array5Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "6")
-            {
-
-                array6Holder.add("x3")
-                Log.e(
-                    "array",
-                    array6Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array6Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "7")
-            {
-
-                array7Holder.add("x3")
-                Log.e(
-                    "array",
-                    array7Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array7Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "8")
-            {
-
-                array8Holder.add("x3")
-                Log.e(
-                    "array",
-                    array8Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array8Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "9")
-            {
-
-                array9Holder.add("x3")
-                Log.e(
-                    "array",
-                    array9Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array9Holder.size.toString()
-                )
-            }
-
         }
         else
         {
 
+            isClicked = true
+            resultHolderLenght = resultHolder.length
             when
             {
                 resultHolder.isEmpty() || resultHolder == "Error" ->
@@ -3440,25 +3595,24 @@ class MainViewModel : ViewModel()
                 }
                 else ->
                 {
+                    isClicked = false
+                    floatHolder = kotlin.math.sqrt(resultHolder.toDouble())
+                        .toFloat()
 
-                    if (resultHolder.toString()
-                            .contains(".")
+                    if (floatHolder.toString()
+                            .contains(".0")
                     )
                     {
 
-                        floatHolder =
-                                resultHolder.toFloat() * resultHolder.toFloat() * resultHolder.toFloat()
-                        resultHolder = floatHolder.toString()
-                        isClicked = false
+                        longHolder = floatHolder.toLong()
+                        resultHolder = longHolder.toString()
                     }
                     else
                     {
-                        longHolder =
-                                resultHolder.toLong() * resultHolder.toLong() * resultHolder.toLong()
-                        resultHolder = longHolder.toString()
-                        isClicked = false
-                        // processHolder = processHolder.dropLast(1) + intHolder.toString()
+                        resultHolder = floatHolder.toString()
+
                     }
+
                 }
             }
             if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
@@ -3483,68 +3637,8 @@ class MainViewModel : ViewModel()
             }
 
             result.value = resultHolder
-            //proccessResult.value = processHolder
-        }
-    }
-
-    fun squareRoot()
-    {
-        isClicked = true
-        resultHolderLenght = resultHolder.length
-        when
-        {
-            resultHolder.isEmpty() || resultHolder == "Error" ->
-            {
-                resultHolder = "Error"
-            }
-            resultHolder == "0" ->
-            {
-            }
-            else ->
-            {
-                isClicked = false
-                floatHolder = kotlin.math.sqrt(resultHolder.toDouble())
-                    .toFloat()
-
-                if (floatHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    longHolder = floatHolder.toLong()
-                    resultHolder = longHolder.toString()
-                }
-                else
-                {
-                    resultHolder = floatHolder.toString()
-
-                }
-
-            }
-        }
-        if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains("*") || processHolder.contains(
-                "/"
-            )
-        )
-        {
-
-            processHolder = processHolder.dropLast(resultHolderLenght)
-            processHolder += resultHolder
-            proccessResult.value = processHolder
-            Log.e(
-                "lenght",
-                resultHolderLenght.toString()
-            )
 
         }
-        else
-        {
-            processHolder = resultHolder
-            proccessResult.value = processHolder
-        }
-
-        result.value = resultHolder
-
     }
 
     fun memoryRecord()
@@ -3583,16 +3677,16 @@ class MainViewModel : ViewModel()
     fun mem1()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem1Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem1Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem1Holder.toString()
                         .contains("-")
@@ -3602,16 +3696,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem1Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -3626,8 +3720,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem1Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -3635,8 +3729,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem1Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -3663,6 +3757,8 @@ class MainViewModel : ViewModel()
             {
                 mem1Holder = ansHolder
                 memRecordIsClicked = false
+
+
             }
 
             if (memIsClickedCount == 2)
@@ -3699,19 +3795,20 @@ class MainViewModel : ViewModel()
         }
     }
 
+
     fun mem2()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem2Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem2Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem2Holder.toString()
                         .contains("-")
@@ -3721,16 +3818,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem2Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -3745,8 +3842,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem2Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -3754,8 +3851,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem2Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -3830,16 +3927,16 @@ class MainViewModel : ViewModel()
     fun mem3()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem3Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem3Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem3Holder.toString()
                         .contains("-")
@@ -3849,16 +3946,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem3Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -3873,8 +3970,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem3Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -3882,8 +3979,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem3Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -3957,16 +4054,16 @@ class MainViewModel : ViewModel()
     fun mem4()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem4Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem4Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem4Holder.toString()
                         .contains("-")
@@ -3976,16 +4073,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem4Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4000,8 +4097,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem4Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4009,8 +4106,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem4Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4103,16 +4200,16 @@ class MainViewModel : ViewModel()
     fun mem5()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem5Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem5Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem5Holder.toString()
                         .contains("-")
@@ -4122,16 +4219,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem5Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4146,8 +4243,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem5Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4155,8 +4252,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem5Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4249,16 +4346,16 @@ class MainViewModel : ViewModel()
     fun mem6()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem6Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem6Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem6Holder.toString()
                         .contains("-")
@@ -4268,16 +4365,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem6Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4292,8 +4389,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem6Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4301,8 +4398,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem6Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4387,16 +4484,16 @@ class MainViewModel : ViewModel()
     fun mem7()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem7Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem7Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem7Holder.toString()
                         .contains("-")
@@ -4406,16 +4503,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem7Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4430,8 +4527,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem7Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4439,8 +4536,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem7Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4508,16 +4605,16 @@ class MainViewModel : ViewModel()
     fun mem8()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem8Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem8Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem8Holder.toString()
                         .contains("-")
@@ -4527,16 +4624,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem8Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4551,8 +4648,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem8Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4560,8 +4657,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem8Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4628,16 +4725,16 @@ class MainViewModel : ViewModel()
     fun mem9()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem9Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem9Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem9Holder.toString()
                         .contains("-")
@@ -4647,16 +4744,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem9Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4671,8 +4768,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem9Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4680,8 +4777,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem9Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4748,16 +4845,16 @@ class MainViewModel : ViewModel()
     fun mem10()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem10Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem10Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem10Holder.toString()
                         .contains("-")
@@ -4767,16 +4864,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem10Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4791,8 +4888,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem10Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4800,8 +4897,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem10Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4869,16 +4966,16 @@ class MainViewModel : ViewModel()
     fun mem11()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem11Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem11Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem11Holder.toString()
                         .contains("-")
@@ -4888,16 +4985,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem11Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -4912,8 +5009,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem11Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -4921,8 +5018,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem11Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -4990,16 +5087,16 @@ class MainViewModel : ViewModel()
     fun mem12()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem12Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem12Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem12Holder.toString()
                         .contains("-")
@@ -5009,16 +5106,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem12Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -5033,8 +5130,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem12Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -5042,8 +5139,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem12Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -5111,16 +5208,16 @@ class MainViewModel : ViewModel()
     fun mem13()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem13Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem13Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem13Holder.toString()
                         .contains("-")
@@ -5130,16 +5227,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem13Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -5154,8 +5251,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem13Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -5163,8 +5260,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem13Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -5232,16 +5329,16 @@ class MainViewModel : ViewModel()
     fun mem14()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem14Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem14Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem14Holder.toString()
                         .contains("-")
@@ -5251,16 +5348,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem14Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -5275,8 +5372,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem14Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -5284,8 +5381,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem14Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -5352,16 +5449,16 @@ class MainViewModel : ViewModel()
     fun mem15()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = mem15Holder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = mem15Holder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (mem15Holder.toString()
                         .contains("-")
@@ -5371,16 +5468,16 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = mem15Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
                 else
                 {
                     firstOperation = "+"
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -5395,8 +5492,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = mem15Holder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -5404,8 +5501,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = mem15Holder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -5473,183 +5570,34 @@ class MainViewModel : ViewModel()
     fun equal()
     {
 
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
+            var a = 300.0
+            var b = 1400.0
+            var c : Double? = null
 
-            a = quadraticNum1Holder.toDouble()
-
-            if (firstOperation == "-")
-            {
-
-                b = ("-$quadraticNum2Holder").toDouble()
-            }
-            else if (firstOperation == "+")
-            {
-
-                b = ("$quadraticNum2Holder").toDouble()
-            }
-
-            if (secondOperation == "-")
-            {
-
-                c = ("-$quadraticNum3Holder").toDouble()
-            }
-            else if (secondOperation == "+")
-            {
-
-                c = ("$quadraticNum3Holder").toDouble()
-            }
-
-            val determinantHolder : Double = b * b - 4.0 * a * c
-
-            if (determinantHolder > 0.0)
-            {
-                x1RootHolder = (-b + sqrt(determinantHolder)) / (2 * a)
-                x2RootHolder = (-b - sqrt(determinantHolder)) / (2 * a)
-
-                if (x2RootHolder.toString()
-                        .contains(".0")
-                )
+                if (func(a) * func(b) >= 0)
                 {
-
-                    x2RootResult.value = x2RootHolder.toInt()
-                        .toString()
-
+                    x1RootResult.value = "You have not assumed right a and b"
                 }
-                else
+                // Initialize result
+               c = a
+
+                for (i in 1..MAX_ITER)
                 {
-                    x2RootResult.value = x2RootHolder.toString()
-                    x1RootResult.value = x1RootHolder.toString()
+                    // Find the point that touches x axis
+                    c = (a * func(b) - b * func(a))/(func(b) - func(a))
+                    // Check if the above found point is root
+                    if (func(c) == 0.0)
+                        break;
+                    // Decide the side to repeat the steps
+                    else if (func(c) * func(a) < 0)
+                        b = c;
+                    else
+                        a = c;
                 }
+            x1RootResult.value = c.toString()
 
-                if (x1RootHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    x1RootResult.value = x1RootHolder.toInt()
-                        .toString()
-
-                }
-                else
-                {
-                    x1RootResult.value = x1RootHolder.toString()
-                    x2RootResult.value = x2RootHolder.toString()
-                }
-
-                if (determinantHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    determinantResult.value = determinantHolder
-                        .toInt()
-                        .toString()
-                }
-                else
-                {
-
-                    determinantResult.value = determinantHolder.toString()
-                }
-
-            }
-            // Condition for real and equal roots
-            else if (determinantHolder == 0.0)
-            {
-
-                x2RootHolder = ((-b / (2 * a)).toDouble())
-                x1RootHolder = x2RootHolder
-
-                if (x2RootHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    x2RootResult.value = x2RootHolder.toInt()
-                        .toString()
-
-                }
-                else
-                {
-                    x2RootResult.value = x2RootHolder.toString()
-                    x1RootResult.value = x1RootHolder.toString()
-                }
-
-                if (x1RootHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    x1RootResult.value = x1RootHolder.toInt()
-                        .toString()
-
-                }
-                else
-                {
-                    x1RootResult.value = x1RootHolder.toString()
-                    x2RootResult.value = x2RootHolder.toString()
-                }
-
-                if (determinantHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    determinantResult.value = determinantHolder
-                        .toInt()
-                        .toString()
-                }
-                else
-                {
-
-                    determinantResult.value = determinantHolder.toString()
-                }
-
-            }
-            else
-            {
-
-                x1RootHolder = (-b + sqrt(determinantHolder)) / (2 * a)
-                x2RootHolder = (-b - sqrt(determinantHolder)) / (2 * a)
-
-                if (x1RootHolder.toString() == "NaN")
-                {
-
-                    x1RootResult.value = "No real solutions"
-
-                }
-                else
-                {
-
-                    x2RootResult.value = x2RootHolder.toString()
-
-                }
-
-                if (x2RootHolder.toString() == "NaN")
-                {
-                    x2RootResult.value = "No real solutions"
-                }
-                else
-                {
-                    x1RootResult.value = x1RootHolder.toString()
-
-                }
-
-                if (determinantHolder.toString()
-                        .contains(".0")
-                )
-                {
-
-                    determinantResult.value = determinantHolder
-                        .toInt()
-                        .toString()
-                }
-                else
-                {
-
-                    determinantResult.value = determinantHolder.toString()
-                }
-            }
 
         }
         else
@@ -5716,34 +5664,102 @@ class MainViewModel : ViewModel()
         }
     }
 
-    fun quadraticEqualation()
+    fun falsiMethod()
     {
         click += 1
 
         if (click == 1)
         {
-            quadraticEqualationIsClicked = true
+            falsiMethodIsClicked = true
         }
         else if (click == 2)
         {
-            quadraticEqualationIsClicked = false
+            falsiMethodIsClicked = false
             click = 0
         }
 
     }
 
+    private fun func(x : Double) : Double
+    {
+        a = falsiNum1Holder.toDouble()
+        b = falsiNum2Holder.toDouble()
+        c = falsiNum3Holder.toDouble()
+        var x1x : Double = x
+        var x2x : Double = x
+        val func : Double
+
+        if(x1 == "x" && x2 == "x"){
+            x1x = x
+            x2x = x
+        }
+        else if (x1 == "x2" && x2 == "x2"){
+            x1x = x * x
+            x2x = x * x
+        }
+        else if (x1 == "x3" && x2 == "x3"){
+            x1x = x * x * x
+            x2x = x * x * x
+        }
+        else if (x1 == "x4" && x2 == "x4"){
+            x1x = x * x * x * x
+            x2x = x * x * x * x
+        }
+        else if (x1 == "x5" && x2 == "x5"){
+            x1x = x * x * x * x * x
+            x2x = x * x * x * x * x
+        }
+
+        if(x1 == "x2" && x2 == "x"){
+            x1x = x * x
+            x2x = x
+        }
+        else if (x1 == "x3" && x2 == "x2"){
+            x1x = x * x * x
+            x2x = x * x
+        }
+        else if (x1 == "x4" && x2 == "x3"){
+            x1x = x * x * x * x
+            x2x = x * x * x
+        }
+        else if (x1 == "x5" && x2 == "x4"){
+            x1x = x * x * x * x * x
+            x2x = x * x * x * x
+        }
+
+
+        if (firstOperation == "+" && secondOperation == "+")
+        {
+            func = a * x1x + b * x2x + c
+        }
+        else if (firstOperation == "-" && secondOperation == "+")
+        {
+            func = a * x1x - b * x2x + c
+        }
+        else if (firstOperation == "+" && secondOperation == "-")
+        {
+            func = a * x1x + b * x2x - c
+        }
+        else
+        {
+            func = a * x1x - b * x2x - c
+        }
+
+        return func
+    }
+
     fun ansShow()
     {
-        if (quadraticEqualationIsClicked)
+        if (falsiMethodIsClicked)
         {
 
-            if (quadraticNum1Holder.isEmpty())
+            if (falsiNum1Holder.isEmpty())
             {
 
-                quadraticNum1Holder = ansHolder.toString()
-                quadraticNum1Result.value = quadraticNum1Holder
+                falsiNum1Holder = ansHolder.toString()
+                quadraticNum1Result.value = falsiNum1Holder
             }
-            else if (firstOperation.isEmpty() && quadraticNum2Holder.isEmpty())
+            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
             {
                 if (ansHolder.toString()
                         .contains("-")
@@ -5753,8 +5769,8 @@ class MainViewModel : ViewModel()
                     firstOperation = "-"
                     stringHolder = ansHolder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
 
                 }
@@ -5762,8 +5778,8 @@ class MainViewModel : ViewModel()
                 {
                     firstOperation = "+"
                     stringHolder = ansHolder
-                    quadraticNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = quadraticNum2Holder
+                    falsiNum2Holder = stringHolder.toString()
+                    quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
                 }
 
@@ -5778,8 +5794,8 @@ class MainViewModel : ViewModel()
                     secondOperation = "-"
                     stringHolder = ansHolder
                     stringHolder = stringHolder.drop(1)
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
 
                 }
@@ -5787,8 +5803,8 @@ class MainViewModel : ViewModel()
                 {
                     secondOperation = "+"
                     stringHolder = ansHolder
-                    quadraticNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = quadraticNum3Holder
+                    falsiNum3Holder = stringHolder.toString()
+                    quadraticNum3Result.value = falsiNum3Holder
                     secondOperationResult.value = secondOperation
                 }
             }
@@ -5967,13 +5983,13 @@ class MainViewModel : ViewModel()
         return x1RootResult
     }
 
-    fun getX2Root() : LiveData<String>
+    fun x1Result() : LiveData<String>
     {
-        return x2RootResult
+        return x1Result
     }
 
-    fun getDeterminant() : LiveData<String>
+    fun x2Result() : LiveData<String>
     {
-        return determinantResult
+        return x2Result
     }
 }

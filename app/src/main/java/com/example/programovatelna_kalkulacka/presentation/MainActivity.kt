@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.example.programovatelna_kalkulacka.R
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
 import com.example.programovatelna_kalkulacka.presentation.view_model.MainViewModel
@@ -197,26 +196,24 @@ class MainActivity : AppCompatActivity()
                 {
                     activityMainBinding.txtX1RootNumber.text = it
                 })
-
-        mainViewModel.getX2Root()
+        mainViewModel.x1Result()
             .observe(
                 this,
                 {
-                    activityMainBinding.txtX2RootNumber.text = it
+                    activityMainBinding.x1!!.text = it
                 })
-
-        mainViewModel.getDeterminant()
+        mainViewModel.x2Result()
             .observe(
                 this,
                 {
-                    activityMainBinding.txtDeterminantNumber.text = it
+                    activityMainBinding.x2!!.text = it
                 })
 
 
 
-        activityMainBinding.determinantLayout.visibility = View.INVISIBLE
+
+
         activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
-        activityMainBinding.x2RootLayout.visibility = View.INVISIBLE
         activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 
 
@@ -345,43 +342,42 @@ class MainActivity : AppCompatActivity()
 
         }
 
-        activityMainBinding.btnQuadraticEqFun.setOnClickListener {
+        activityMainBinding.btnFalsiMethod.setOnClickListener {
 
-            if (activityMainBinding.determinantLayout.visibility == View.INVISIBLE)
+            if (activityMainBinding.x1RootLayout.visibility == View.INVISIBLE)
             {
 
-                activityMainBinding.determinantLayout.visibility = View.VISIBLE
                 activityMainBinding.x1RootLayout.visibility = View.VISIBLE
-                activityMainBinding.x2RootLayout.visibility = View.VISIBLE
                 activityMainBinding.quadraticEqualation.visibility = View.VISIBLE
-
                 activityMainBinding.txtLastResult.visibility = View.INVISIBLE
                 activityMainBinding.txtResult.visibility = View.INVISIBLE
                 activityMainBinding.txtProcess.visibility = View.INVISIBLE
+                activityMainBinding.btnPercent.text = "X4"
+                activityMainBinding.btnSquareRoot.text = "X5"
             }
             else
             {
 
-                activityMainBinding.determinantLayout.visibility = View.INVISIBLE
                 activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
-                activityMainBinding.x2RootLayout.visibility = View.INVISIBLE
                 activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 
                 activityMainBinding.txtLastResult.visibility = View.VISIBLE
                 activityMainBinding.txtResult.visibility = View.VISIBLE
                 activityMainBinding.txtProcess.visibility = View.VISIBLE
+                activityMainBinding.btnPercent.text = "%"
+                activityMainBinding.btnSquareRoot.text = "√"
             }
 
-            if (activityMainBinding.determinantLayout.visibility == View.VISIBLE)
+            if (activityMainBinding.x1RootLayout.visibility == View.VISIBLE)
             {
-                activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.parseColor("#616596"))
+                activityMainBinding.btnFalsiMethod.setBackgroundColor(Color.parseColor("#616596"))
             }
             else
             {
-                activityMainBinding.btnQuadraticEqFun.setBackgroundColor(Color.TRANSPARENT)
+                activityMainBinding.btnFalsiMethod.setBackgroundColor(Color.TRANSPARENT)
             }
 
-            mainViewModel.quadraticEqualation()
+            mainViewModel.falsiMethod()
         }
 
         activityMainBinding.btnNumber1.setOnClickListener { //Odkazuje na tlacitko btnNumber1 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
