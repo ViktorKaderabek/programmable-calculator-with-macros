@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.*
 import net.objecthunter.exp4j.ExpressionBuilder
-import kotlin.math.sqrt
 
 
 class MainViewModel : ViewModel()
@@ -2765,229 +2765,244 @@ class MainViewModel : ViewModel()
 
     fun divide()
     {
-        isClicked = false
-        if (macroRecordIsClicked)
+        if (falsiMethodIsClicked)
         {
-
-            if (macroSet == "1")
+            if (firstOperation.isEmpty())
             {
-
-                array1Holder.add("/")
-                Log.e(
-                    "array",
-                    array1Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array1Holder.size.toString()
-                )
-
+                x1 = "x1"
+                x1Result.value = x1
             }
-            else if (macroSet == "2")
+            else
             {
-
-                array2Holder.add("/")
-                Log.e(
-                    "array",
-                    array2Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array2Holder.size.toString()
-                )
-
+                x2 = "x1"
+                x2Result.value = x2
             }
-            else if (macroSet == "3")
-            {
-
-                array3Holder.add("/")
-                Log.e(
-                    "array",
-                    array3Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array3Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "4")
-            {
-
-                array4Holder.add("/")
-                Log.e(
-                    "array",
-                    array4Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array4Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "5")
-            {
-
-                array5Holder.add("/")
-                Log.e(
-                    "array",
-                    array5Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array5Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "6")
-            {
-
-                array6Holder.add("/")
-                Log.e(
-                    "array",
-                    array6Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array6Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "7")
-            {
-
-                array7Holder.add("/")
-                Log.e(
-                    "array",
-                    array7Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array7Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "8")
-            {
-
-                array8Holder.add("/")
-                Log.e(
-                    "array",
-                    array8Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array8Holder.size.toString()
-                )
-
-            }
-            else if (macroSet == "9")
-            {
-
-                array9Holder.add("/")
-                Log.e(
-                    "array",
-                    array9Holder.toString()
-                )
-                Log.e(
-                    "set",
-                    macroSet.toString()
-                )
-                Log.e(
-                    "length",
-                    array9Holder.size.toString()
-                )
-            }
-
         }
         else
         {
-            isClickedCount += 1
-            symbolClicked = "/"
-
-            try
+            isClicked = false
+            if (macroRecordIsClicked)
             {
-                if (processHolder.isEmpty())
+
+                if (macroSet == "1")
                 {
 
-                    processHolder = ""
-                    isClickedCount = 0
+                    array1Holder.add("/")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
 
                 }
-                else
+                else if (macroSet == "2")
                 {
 
-                    if (isClickedCount == 2)
+                    array2Holder.add("/")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("/")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("/")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("/")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("/")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("/")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("/")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("/")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+
+            }
+            else
+            {
+                isClickedCount += 1
+                symbolClicked = "/"
+
+                try
+                {
+                    if (processHolder.isEmpty())
                     {
 
-                        val expression = ExpressionBuilder(processHolder).build()
-                        val processHolderResult = expression.evaluate()
-                        if (processHolderResult.toString()
-                                .contains(".0")
-                        )
-                        {
+                        processHolder = ""
+                        isClickedCount = 0
 
-                            processHolder = processHolderResult.toInt()
-                                .toString()
-                            isClickedCount = 1
-                        }
-                        else
-                        {
-                            processHolder = processHolderResult.toDouble()
-                                .toString()
-                            isClickedCount = 1
-                        }
                     }
+                    else
+                    {
 
-                    resultHolder = "0"
-                    processHolder = processHolder.plus("/")
+                        if (isClickedCount == 2)
+                        {
+
+                            val expression = ExpressionBuilder(processHolder).build()
+                            val processHolderResult = expression.evaluate()
+                            if (processHolderResult.toString()
+                                    .contains(".0")
+                            )
+                            {
+
+                                processHolder = processHolderResult.toInt()
+                                    .toString()
+                                isClickedCount = 1
+                            }
+                            else
+                            {
+                                processHolder = processHolderResult.toDouble()
+                                    .toString()
+                                isClickedCount = 1
+                            }
+                        }
+
+                        resultHolder = "0"
+                        processHolder = processHolder.plus("/")
+                    }
+                    proccessResult.value = processHolder
+                    result.value = resultHolder
                 }
-                proccessResult.value = processHolder
-                result.value = resultHolder
-            }
-            catch (e : Exception)
-            {
+                catch (e : Exception)
+                {
 
-                processHolder = processHolder.dropLast(1)
-                processHolder = processHolder.plus(symbolClicked)
+                    processHolder = processHolder.dropLast(1)
+                    processHolder = processHolder.plus(symbolClicked)
 
-                proccessResult.value = processHolder
+                    proccessResult.value = processHolder
 
+                }
             }
         }
-
     }
 
     fun percent()
@@ -5566,39 +5581,125 @@ class MainViewModel : ViewModel()
         }
     }
 
+    suspend fun falsiMethod(a : Double, b : Double) : Double
+    {
+        var aa = a
+        var bb = b
+        var c : Double = 0.0
+        if (func(a) * func(b) >= 0)
+        {
+            println("You have not assumed right a and b")
+        }
+        else
+        {
+            // Initialize result
+            c = aa
+            for (i in 0 until 20000)
+            {
+                println(i.toString())
+                // Find the point that touches x axis
+                c = ((aa * func(bb) - bb * func(aa))
+                        / (func(bb) - func(aa)))
+
+                // Check if the above found point is root
+                if (func(c) == 0.0)
+                {
+                    break
+                }
+                else if (func(c) * func(aa) < 0)
+                {
+                    aa = c
+                }
+                else
+                {
+                    bb = c
+                }
+                println("The value of root is : " + c.toDouble())
+            }
+            println("The value of root is : " + c.toDouble())
+        }
+        return c
+    }
 
     fun equal()
     {
 
         if (falsiMethodIsClicked)
         {
-            var a = 300.0
-            var b = 1400.0
-            var c : Double? = null
-
-                if (func(a) * func(b) >= 0)
-                {
-                    x1RootResult.value = "You have not assumed right a and b"
-                }
-                // Initialize result
-               c = a
-
-                for (i in 1..MAX_ITER)
-                {
-                    // Find the point that touches x axis
-                    c = (a * func(b) - b * func(a))/(func(b) - func(a))
-                    // Check if the above found point is root
-                    if (func(c) == 0.0)
-                        break;
-                    // Decide the side to repeat the steps
-                    else if (func(c) * func(a) < 0)
-                        b = c;
-                    else
-                        a = c;
-                }
-            x1RootResult.value = c.toString()
+            var x1x : Double = 0.0
+            var x2x : Double = 0.0
 
 
+            if (x1 == "x1")
+            {
+                x1x = 100.0
+            }
+            if (x1 == "x2")
+            {
+                x1x = 200.0
+            }
+            if (x1 == "x3")
+            {
+                x1x = 300.0
+            }
+            if (x1 == "x4")
+            {
+                x1x = 400.0
+            }
+            if (x1 == "x5")
+            {
+                x1x = 500.0
+            }
+
+            if (x2 == "x1")
+            {
+                x2x = 100.0
+            }
+            if (x2 == "x2")
+            {
+                x2x = 200.0
+            }
+            if (x2 == "x3")
+            {
+                x2x = 300.0
+            }
+            if (x2 == "x4")
+            {
+                x2x = 400.0
+            }
+            if (x2 == "x5")
+            {
+                x2x = 500.0
+            }
+            a = falsiNum1Holder.toDouble()
+            b = falsiNum2Holder.toDouble()
+
+            var firsNumber = 0.0
+            var secondNumber = 0.0
+
+            if (secondOperation == "+")
+            {
+                secondNumber = b * x1x
+            }
+
+            if(secondOperation == "-")
+            {
+                secondNumber = -b * x1x
+            }
+
+            if (firstOperation == "+")
+            {
+                firsNumber = a * x2x
+            }
+
+            if(firstOperation == "-")
+            {
+                firsNumber = -a * x2x
+            }
+
+            CoroutineScope(Dispatchers.Main).launch {
+                x1RootResult.value = falsiMethod(firsNumber, secondNumber).toString()
+            }
         }
         else
         {
@@ -5689,40 +5790,53 @@ class MainViewModel : ViewModel()
         var x2x : Double = x
         val func : Double
 
-        if(x1 == "x" && x2 == "x"){
+        if (x1 == "x1" && x2 == "x1")
+        {
             x1x = x
             x2x = x
         }
-        else if (x1 == "x2" && x2 == "x2"){
+        if (x1 == "x2" && x2 == "x2")
+        {
             x1x = x * x
             x2x = x * x
         }
-        else if (x1 == "x3" && x2 == "x3"){
+        if (x1 == "x3" && x2 == "x3")
+        {
             x1x = x * x * x
             x2x = x * x * x
         }
-        else if (x1 == "x4" && x2 == "x4"){
+        if (x1 == "x4" && x2 == "x4")
+        {
             x1x = x * x * x * x
             x2x = x * x * x * x
         }
-        else if (x1 == "x5" && x2 == "x5"){
+        if (x1 == "x5" && x2 == "x5")
+        {
             x1x = x * x * x * x * x
             x2x = x * x * x * x * x
         }
-
-        if(x1 == "x2" && x2 == "x"){
+        if (x1 == "x2" && x2 == "x1")
+        {
             x1x = x * x
             x2x = x
         }
-        else if (x1 == "x3" && x2 == "x2"){
+        if (x1 == "x3" && x2 == "x2")
+        {
             x1x = x * x * x
             x2x = x * x
         }
-        else if (x1 == "x4" && x2 == "x3"){
+        if (x1 == "x3" && x2 == "x1")
+        {
+            x1x = x * x * x
+            x2x = x
+        }
+        if (x1 == "x4" && x2 == "x3")
+        {
             x1x = x * x * x * x
             x2x = x * x * x
         }
-        else if (x1 == "x5" && x2 == "x4"){
+        if (x1 == "x5" && x2 == "x4")
+        {
             x1x = x * x * x * x * x
             x2x = x * x * x * x
         }
