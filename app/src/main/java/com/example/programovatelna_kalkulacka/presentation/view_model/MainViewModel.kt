@@ -24,7 +24,6 @@ class MainViewModel : ViewModel()
     private var symbolClicked : String = ""
 
     private var falsiMethodIsClickedCount : Int = 0
-    private val MAX_ITER : Int = 10000000
     private var falsiMethodIsClicked : Boolean = false
     private var falsiNum1Holder : String = ""
     private var falsiNum2Holder : String = ""
@@ -1048,12 +1047,14 @@ class MainViewModel : ViewModel()
             x1RootHolder = 0.0
             x2RootHolder = 0.0
             a = 0.0
+            c= 0.0
             b = 0.0
-            c = 0.0
             x1 = "x"
             x2 = "x"
 
-            quadraticNum1Result.value = ""
+
+            x1Result.value = "x"
+            x2Result.value = "x"
             quadraticNum2Result.value = ""
             quadraticNum3Result.value = ""
             determinantResult.value = ""
@@ -5682,7 +5683,7 @@ class MainViewModel : ViewModel()
                 secondNumber = b * x1x
             }
 
-            if(secondOperation == "-")
+            if (secondOperation == "-")
             {
                 secondNumber = -b * x1x
             }
@@ -5692,7 +5693,7 @@ class MainViewModel : ViewModel()
                 firsNumber = a * x2x
             }
 
-            if(firstOperation == "-")
+            if (firstOperation == "-")
             {
                 firsNumber = -a * x2x
             }
@@ -5788,73 +5789,66 @@ class MainViewModel : ViewModel()
         c = falsiNum3Holder.toDouble()
         var x1x : Double = x
         var x2x : Double = x
-        val func : Double
+        var func : Double = 0.0
 
-        if (x1 == "x1" && x2 == "x1")
+        if (x1 == "x1")
         {
             x1x = x
-            x2x = x
         }
-        if (x1 == "x2" && x2 == "x2")
+        if (x1 == "x2")
         {
             x1x = x * x
-            x2x = x * x
         }
-        if (x1 == "x3" && x2 == "x3")
+        if (x1 == "x3")
         {
             x1x = x * x * x
-            x2x = x * x * x
         }
-        if (x1 == "x4" && x2 == "x4")
+        if (x1 == "x4")
         {
             x1x = x * x * x * x
-            x2x = x * x * x * x
         }
-        if (x1 == "x5" && x2 == "x5")
+        if (x1 == "x5")
         {
             x1x = x * x * x * x * x
+
+        }
+        if (x2 == "x1")
+        {
+            x2x = x
+        }
+        if (x2 == "x2")
+        {
+            x2x = x * x
+        }
+        if (x2 == "x3")
+        {
+            x2x = x * x * x
+        }
+        if (x2 == "x4")
+        {
+            x2x = x * x * x * x
+        }
+        if (x2 == "x5")
+        {
             x2x = x * x * x * x * x
+
         }
-        if (x1 == "x2" && x2 == "x1")
-        {
-            x1x = x * x
-            x2x = x
-        }
-        if (x1 == "x3" && x2 == "x2")
-        {
-            x1x = x * x * x
-            x2x = x * x
-        }
-        if (x1 == "x3" && x2 == "x1")
-        {
-            x1x = x * x * x
-            x2x = x
-        }
-        if (x1 == "x4" && x2 == "x3")
-        {
-            x1x = x * x * x * x
-            x2x = x * x * x
-        }
-        if (x1 == "x5" && x2 == "x4")
-        {
-            x1x = x * x * x * x * x
-            x2x = x * x * x * x
-        }
+
 
 
         if (firstOperation == "+" && secondOperation == "+")
         {
             func = a * x1x + b * x2x + c
         }
-        else if (firstOperation == "-" && secondOperation == "+")
+        if (firstOperation == "-" && secondOperation == "+")
         {
             func = a * x1x - b * x2x + c
         }
-        else if (firstOperation == "+" && secondOperation == "-")
+        if (firstOperation == "+" && secondOperation == "-")
         {
             func = a * x1x + b * x2x - c
         }
-        else
+        if(firstOperation == "-" && secondOperation == "-")
         {
             func = a * x1x - b * x2x - c
         }
