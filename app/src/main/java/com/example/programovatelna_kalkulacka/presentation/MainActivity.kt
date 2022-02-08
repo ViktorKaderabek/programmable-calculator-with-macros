@@ -352,9 +352,11 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.txtLastResult.visibility = View.INVISIBLE
                 activityMainBinding.txtResult.visibility = View.INVISIBLE
                 activityMainBinding.txtProcess.visibility = View.INVISIBLE
-                activityMainBinding.btnPercent.text = "X4"
-                activityMainBinding.btnSquareRoot.text = "X5"
-                activityMainBinding.btnDevided.text = "X"
+                activityMainBinding.btnPower2.text = "x".lowercase()
+                activityMainBinding.btnPower3.text = "x²".lowercase()
+                activityMainBinding.btnPercent.text = "x³".lowercase()
+                activityMainBinding.btnSquareRoot.text = "x⁴".lowercase()
+                activityMainBinding.btnDevided.text = "x⁵".lowercase()
             }
             else
             {

@@ -68,7 +68,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="left|center"
-                    android:text="x"
+                    android:text=""
                     android:textColor="@color/white" />
 
                 <TextView
@@ -112,7 +112,7 @@
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
                     android:gravity="left|center"
-                    android:text="x"
+                    android:text=""
                     android:textColor="@color/white" />
 
                 <TextView
@@ -178,8 +178,8 @@
                     android:autoSizeStepGranularity="2sp"
                     android:autoSizeTextType="uniform"
                     android:background="@android:color/transparent"
-                    android:gravity="right|center"
-                    android:text="0"
+                    android:gravity="center"
+                    android:text="f(x)"
                     android:textColor="@color/white" />
 
             </LinearLayout>
@@ -703,6 +703,8 @@
                         android:background="@android:color/transparent"
                         android:text="√"
                         android:textColor="@color/white" />
+
+
 
                 </LinearLayout>
 

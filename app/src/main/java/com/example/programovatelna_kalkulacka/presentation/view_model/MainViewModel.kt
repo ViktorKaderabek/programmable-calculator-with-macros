@@ -1050,12 +1050,13 @@ class MainViewModel : ViewModel()
             a = 0.0
             c= 0.0
             b = 0.0
-            x1 = "x"
-            x2 = "x"
+            x1 = ""
+            x2 = ""
 
 
-            x1Result.value = "x"
-            x2Result.value = "x"
+            x1Result.value = ""
+            x2Result.value = ""
+            quadraticNum1Result.value = ""
             quadraticNum2Result.value = ""
             quadraticNum3Result.value = ""
             determinantResult.value = ""
@@ -1107,13 +1108,14 @@ class MainViewModel : ViewModel()
             }
             else if (falsiNum3Holder.isEmpty() && secondOperation.isNotEmpty())
             {
-
                 secondOperation = secondOperation.dropLast(1)
                 secondOperationResult.value = secondOperation
             }
             else if (falsiNum2Holder.isNotEmpty())
             {
 
+                x2 = ""
+                x2Result.value = " "
                 falsiNum2Holder = falsiNum2Holder.dropLast(1)
                 quadraticNum2Result.value = falsiNum2Holder
             }
@@ -1125,6 +1127,8 @@ class MainViewModel : ViewModel()
             }
             else
             {
+                x1 = ""
+                x1Result.value = " "
                 falsiNum1Holder = falsiNum1Holder.dropLast(1)
                 quadraticNum1Result.value = falsiNum1Holder
             }
@@ -2771,12 +2775,12 @@ class MainViewModel : ViewModel()
         {
             if (firstOperation.isEmpty())
             {
-                x1 = "x1"
+                x1 = "x⁵"
                 x1Result.value = x1
             }
             else
             {
-                x2 = "x1"
+                x2 = "x⁵"
                 x2Result.value = x2
             }
         }
@@ -3015,12 +3019,12 @@ class MainViewModel : ViewModel()
         {
             if (firstOperation.isEmpty())
             {
-                x1 = "x4"
+                x1 = "x³"
                 x1Result.value = x1
             }
             else
             {
-                x2 = "x4"
+                x2 = "x³"
                 x2Result.value = x2
             }
         }
@@ -3090,12 +3094,12 @@ class MainViewModel : ViewModel()
         {
             if (firstOperation.isEmpty())
             {
-                x1 = "x2"
+                x1 = "x"
                 x1Result.value = x1
             }
             else
             {
-                x2 = "x2"
+                x2 = "x"
                 x2Result.value = x2
             }
         }
@@ -3338,12 +3342,12 @@ class MainViewModel : ViewModel()
         {
             if (firstOperation.isEmpty())
             {
-                x1 = "x3"
+                x1 = "x²"
                 x1Result.value = x1
             }
             else
             {
-                x2 = "x3"
+                x2 = "x²"
                 x2Result.value = x2
             }
         }
@@ -3587,12 +3591,12 @@ class MainViewModel : ViewModel()
         {
             if (firstOperation.isEmpty())
             {
-                x1 = "x5"
+                x1 = "x⁴"
                 x1Result.value = x1
             }
             else
             {
-                x2 = "x5"
+                x2 = "x⁴"
                 x2Result.value = x2
             }
         }
@@ -5609,6 +5613,32 @@ class MainViewModel : ViewModel()
     return c
     }
 
+    suspend fun falsiMethodforQuad(a : Double, b : Double) : Double
+    {
+        var aa = a
+        var bb = b
+        var c : Double = 0.0
+        if (func(a) * func(b) >= 0)
+        {
+            println("You have not assumed right a and b")
+        }
+        // Initialize result
+        // Initialize result
+        c = aa
+
+        for (i in 0 until 10000)
+        {
+            // Find the point that touches x axis
+            c = ((aa * func(bb) - b * func(aa)) / (func(bb) - func(aa)))
+
+            // Check if the above found point is root
+            if (func(c) == 0.0) break else if (func(c) * func(aa) < 0) bb = c else aa = c
+            println("The value of root is : " + c.toDouble())
+        }
+
+        return c
+    }
+
     fun equal()
     {
 
@@ -5619,47 +5649,48 @@ class MainViewModel : ViewModel()
             var result  : Double = 0.0
 
 
-            if (x1 == "x1")
+            if (x1 == "x")
             {
                 x1x = 100.0
             }
-            if (x1 == "x2")
+            if (x1 == "x²")
             {
                 x1x = 200.0
             }
-            if (x1 == "x3")
+            if (x1 == "x³")
             {
                 x1x = 300.0
             }
-            if (x1 == "x4")
+            if (x1 == "x⁴")
             {
                 x1x = 400.0
             }
-            if (x1 == "x5")
+            if (x1 == "x⁵")
             {
                 x1x = 500.0
             }
 
-            if (x2 == "x1")
+            if (x2 == "x")
             {
                 x2x = 100.0
             }
-            if (x2 == "x2")
+            if (x2 == "x²")
             {
                 x2x = 200.0
             }
-            if (x2 == "x3")
+            if (x2 == "x³")
             {
                 x2x = 300.0
             }
-            if (x2 == "x4")
+            if (x2 == "x⁴")
             {
                 x2x = 400.0
             }
-            if (x2 == "x5")
+            if (x2 == "x⁵")
             {
                 x2x = 500.0
             }
+
             a = falsiNum1Holder.toDouble()
             b = falsiNum2Holder.toDouble()
 
@@ -5686,14 +5717,14 @@ class MainViewModel : ViewModel()
                 firsNumber = -a * x2x
             }
 
-            if(x1 == "x3" || x1 == "x4"|| x1 == "x5" || x2 == "x3" || x2 == "x4"|| x2 == "x5" ){
+            if(x1 == "x³" || x1 == "x⁴"|| x1 == "x⁵" || x2 == "x³" || x2 == "x⁴"|| x2 == "x⁵") {
                 CoroutineScope(Dispatchers.Default).launch {
                     x1RootResult.postValue(falsiMethod(firsNumber,secondNumber).toString())
                     message.postValue("Please wait till the math operation is over")
                 }
             }else{
                 CoroutineScope(Dispatchers.Default).launch {
-                    x1RootResult.postValue(falsiMethod(secondNumber, firsNumber).toString())
+                    x1RootResult.postValue(falsiMethodforQuad(secondNumber, firsNumber).toString())
                     message.postValue("Please wait till the math operation is over")
                 }
             }
@@ -5789,44 +5820,44 @@ class MainViewModel : ViewModel()
         var x2x : Double = x
         var func : Double = 0.0
 
-        if (x1 == "x1")
+        if (x1 == "x")
         {
             x1x = x
         }
-        if (x1 == "x2")
+        if (x1 == "x²")
         {
             x1x = x * x
         }
-        if (x1 == "x3")
+        if (x1 == "x³")
         {
             x1x = x * x * x
         }
-        if (x1 == "x4")
+        if (x1 == "x⁴")
         {
             x1x = x * x * x * x
         }
-        if (x1 == "x5")
+        if (x1 == "x⁵")
         {
             x1x = x * x * x * x * x
 
         }
-        if (x2 == "x1")
+        if (x2 == "x")
         {
             x2x = x
         }
-        if (x2 == "x2")
+        if (x2 == "x²")
         {
             x2x = x * x
         }
-        if (x2 == "x3")
+        if (x2 == "x³")
         {
             x2x = x * x * x
         }
-        if (x2 == "x4")
+        if (x2 == "x⁴")
         {
             x2x = x * x * x * x
         }
-        if (x2 == "x5")
+        if (x2 == "x⁵")
         {
             x2x = x * x * x * x * x
 
