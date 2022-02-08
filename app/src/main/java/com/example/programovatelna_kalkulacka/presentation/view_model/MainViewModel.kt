@@ -5591,35 +5591,22 @@ class MainViewModel : ViewModel()
         {
             println("You have not assumed right a and b")
         }
-        else
-        {
-            // Initialize result
-            c = aa
-            for (i in 0 until 20000)
-            {
-                println(i.toString())
-                // Find the point that touches x axis
-                c = ((aa * func(bb) - bb * func(aa))
-                        / (func(bb) - func(aa)))
+        // Initialize result
+        // Initialize result
+        c = aa
 
-                // Check if the above found point is root
-                if (func(c) == 0.0)
-                {
-                    break
-                }
-                else if (func(c) * func(aa) < 0)
-                {
-                    aa = c
-                }
-                else
-                {
-                    bb = c
-                }
-                println("The value of root is : " + c.toDouble())
-            }
+        for (i in 0 until 2000000)
+        {
+            // Find the point that touches x axis
+            c = ((aa * func(bb) - b * func(aa))
+                    / (func(bb) - func(aa)))
+
+            // Check if the above found point is root
+            if (func(c) == 0.0) break else if (func(c) * func(aa) < 0) bb = c else aa = c
             println("The value of root is : " + c.toDouble())
         }
-        return c
+
+    return c
     }
 
     fun equal()
@@ -5698,8 +5685,8 @@ class MainViewModel : ViewModel()
                 firsNumber = -a * x2x
             }
 
-            CoroutineScope(Dispatchers.Main).launch {
-                x1RootResult.value = falsiMethod(firsNumber, secondNumber).toString()
+            CoroutineScope(Dispatchers.Default).launch {
+                x1RootResult.postValue(falsiMethod(firsNumber, secondNumber).toString())
             }
         }
         else
