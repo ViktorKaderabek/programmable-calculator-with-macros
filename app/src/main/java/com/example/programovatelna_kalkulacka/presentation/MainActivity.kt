@@ -1089,6 +1089,12 @@ class MainActivity : AppCompatActivity()
                     {
                         activityMainBinding.txtLastResult.text = it
                     }) // zmeni text v labelu kde se zobrazuje lastResult na text, ktery je v hlavnim labelu
+            mainViewModel.getMessage()
+                .observe(
+                    this,
+                    {
+                        Toast.makeText(applicationContext,it,Toast.LENGTH_LONG).show()
+                    })
         }
 
         activityMainBinding.btnPercent.setOnClickListener { //Odkazuje na tlacitko btnPercent a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel

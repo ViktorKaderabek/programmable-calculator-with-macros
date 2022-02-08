@@ -94,6 +94,7 @@ class MainViewModel : ViewModel()
     private val lastResult = MutableLiveData<String>()
     private val proccessResult = MutableLiveData<String>()
     private val result = MutableLiveData<String>()
+    private val message = MutableLiveData<String>()
 
     private val mem1Value = MutableLiveData<String>()
     private val mem2Value = MutableLiveData<String>()
@@ -5595,11 +5596,10 @@ class MainViewModel : ViewModel()
         // Initialize result
         c = aa
 
-        for (i in 0 until 2000000)
+        for (i in 0 until 1000000)
         {
             // Find the point that touches x axis
-            c = ((aa * func(bb) - b * func(aa))
-                    / (func(bb) - func(aa)))
+            c = ((aa * func(bb) - b * func(aa)) / (func(bb) - func(aa)))
 
             // Check if the above found point is root
             if (func(c) == 0.0) break else if (func(c) * func(aa) < 0) bb = c else aa = c
@@ -5616,6 +5616,7 @@ class MainViewModel : ViewModel()
         {
             var x1x : Double = 0.0
             var x2x : Double = 0.0
+            var result  : Double = 0.0
 
 
             if (x1 == "x1")
@@ -5685,9 +5686,19 @@ class MainViewModel : ViewModel()
                 firsNumber = -a * x2x
             }
 
-            CoroutineScope(Dispatchers.Default).launch {
-                x1RootResult.postValue(falsiMethod(firsNumber, secondNumber).toString())
+            if(x1 == "x3" || x1 == "x4"|| x1 == "x5" || x2 == "x3" || x2 == "x4"|| x2 == "x5" ){
+                CoroutineScope(Dispatchers.Default).launch {
+                    x1RootResult.postValue(falsiMethod(firsNumber,secondNumber).toString())
+                    message.postValue("Please wait till the math operation is over")
+                }
+            }else{
+                CoroutineScope(Dispatchers.Default).launch {
+                    x1RootResult.postValue(falsiMethod(secondNumber, firsNumber).toString())
+                    message.postValue("Please wait till the math operation is over")
+                }
             }
+
+
         }
         else
         {
@@ -6086,5 +6097,10 @@ class MainViewModel : ViewModel()
     fun x2Result() : LiveData<String>
     {
         return x2Result
+    }
+
+    fun getMessage() : LiveData<String>{
+
+        return message
     }
 }
