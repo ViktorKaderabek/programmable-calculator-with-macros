@@ -3725,6 +3725,7 @@ class MainViewModel : ViewModel()
                 else
                 {
                     firstOperation = "+"
+                    stringHolder = mem1Holder
                     falsiNum2Holder = stringHolder.toString()
                     quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
@@ -4394,6 +4395,7 @@ class MainViewModel : ViewModel()
                 else
                 {
                     firstOperation = "+"
+                    stringHolder = mem6Holder
                     falsiNum2Holder = stringHolder.toString()
                     quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation
@@ -5014,6 +5016,7 @@ class MainViewModel : ViewModel()
                 else
                 {
                     firstOperation = "+"
+                    stringHolder = mem11Holder
                     falsiNum2Holder = stringHolder.toString()
                     quadraticNum2Result.value = falsiNum2Holder
                     firstOperationResult.value = firstOperation

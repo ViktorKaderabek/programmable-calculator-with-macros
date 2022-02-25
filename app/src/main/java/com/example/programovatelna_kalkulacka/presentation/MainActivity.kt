@@ -372,6 +372,8 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.txtProcess.visibility = View.VISIBLE
                 activityMainBinding.btnPercent.text = "%"
                 activityMainBinding.btnSquareRoot.text = "√"
+                activityMainBinding.btnDevided.text = "/"
+
             }
 
             if (activityMainBinding.x1RootLayout.visibility == View.VISIBLE)
