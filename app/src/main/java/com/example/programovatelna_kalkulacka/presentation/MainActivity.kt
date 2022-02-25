@@ -22,6 +22,7 @@ import org.koin.android.ext.android.inject
 class MainActivity : AppCompatActivity()
 {
 
+    private var btnFalsi : Boolean = false
     private val mainViewModel : MainViewModel by inject() //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
     private lateinit var activityMainBinding : ActivityMainBinding//Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
     private var count = 0
@@ -344,8 +345,11 @@ class MainActivity : AppCompatActivity()
 
         activityMainBinding.btnFalsiMethod.setOnClickListener {
 
+
+
             if (activityMainBinding.x1RootLayout.visibility == View.INVISIBLE)
             {
+                btnFalsi = true
 
                 activityMainBinding.x1RootLayout.visibility = View.VISIBLE
                 activityMainBinding.quadraticEqualation.visibility = View.VISIBLE
@@ -360,7 +364,7 @@ class MainActivity : AppCompatActivity()
             }
             else
             {
-
+                btnFalsi = false
                 activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
                 activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 
@@ -1091,12 +1095,17 @@ class MainActivity : AppCompatActivity()
                     {
                         activityMainBinding.txtLastResult.text = it
                     }) // zmeni text v labelu kde se zobrazuje lastResult na text, ktery je v hlavnim labelu
-            mainViewModel.getMessage()
-                .observe(
-                    this,
-                    {
-                        Toast.makeText(applicationContext,it,Toast.LENGTH_LONG).show()
-                    })
+
+            if(btnFalsi)
+            {
+                mainViewModel.getMessage()
+                    .observe(
+                        this,
+                        {
+                            Toast.makeText(applicationContext, it, Toast.LENGTH_LONG)
+                                .show()
+                        })
+            }
         }
 
         activityMainBinding.btnPercent.setOnClickListener { //Odkazuje na tlacitko btnPercent a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
