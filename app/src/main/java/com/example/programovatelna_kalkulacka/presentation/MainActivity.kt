@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity()
     { //vytvari Activitu
         super.onCreate(savedInstanceState)
 
+
         activityMainBinding =
                 DataBindingUtil.setContentView(
                     this,
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity()
                 {
                     activityMainBinding.txtProcess.text = it
                 })//Pokazde kdyz se vysledek getResult(), ktery je v MainViewModel zmeni, tak se zmeni i tady.
+
         mainViewModel.getM6()
             .observe(
                 this,

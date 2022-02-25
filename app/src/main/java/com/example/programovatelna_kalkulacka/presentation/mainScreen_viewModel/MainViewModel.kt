@@ -55,6 +55,22 @@ class MainViewModel : ViewModel()
     private var mem14Holder : String = ""
     private var mem15Holder : String = ""
 
+    private var mem1FalsiHolder : MutableList<String> = ArrayList()
+    private var mem2FalsiHolder : MutableList<String> = ArrayList()
+    private var mem3FalsiHolder : MutableList<String> = ArrayList()
+    private var mem4FalsiHolder : MutableList<String> = ArrayList()
+    private var mem5FalsiHolder : MutableList<String> = ArrayList()
+    private var mem6FalsiHolder : MutableList<String> = ArrayList()
+    private var mem7FalsiHolder : MutableList<String> = ArrayList()
+    private var mem8FalsiHolder : MutableList<String> = ArrayList()
+    private var mem9FalsiHolder : MutableList<String> = ArrayList()
+    private var mem10FalsiHolder : MutableList<String> = ArrayList()
+    private var mem11FalsiHolder : MutableList<String> = ArrayList()
+    private var mem12FalsiHolder : MutableList<String> = ArrayList()
+    private var mem13FalsiHolder : MutableList<String> = ArrayList()
+    private var mem14FalsiHolder : MutableList<String> = ArrayList()
+    private var mem15FalsiHolder : MutableList<String> = ArrayList()
+
     private var macroRecordIsClicked : Boolean = false
     private var macroRecallIsClicked : Boolean = false
     private var macroSet : String = "0"
