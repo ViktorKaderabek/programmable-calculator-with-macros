@@ -312,7 +312,7 @@
                         android:background="@android:color/transparent"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text=""
+                        android:text="85x³-69+58"
                         android:textColor="@color/white" />
 
                     <TextView
