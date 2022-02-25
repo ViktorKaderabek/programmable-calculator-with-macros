@@ -1,4 +1,4 @@
-package com.example.programovatelna_kalkulacka.presentation.view_model
+package com.example.programovatelna_kalkulacka.presentation.mainScreen_viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -1048,7 +1048,7 @@ class MainViewModel : ViewModel()
             x1RootHolder = 0.0
             x2RootHolder = 0.0
             a = 0.0
-            c= 0.0
+            c = 0.0
             b = 0.0
             x1 = ""
             x2 = ""
@@ -5610,7 +5610,7 @@ class MainViewModel : ViewModel()
             println("The value of root is : " + c.toDouble())
         }
 
-    return c
+        return c
     }
 
     suspend fun falsiMethodforQuad(a : Double, b : Double) : Double
@@ -5646,7 +5646,7 @@ class MainViewModel : ViewModel()
         {
             var x1x : Double = 0.0
             var x2x : Double = 0.0
-            var result  : Double = 0.0
+            var result : Double = 0.0
 
 
             if (x1 == "x")
@@ -5717,12 +5717,15 @@ class MainViewModel : ViewModel()
                 firsNumber = -a * x2x
             }
 
-            if(x1 == "x³" || x1 == "x⁴"|| x1 == "x⁵" || x2 == "x³" || x2 == "x⁴"|| x2 == "x⁵") {
+            if (x1 == "x³" || x1 == "x⁴" || x1 == "x⁵" || x2 == "x³" || x2 == "x⁴" || x2 == "x⁵")
+            {
                 CoroutineScope(Dispatchers.Default).launch {
-                    x1RootResult.postValue(falsiMethod(firsNumber,secondNumber).toString())
+                    x1RootResult.postValue(falsiMethod(firsNumber, secondNumber).toString())
                     message.postValue("Please wait till the math operation is over")
                 }
-            }else{
+            }
+            else
+            {
                 CoroutineScope(Dispatchers.Default).launch {
                     x1RootResult.postValue(falsiMethodforQuad(secondNumber, firsNumber).toString())
                     message.postValue("Please wait till the math operation is over")
@@ -5877,7 +5880,7 @@ class MainViewModel : ViewModel()
         {
             func = a * x1x + b * x2x - c
         }
-        if(firstOperation == "-" && secondOperation == "-")
+        if (firstOperation == "-" && secondOperation == "-")
         {
             func = a * x1x - b * x2x - c
         }
@@ -6130,7 +6133,8 @@ class MainViewModel : ViewModel()
         return x2Result
     }
 
-    fun getMessage() : LiveData<String>{
+    fun getMessage() : LiveData<String>
+    {
 
         return message
     }

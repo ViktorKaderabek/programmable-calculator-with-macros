@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.programovatelna_kalkulacka.R
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
-import com.example.programovatelna_kalkulacka.presentation.view_model.MainViewModel
+import com.example.programovatelna_kalkulacka.presentation.mainScreen_viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 
 
@@ -344,7 +344,6 @@ class MainActivity : AppCompatActivity()
         }
 
         activityMainBinding.btnFalsiMethod.setOnClickListener {
-
 
 
             if (activityMainBinding.x1RootLayout.visibility == View.INVISIBLE)
@@ -1096,7 +1095,7 @@ class MainActivity : AppCompatActivity()
                         activityMainBinding.txtLastResult.text = it
                     }) // zmeni text v labelu kde se zobrazuje lastResult na text, ktery je v hlavnim labelu
 
-            if(btnFalsi)
+            if (btnFalsi)
             {
                 mainViewModel.getMessage()
                     .observe(

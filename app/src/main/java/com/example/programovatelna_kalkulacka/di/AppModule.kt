@@ -1,7 +1,6 @@
 package com.example.programovatelna_kalkulacka.di
 
-import com.example.programovatelna_kalkulacka.data.ConnectionHelper
-import com.example.programovatelna_kalkulacka.presentation.view_model.MainViewModel
+import com.example.programovatelna_kalkulacka.presentation.mainScreen_viewModel.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
