@@ -6573,6 +6573,8 @@ class MainViewModel : ViewModel()
                 firsNumber = -a * x2x
             }
 
+
+
             if (x1 == "x³" || x1 == "x⁴" || x1 == "x⁵" || x2 == "x³" || x2 == "x⁴" || x2 == "x⁵")
             {
                 CoroutineScope(Dispatchers.Default).launch {
