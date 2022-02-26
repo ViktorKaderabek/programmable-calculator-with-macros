@@ -9,19 +9,17 @@ This project is part of my seminar work for school. The task was to create a pro
 - Clearing the memories
 - Recording the what user types
 - Store those records into the numbers where it could be called back
-- Comunicating with db
-- The values that are stored into values are stored into database
-- Solving the Quadratic Equation
+- Using Falsi method 
 
 # To Do List(5/8)
 
 ✔️ - It's done and it works well
-
 ❌ - Not finished yet and i'm working on it
 
 - [✔️] Solving the casual mathematic problems
-- [✔️] Solving the casual mathematic problems
 - [✔️] Working with memories
+- [✔️] Storing data casual numbers into memories
+- [✔️] Storing Equation into memories
 - [️✔️] Macro Implemented
 - [✔️] Falsi method implemented
 
