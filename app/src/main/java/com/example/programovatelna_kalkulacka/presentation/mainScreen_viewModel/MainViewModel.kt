@@ -1,5 +1,7 @@
 package com.example.programovatelna_kalkulacka.presentation.mainScreen_viewModel
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7206,5 +7208,6 @@ class MainViewModel : ViewModel()
 
         return message
     }
+
 
 }
