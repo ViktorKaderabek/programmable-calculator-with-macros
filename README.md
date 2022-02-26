@@ -24,10 +24,6 @@ This project is part of my seminar work for school. The task was to create a pro
 - [✔️] Working with memories
 - [️✔️] Macro Implemented
 - [✔️] Falsi method implemented
-- [❌] Insert into DataBase
-- [❌] Upload data from DataBase
-- [❌] Showing data from DataBase
-
 
 # The look of the application
 
