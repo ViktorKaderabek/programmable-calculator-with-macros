@@ -35,11 +35,11 @@ This project is part of my seminar work for school. The task was to create a pro
 
 - [Android Developer - ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=Cj0KCQiAhf2MBhDNARIsAKXU5GSV4I3_o2ttSyKvOeH-JBWkHOEjRSM2NNg3kORfZWbpYuM7kjc1dHAaArMYEALw_wcB&gclsrc=aw.ds)
 - [Kotlinlang - Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
-- [Android Developer - Room Database](https://developer.android.com/training/data-storage/room)
 - [Android Developer - Live Data](https://developer.android.com/topic/libraries/architecture/livedata)
 - [Android Developer - Data Binding](https://developer.android.com/topic/libraries/data-binding)
 - [Stack Overflow - Dialog Box](https://stackoverflow.com/questions/52076779/kotlin-custom-dialog-in-android)
-
+- [Koin - Koin(Dependency Injcetion)](https://insert-koin.io)
+- [Android Developer - View Binding](https://developer.android.com/topic/libraries/view-binding)
 
 
 
