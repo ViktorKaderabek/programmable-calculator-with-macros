@@ -374,7 +374,7 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.txtProcess.visibility = View.VISIBLE
                 activityMainBinding.btnPercent.text = "%"
                 activityMainBinding.btnSquareRoot.text = "√"
-                activityMainBinding.btnDevided.text = "/"
+                activityMainBinding.btnDevided.text = "÷"
 
             }
 
@@ -410,6 +410,34 @@ class MainActivity : AppCompatActivity()
             }.start()
 
             mainViewModel.addNumber1() //prida do labelu "1"
+        }
+
+        activityMainBinding.btnClearMacro!!.setOnClickListener {
+            mainViewModel.macroClear()
+
+            Toast.makeText(applicationContext,"Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG).show()
+            val anim : Animation = AlphaAnimation(
+                0.0f,
+                1.0f
+            )
+            anim.duration = 500 //You can manage the blinking time with this parameter
+
+            anim.startOffset = 50
+            anim.repeatMode = Animation.ABSOLUTE
+            anim.repeatCount = 5
+
+            activityMainBinding.btnNumber1.startAnimation(anim)
+            activityMainBinding.btnNumber2.startAnimation(anim)
+            activityMainBinding.btnNumber3.startAnimation(anim)
+            activityMainBinding.btnNumber4.startAnimation(anim)
+            activityMainBinding.btnNumber5.startAnimation(anim)
+            activityMainBinding.btnNumber6.startAnimation(anim)
+            activityMainBinding.btnNumber7.startAnimation(anim)
+            activityMainBinding.btnNumber8.startAnimation(anim)
+            activityMainBinding.btnNumber9.startAnimation(anim)
+
+
         }
 
         activityMainBinding.btnNumber2.setOnClickListener {//Odkazuje na tlacitko btnNumber2 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel

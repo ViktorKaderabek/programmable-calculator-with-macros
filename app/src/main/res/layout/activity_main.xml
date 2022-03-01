@@ -549,7 +549,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:weightSum="5"
+                    android:weightSum="6"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -572,6 +572,19 @@
 
 
                     <Button
+                        android:id="@+id/btn_clear_macro"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:autoSizeMaxTextSize="30sp"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeStepGranularity="2sp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@android:color/transparent"
+                        android:text="CM"
+                        android:textColor="#FF8D00" />
+
+                    <Button
                         android:id="@+id/btn_recall_record"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -581,7 +594,7 @@
                         android:autoSizeStepGranularity="2sp"
                         android:autoSizeTextType="uniform"
                         android:background="@android:color/transparent"
-                        android:text="RR"
+                        android:text="RM"
                         android:textColor="#FF8D00" />
 
                     <Button

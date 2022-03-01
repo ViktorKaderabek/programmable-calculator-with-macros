@@ -74,7 +74,9 @@ class MainViewModel : ViewModel()
     private var mem15FalsiHolder : MutableList<String> = ArrayList()
 
     private var macroRecordIsClicked : Boolean = false
+    private var macroClearIsClicked : Boolean = false
     private var macroRecallIsClicked : Boolean = false
+    private var macroClearSet : String = " "
     private var macroSet : String = "0"
     private var macroChoosed : String = "0"
     private var array1Holder : MutableList<String> = ArrayList()
@@ -146,6 +148,15 @@ class MainViewModel : ViewModel()
         {
 
             macroSet = "1"
+
+        }
+        else if (macroClearIsClicked)
+        {
+
+            array1Holder.clear()
+            Log.e("something", array1Holder.toString())
+            macroClearIsClicked = false
+
 
         }
         else if (falsiMethodIsClicked)
@@ -229,6 +240,13 @@ class MainViewModel : ViewModel()
         {
 
             macroSet = "2"
+
+        }
+        else if (macroClearIsClicked)
+        {
+
+            array2Holder.clear()
+            macroClearIsClicked = false
 
         }
         else if (falsiMethodIsClicked)
@@ -315,6 +333,13 @@ class MainViewModel : ViewModel()
             macroSet = "3"
 
         }
+        else if (macroClearIsClicked)
+        {
+
+            array3Holder.clear()
+            macroClearIsClicked = false
+
+        }
         else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
@@ -396,6 +421,13 @@ class MainViewModel : ViewModel()
         {
 
             macroSet = "4"
+
+        }
+        else if (macroClearIsClicked)
+        {
+
+            array4Holder.clear()
+            macroClearIsClicked = false
 
         }
         else if (falsiMethodIsClicked)
@@ -481,6 +513,13 @@ class MainViewModel : ViewModel()
             macroSet = "5"
 
         }
+        else if (macroClearIsClicked)
+        {
+
+            array5Holder.clear()
+            macroClearIsClicked = false
+
+        }
         else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
@@ -560,6 +599,13 @@ class MainViewModel : ViewModel()
         {
 
             macroSet = "6"
+
+        }
+        else if (macroClearIsClicked)
+        {
+
+            array6Holder.clear()
+            macroClearIsClicked = false
 
         }
         else if (falsiMethodIsClicked)
@@ -642,6 +688,13 @@ class MainViewModel : ViewModel()
             macroSet = "7"
 
         }
+        else if (macroClearIsClicked)
+        {
+
+            array7Holder.clear()
+            macroClearIsClicked = false
+
+        }
         else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
@@ -722,6 +775,12 @@ class MainViewModel : ViewModel()
             macroSet = "8"
 
         }
+        else if (macroClearIsClicked)
+        {
+
+            array8Holder.clear()
+            macroClearIsClicked = false
+        }
         else if (falsiMethodIsClicked)
         {
             if (firstOperation.isEmpty())
@@ -800,6 +859,13 @@ class MainViewModel : ViewModel()
         {
 
             macroSet = "9"
+
+        }
+        else if (macroClearIsClicked)
+        {
+
+            array9Holder.clear()
+            macroClearIsClicked = false
 
         }
         else if (falsiMethodIsClicked)
@@ -1090,6 +1156,8 @@ class MainViewModel : ViewModel()
             count = -1
             macroChoosed = "0"
             arraySize = 0
+            macroClearIsClicked = false
+            macroClearSet = ""
             macroRecordIsClicked = false
             macroRecallIsClicked = false
             macroSet = "0"
@@ -3701,6 +3769,11 @@ class MainViewModel : ViewModel()
         resultHolder = "0"
         result.value = resultHolder
         proccessResult.value = processHolder
+    }
+
+    fun macroClear()
+    {
+        macroClearIsClicked = true
     }
 
     fun macroStopRecord()
