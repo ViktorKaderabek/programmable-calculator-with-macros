@@ -142,48 +142,48 @@ class MainViewModel : ViewModel()
             resultHolder.plus(1)
             macroChoosed = "1"
             macroRecallIsClicked = false
-         /*   if (array1Holder.contains("M1"))
-            {
-                resultHolder = array1Holder.toString()
-                resultHolder = resultHolder.drop(1)
-                resultHolder = resultHolder.dropLast(1)
-                resultHolder = resultHolder.replace(
-                    ",",
-                    ""
-                )
-                resultHolder = resultHolder.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
+            /*   if (array1Holder.contains("M1"))
+               {
+                   resultHolder = array1Holder.toString()
+                   resultHolder = resultHolder.drop(1)
+                   resultHolder = resultHolder.dropLast(1)
+                   resultHolder = resultHolder.replace(
+                       ",",
+                       ""
+                   )
+                   resultHolder = resultHolder.replace(
+                       "M1",
+                       mem1Holder.toString()
+                   )
 
 
-                val expression = ExpressionBuilder(resultHolder).build()
-                val processHolderResult : Double = expression.evaluate()
+                   val expression = ExpressionBuilder(resultHolder).build()
+                   val processHolderResult : Double = expression.evaluate()
 
-                if (processHolderResult.toString()
-                        .contains(".0"))
-                {
+                   if (processHolderResult.toString()
+                           .contains(".0"))
+                   {
 
-                    result.value =
-                            processHolderResult.toInt()
-                                .toString()
-                }
-                else
-                {
-                    result.value = processHolderResult.toString()
-                }
+                       result.value =
+                               processHolderResult.toInt()
+                                   .toString()
+                   }
+                   else
+                   {
+                       result.value = processHolderResult.toString()
+                   }
 
-                numberArrayHolder.removeAll(numberArrayHolder)
-                count = -1
-                macroChoosed = "0"
-                arraySize = 0
-                macroRecordIsClicked = false
-                macroRecallIsClicked = false
-                macroSet = "0"
-                macroChoosed = "0"
-            }
+                   numberArrayHolder.removeAll(numberArrayHolder)
+                   count = -1
+                   macroChoosed = "0"
+                   arraySize = 0
+                   macroRecordIsClicked = false
+                   macroRecallIsClicked = false
+                   macroSet = "0"
+                   macroChoosed = "0"
+               }
 
-          */
+             */
 
         }
         else if (macroRecordIsClicked)
@@ -1439,12 +1439,14 @@ class MainViewModel : ViewModel()
                 numberArrayHolder.add(resultHolder)
 
             }
-            else if (array1Holder[count].toString() == "M1"){
+            else if (array1Holder[count].toString() == "M1")
+            {
 
                 numberArrayHolder.add(mem1Holder.toString())
 
             }
-            else if (array1Holder[count].toString() == "M2"){
+            else if (array1Holder[count].toString() == "M2")
+            {
 
                 numberArrayHolder.add(mem2Holder.toString())
 
@@ -3839,14 +3841,12 @@ class MainViewModel : ViewModel()
         macroRecallIsClicked = true
     }
 
-     fun mem1()
+    fun mem1()
     {
 
         if (macroRecordIsClicked)
         {
-            isClicked = true
 
-            isClicked = false
             if (macroRecordIsClicked)
             {
 
@@ -4200,176 +4200,172 @@ class MainViewModel : ViewModel()
 
         if (macroRecordIsClicked)
         {
-            isClicked = true
 
-            isClicked = false
-            if (macroRecordIsClicked)
+            if (macroSet == "1")
             {
 
-                if (macroSet == "1")
-                {
-
-                    array1Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array1Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array1Holder.size.toString()
-                    )
+                array1Holder.add("M2")
+                Log.e(
+                    "array",
+                    array1Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array1Holder.size.toString() + "d"
+                )
 
 
-                }
-                else if (macroSet == "2")
-                {
-
-                    array2Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array2Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array2Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "3")
-                {
-
-                    array3Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array3Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array3Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "4")
-                {
-
-                    array4Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array4Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array4Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "5")
-                {
-
-                    array5Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array5Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array5Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "6")
-                {
-
-                    array6Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array6Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array6Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "7")
-                {
-
-                    array7Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array7Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array7Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "8")
-                {
-
-                    array8Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array8Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array8Holder.size.toString()
-                    )
-
-                }
-                else if (macroSet == "9")
-                {
-
-                    array9Holder.add("M2")
-                    Log.e(
-                        "array",
-                        array9Holder.toString()
-                    )
-                    Log.e(
-                        "set",
-                        macroSet.toString()
-                    )
-                    Log.e(
-                        "length",
-                        array9Holder.size.toString()
-                    )
-                }
             }
-        }else if (falsiMethodIsClicked)
+            else if (macroSet == "2")
+            {
+
+                array2Holder.add("M2")
+                Log.e(
+                    "array",
+                    array2Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array2Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "3")
+            {
+
+                array3Holder.add("M2")
+                Log.e(
+                    "array",
+                    array3Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array3Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "4")
+            {
+
+                array4Holder.add("M2")
+                Log.e(
+                    "array",
+                    array4Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array4Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "5")
+            {
+
+                array5Holder.add("M2")
+                Log.e(
+                    "array",
+                    array5Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array5Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "6")
+            {
+
+                array6Holder.add("M2")
+                Log.e(
+                    "array",
+                    array6Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array6Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "7")
+            {
+
+                array7Holder.add("M2")
+                Log.e(
+                    "array",
+                    array7Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array7Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "8")
+            {
+
+                array8Holder.add("M2")
+                Log.e(
+                    "array",
+                    array8Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array8Holder.size.toString()
+                )
+
+            }
+            else if (macroSet == "9")
+            {
+
+                array9Holder.add("M2")
+                Log.e(
+                    "array",
+                    array9Holder.toString()
+                )
+                Log.e(
+                    "set",
+                    macroSet.toString()
+                )
+                Log.e(
+                    "length",
+                    array9Holder.size.toString()
+                )
+
+            }
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -4722,7 +4718,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5075,7 +5072,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5428,7 +5426,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5781,7 +5780,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -6134,7 +6134,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -6487,7 +6488,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -6840,7 +6842,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -7193,7 +7196,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -7546,7 +7550,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -7899,7 +7904,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -8252,7 +8258,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -8605,7 +8612,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -8958,7 +8966,8 @@ class MainViewModel : ViewModel()
                     )
                 }
             }
-        }else if (falsiMethodIsClicked)
+        }
+        else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {

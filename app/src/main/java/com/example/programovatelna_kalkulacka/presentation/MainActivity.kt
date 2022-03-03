@@ -408,13 +408,18 @@ class MainActivity : AppCompatActivity()
             }.start()
 
             mainViewModel.addNumber1() //prida do labelu "1"
+
         }
+
+
 
         activityMainBinding.btnClearMacro!!.setOnClickListener {
             mainViewModel.macroClear()
 
-            Toast.makeText(applicationContext,"Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG).show()
-            Toast.makeText(applicationContext,"Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG)
+                .show()
+            Toast.makeText(applicationContext, "Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG)
+                .show()
             val anim : Animation = AlphaAnimation(
                 0.0f,
                 1.0f
