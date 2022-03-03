@@ -73,11 +73,11 @@ class MainViewModel : ViewModel()
     private var mem14FalsiHolder : MutableList<String> = ArrayList()
     private var mem15FalsiHolder : MutableList<String> = ArrayList()
 
-    private var macroRecordIsClicked : Boolean = false
+    var macroRecordIsClicked : Boolean = false
     private var macroClearIsClicked : Boolean = false
     private var macroRecallIsClicked : Boolean = false
     private var macroClearSet : String = " "
-    private var macroSet : String = "0"
+    var macroSet : String = "0"
     private var macroChoosed : String = "0"
     private var array1Holder : MutableList<String> = ArrayList()
     private var array2Holder : MutableList<String> = ArrayList()
@@ -142,12 +142,55 @@ class MainViewModel : ViewModel()
             resultHolder.plus(1)
             macroChoosed = "1"
             macroRecallIsClicked = false
+         /*   if (array1Holder.contains("M1"))
+            {
+                resultHolder = array1Holder.toString()
+                resultHolder = resultHolder.drop(1)
+                resultHolder = resultHolder.dropLast(1)
+                resultHolder = resultHolder.replace(
+                    ",",
+                    ""
+                )
+                resultHolder = resultHolder.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+
+
+                val expression = ExpressionBuilder(resultHolder).build()
+                val processHolderResult : Double = expression.evaluate()
+
+                if (processHolderResult.toString()
+                        .contains(".0"))
+                {
+
+                    result.value =
+                            processHolderResult.toInt()
+                                .toString()
+                }
+                else
+                {
+                    result.value = processHolderResult.toString()
+                }
+
+                numberArrayHolder.removeAll(numberArrayHolder)
+                count = -1
+                macroChoosed = "0"
+                arraySize = 0
+                macroRecordIsClicked = false
+                macroRecallIsClicked = false
+                macroSet = "0"
+                macroChoosed = "0"
+            }
+
+          */
 
         }
         else if (macroRecordIsClicked)
         {
 
             macroSet = "1"
+            Log.e("mes", macroSet.toString())
 
         }
         else if (macroClearIsClicked)
@@ -1396,16 +1439,25 @@ class MainViewModel : ViewModel()
                 numberArrayHolder.add(resultHolder)
 
             }
+            else if (array1Holder[count].toString() == "M1"){
+
+                numberArrayHolder.add(mem1Holder.toString())
+
+            }
+            else if (array1Holder[count].toString() == "M2"){
+
+                numberArrayHolder.add(mem2Holder.toString())
+
+            }
             else
             {
-
                 numberArrayHolder.add(resultHolder + array1Holder[count])
             }
 
-            resultHolder = "0"
+            resultHolder = ""
             processHolder = "0"
 
-            result.value = resultHolder
+            result.value = "0"
 
             if (arraySize + 1 == numberArrayHolder.size)
             {
@@ -1417,6 +1469,7 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
+
 
                 val expression = ExpressionBuilder(resultHolder).build()
                 val processHolderResult : Double = expression.evaluate()
@@ -1448,7 +1501,6 @@ class MainViewModel : ViewModel()
                 "message",
                 numberArrayHolder.toString()
             )
-
 
         }
         else if (macroChoosed == "2")
@@ -3787,11 +3839,184 @@ class MainViewModel : ViewModel()
         macroRecallIsClicked = true
     }
 
-    fun mem1()
+     fun mem1()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
         {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }
+        else if (falsiMethodIsClicked)
+        {
+
             if (memRecordIsClicked)
             {
                 mem1FalsiHolder.clear()
@@ -3973,7 +4198,178 @@ class MainViewModel : ViewModel()
     fun mem2()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M2")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -4155,7 +4551,178 @@ class MainViewModel : ViewModel()
     fun mem3()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -4337,7 +4904,178 @@ class MainViewModel : ViewModel()
     fun mem4()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -4519,7 +5257,178 @@ class MainViewModel : ViewModel()
     fun mem5()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -4701,7 +5610,178 @@ class MainViewModel : ViewModel()
     fun mem6()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -4883,7 +5963,178 @@ class MainViewModel : ViewModel()
     fun mem7()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5065,7 +6316,178 @@ class MainViewModel : ViewModel()
     fun mem8()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5247,7 +6669,178 @@ class MainViewModel : ViewModel()
     fun mem9()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5429,7 +7022,178 @@ class MainViewModel : ViewModel()
     fun mem10()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5611,7 +7375,178 @@ class MainViewModel : ViewModel()
     fun mem11()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5793,7 +7728,178 @@ class MainViewModel : ViewModel()
     fun mem12()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -5975,7 +8081,178 @@ class MainViewModel : ViewModel()
     fun mem13()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -6157,7 +8434,178 @@ class MainViewModel : ViewModel()
     fun mem14()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {
@@ -6339,7 +8787,178 @@ class MainViewModel : ViewModel()
     fun mem15()
     {
 
-        if (falsiMethodIsClicked)
+        if (macroRecordIsClicked)
+        {
+            isClicked = true
+
+            isClicked = false
+            if (macroRecordIsClicked)
+            {
+
+                if (macroSet == "1")
+                {
+
+                    array1Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array1Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array1Holder.size.toString()
+                    )
+
+
+                }
+                else if (macroSet == "2")
+                {
+
+                    array2Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array2Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array2Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "3")
+                {
+
+                    array3Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array3Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array3Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "4")
+                {
+
+                    array4Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array4Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array4Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "5")
+                {
+
+                    array5Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array5Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array5Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "6")
+                {
+
+                    array6Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array6Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array6Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "7")
+                {
+
+                    array7Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array7Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array7Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "8")
+                {
+
+                    array8Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array8Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array8Holder.size.toString()
+                    )
+
+                }
+                else if (macroSet == "9")
+                {
+
+                    array9Holder.add("M1")
+                    Log.e(
+                        "array",
+                        array9Holder.toString()
+                    )
+                    Log.e(
+                        "set",
+                        macroSet.toString()
+                    )
+                    Log.e(
+                        "length",
+                        array9Holder.size.toString()
+                    )
+                }
+            }
+        }else if (falsiMethodIsClicked)
         {
             if (memRecordIsClicked)
             {

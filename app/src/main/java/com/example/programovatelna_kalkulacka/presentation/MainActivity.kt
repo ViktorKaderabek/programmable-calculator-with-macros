@@ -360,8 +360,6 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnPower2.text = "x".lowercase()
                 activityMainBinding.btnPower3.text = "x²".lowercase()
                 activityMainBinding.btnPercent.text = "x³".lowercase()
-                activityMainBinding.btnSquareRoot.text = "x⁴".lowercase()
-                activityMainBinding.btnDevided.text = "x⁵".lowercase()
             }
             else
             {
