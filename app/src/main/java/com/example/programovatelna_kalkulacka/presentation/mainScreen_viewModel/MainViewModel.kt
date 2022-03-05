@@ -160,6 +160,63 @@ class MainViewModel : ViewModel()
                     "M1",
                     mem1Holder.toString()
                 )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                        "M14",
+                mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
                 macroContains = result
                 macroContainsResult.value = macroContains
 
@@ -309,6 +366,79 @@ class MainViewModel : ViewModel()
                 macroChoosed = "2"
                 macroRecallIsClicked = false
 
+                var result = array2Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
+
+
             }
             else if (macroRecordIsClicked)
             {
@@ -407,6 +537,78 @@ class MainViewModel : ViewModel()
                 macroChoosed = "3"
                 macroRecallIsClicked = false
 
+                var result = array1Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
+
             }
             else if (macroRecordIsClicked)
             {
@@ -504,6 +706,77 @@ class MainViewModel : ViewModel()
                 macroChoosed = "4"
                 macroRecallIsClicked = false
 
+                var result = array1Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
             }
             else if (macroRecordIsClicked)
             {
@@ -602,6 +875,78 @@ class MainViewModel : ViewModel()
                 macroChoosed = "5"
                 macroRecallIsClicked = false
 
+                var result = array1Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
+
             }
             else if (macroRecordIsClicked)
             {
@@ -699,6 +1044,78 @@ class MainViewModel : ViewModel()
                 macroChoosed = "6"
                 macroRecallIsClicked = false
 
+                var result = array1Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
+
             }
             else if (macroRecordIsClicked)
             {
@@ -794,6 +1211,77 @@ class MainViewModel : ViewModel()
                 macroChoosed = "7"
                 macroRecallIsClicked = false
 
+                var result = array1Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
             }
             else if (macroRecordIsClicked)
             {
@@ -889,6 +1377,77 @@ class MainViewModel : ViewModel()
                 macroChoosed = "8"
                 macroRecallIsClicked = false
 
+                var result = array8Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
             }
             else if (macroRecordIsClicked)
             {
@@ -983,6 +1542,77 @@ class MainViewModel : ViewModel()
                 macroChoosed = "9"
                 macroRecallIsClicked = false
 
+                var result = array9Holder.toString()
+                result = result.toString()
+                result = result.drop(1)
+                result = result.dropLast(1)
+                result = result.replace(
+                    ",",
+                    ""
+                )
+                result = result.replace(
+                    "M1",
+                    mem1Holder.toString()
+                )
+                result = result.replace(
+                    "M2",
+                    mem2Holder.toString()
+                )
+                result = result.replace(
+                    "M3",
+                    mem3Holder.toString()
+                )
+                result = result.replace(
+                    "M4",
+                    mem4Holder.toString()
+                )
+                result = result.replace(
+                    "M5",
+                    mem5Holder.toString()
+                )
+                result = result.replace(
+                    "M6",
+                    mem6Holder.toString()
+                )
+                result = result.replace(
+                    "M7",
+                    mem7Holder.toString()
+                )
+                result = result.replace(
+                    "M8",
+                    mem8Holder.toString()
+                )
+                result = result.replace(
+                    "M9",
+                    mem9Holder.toString()
+                )
+                result = result.replace(
+                    "M10",
+                    mem10Holder.toString()
+                )
+                result = result.replace(
+                    "M11",
+                    mem11Holder.toString()
+                )
+                result = result.replace(
+                    "M12",
+                    mem12Holder.toString()
+                )
+                result = result.replace(
+                    "M13",
+                    mem13Holder.toString()
+                )
+                result = result.replace(
+                    "M14",
+                    mem14Holder.toString()
+                )
+                result = result.replace(
+                    "M15",
+                    mem15Holder.toString()
+                )
+
+                macroContains = result
+                macroContainsResult.value = macroContains
             }
             else if (macroRecordIsClicked)
             {
@@ -1760,6 +2390,95 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array2Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array2Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
@@ -1767,10 +2486,10 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + array2Holder[count])
                 }
 
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -1807,12 +2526,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -1848,16 +2578,104 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array3Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array3Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array3Holder[count])
                 }
-                resultHolder = "0"
-
-
-                result.value = resultHolder
+                resultHolder = ""
+                processHolder = ""
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -1894,12 +2712,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -1935,16 +2764,105 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array4Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array4Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array4Holder[count])
                 }
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -1981,12 +2899,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -2022,16 +2951,105 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array5Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array5Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array5Holder[count])
                 }
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -2068,12 +3086,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -2109,16 +3138,105 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array6Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array6Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array6Holder[count])
                 }
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -2155,12 +3273,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -2196,16 +3325,105 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array7Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array7Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array7Holder[count])
                 }
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -2242,12 +3460,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -2283,16 +3512,105 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array8Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array8Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array8Holder[count])
                 }
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -2329,12 +3647,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
 
             }
@@ -2370,16 +3699,105 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
+                }else if (array9Holder[count].toString() == "M1")
+                {
+
+                    numberArrayHolder.add(mem1Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M2")
+                {
+
+                    numberArrayHolder.add(mem2Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M3")
+                {
+
+                    numberArrayHolder.add(mem3Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M4")
+                {
+
+                    numberArrayHolder.add(mem4Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M5")
+                {
+
+                    numberArrayHolder.add(mem5Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M6")
+                {
+
+                    numberArrayHolder.add(mem6Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M7")
+                {
+
+                    numberArrayHolder.add(mem7Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M8")
+                {
+
+                    numberArrayHolder.add(mem8Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M9")
+                {
+
+                    numberArrayHolder.add(mem9Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M10")
+                {
+
+                    numberArrayHolder.add(mem10Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M11")
+                {
+
+                    numberArrayHolder.add(mem11Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M12")
+                {
+
+                    numberArrayHolder.add(mem12Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M13")
+                {
+
+                    numberArrayHolder.add(mem13Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M14")
+                {
+
+                    numberArrayHolder.add(mem14Holder.toString())
+
+                }
+                else if (array9Holder[count].toString() == "M15")
+                {
+
+                    numberArrayHolder.add(mem15Holder.toString())
+
                 }
                 else
                 {
 
                     numberArrayHolder.add(resultHolder + array9Holder[count])
                 }
-                resultHolder = "0"
+                resultHolder = ""
                 processHolder = ""
 
-                result.value = resultHolder
+                result.value = "0"
 
                 if (arraySize + 1 == numberArrayHolder.size)
                 {
@@ -2416,12 +3834,23 @@ class MainViewModel : ViewModel()
                     macroRecallIsClicked = false
                     macroSet = "0"
                     macroChoosed = "0"
+                    resultHolder = "0"
+                    macroContains = ""
+                    macroContainsResult.value = macroContains
 
                 }
                 Log.e(
                     "message",
                     numberArrayHolder.toString()
                 )
+                processHolder = numberArrayHolder.toString()
+                processHolder = processHolder.drop(1)
+                processHolder = processHolder.dropLast(1)
+                processHolder = processHolder.replace(
+                    ",",
+                    ""
+                )
+                proccessResult.value = processHolder
 
             }
             else if (macroRecordIsClicked)
@@ -10324,7 +11753,6 @@ try{
 
     fun getMessage() : LiveData<String>
     {
-
         return message
     }
 
@@ -10332,6 +11760,4 @@ try{
     {
         return macroContainsResult
     }
-
-
 }

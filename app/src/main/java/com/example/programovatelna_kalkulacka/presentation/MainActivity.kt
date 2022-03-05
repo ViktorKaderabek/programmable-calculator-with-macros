@@ -310,13 +310,6 @@ class MainActivity : AppCompatActivity()
                 activityMainBinding.btnNumber8.startAnimation(anim)
                 activityMainBinding.btnNumber9.startAnimation(anim)
 
-                Toast.makeText(
-                    applicationContext,
-                    "Please set one of those numbers to store the record that you " +
-                            "made",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
 
             }
             else
@@ -423,10 +416,6 @@ class MainActivity : AppCompatActivity()
         activityMainBinding.btnClearMacro!!.setOnClickListener {
             mainViewModel.macroClear()
 
-            Toast.makeText(applicationContext, "Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG)
-                .show()
-            Toast.makeText(applicationContext, "Select one of those number that u want to clear the macro from.", Toast.LENGTH_LONG)
-                .show()
             val anim : Animation = AlphaAnimation(
                 0.0f,
                 1.0f
@@ -1449,17 +1438,6 @@ class MainActivity : AppCompatActivity()
             }
             mainViewModel.macroRecall()
 
-            if (mainViewModel.arraySize < 0)
-            {
-
-                Toast.makeText(
-                    applicationContext, "Please enter ${mainViewModel.arraySize} " +
-                            "numbers", Toast.LENGTH_SHORT
-                )
-                    .show()
-
-
-            }
         }
 
         activityMainBinding.btnMemoryClear.setOnClickListener {
