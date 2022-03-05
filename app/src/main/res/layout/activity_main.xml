@@ -266,6 +266,21 @@
                 app:layout_constraintStart_toStartOf="@+id/txt_result"
                 app:layout_constraintTop_toBottomOf="@+id/txt_result" />
 
+            <TextView
+                android:id="@+id/txt_macro_contains"
+                android:layout_width="0dp"
+                android:layout_height="15dp"
+                android:autoSizeMaxTextSize="40sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:gravity="end"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/txt_last_result"
+                app:layout_constraintStart_toStartOf="@+id/txt_last_result"
+                app:layout_constraintTop_toBottomOf="@+id/txt_last_result" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
 
                 android:id="@+id/constraintLayout"

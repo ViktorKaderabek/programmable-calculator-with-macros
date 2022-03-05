@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.example.programovatelna_kalkulacka.R
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
 import com.example.programovatelna_kalkulacka.presentation.mainScreen_viewModel.MainViewModel
@@ -37,6 +39,11 @@ class MainActivity : AppCompatActivity()
                     R.layout.activity_main
                 ) //tato promenna nastavuje co bude ridit MainActivita d
 
+        mainViewModel.getMacroContains()
+            .observe(
+                this,
+                { activityMainBinding.txtMacroContains?.text = it
+                })
 
         mainViewModel.getProcessResult()
             .observe(
@@ -1245,6 +1252,7 @@ class MainActivity : AppCompatActivity()
 
         activityMainBinding.btnMem2.setOnClickListener {
 
+            Log.e("mes", "M2 is clicked")
             activityMainBinding.btnMem2.setBackgroundColor(Color.parseColor("#616596"))
             object : CountDownTimer(
                 55,
@@ -1262,11 +1270,11 @@ class MainActivity : AppCompatActivity()
                 }
             }.start()
 
-            if (activityMainBinding.btnMem1.text == "M2")
+            if (activityMainBinding.btnMem2.text == "M2")
             {
                 mainViewModel.mem2()
             }
-            else if (activityMainBinding.btnMem1.text == "M7")
+            else if (activityMainBinding.btnMem2.text == "M7")
             {
                 mainViewModel.mem7()
             }
