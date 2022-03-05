@@ -537,7 +537,7 @@ class MainViewModel : ViewModel()
                 macroChoosed = "3"
                 macroRecallIsClicked = false
 
-                var result = array1Holder.toString()
+                var result = array3Holder.toString()
                 result = result.toString()
                 result = result.drop(1)
                 result = result.dropLast(1)
@@ -706,7 +706,7 @@ class MainViewModel : ViewModel()
                 macroChoosed = "4"
                 macroRecallIsClicked = false
 
-                var result = array1Holder.toString()
+                var result = array4Holder.toString()
                 result = result.toString()
                 result = result.drop(1)
                 result = result.dropLast(1)
@@ -875,7 +875,7 @@ class MainViewModel : ViewModel()
                 macroChoosed = "5"
                 macroRecallIsClicked = false
 
-                var result = array1Holder.toString()
+                var result = array5Holder.toString()
                 result = result.toString()
                 result = result.drop(1)
                 result = result.dropLast(1)
@@ -1044,7 +1044,7 @@ class MainViewModel : ViewModel()
                 macroChoosed = "6"
                 macroRecallIsClicked = false
 
-                var result = array1Holder.toString()
+                var result = array6Holder.toString()
                 result = result.toString()
                 result = result.drop(1)
                 result = result.dropLast(1)
@@ -1211,7 +1211,7 @@ class MainViewModel : ViewModel()
                 macroChoosed = "7"
                 macroRecallIsClicked = false
 
-                var result = array1Holder.toString()
+                var result = array7Holder.toString()
                 result = result.toString()
                 result = result.drop(1)
                 result = result.dropLast(1)
