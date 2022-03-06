@@ -147,7 +147,6 @@ class MainViewModel : ViewModel()
                 macroChoosed = "1"
                 macroRecallIsClicked = false
 
-
                 var result = array1Holder.toString()
                 result = result.toString()
                 result = result.drop(1)
@@ -156,66 +155,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
                         "M14",
-                mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -374,66 +418,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -545,66 +634,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -714,66 +848,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -883,66 +1062,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -1052,66 +1276,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -1219,67 +1488,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
-
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
                 macroContains = result
                 macroContainsResult.value = macroContains
             }
@@ -1385,66 +1698,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -1550,66 +1908,111 @@ class MainViewModel : ViewModel()
                     ",",
                     ""
                 )
-                result = result.replace(
-                    "M1",
-                    mem1Holder.toString()
-                )
-                result = result.replace(
-                    "M2",
-                    mem2Holder.toString()
-                )
-                result = result.replace(
-                    "M3",
-                    mem3Holder.toString()
-                )
-                result = result.replace(
-                    "M4",
-                    mem4Holder.toString()
-                )
-                result = result.replace(
-                    "M5",
-                    mem5Holder.toString()
-                )
-                result = result.replace(
-                    "M6",
-                    mem6Holder.toString()
-                )
-                result = result.replace(
-                    "M7",
-                    mem7Holder.toString()
-                )
-                result = result.replace(
-                    "M8",
-                    mem8Holder.toString()
-                )
-                result = result.replace(
-                    "M9",
-                    mem9Holder.toString()
-                )
-                result = result.replace(
-                    "M10",
-                    mem10Holder.toString()
-                )
-                result = result.replace(
-                    "M11",
-                    mem11Holder.toString()
-                )
-                result = result.replace(
-                    "M12",
-                    mem12Holder.toString()
-                )
-                result = result.replace(
-                    "M13",
-                    mem13Holder.toString()
-                )
-                result = result.replace(
-                    "M14",
-                    mem14Holder.toString()
-                )
-                result = result.replace(
-                    "M15",
-                    mem15Holder.toString()
-                )
+                if (mem1Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M1",
+                        mem1Holder.toString()
+                    )
+                }
+                if (mem2Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M2",
+                        mem2Holder.toString()
+                    )
+                }
+                if (mem3Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M3",
+                        mem3Holder.toString()
+                    )
+                }
+                if (mem4Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M4",
+                        mem4Holder.toString()
+                    )
+                }
+                if (mem5Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M5",
+                        mem5Holder.toString()
+                    )
+                }
+                if (mem6Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M6",
+                        mem6Holder.toString()
+                    )
+                }
+                if (mem7Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M7",
+                        mem7Holder.toString()
+                    )
+                }
+                if (mem8Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M8",
+                        mem8Holder.toString()
+                    )
+                }
+                if (mem9Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M9",
+                        mem9Holder.toString()
+                    )
+                }
+                if (mem10Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M10",
+                        mem10Holder.toString()
+                    )
+                }
+                if (mem11Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M11",
+                        mem11Holder.toString()
+                    )
+                }
+                if (mem12Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M12",
+                        mem12Holder.toString()
+                    )
+                }
+                if (mem13Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M13",
+                        mem13Holder.toString()
+                    )
+                }
+                if (mem14Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M14",
+                        mem14Holder.toString()
+                    )
+                }
+                if (mem15Holder.isNotEmpty())
+                {
+                    result = result.replace(
+                        "M15",
+                        mem15Holder.toString()
+                    )
+                }
 
                 macroContains = result
                 macroContainsResult.value = macroContains
@@ -2393,7 +2796,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array2Holder[count].toString() == "M1")
+                }
+                else if (array2Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -2583,7 +2987,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array3Holder[count].toString() == "M1")
+                }
+                else if (array3Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -2771,7 +3176,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array4Holder[count].toString() == "M1")
+                }
+                else if (array4Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -2960,7 +3366,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array5Holder[count].toString() == "M1")
+                }
+                else if (array5Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -3149,7 +3556,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array6Holder[count].toString() == "M1")
+                }
+                else if (array6Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -3338,7 +3746,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array7Holder[count].toString() == "M1")
+                }
+                else if (array7Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -3527,7 +3936,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array8Holder[count].toString() == "M1")
+                }
+                else if (array8Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -3716,7 +4126,8 @@ class MainViewModel : ViewModel()
                     numberArrayHolder.add(resultHolder + "*")
                     numberArrayHolder.add(resultHolder)
 
-                }else if (array9Holder[count].toString() == "M1")
+                }
+                else if (array9Holder[count].toString() == "M1")
                 {
 
                     numberArrayHolder.add(mem1Holder.toString())
@@ -11052,184 +11463,190 @@ class MainViewModel : ViewModel()
 
     fun equal()
     {
-try{
-        if (falsiMethodIsClicked)
+        try
         {
-            var x1x : Double = 0.0
-            var x2x : Double = 0.0
-            var result : Double = 0.0
+            if (falsiMethodIsClicked)
+            {
+                var x1x : Double = 0.0
+                var x2x : Double = 0.0
+                var result : Double = 0.0
 
 
-            if (x1 == "x")
-            {
-                x1x = 100.0
-            }
-            if (x1 == "x²")
-            {
-                x1x = 200.0
-            }
-            if (x1 == "x³")
-            {
-                x1x = 300.0
-            }
-            if (x1 == "x⁴")
-            {
-                x1x = 400.0
-            }
-            if (x1 == "x⁵")
-            {
-                x1x = 500.0
-            }
-
-            if (x2 == "x")
-            {
-                x2x = 100.0
-            }
-            if (x2 == "x²")
-            {
-                x2x = 200.0
-            }
-            if (x2 == "x³")
-            {
-                x2x = 300.0
-            }
-            if (x2 == "x⁴")
-            {
-                x2x = 400.0
-            }
-            if (x2 == "x⁵")
-            {
-                x2x = 500.0
-            }
-
-            a = falsiNum1Holder.toDouble()
-            b = falsiNum2Holder.toDouble()
-
-            var firsNumber = 0.0
-            var secondNumber = 0.0
-
-            if (secondOperation == "+")
-            {
-                secondNumber = b * x1x
-            }
-
-            if (secondOperation == "-")
-            {
-                secondNumber = -b * x1x
-            }
-
-            if (firstOperation == "+")
-            {
-                firsNumber = a * x2x
-            }
-
-            if (firstOperation == "-")
-            {
-                firsNumber = -a * x2x
-            }
-
-
-
-            if (x1 == "x³" || x1 == "x⁴" || x1 == "x⁵" || x2 == "x³" || x2 == "x⁴" || x2 == "x⁵")
-            {
-                CoroutineScope(Dispatchers.Default).launch {
-                    x1RootResult.postValue(falsiMethod(firsNumber, secondNumber).toString())
-                    message.postValue("Please wait till the math operation is over")
-                }
-            }
-            else
-            {
-                CoroutineScope(Dispatchers.Default).launch {
-                    x1RootResult.postValue(falsiMethodforQuad(secondNumber, firsNumber).toString())
-                    message.postValue("Please wait till the math operation is over")
-                }
-            }
-
-
-        }
-        else
-        {
-            try
-            {
-                if (processHolder.isEmpty())
+                if (x1 == "x")
                 {
-
-                    processHolder = ""
-                    resultHolder = processHolder
-
-                    lastResult.value = resultHolder
-                    result.value = "0"
-                    proccessResult.value = resultHolder
-                    ansHolder = resultHolder
+                    x1x = 100.0
+                }
+                if (x1 == "x²")
+                {
+                    x1x = 200.0
+                }
+                if (x1 == "x³")
+                {
+                    x1x = 300.0
+                }
+                if (x1 == "x⁴")
+                {
+                    x1x = 400.0
+                }
+                if (x1 == "x⁵")
+                {
+                    x1x = 500.0
                 }
 
-                val expression = ExpressionBuilder(processHolder).build()
-                val processHolderResult : Double = expression.evaluate()
-
-                if (processHolderResult.toString()
-                        .contains(".0")
-                )
+                if (x2 == "x")
                 {
+                    x2x = 100.0
+                }
+                if (x2 == "x²")
+                {
+                    x2x = 200.0
+                }
+                if (x2 == "x³")
+                {
+                    x2x = 300.0
+                }
+                if (x2 == "x⁴")
+                {
+                    x2x = 400.0
+                }
+                if (x2 == "x⁵")
+                {
+                    x2x = 500.0
+                }
 
-                    processHolder = processHolderResult.toInt()
-                        .toString()
-                    resultHolder = processHolderResult.toInt()
-                        .toString()
+                a = falsiNum1Holder.toDouble()
+                b = falsiNum2Holder.toDouble()
 
-                    lastResult.value = resultHolder
-                    result.value = "0"
-                    proccessResult.value = resultHolder
-                    ansHolder = resultHolder
+                var firsNumber = 0.0
+                var secondNumber = 0.0
 
+                if (secondOperation == "+")
+                {
+                    secondNumber = b * x1x
+                }
+
+                if (secondOperation == "-")
+                {
+                    secondNumber = -b * x1x
+                }
+
+                if (firstOperation == "+")
+                {
+                    firsNumber = a * x2x
+                }
+
+                if (firstOperation == "-")
+                {
+                    firsNumber = -a * x2x
+                }
+
+
+
+                if (x1 == "x³" || x1 == "x⁴" || x1 == "x⁵" || x2 == "x³" || x2 == "x⁴" || x2 == "x⁵")
+                {
+                    CoroutineScope(Dispatchers.Default).launch {
+                        x1RootResult.postValue(falsiMethod(firsNumber, secondNumber).toString())
+                        message.postValue("Please wait till the math operation is over")
+                    }
                 }
                 else
                 {
+                    CoroutineScope(Dispatchers.Default).launch {
+                        x1RootResult.postValue(falsiMethodforQuad(secondNumber, firsNumber).toString())
+                        message.postValue("Please wait till the math operation is over")
+                    }
+                }
 
-                    processHolder = processHolderResult.toDouble()
-                        .toString()
-                    resultHolder = processHolderResult.toDouble()
-                        .toString()
 
-                    lastResult.value = resultHolder
+            }
+            else
+            {
+                try
+                {
+                    if (processHolder.isEmpty())
+                    {
+
+                        processHolder = ""
+                        resultHolder = processHolder
+
+                        lastResult.value = resultHolder
+                        result.value = "0"
+                        proccessResult.value = resultHolder
+                        ansHolder = resultHolder
+                    }
+
+                    val expression = ExpressionBuilder(processHolder).build()
+                    val processHolderResult : Double = expression.evaluate()
+
+                    if (processHolderResult.toString()
+                            .contains(".0")
+                    )
+                    {
+
+                        processHolder = processHolderResult.toInt()
+                            .toString()
+                        resultHolder = processHolderResult.toInt()
+                            .toString()
+
+                        lastResult.value = resultHolder
+                        result.value = "0"
+                        proccessResult.value = resultHolder
+                        ansHolder = resultHolder
+
+                    }
+                    else
+                    {
+
+                        processHolder = processHolderResult.toDouble()
+                            .toString()
+                        resultHolder = processHolderResult.toDouble()
+                            .toString()
+
+                        lastResult.value = resultHolder
+                        result.value = "0"
+                        proccessResult.value = resultHolder
+                        ansHolder = resultHolder
+                    }
+                }
+                catch (e : Exception)
+                {
+
+                    processHolder = processHolder.dropLast(1)
+                    resultHolder = processHolder
+
+                    lastResult.value = processHolder
                     result.value = "0"
-                    proccessResult.value = resultHolder
-                    ansHolder = resultHolder
+                    proccessResult.value = processHolder
+                    ansHolder = processHolder
+
                 }
             }
-            catch (e : Exception)
-            {
-
-                processHolder = processHolder.dropLast(1)
-                resultHolder = processHolder
-
-                lastResult.value = processHolder
-                result.value = "0"
-                proccessResult.value = processHolder
-                ansHolder = processHolder
-
-            }
         }
-}catch (e : Exception){
-    deleteAll()
-    result.value = "Error"
-}
+        catch (e : Exception)
+        {
+            deleteAll()
+            result.value = "Error"
+        }
     }
 
     fun falsiMethod()
     {
-        try{
-        click += 1
+        try
+        {
+            click += 1
 
-        if (click == 1)
-        {
-            falsiMethodIsClicked = true
+            if (click == 1)
+            {
+                falsiMethodIsClicked = true
+            }
+            else if (click == 2)
+            {
+                falsiMethodIsClicked = false
+                click = 0
+            }
         }
-        else if (click == 2)
+        catch (e : Exception)
         {
-            falsiMethodIsClicked = false
-            click = 0
-        }
-        }catch (e : Exception){
             deleteAll()
             result.value = "Error"
         }
@@ -11312,101 +11729,104 @@ try{
 
     fun ansShow()
     {
-        try{
-        if (falsiMethodIsClicked)
+        try
         {
-
-            if (falsiNum1Holder.isEmpty())
+            if (falsiMethodIsClicked)
             {
 
-                falsiNum1Holder = ansHolder.toString()
-                quadraticNum1Result.value = falsiNum1Holder
-            }
-            else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
-            {
-                if (ansHolder.toString()
-                        .contains("-")
-                )
+                if (falsiNum1Holder.isEmpty())
                 {
 
-                    firstOperation = "-"
-                    stringHolder = ansHolder
-                    stringHolder = stringHolder.drop(1)
-                    falsiNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = falsiNum2Holder
-                    firstOperationResult.value = firstOperation
+                    falsiNum1Holder = ansHolder.toString()
+                    quadraticNum1Result.value = falsiNum1Holder
+                }
+                else if (firstOperation.isEmpty() && falsiNum2Holder.isEmpty())
+                {
+                    if (ansHolder.toString()
+                            .contains("-")
+                    )
+                    {
+
+                        firstOperation = "-"
+                        stringHolder = ansHolder
+                        stringHolder = stringHolder.drop(1)
+                        falsiNum2Holder = stringHolder.toString()
+                        quadraticNum2Result.value = falsiNum2Holder
+                        firstOperationResult.value = firstOperation
+
+                    }
+                    else
+                    {
+                        firstOperation = "+"
+                        stringHolder = ansHolder
+                        falsiNum2Holder = stringHolder.toString()
+                        quadraticNum2Result.value = falsiNum2Holder
+                        firstOperationResult.value = firstOperation
+                    }
 
                 }
                 else
                 {
-                    firstOperation = "+"
-                    stringHolder = ansHolder
-                    falsiNum2Holder = stringHolder.toString()
-                    quadraticNum2Result.value = falsiNum2Holder
-                    firstOperationResult.value = firstOperation
+
+                    if (ansHolder.toString()
+                            .contains("-")
+                    )
+                    {
+                        secondOperation = "-"
+                        stringHolder = ansHolder
+                        stringHolder = stringHolder.drop(1)
+                        falsiNum3Holder = stringHolder.toString()
+                        quadraticNum3Result.value = falsiNum3Holder
+                        secondOperationResult.value = secondOperation
+
+                    }
+                    else
+                    {
+                        secondOperation = "+"
+                        stringHolder = ansHolder
+                        falsiNum3Holder = stringHolder.toString()
+                        quadraticNum3Result.value = falsiNum3Holder
+                        secondOperationResult.value = secondOperation
+                    }
                 }
 
             }
             else
             {
-
-                if (ansHolder.toString()
-                        .contains("-")
-                )
+                if (ansHolder == "")
                 {
-                    secondOperation = "-"
-                    stringHolder = ansHolder
-                    stringHolder = stringHolder.drop(1)
-                    falsiNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = falsiNum3Holder
-                    secondOperationResult.value = secondOperation
 
                 }
-                else
-                {
-                    secondOperation = "+"
-                    stringHolder = ansHolder
-                    falsiNum3Holder = stringHolder.toString()
-                    quadraticNum3Result.value = falsiNum3Holder
-                    secondOperationResult.value = secondOperation
-                }
-            }
 
-        }
-        else
-        {
-            if (ansHolder == "")
-            {
-
-            }
-
-            if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
-                    "*"
-                ) || processHolder.contains(
-                    "/"
+                if (processHolder.contains("+") || processHolder.contains("-") || processHolder.contains(
+                        "*"
+                    ) || processHolder.contains(
+                        "/"
+                    )
                 )
-            )
-            {
-                processHolder += ansHolder
+                {
+                    processHolder += ansHolder
+                    proccessResult.value = processHolder
+
+                }
+                else if (processHolder == "")
+                {
+
+                    processHolder = ansHolder
+                }
+
+                if (resultHolder == "0")
+                {
+
+                    resultHolder = ansHolder
+
+                }
+                result.value = resultHolder
                 proccessResult.value = processHolder
-
             }
-            else if (processHolder == "")
-            {
-
-                processHolder = ansHolder
-            }
-
-            if (resultHolder == "0")
-            {
-
-                resultHolder = ansHolder
-
-            }
-            result.value = resultHolder
-            proccessResult.value = processHolder
         }
-        }catch (e : Exception){
+        catch (e : Exception)
+        {
             deleteAll()
             result.value = "Error"
         }
@@ -11723,7 +12143,6 @@ try{
         mem15Value.value = value
         return mem15Value
     }
-
 
     fun getProcessResult() : LiveData<String>
     {
