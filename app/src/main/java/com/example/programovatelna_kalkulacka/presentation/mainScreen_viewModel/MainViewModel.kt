@@ -2322,13 +2322,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -2342,6 +2344,7 @@ class MainViewModel : ViewModel()
                     resultHolder = "0"
                     macroContains = ""
                     macroContainsResult.value = macroContains
+
 
                 }
                 Log.e(
@@ -2509,13 +2512,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -2695,13 +2700,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -2882,13 +2889,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -3069,13 +3078,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -3256,13 +3267,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -3443,13 +3456,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -3630,13 +3645,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
@@ -3817,13 +3834,15 @@ class MainViewModel : ViewModel()
                             .contains(".0"))
                     {
 
-                        result.value =
+                        ansHolder =
                                 processHolderResult.toInt()
                                     .toString()
+                        lastResult.value = ansHolder
                     }
                     else
                     {
-                        result.value = processHolderResult.toString()
+                        ansHolder = processHolderResult.toString()
+                        lastResult.value = ansHolder
                     }
 
                     numberArrayHolder.removeAll(numberArrayHolder)
