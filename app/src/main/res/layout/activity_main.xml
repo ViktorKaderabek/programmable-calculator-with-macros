@@ -35,7 +35,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
-                android:weightSum="10"
+                android:weightSum="9"
                 app:layout_constraintBottom_toTopOf="@+id/txt_result"
                 app:layout_constraintEnd_toEndOf="@+id/txt_process"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -172,6 +172,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:id="@+id/txt_fourth_number"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -184,18 +185,6 @@
                     android:text=""
                     android:textColor="@color/white" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:background="@android:color/transparent"
-                    android:gravity="left|center"
-                    android:text=""
-                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -253,7 +242,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
-                    android:id="@+id/txt_func_number"
+                    android:id="@+id/txt_x1Root_number"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1.95"
@@ -280,7 +269,106 @@
                     android:textColor="@color/white" />
 
                 <TextView
-                    android:id="@+id/txt_x1Root_number"
+                    android:id="@+id/txt_func_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.95"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:text=""
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/x2_root_layout"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                app:layout_constraintEnd_toEndOf="@id/quadratic_equalation"
+                app:layout_constraintStart_toStartOf="@id/quadratic_equalation"
+                app:layout_constraintTop_toBottomOf="@+id/x1_root_layout">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.05"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:text="a : "
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/txt_a_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.95"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:text=""
+                    android:textColor="@color/white" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.05"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:text="b : "
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/txt_b_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.95"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:text=""
+                    android:textColor="@color/white" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.05"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:autoSizeTextType="uniform"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:text="e : "
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/txt_c_number"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1.95"

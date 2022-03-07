@@ -186,6 +186,13 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.txtThirdNumber.text = it
                 })
 
+        mainViewModel.quadraticResult4()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtFourthNumber?.text = it
+                })
+
         mainViewModel.firstOperation()
             .observe(
                 this,
@@ -198,6 +205,13 @@ class MainActivity : AppCompatActivity()
                 this,
                 {
                     activityMainBinding.txtSecondOperator.text = it
+                })
+
+        mainViewModel.thirdOperation()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtThirdOperator?.text = it
                 })
 
         mainViewModel.getX1Root()
@@ -219,11 +233,40 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.x2!!.text = it
                 })
 
+        mainViewModel.x3Result()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtX3!!.text = it
+                })
+
+        mainViewModel.getLowVal()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtANumber!!.text = it
+                })
+
+        mainViewModel.getHighVal()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtBNumber!!.text = it
+                })
+
+        mainViewModel.getPrecission()
+            .observe(
+                this,
+                {
+                    activityMainBinding.txtCNumber!!.text = it
+                })
+
 
 
 
 
         activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
+        activityMainBinding.x2RootLayout?.visibility = View.INVISIBLE
         activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 
 
@@ -353,6 +396,7 @@ class MainActivity : AppCompatActivity()
                 btnFalsi = true
 
                 activityMainBinding.x1RootLayout.visibility = View.VISIBLE
+                activityMainBinding.x2RootLayout?.visibility = View.VISIBLE
                 activityMainBinding.quadraticEqualation.visibility = View.VISIBLE
                 activityMainBinding.txtLastResult.visibility = View.INVISIBLE
                 activityMainBinding.txtResult.visibility = View.INVISIBLE
@@ -365,6 +409,7 @@ class MainActivity : AppCompatActivity()
             {
                 btnFalsi = false
                 activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
+                activityMainBinding.x2RootLayout?.visibility = View.INVISIBLE
                 activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
 
                 activityMainBinding.txtLastResult.visibility = View.VISIBLE
