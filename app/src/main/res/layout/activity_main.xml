@@ -453,13 +453,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeMinTextSize="9sp"
                         android:autoSizeStepGranularity="2sp"
                         android:autoSizeTextType="uniform"
                         android:background="@android:color/transparent"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text="85x³-69+58"
+                        android:text="85x³-3x2+47+25"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -522,19 +522,6 @@
                         android:text=""
                         android:textColor="@color/white" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.5"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="12sp"
-                        android:autoSizeStepGranularity="2sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/white" />
 
 
                 </LinearLayout>

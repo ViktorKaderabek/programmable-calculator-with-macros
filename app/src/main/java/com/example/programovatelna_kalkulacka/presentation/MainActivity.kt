@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity()
             .observe(
                 this,
                 {
-                    activityMainBinding.txtX1RootNumber.text = it
+                    activityMainBinding.txtFuncNumber?.text = it
                 })
         mainViewModel.x1Result()
             .observe(

@@ -6425,6 +6425,9 @@ class MainViewModel : ViewModel()
                     mem1FalsiHolder.add(x2.toString())
                     mem1FalsiHolder.add(secondOperation.toString())
                     mem1FalsiHolder.add(falsiNum3Holder.toString())
+                    mem1FalsiHolder.add(x3.toString())
+                    mem1FalsiHolder.add(thirdOperation.toString())
+                    mem1FalsiHolder.add(falsiNum4Holder.toString())
 
                     Log.e("message", mem1FalsiHolder.toString())
                     mem1Value.value =
@@ -6447,6 +6450,11 @@ class MainViewModel : ViewModel()
                     firstOperation = mem1FalsiHolder[2].toString()
                     falsiNum2Holder = mem1FalsiHolder[3].toString()
                     x2 = mem1FalsiHolder[4].toString()
+                    x3 = mem1FalsiHolder[7].toString()
+                    thirdOperation = mem1FalsiHolder[8].toString()
+                    falsiNum4Holder = mem1FalsiHolder[9].toString()
+
+
                 }
                 else
                 {
@@ -6526,6 +6534,9 @@ class MainViewModel : ViewModel()
                 x1Result.value = x1
                 x2Result.value = x2
                 quadraticNum3Result.value = falsiNum3Holder
+                x3Result.value = x3
+                thirdOperationResult.value = thirdOperation
+                quadraticNum4Result.value = falsiNum4Holder
 
             }
             else
