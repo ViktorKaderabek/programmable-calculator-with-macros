@@ -381,6 +381,7 @@ class MainViewModel : ViewModel()
         {
             deleteAll()
             result.value = "Error"
+            Log.e("erro is ", e.message.toString())
         }
     }
 
@@ -2390,52 +2391,89 @@ class MainViewModel : ViewModel()
         {
             if (falsiMethodIsClicked)
             {
-                if (firstOperation!!.isEmpty())
+                if (falsiMethodIsClickedCount == 1)
                 {
-                    if (falsiNum1Holder!!.contains("."))
+                    if (lowVal.contains('.'))
                     {
-                        quadraticNum1Result.value = falsiNum1Holder
                     }
                     else
                     {
-                        falsiNum1Holder = falsiNum1Holder.plus(".")
-                        quadraticNum1Result.value = falsiNum1Holder
+                        lowVal = lowVal + "."
+                        lowValResult.value = lowVal
                     }
                 }
-                else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty())
+                if (falsiMethodIsClickedCount == 2)
                 {
-                    if (falsiNum2Holder!!.contains("."))
+                    if (highVal.contains('.'))
                     {
-                        quadraticNum2Result.value = falsiNum2Holder
                     }
                     else
                     {
-                        falsiNum2Holder = falsiNum2Holder.plus(".")
-                        quadraticNum2Result.value = falsiNum2Holder
+                        highVal = highVal + "."
+                        highValResult.value = highVal
                     }
                 }
-                else if (secondOperation!!.isNotEmpty() && thirdOperation!!.isEmpty())
+                if (falsiMethodIsClickedCount == 3)
                 {
-                    if (falsiNum3Holder!!.contains("."))
+                    if (precision.contains('.'))
                     {
-                        quadraticNum3Result.value = falsiNum3Holder
                     }
                     else
                     {
-                        falsiNum3Holder = falsiNum3Holder.plus(".")
-                        quadraticNum3Result.value = falsiNum3Holder
+                        precision = precision + "."
+                        precissionResult.value = precision
                     }
+
                 }
-                else
+                else if (falsiMethodIsClickedCount == 0)
                 {
-                    if (falsiNum4Holder!!.contains("."))
+                    if (firstOperation!!.isEmpty())
                     {
-                        quadraticNum4Result.value = falsiNum4Holder
+                        if (falsiNum1Holder!!.contains("."))
+                        {
+                            quadraticNum1Result.value = falsiNum1Holder
+                        }
+                        else
+                        {
+                            falsiNum1Holder = falsiNum1Holder.plus(".")
+                            quadraticNum1Result.value = falsiNum1Holder
+                        }
+                    }
+                    else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty())
+                    {
+                        if (falsiNum2Holder!!.contains("."))
+                        {
+                            quadraticNum2Result.value = falsiNum2Holder
+                        }
+                        else
+                        {
+                            falsiNum2Holder = falsiNum2Holder.plus(".")
+                            quadraticNum2Result.value = falsiNum2Holder
+                        }
+                    }
+                    else if (secondOperation!!.isNotEmpty() && thirdOperation!!.isEmpty())
+                    {
+                        if (falsiNum3Holder!!.contains("."))
+                        {
+                            quadraticNum3Result.value = falsiNum3Holder
+                        }
+                        else
+                        {
+                            falsiNum3Holder = falsiNum3Holder.plus(".")
+                            quadraticNum3Result.value = falsiNum3Holder
+                        }
                     }
                     else
                     {
-                        falsiNum4Holder = falsiNum4Holder.plus(".")
-                        quadraticNum4Result.value = falsiNum4Holder
+                        if (falsiNum4Holder!!.contains("."))
+                        {
+                            quadraticNum4Result.value = falsiNum4Holder
+                        }
+                        else
+                        {
+                            falsiNum4Holder = falsiNum4Holder.plus(".")
+                            quadraticNum4Result.value = falsiNum4Holder
+                        }
                     }
                 }
 
@@ -2572,53 +2610,88 @@ class MainViewModel : ViewModel()
         {
             if (falsiMethodIsClicked)
             {
-                if (falsiNum4Holder!!.isNotEmpty())
-                {
 
-                    falsiNum4Holder = falsiNum4Holder!!.dropLast(1)
-                    quadraticNum4Result.value = falsiNum4Holder
+                if (falsiMethodIsClickedCount == 1)
+                {
+                    lowVal = lowVal.dropLast(1)
+                    lowValResult.value = lowVal
+                    if (lowVal.isEmpty())
+                    {
+                        falsiMethodIsClickedCount = 0
+                    }
 
                 }
-                else if (falsiNum4Holder!!.isEmpty() && thirdOperation!!.isNotEmpty())
+                if (falsiMethodIsClickedCount == 2)
+                {
+                    highVal = highVal.dropLast(1)
+                    highValResult.value = highVal
+                    if (highVal.isEmpty())
+                    {
+                        falsiMethodIsClickedCount = 1
+                    }
+                }
+                if (falsiMethodIsClickedCount == 3)
+                {
+                    precision = precision.dropLast(1)
+                    precissionResult.value = precision
+                    if (precision.isEmpty())
+                    {
+                        falsiMethodIsClickedCount = 2
+                    }
+                }
+
+                if (falsiNum4Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
+                {
+                    falsiNum4Holder = falsiNum4Holder!!.dropLast(1)
+                    quadraticNum4Result.value = falsiNum4Holder
+                }
+                else if (falsiNum4Holder!!.isEmpty() && thirdOperation!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
                     thirdOperation = thirdOperation!!.dropLast(1)
                     thirdOperationResult.value = thirdOperation
                 }
-                else if (thirdOperation!!.isEmpty() && x3!!.isNotEmpty())
+                else if (thirdOperation!!.isEmpty() && x3!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
                     x3 = ""
                     x3Result.value = x3
                 }
-                else if (x3!!.isEmpty() && falsiNum3Holder!!.isNotEmpty())
+                else if (x3!!.isEmpty() && falsiNum3Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
-
                     falsiNum3Holder = falsiNum3Holder!!.dropLast(1)
                     quadraticNum3Result.value = falsiNum3Holder
                 }
-                else if (falsiNum3Holder!!.isEmpty() && secondOperation!!.isNotEmpty())
+                else if (falsiNum3Holder!!.isEmpty() && secondOperation!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
                     secondOperation = secondOperation!!.dropLast(1)
                     secondOperationResult.value = secondOperation
                 }
-                else if (secondOperation!!.isEmpty() && x1!!.isNotEmpty())
+                else if (secondOperation!!.isEmpty() && x2!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
-
                     x2 = ""
-                    x2Result.value = " "
+                    x2Result.value = x2
+                }
+                else if (x2!!.isEmpty() && falsiNum2Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
+                {
+                    falsiNum2Holder = falsiNum2Holder!!.dropLast(1)
+                    quadraticNum2Result.value = falsiNum2Holder
 
                 }
-                else if (falsiNum2Holder!!.isEmpty() && firstOperation!!.isNotEmpty())
+                else if (falsiNum2Holder!!.isEmpty() && firstOperation!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
-
                     firstOperation = firstOperation!!.dropLast(1)
                     firstOperationResult.value = firstOperation
                 }
-                else
+                else if (firstOperation!!.isEmpty() && x1!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
                 {
                     x1 = ""
-                    x1Result.value = " "
-
+                    x1Result.value = x1
                 }
+                else if (falsiNum1Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0)
+                {
+                    falsiNum1Holder = falsiNum1Holder!!.dropLast(1)
+                    quadraticNum1Result.value = falsiNum1Holder
+                }
+
             }
             else
             {
@@ -4924,25 +4997,61 @@ class MainViewModel : ViewModel()
             }
             else if (falsiMethodIsClicked)
             {
-                if (falsiNum1Holder!!.isEmpty())
+                if (falsiMethodIsClickedCount == 1)
                 {
-                    falsiNum1Holder = falsiNum1Holder.plus("-")
-                    quadraticNum1Result.value = falsiNum1Holder
+                    if (lowVal.contains('-'))
+                    {
+                    }
+                    else
+                    {
+                        lowVal = "-" + lowVal
+                        lowValResult.value = lowVal
+                    }
                 }
-                else if (firstOperation!!.isEmpty())
+                if (falsiMethodIsClickedCount == 2)
                 {
-                    firstOperation = "-"
-                    firstOperationResult.value = firstOperation
+                    if (highVal.contains('-'))
+                    {
+                    }
+                    else
+                    {
+                        highVal = "-" + highVal
+                        highValResult.value = highVal
+                    }
                 }
-                else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty())
+                if (falsiMethodIsClickedCount == 3)
                 {
-                    secondOperation = "-"
-                    secondOperationResult.value = secondOperation
+                    if (precision.contains('-'))
+                    {
+                    }
+                    else
+                    {
+                        precision = "-" + precision
+                        precissionResult.value = precision
+                    }
                 }
-                else
+                else if (falsiMethodIsClickedCount == 0)
                 {
-                    thirdOperation = "-"
-                    thirdOperationResult.value = thirdOperation
+                    if (falsiNum1Holder!!.isEmpty())
+                    {
+                        falsiNum1Holder = falsiNum1Holder.plus("-")
+                        quadraticNum1Result.value = falsiNum1Holder
+                    }
+                    else if (firstOperation!!.isEmpty())
+                    {
+                        firstOperation = "-"
+                        firstOperationResult.value = firstOperation
+                    }
+                    else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty())
+                    {
+                        secondOperation = "-"
+                        secondOperationResult.value = secondOperation
+                    }
+                    else
+                    {
+                        thirdOperation = "-"
+                        thirdOperationResult.value = thirdOperation
+                    }
                 }
             }
             else
@@ -6429,6 +6538,7 @@ class MainViewModel : ViewModel()
                     mem1FalsiHolder.add(thirdOperation.toString())
                     mem1FalsiHolder.add(falsiNum4Holder.toString())
 
+
                     Log.e("message", mem1FalsiHolder.toString())
                     mem1Value.value =
                             mem1FalsiHolder.toString()
@@ -6437,6 +6547,9 @@ class MainViewModel : ViewModel()
                                 .replace(",", "")
                                 .replace(" ", "")
                     mem1Holder = ""
+                    mem1FalsiHolder.add(lowVal.toString())
+                    mem1FalsiHolder.add(highVal.toString())
+                    mem1FalsiHolder.add(precision.toString())
                     memRecordIsClicked = false
                 }
 
@@ -6453,6 +6566,9 @@ class MainViewModel : ViewModel()
                     x3 = mem1FalsiHolder[7].toString()
                     thirdOperation = mem1FalsiHolder[8].toString()
                     falsiNum4Holder = mem1FalsiHolder[9].toString()
+                    lowVal = mem1FalsiHolder[10].toString()
+                    highVal = mem1FalsiHolder[11].toString()
+                    precision = mem1FalsiHolder[12].toString()
 
 
                 }
@@ -6520,10 +6636,7 @@ class MainViewModel : ViewModel()
                 if (memCLearIsClicked)
                 {
                     mem1FalsiHolder.clear()
-                    mem1Value.value =
-                            mem1FalsiHolder.toString()
-                                .dropLast(1)
-                                .drop(1)
+                    mem1Value.value = ""
                     memCLearIsClicked = false
                 }
 
@@ -6537,6 +6650,9 @@ class MainViewModel : ViewModel()
                 x3Result.value = x3
                 thirdOperationResult.value = thirdOperation
                 quadraticNum4Result.value = falsiNum4Holder
+                lowValResult.value = lowVal
+                highValResult.value = highVal
+                precissionResult.value = precision
 
             }
             else
@@ -9770,10 +9886,7 @@ class MainViewModel : ViewModel()
                 if (memCLearIsClicked)
                 {
                     mem10FalsiHolder.clear()
-                    mem10Value.value =
-                            mem10FalsiHolder.toString()
-                                .dropLast(1)
-                                .drop(1)
+                    mem10Value.value = ""
                     memCLearIsClicked = false
                 }
 
@@ -11701,18 +11814,30 @@ class MainViewModel : ViewModel()
         {
             if (falsiMethodIsClicked)
             {
-                if (falsiMethodIsClickedCount == 0)
+                if (precision.isNotEmpty())
                 {
-                    falsiMethodIsClickedCount = 1
-                }
-                else if (falsiMethodIsClickedCount == 3)
-                {
-
                     var a : Double = lowVal.toDouble()
                     var b : Double = highVal.toDouble()
 
                     CoroutineScope(Dispatchers.Default).launch {
                         x1RootResult.postValue(falsiMethod(a, b).toString())
+                    }
+                }
+                else
+                {
+                    if (falsiMethodIsClickedCount == 0)
+                    {
+                        falsiMethodIsClickedCount = 1
+                    }
+                    else if (falsiMethodIsClickedCount == 3)
+                    {
+
+                        var a : Double = lowVal.toDouble()
+                        var b : Double = highVal.toDouble()
+
+                        CoroutineScope(Dispatchers.Default).launch {
+                            x1RootResult.postValue(falsiMethod(a, b).toString())
+                        }
                     }
                 }
 
