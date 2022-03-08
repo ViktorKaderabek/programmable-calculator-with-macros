@@ -27,10 +27,10 @@ class MainViewModel : ViewModel()
 
     private var falsiMethodIsClickedCount : Int = 0
     private var falsiMethodIsClicked : Boolean = false
-    private var falsiNum1Holder : String? = null
-    private var falsiNum2Holder : String? = null
-    private var falsiNum3Holder : String? = null
-    private var falsiNum4Holder : String? = null
+    private var falsiNum1Holder : String? = "0"
+    private var falsiNum2Holder : String? = "0"
+    private var falsiNum3Holder : String? = "0"
+    private var falsiNum4Holder : String? = "0"
     private var firstOperation : String? = null
     private var secondOperation : String? = null
     private var thirdOperation : String? = null
@@ -11810,235 +11810,220 @@ class MainViewModel : ViewModel()
         var b : Double?
         var c : Double?
         var d : Double?
-        try
+
+        if (x1 == "x")
         {
-            var x1x : Double = x
-            var x2x : Double = x
-            var x3x : Double = x
-            var func : Double = 0.0
-            var a : Double?
-            var b : Double?
-            var c : Double?
-            var d : Double?
+            x1x = x
+        }
+        if (x1 == "x²")
+        {
+            x1x = x * x
+        }
+        if (x1 == "x³")
+        {
+            x1x = x * x * x
+        }
 
-            if (x1 == "x")
-            {
-                x1x = x
-            }
-            if (x1 == "x²")
-            {
-                x1x = x * x
-            }
-            if (x1 == "x³")
-            {
-                x1x = x * x * x
-            }
+        if (x2 == "x")
+        {
+            x2x = x
+        }
+        if (x2 == "x²")
+        {
+            x2x = x * x
+        }
+        if (x2 == "x³")
+        {
+            x2x = x * x * x
+        }
 
-            if (x2 == "x")
-            {
-                x2x = x
-            }
-            if (x2 == "x²")
-            {
-                x2x = x * x
-            }
-            if (x2 == "x³")
-            {
-                x2x = x * x * x
-            }
+        if (x3 == "x")
+        {
+            x3x = x
+        }
+        if (x3 == "x²")
+        {
+            x3x = x * x
+        }
+        if (x3 == "x³")
+        {
+            x3x = x * x * x
+        }
 
-            if (x3 == "x")
-            {
-                x3x = x
-            }
-            if (x3 == "x²")
-            {
-                x3x = x * x
-            }
-            if (x3 == "x³")
-            {
-                x3x = x * x * x
-            }
+        if (x1.isNullOrBlank())
+        {
+            x1x = 1.0
+        }
+        if (x2.isNullOrBlank())
+        {
+            x2x = 1.0
+        }
+        if (x3.isNullOrBlank())
+        {
+            x3x = 1.0
+        }
 
-            if (x1 == null)
-            {
-                x1x = 1.0
-            }
-            if (x2 == null)
-            {
-                x2x = 1.0
-            }
-            if (x3 == null)
-            {
-                x3x = 1.0
-            }
+        if (firstOperation.isNullOrBlank())
+        {
+            firstOperation = "+"
+        }
+        if (secondOperation.isNullOrBlank())
+        {
+            secondOperation = "+"
+        }
+        if (thirdOperation.isNullOrBlank())
+        {
+            thirdOperation = "+"
+        }
 
-            if (firstOperation == null)
-            {
-                firstOperation = "null"
-            }
-            if (secondOperation == null)
-            {
-                secondOperation = "null"
-            }
-            if (thirdOperation == null)
-            {
-                thirdOperation = "null"
-            }
-
-            if (falsiNum1Holder == null)
-            {
-                a = 0.0
-            }
-            else
-            {
-                a = falsiNum1Holder!!.toDouble()
-            }
-            if (falsiNum2Holder == null)
-            {
-                b = 0.0
-            }
-            else
-            {
-                b = falsiNum2Holder!!.toDouble()
-            }
-            if (falsiNum3Holder == null)
-            {
-                c = 0.0
-            }
-            else
-            {
-                c = falsiNum3Holder!!.toDouble()
-            }
-            if (falsiNum4Holder == null)
-            {
-                d = 0.0
-                Log.e("message", d.toString())
-            }
-            else
-            {
-                d = falsiNum4Holder!!.toDouble()
-            }
+        if (falsiNum1Holder.isNullOrBlank())
+        {
+            a = 0.0
+        }
+        else
+        {
+            a = falsiNum1Holder!!.toDouble()
+        }
+        if (falsiNum2Holder.isNullOrBlank())
+        {
+            b = 0.0
+        }
+        else
+        {
+            b = falsiNum2Holder!!.toDouble()
+        }
+        if (falsiNum3Holder.isNullOrBlank())
+        {
+            c = 0.0
+        }
+        else
+        {
+            c = falsiNum3Holder!!.toDouble()
+        }
+        if (falsiNum4Holder.isNullOrBlank())
+        {
+            d = 0.0
+            Log.e("message", d.toString())
+        }
+        else
+        {
+            d = falsiNum4Holder!!.toDouble()
+        }
 
 
-            if (falsiNum4Holder != null)
+        if (falsiNum4Holder != null)
+        {
+
+
+            if (a != null && b != null && c != null && d != null)
             {
-
-
-                if (a != null && b != null && c != null && d != null)
+                if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "+")
                 {
-                    if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "+")
-                    {
-                        func = a * (x1x) + b * (x2x) + c * (x3x) + d
-                    }
-                    if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "+")
-                    {
-                        func = a * (x1x) - b * (x2x) + c * (x3x) + d
-                    }
-                    if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "-")
-                    {
-                        func = a * (x1x) + b * (x2x) - c * (x3x) - d
-                    }
-                    if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "-")
-                    {
-                        func = a * (x1x) - b * (x2x) + c * (x3x) - d
-                    }
-                    if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "+")
-                    {
-                        func = a * (x1x) + b * (x2x) - c * (x3x) + d
-                    }
-                    if (firstOperation == "-" && secondOperation == "-" && thirdOperation == "-")
-                    {
-                        func = a * (x1x) - b * (x2x) - c * (x3x) - d
-                    }
-                    if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "-")
-                    {
-                        func = a * (x1x) + b * (x2x) + c * (x3x) - d
-                    }
+                    func = a * (x1x) + b * (x2x) + c * (x3x) + d
                 }
-            }
-            else if (falsiNum3Holder!! != null && falsiNum4Holder == null)
-            {
-
-
-                if (firstOperation == "+" && secondOperation == "+")
+                if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "+")
                 {
-                    if (a != null && b != null && c != null)
-                    {
-                        func = a * (x1x) + b * (x2x) + c * (x3x)
-                    }
-
+                    func = a * (x1x) - b * (x2x) + c * (x3x) + d
                 }
-                if (firstOperation == "-" && secondOperation == "+")
+                if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "-")
                 {
-                    if (a != null && b != null && c != null)
-                    {
-                        func = a * (x1x) - b * (x2x) + c * (x3x)
-                    }
-
+                    func = a * (x1x) + b * (x2x) - c * (x3x) - d
                 }
-                if (firstOperation == "+" && secondOperation == "-")
+                if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "-")
                 {
-                    if (a != null && b != null && c != null)
-                    {
-                        func = a * (x1x) + b * (x2x) - c * (x3x)
-                    }
-
+                    func = a * (x1x) - b * (x2x) + c * (x3x) - d
                 }
-                if (firstOperation == "-" && secondOperation == "-")
+                if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "+")
                 {
-                    if (a != null && b != null && c != null)
-                    {
-                        func = a * (x1x) - b * (x2x) - c * (x3x)
-                    }
-
+                    func = a * (x1x) + b * (x2x) - c * (x3x) + d
                 }
-            }
-            else if (falsiNum3Holder == null && falsiNum2Holder != null)
-            {
-
-
-                if (firstOperation == "+")
+                if (firstOperation == "-" && secondOperation == "-" && thirdOperation == "-")
                 {
-                    if (a != null && b != null)
-                    {
-                        func = a * (x1x) + b * (x2x)
-                    }
+                    func = a * (x1x) - b * (x2x) - c * (x3x) - d
                 }
-                if (firstOperation == "-")
+                if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "-")
                 {
-                    if (a != null && b != null)
-                    {
-                        func = a * (x1x) - b * (x2x)
-                    }
-                }
-            }
-            else
-            {
-
-
-                if (a != null)
-                {
-                    func = a * (x1x)
+                    func = a * (x1x) + b * (x2x) + c * (x3x) - d
                 }
             }
         }
-        catch (e : Exception)
+        else if (falsiNum3Holder!! != null && falsiNum4Holder == null)
         {
 
-            Log.e("error is ", e.message.toString())
-            Log.e("a value is ", falsiNum1Holder.toString())
-            Log.e("b value is ", falsiNum2Holder.toString())
-            Log.e("c value is ", falsiNum3Holder.toString())
-            Log.e("d value is ", falsiNum4Holder.toString())
-            Log.e("x1 value is ", x1x.toString())
-            Log.e("x2 value is ", x2x.toString())
-            Log.e("x3 value is ", x3x.toString())
-            Log.e("first operation is ", firstOperation.toString())
-            Log.e("second operation is ", secondOperation.toString())
-            Log.e("third operation is ", thirdOperation.toString())
-            Log.e("Separeta", "______________________________________________________________________________________________")
+
+            if (firstOperation == "+" && secondOperation == "+")
+            {
+                if (a != null && b != null && c != null)
+                {
+                    func = a * (x1x) + b * (x2x) + c * (x3x)
+                }
+
+            }
+            if (firstOperation == "-" && secondOperation == "+")
+            {
+                if (a != null && b != null && c != null)
+                {
+                    func = a * (x1x) - b * (x2x) + c * (x3x)
+                }
+
+            }
+            if (firstOperation == "+" && secondOperation == "-")
+            {
+                if (a != null && b != null && c != null)
+                {
+                    func = a * (x1x) + b * (x2x) - c * (x3x)
+                }
+
+            }
+            if (firstOperation == "-" && secondOperation == "-")
+            {
+                if (a != null && b != null && c != null)
+                {
+                    func = a * (x1x) - b * (x2x) - c * (x3x)
+                }
+
+            }
         }
+        else if (falsiNum3Holder == null && falsiNum2Holder != null)
+        {
+
+
+            if (firstOperation == "+")
+            {
+                if (a != null && b != null)
+                {
+                    func = a * (x1x) + b * (x2x)
+                }
+            }
+            if (firstOperation == "-")
+            {
+                if (a != null && b != null)
+                {
+                    func = a * (x1x) - b * (x2x)
+                }
+            }
+        }
+        else
+        {
+
+
+            if (a != null)
+            {
+                func = a * (x1x)
+            }
+        }
+
+        Log.e("a value is ", a.toString())
+        Log.e("b value is ", b.toString())
+        Log.e("c value is ", c.toString())
+        Log.e("d value is ", d.toString())
+        Log.e("x1 value is ", x1x.toString())
+        Log.e("x2 value is ", x2x.toString())
+        Log.e("x3 value is ", x3x.toString())
+        Log.e("first operation is ", firstOperation.toString())
+        Log.e("second operation is ", secondOperation.toString())
+        Log.e("third operation is ", thirdOperation.toString())
+        Log.e("Separeta", "______________________________________________________________________________________________")
         return func
     }
 
