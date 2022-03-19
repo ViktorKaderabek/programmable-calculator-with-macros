@@ -11,7 +11,7 @@ import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainViewModel : ViewModel() {
      
-     var arraySize : Int = 0
+     private var arraySize : Int = 0
      private var count : Int = -1
      
      private var floatHolder : Float = 0f
@@ -19,7 +19,7 @@ class MainViewModel : ViewModel() {
      private var resultHolder : String = "0"
      private var processHolder : String = ""
      private var resultHolderLenght : Int = 0
-     private var ansHolder : String = "0"
+     private var ansHolder : String = ""
      private var stringHolder : String = ""
      private var symbolClicked : String = ""
      
@@ -75,12 +75,12 @@ class MainViewModel : ViewModel() {
      private var mem14FalsiHolder : MutableList<String> = ArrayList()
      private var mem15FalsiHolder : MutableList<String> = ArrayList()
      
-     var macroRecordIsClicked : Boolean = false
+     private var macroRecordIsClicked : Boolean = false
      private var macroClearIsClicked : Boolean = false
      private var macroRecallIsClicked : Boolean = false
      private var macroClearSet : String = " "
      private var macroContains : String = ""
-     var macroSet : String = "0"
+     private var macroSet : String = "0"
      private var macroChoosed : String = "0"
      private var array1Holder : MutableList<String> = ArrayList()
      private var array2Holder : MutableList<String> = ArrayList()
@@ -325,6 +325,7 @@ class MainViewModel : ViewModel() {
           catch (e : Exception) {
                deleteAll()
                result.value = "Error"
+               Log.e("erro is ", e.message.toString())
           }
      }
      
@@ -457,7 +458,7 @@ class MainViewModel : ViewModel() {
                          quadraticNum2Result.value = falsiNum2Holder
                          
                     }
-                    else if (secondOperation!!!!.isNotEmpty() && thirdOperation!!.isEmpty()) {
+                    else if (secondOperation!!.isNotEmpty() && thirdOperation!!.isEmpty()) {
                          
                          falsiNum3Holder = falsiNum3Holder.plus("2")
                          quadraticNum3Result.value = falsiNum3Holder
@@ -1888,40 +1889,67 @@ class MainViewModel : ViewModel() {
      fun addDot() {
           try {
                if (falsiMethodIsClicked) {
-                    if (firstOperation!!.isEmpty()) {
-                         if (falsiNum1Holder!!.contains(".")) {
-                              quadraticNum1Result.value = falsiNum1Holder
+                    if (falsiMethodIsClickedCount == 1) {
+                         if (lowVal.contains('.')) {
                          }
                          else {
-                              falsiNum1Holder = falsiNum1Holder.plus(".")
-                              quadraticNum1Result.value = falsiNum1Holder
+                              lowVal += "."
+                              lowValResult.value = lowVal
                          }
                     }
-                    else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty()) {
-                         if (falsiNum2Holder!!.contains(".")) {
-                              quadraticNum2Result.value = falsiNum2Holder
+                    if (falsiMethodIsClickedCount == 2) {
+                         if (highVal.contains('.')) {
                          }
                          else {
-                              falsiNum2Holder = falsiNum2Holder.plus(".")
-                              quadraticNum2Result.value = falsiNum2Holder
+                              highVal += "."
+                              highValResult.value = highVal
                          }
                     }
-                    else if (secondOperation!!.isNotEmpty() && thirdOperation!!.isEmpty()) {
-                         if (falsiNum3Holder!!.contains(".")) {
-                              quadraticNum3Result.value = falsiNum3Holder
+                    if (falsiMethodIsClickedCount == 3) {
+                         if (precision.contains('.')) {
                          }
                          else {
-                              falsiNum3Holder = falsiNum3Holder.plus(".")
-                              quadraticNum3Result.value = falsiNum3Holder
+                              precision += "."
+                              precissionResult.value = precision
                          }
+                         
                     }
-                    else {
-                         if (falsiNum4Holder!!.contains(".")) {
-                              quadraticNum4Result.value = falsiNum4Holder
+                    else if (falsiMethodIsClickedCount == 0) {
+                         if (firstOperation!!.isEmpty()) {
+                              if (falsiNum1Holder!!.contains(".")) {
+                                   quadraticNum1Result.value = falsiNum1Holder
+                              }
+                              else {
+                                   falsiNum1Holder = falsiNum1Holder.plus(".")
+                                   quadraticNum1Result.value = falsiNum1Holder
+                              }
+                         }
+                         else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty()) {
+                              if (falsiNum2Holder!!.contains(".")) {
+                                   quadraticNum2Result.value = falsiNum2Holder
+                              }
+                              else {
+                                   falsiNum2Holder = falsiNum2Holder.plus(".")
+                                   quadraticNum2Result.value = falsiNum2Holder
+                              }
+                         }
+                         else if (secondOperation!!.isNotEmpty() && thirdOperation!!.isEmpty()) {
+                              if (falsiNum3Holder!!.contains(".")) {
+                                   quadraticNum3Result.value = falsiNum3Holder
+                              }
+                              else {
+                                   falsiNum3Holder = falsiNum3Holder.plus(".")
+                                   quadraticNum3Result.value = falsiNum3Holder
+                              }
                          }
                          else {
-                              falsiNum4Holder = falsiNum4Holder.plus(".")
-                              quadraticNum4Result.value = falsiNum4Holder
+                              if (falsiNum4Holder!!.contains(".")) {
+                                   quadraticNum4Result.value = falsiNum4Holder
+                              }
+                              else {
+                                   falsiNum4Holder = falsiNum4Holder.plus(".")
+                                   quadraticNum4Result.value = falsiNum4Holder
+                              }
                          }
                     }
                     
@@ -2039,45 +2067,72 @@ class MainViewModel : ViewModel() {
      fun deleteOneChar() {
           try {
                if (falsiMethodIsClicked) {
-                    if (falsiNum4Holder!!.isNotEmpty()) {
-                         
-                         falsiNum4Holder = falsiNum4Holder!!.dropLast(1)
-                         quadraticNum4Result.value = falsiNum4Holder
+                    
+                    if (falsiMethodIsClickedCount == 1) {
+                         lowVal = lowVal.dropLast(1)
+                         lowValResult.value = lowVal
+                         if (lowVal.isEmpty()) {
+                              falsiMethodIsClickedCount = 0
+                         }
                          
                     }
-                    else if (falsiNum4Holder!!.isEmpty() && thirdOperation!!.isNotEmpty()) {
+                    if (falsiMethodIsClickedCount == 2) {
+                         highVal = highVal.dropLast(1)
+                         highValResult.value = highVal
+                         if (highVal.isEmpty()) {
+                              falsiMethodIsClickedCount = 1
+                         }
+                    }
+                    if (falsiMethodIsClickedCount == 3) {
+                         precision = precision.dropLast(1)
+                         precissionResult.value = precision
+                         if (precision.isEmpty()) {
+                              falsiMethodIsClickedCount = 2
+                         }
+                    }
+                    
+                    if (falsiNum4Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
+                         falsiNum4Holder = falsiNum4Holder!!.dropLast(1)
+                         quadraticNum4Result.value = falsiNum4Holder
+                    }
+                    else if (falsiNum4Holder!!.isEmpty() && thirdOperation!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          thirdOperation = thirdOperation!!.dropLast(1)
                          thirdOperationResult.value = thirdOperation
                     }
-                    else if (thirdOperation!!.isEmpty() && x3!!.isNotEmpty()) {
+                    else if (thirdOperation!!.isEmpty() && x3!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          x3 = ""
                          x3Result.value = x3
                     }
-                    else if (x3!!.isEmpty() && falsiNum3Holder!!.isNotEmpty()) {
-                         
+                    else if (x3!!.isEmpty() && falsiNum3Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          falsiNum3Holder = falsiNum3Holder!!.dropLast(1)
                          quadraticNum3Result.value = falsiNum3Holder
                     }
-                    else if (falsiNum3Holder!!.isEmpty() && secondOperation!!.isNotEmpty()) {
+                    else if (falsiNum3Holder!!.isEmpty() && secondOperation!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          secondOperation = secondOperation!!.dropLast(1)
                          secondOperationResult.value = secondOperation
                     }
-                    else if (secondOperation!!.isEmpty() && x1!!.isNotEmpty()) {
-                         
+                    else if (secondOperation!!.isEmpty() && x2!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          x2 = ""
-                         x2Result.value = " "
+                         x2Result.value = x2
+                    }
+                    else if (x2!!.isEmpty() && falsiNum2Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
+                         falsiNum2Holder = falsiNum2Holder!!.dropLast(1)
+                         quadraticNum2Result.value = falsiNum2Holder
                          
                     }
-                    else if (falsiNum2Holder!!.isEmpty() && firstOperation!!.isNotEmpty()) {
-                         
+                    else if (falsiNum2Holder!!.isEmpty() && firstOperation!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          firstOperation = firstOperation!!.dropLast(1)
                          firstOperationResult.value = firstOperation
                     }
-                    else {
+                    else if (firstOperation!!.isEmpty() && x1!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
                          x1 = ""
-                         x1Result.value = " "
-                         
+                         x1Result.value = x1
                     }
+                    else if (falsiNum1Holder!!.isNotEmpty() && falsiMethodIsClickedCount == 0) {
+                         falsiNum1Holder = falsiNum1Holder!!.dropLast(1)
+                         quadraticNum1Result.value = falsiNum1Holder
+                    }
+                    
                }
                else {
                     if (resultHolder == " " || resultHolder == "Error") {
@@ -4007,21 +4062,47 @@ class MainViewModel : ViewModel() {
                     
                }
                else if (falsiMethodIsClicked) {
-                    if (falsiNum1Holder!!.isEmpty()) {
-                         falsiNum1Holder = falsiNum1Holder.plus("-")
-                         quadraticNum1Result.value = falsiNum1Holder
+                    if (falsiMethodIsClickedCount == 1) {
+                         if (lowVal.contains('-')) {
+                         }
+                         else {
+                              lowVal = "-" + lowVal
+                              lowValResult.value = lowVal
+                         }
                     }
-                    else if (firstOperation!!.isEmpty()) {
-                         firstOperation = "-"
-                         firstOperationResult.value = firstOperation
+                    if (falsiMethodIsClickedCount == 2) {
+                         if (highVal.contains('-')) {
+                         }
+                         else {
+                              highVal = "-" + highVal
+                              highValResult.value = highVal
+                         }
                     }
-                    else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty()) {
-                         secondOperation = "-"
-                         secondOperationResult.value = secondOperation
+                    if (falsiMethodIsClickedCount == 3) {
+                         if (precision.contains('-')) {
+                         }
+                         else {
+                              precision = "-" + precision
+                              precissionResult.value = precision
+                         }
                     }
-                    else {
-                         thirdOperation = "-"
-                         thirdOperationResult.value = thirdOperation
+                    else if (falsiMethodIsClickedCount == 0) {
+                         if (falsiNum1Holder!!.isEmpty()) {
+                              falsiNum1Holder = falsiNum1Holder.plus("-")
+                              quadraticNum1Result.value = falsiNum1Holder
+                         }
+                         else if (firstOperation!!.isEmpty()) {
+                              firstOperation = "-"
+                              firstOperationResult.value = firstOperation
+                         }
+                         else if (firstOperation!!.isNotEmpty() && secondOperation!!.isEmpty()) {
+                              secondOperation = "-"
+                              secondOperationResult.value = secondOperation
+                         }
+                         else {
+                              thirdOperation = "-"
+                              thirdOperationResult.value = thirdOperation
+                         }
                     }
                }
                else {
@@ -5052,135 +5133,136 @@ class MainViewModel : ViewModel() {
      
      fun mem1() {
           try {
-               
                if (macroRecordIsClicked) {
                     
-                    if (macroSet == "1") {
+                    if (macroRecordIsClicked) {
                          
-                         array1Holder.add("M1")
-                         Log.e(
-                              "array", array1Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array1Holder.size.toString()
-                         )
-                         
+                         if (macroSet == "1") {
+                              
+                              array1Holder.add("M1")
+                              Log.e(
+                                   "array", array1Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array1Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "2") {
+                              
+                              array2Holder.add("M1")
+                              Log.e(
+                                   "array", array2Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array2Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "3") {
+                              
+                              array3Holder.add("M1")
+                              Log.e(
+                                   "array", array3Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array3Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "4") {
+                              
+                              array4Holder.add("M1")
+                              Log.e(
+                                   "array", array4Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array4Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "5") {
+                              
+                              array5Holder.add("M1")
+                              Log.e(
+                                   "array", array5Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array5Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "6") {
+                              
+                              array6Holder.add("M1")
+                              Log.e(
+                                   "array", array6Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array6Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "7") {
+                              
+                              array7Holder.add("M1")
+                              Log.e(
+                                   "array", array7Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array7Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "8") {
+                              
+                              array8Holder.add("M1")
+                              Log.e(
+                                   "array", array8Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array8Holder.size.toString()
+                              )
+                              
+                         }
+                         else if (macroSet == "9") {
+                              
+                              array9Holder.add("M1")
+                              Log.e(
+                                   "array", array9Holder.toString()
+                              )
+                              Log.e(
+                                   "set", macroSet.toString()
+                              )
+                              Log.e(
+                                   "length", array9Holder.size.toString()
+                              )
+                         }
                     }
-                    else if (macroSet == "2") {
-                         
-                         array2Holder.add("M1")
-                         Log.e(
-                              "array", array2Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array2Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "3") {
-                         
-                         array3Holder.add("M1")
-                         Log.e(
-                              "array", array3Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array3Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "4") {
-                         
-                         array4Holder.add("M1")
-                         Log.e(
-                              "array", array4Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array4Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "5") {
-                         
-                         array5Holder.add("M1")
-                         Log.e(
-                              "array", array5Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array5Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "6") {
-                         
-                         array6Holder.add("M1")
-                         Log.e(
-                              "array", array6Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array6Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "7") {
-                         
-                         array7Holder.add("M1")
-                         Log.e(
-                              "array", array7Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array7Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "8") {
-                         
-                         array8Holder.add("M1")
-                         Log.e(
-                              "array", array8Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array8Holder.size.toString()
-                         )
-                         
-                    }
-                    else if (macroSet == "9") {
-                         
-                         array9Holder.add("M1")
-                         Log.e(
-                              "array", array9Holder.toString()
-                         )
-                         Log.e(
-                              "set", macroSet.toString()
-                         )
-                         Log.e(
-                              "length", array9Holder.size.toString()
-                         )
-                    }
-                    
                }
                else if (falsiMethodIsClicked) {
                     
@@ -5194,6 +5276,10 @@ class MainViewModel : ViewModel() {
                          mem1FalsiHolder.add(x2.toString())
                          mem1FalsiHolder.add(secondOperation.toString())
                          mem1FalsiHolder.add(falsiNum3Holder.toString())
+                         mem1FalsiHolder.add(x3.toString())
+                         mem1FalsiHolder.add(thirdOperation.toString())
+                         mem1FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem1FalsiHolder.toString())
                          mem1Value.value =
@@ -5203,6 +5289,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem1Holder = ""
+                         mem1FalsiHolder.add(lowVal.toString())
+                         mem1FalsiHolder.add(highVal.toString())
+                         mem1FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -5215,6 +5304,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem1FalsiHolder[2].toString()
                          falsiNum2Holder = mem1FalsiHolder[3].toString()
                          x2 = mem1FalsiHolder[4].toString()
+                         x3 = mem1FalsiHolder[7].toString()
+                         thirdOperation = mem1FalsiHolder[8].toString()
+                         falsiNum4Holder = mem1FalsiHolder[9].toString()
+                         lowVal = mem1FalsiHolder[10].toString()
+                         highVal = mem1FalsiHolder[11].toString()
+                         precision = mem1FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -5242,7 +5338,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem1Holder.toString()
                                        .contains("-")) {
@@ -5262,6 +5358,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem1Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem1Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem1Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem1Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem1Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem1Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -5269,10 +5400,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem1FalsiHolder.clear()
-                         mem1Value.value =
-                             mem1FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem1Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -5283,6 +5411,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -5339,7 +5473,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem1Value.value = mem1Holder
           }
           catch (e : Exception) {
@@ -5481,6 +5615,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem2FalsiHolder.clear()
                          
@@ -5491,6 +5626,10 @@ class MainViewModel : ViewModel() {
                          mem2FalsiHolder.add(x2.toString())
                          mem2FalsiHolder.add(secondOperation.toString())
                          mem2FalsiHolder.add(falsiNum3Holder.toString())
+                         mem2FalsiHolder.add(x3.toString())
+                         mem2FalsiHolder.add(thirdOperation.toString())
+                         mem2FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem2FalsiHolder.toString())
                          mem2Value.value =
@@ -5500,6 +5639,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem2Holder = ""
+                         mem2FalsiHolder.add(lowVal.toString())
+                         mem2FalsiHolder.add(highVal.toString())
+                         mem2FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -5512,6 +5654,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem2FalsiHolder[2].toString()
                          falsiNum2Holder = mem2FalsiHolder[3].toString()
                          x2 = mem2FalsiHolder[4].toString()
+                         x3 = mem2FalsiHolder[7].toString()
+                         thirdOperation = mem2FalsiHolder[8].toString()
+                         falsiNum4Holder = mem2FalsiHolder[9].toString()
+                         lowVal = mem2FalsiHolder[10].toString()
+                         highVal = mem2FalsiHolder[11].toString()
+                         precision = mem2FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -5539,7 +5688,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem2Holder.toString()
                                        .contains("-")) {
@@ -5559,6 +5708,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem2Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem2Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem2Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem2Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem2Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem2Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -5566,10 +5750,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem2FalsiHolder.clear()
-                         mem2Value.value =
-                             mem2FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem2Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -5580,6 +5761,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -5636,7 +5823,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem2Value.value = mem2Holder
           }
           catch (e : Exception) {
@@ -5781,6 +5968,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem3FalsiHolder.clear()
                          
@@ -5791,6 +5979,10 @@ class MainViewModel : ViewModel() {
                          mem3FalsiHolder.add(x2.toString())
                          mem3FalsiHolder.add(secondOperation.toString())
                          mem3FalsiHolder.add(falsiNum3Holder.toString())
+                         mem3FalsiHolder.add(x3.toString())
+                         mem3FalsiHolder.add(thirdOperation.toString())
+                         mem3FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem3FalsiHolder.toString())
                          mem3Value.value =
@@ -5800,6 +5992,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem3Holder = ""
+                         mem3FalsiHolder.add(lowVal.toString())
+                         mem3FalsiHolder.add(highVal.toString())
+                         mem3FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -5812,6 +6007,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem3FalsiHolder[2].toString()
                          falsiNum2Holder = mem3FalsiHolder[3].toString()
                          x2 = mem3FalsiHolder[4].toString()
+                         x3 = mem3FalsiHolder[7].toString()
+                         thirdOperation = mem3FalsiHolder[8].toString()
+                         falsiNum4Holder = mem3FalsiHolder[9].toString()
+                         lowVal = mem3FalsiHolder[10].toString()
+                         highVal = mem3FalsiHolder[11].toString()
+                         precision = mem3FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -5839,7 +6041,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem3Holder.toString()
                                        .contains("-")) {
@@ -5859,6 +6061,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem3Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem3Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem3Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem3Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem3Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem3Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -5866,10 +6103,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem3FalsiHolder.clear()
-                         mem3Value.value =
-                             mem3FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem3Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -5880,6 +6114,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -5936,7 +6176,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem3Value.value = mem3Holder
           }
           catch (e : Exception) {
@@ -6081,6 +6321,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem4FalsiHolder.clear()
                          
@@ -6091,6 +6332,10 @@ class MainViewModel : ViewModel() {
                          mem4FalsiHolder.add(x2.toString())
                          mem4FalsiHolder.add(secondOperation.toString())
                          mem4FalsiHolder.add(falsiNum3Holder.toString())
+                         mem4FalsiHolder.add(x3.toString())
+                         mem4FalsiHolder.add(thirdOperation.toString())
+                         mem4FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem4FalsiHolder.toString())
                          mem4Value.value =
@@ -6100,6 +6345,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem4Holder = ""
+                         mem4FalsiHolder.add(lowVal.toString())
+                         mem4FalsiHolder.add(highVal.toString())
+                         mem4FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -6112,6 +6360,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem4FalsiHolder[2].toString()
                          falsiNum2Holder = mem4FalsiHolder[3].toString()
                          x2 = mem4FalsiHolder[4].toString()
+                         x3 = mem4FalsiHolder[7].toString()
+                         thirdOperation = mem4FalsiHolder[8].toString()
+                         falsiNum4Holder = mem4FalsiHolder[9].toString()
+                         lowVal = mem4FalsiHolder[10].toString()
+                         highVal = mem4FalsiHolder[11].toString()
+                         precision = mem4FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -6139,7 +6394,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem4Holder.toString()
                                        .contains("-")) {
@@ -6159,6 +6414,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem4Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem4Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem4Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem4Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem4Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem4Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -6166,10 +6456,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem4FalsiHolder.clear()
-                         mem4Value.value =
-                             mem4FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem4Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -6180,6 +6467,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -6236,7 +6529,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem4Value.value = mem4Holder
           }
           catch (e : Exception) {
@@ -6382,6 +6675,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem5FalsiHolder.clear()
                          
@@ -6392,6 +6686,10 @@ class MainViewModel : ViewModel() {
                          mem5FalsiHolder.add(x2.toString())
                          mem5FalsiHolder.add(secondOperation.toString())
                          mem5FalsiHolder.add(falsiNum3Holder.toString())
+                         mem5FalsiHolder.add(x3.toString())
+                         mem5FalsiHolder.add(thirdOperation.toString())
+                         mem5FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem5FalsiHolder.toString())
                          mem5Value.value =
@@ -6401,6 +6699,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem5Holder = ""
+                         mem5FalsiHolder.add(lowVal.toString())
+                         mem5FalsiHolder.add(highVal.toString())
+                         mem5FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -6413,6 +6714,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem5FalsiHolder[2].toString()
                          falsiNum2Holder = mem5FalsiHolder[3].toString()
                          x2 = mem5FalsiHolder[4].toString()
+                         x3 = mem5FalsiHolder[7].toString()
+                         thirdOperation = mem5FalsiHolder[8].toString()
+                         falsiNum4Holder = mem5FalsiHolder[9].toString()
+                         lowVal = mem5FalsiHolder[10].toString()
+                         highVal = mem5FalsiHolder[11].toString()
+                         precision = mem5FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -6440,7 +6748,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem5Holder.toString()
                                        .contains("-")) {
@@ -6460,6 +6768,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem5Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem5Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem5Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem5Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem5Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem5Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -6467,10 +6810,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem5FalsiHolder.clear()
-                         mem5Value.value =
-                             mem5FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem5Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -6481,6 +6821,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -6537,7 +6883,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem5Value.value = mem5Holder
           }
           catch (e : Exception) {
@@ -6682,6 +7028,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem6FalsiHolder.clear()
                          
@@ -6692,6 +7039,10 @@ class MainViewModel : ViewModel() {
                          mem6FalsiHolder.add(x2.toString())
                          mem6FalsiHolder.add(secondOperation.toString())
                          mem6FalsiHolder.add(falsiNum3Holder.toString())
+                         mem6FalsiHolder.add(x3.toString())
+                         mem6FalsiHolder.add(thirdOperation.toString())
+                         mem6FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem6FalsiHolder.toString())
                          mem6Value.value =
@@ -6701,6 +7052,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem6Holder = ""
+                         mem6FalsiHolder.add(lowVal.toString())
+                         mem6FalsiHolder.add(highVal.toString())
+                         mem6FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -6713,6 +7067,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem6FalsiHolder[2].toString()
                          falsiNum2Holder = mem6FalsiHolder[3].toString()
                          x2 = mem6FalsiHolder[4].toString()
+                         x3 = mem6FalsiHolder[7].toString()
+                         thirdOperation = mem6FalsiHolder[8].toString()
+                         falsiNum4Holder = mem6FalsiHolder[9].toString()
+                         lowVal = mem6FalsiHolder[10].toString()
+                         highVal = mem1FalsiHolder[11].toString()
+                         precision = mem1FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -6740,7 +7101,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem6Holder.toString()
                                        .contains("-")) {
@@ -6760,6 +7121,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem6Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem6Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem6Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem6Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem6Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem6Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -6767,10 +7163,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem6FalsiHolder.clear()
-                         mem6Value.value =
-                             mem6FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem6Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -6781,6 +7174,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -6837,7 +7236,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem6Value.value = mem6Holder
           }
           catch (e : Exception) {
@@ -6982,6 +7381,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem7FalsiHolder.clear()
                          
@@ -6992,6 +7392,10 @@ class MainViewModel : ViewModel() {
                          mem7FalsiHolder.add(x2.toString())
                          mem7FalsiHolder.add(secondOperation.toString())
                          mem7FalsiHolder.add(falsiNum3Holder.toString())
+                         mem7FalsiHolder.add(x3.toString())
+                         mem7FalsiHolder.add(thirdOperation.toString())
+                         mem7FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem7FalsiHolder.toString())
                          mem7Value.value =
@@ -7001,18 +7405,28 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem7Holder = ""
+                         mem7FalsiHolder.add(lowVal.toString())
+                         mem7FalsiHolder.add(highVal.toString())
+                         mem7FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
                     if (mem7FalsiHolder.isNotEmpty() && !memRecordIsClicked) {
                          Log.e("message", mem7FalsiHolder.toString())
                          secondOperation = mem7FalsiHolder[5].toString()
-                         falsiNum3Holder = mem7FalsiHolder[6].toString()
+                         falsiNum3Holder = mem1FalsiHolder[6].toString()
                          falsiNum1Holder = mem7FalsiHolder[0].toString()
                          x1 = mem7FalsiHolder[1].toString()
                          firstOperation = mem7FalsiHolder[2].toString()
                          falsiNum2Holder = mem7FalsiHolder[3].toString()
                          x2 = mem7FalsiHolder[4].toString()
+                         x3 = mem7FalsiHolder[7].toString()
+                         thirdOperation = mem7FalsiHolder[8].toString()
+                         falsiNum4Holder = mem7FalsiHolder[9].toString()
+                         lowVal = mem7FalsiHolder[10].toString()
+                         highVal = mem7FalsiHolder[11].toString()
+                         precision = mem7FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -7040,7 +7454,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem7Holder.toString()
                                        .contains("-")) {
@@ -7060,6 +7474,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem7Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem7Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem7Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem7Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem7Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem7Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -7067,10 +7516,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem7FalsiHolder.clear()
-                         mem7Value.value =
-                             mem7FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem7Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -7081,6 +7527,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -7137,7 +7589,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem7Value.value = mem7Holder
           }
           catch (e : Exception) {
@@ -7282,6 +7734,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem8FalsiHolder.clear()
                          
@@ -7292,6 +7745,10 @@ class MainViewModel : ViewModel() {
                          mem8FalsiHolder.add(x2.toString())
                          mem8FalsiHolder.add(secondOperation.toString())
                          mem8FalsiHolder.add(falsiNum3Holder.toString())
+                         mem8FalsiHolder.add(x3.toString())
+                         mem8FalsiHolder.add(thirdOperation.toString())
+                         mem8FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem8FalsiHolder.toString())
                          mem8Value.value =
@@ -7301,6 +7758,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem8Holder = ""
+                         mem8FalsiHolder.add(lowVal.toString())
+                         mem8FalsiHolder.add(highVal.toString())
+                         mem8FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -7313,6 +7773,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem8FalsiHolder[2].toString()
                          falsiNum2Holder = mem8FalsiHolder[3].toString()
                          x2 = mem8FalsiHolder[4].toString()
+                         x3 = mem8FalsiHolder[7].toString()
+                         thirdOperation = mem8FalsiHolder[8].toString()
+                         falsiNum4Holder = mem8FalsiHolder[9].toString()
+                         lowVal = mem8FalsiHolder[10].toString()
+                         highVal = mem8FalsiHolder[11].toString()
+                         precision = mem8FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -7340,7 +7807,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem8Holder.toString()
                                        .contains("-")) {
@@ -7360,6 +7827,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem8Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem8Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem8Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem8Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem8Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem8Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -7367,10 +7869,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem8FalsiHolder.clear()
-                         mem8Value.value =
-                             mem8FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem8Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -7381,6 +7880,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -7437,7 +7942,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem8Value.value = mem8Holder
           }
           catch (e : Exception) {
@@ -7582,6 +8087,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem9FalsiHolder.clear()
                          
@@ -7592,6 +8098,10 @@ class MainViewModel : ViewModel() {
                          mem9FalsiHolder.add(x2.toString())
                          mem9FalsiHolder.add(secondOperation.toString())
                          mem9FalsiHolder.add(falsiNum3Holder.toString())
+                         mem9FalsiHolder.add(x3.toString())
+                         mem9FalsiHolder.add(thirdOperation.toString())
+                         mem9FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem9FalsiHolder.toString())
                          mem9Value.value =
@@ -7601,6 +8111,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem9Holder = ""
+                         mem9FalsiHolder.add(lowVal.toString())
+                         mem9FalsiHolder.add(highVal.toString())
+                         mem9FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -7613,6 +8126,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem9FalsiHolder[2].toString()
                          falsiNum2Holder = mem9FalsiHolder[3].toString()
                          x2 = mem9FalsiHolder[4].toString()
+                         x3 = mem9FalsiHolder[7].toString()
+                         thirdOperation = mem9FalsiHolder[8].toString()
+                         falsiNum4Holder = mem9FalsiHolder[9].toString()
+                         lowVal = mem9FalsiHolder[10].toString()
+                         highVal = mem9FalsiHolder[11].toString()
+                         precision = mem9FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -7640,7 +8160,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem9Holder.toString()
                                        .contains("-")) {
@@ -7660,6 +8180,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem9Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem9Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem9Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem9Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem9Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem9Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -7667,10 +8222,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem9FalsiHolder.clear()
-                         mem9Value.value =
-                             mem9FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem9Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -7681,6 +8233,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -7737,7 +8295,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem9Value.value = mem9Holder
           }
           catch (e : Exception) {
@@ -7882,6 +8440,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem10FalsiHolder.clear()
                          
@@ -7892,6 +8451,10 @@ class MainViewModel : ViewModel() {
                          mem10FalsiHolder.add(x2.toString())
                          mem10FalsiHolder.add(secondOperation.toString())
                          mem10FalsiHolder.add(falsiNum3Holder.toString())
+                         mem10FalsiHolder.add(x3.toString())
+                         mem10FalsiHolder.add(thirdOperation.toString())
+                         mem10FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem10FalsiHolder.toString())
                          mem10Value.value =
@@ -7901,6 +8464,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem10Holder = ""
+                         mem10FalsiHolder.add(lowVal.toString())
+                         mem10FalsiHolder.add(highVal.toString())
+                         mem10FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -7913,6 +8479,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem10FalsiHolder[2].toString()
                          falsiNum2Holder = mem10FalsiHolder[3].toString()
                          x2 = mem10FalsiHolder[4].toString()
+                         x3 = mem10FalsiHolder[7].toString()
+                         thirdOperation = mem10FalsiHolder[8].toString()
+                         falsiNum4Holder = mem10FalsiHolder[9].toString()
+                         lowVal = mem10FalsiHolder[10].toString()
+                         highVal = mem10FalsiHolder[11].toString()
+                         precision = mem10FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -7940,7 +8513,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem10Holder.toString()
                                        .contains("-")) {
@@ -7960,6 +8533,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem10Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem10Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem10Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem10Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem10Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem10Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -7967,10 +8575,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem10FalsiHolder.clear()
-                         mem10Value.value =
-                             mem10FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem10Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -7981,6 +8586,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -8037,7 +8648,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem10Value.value = mem10Holder
           }
           catch (e : Exception) {
@@ -8182,6 +8793,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem11FalsiHolder.clear()
                          
@@ -8192,6 +8804,10 @@ class MainViewModel : ViewModel() {
                          mem11FalsiHolder.add(x2.toString())
                          mem11FalsiHolder.add(secondOperation.toString())
                          mem11FalsiHolder.add(falsiNum3Holder.toString())
+                         mem11FalsiHolder.add(x3.toString())
+                         mem11FalsiHolder.add(thirdOperation.toString())
+                         mem11FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem11FalsiHolder.toString())
                          mem11Value.value =
@@ -8201,6 +8817,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem11Holder = ""
+                         mem11FalsiHolder.add(lowVal.toString())
+                         mem11FalsiHolder.add(highVal.toString())
+                         mem11FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -8213,6 +8832,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem11FalsiHolder[2].toString()
                          falsiNum2Holder = mem11FalsiHolder[3].toString()
                          x2 = mem11FalsiHolder[4].toString()
+                         x3 = mem11FalsiHolder[7].toString()
+                         thirdOperation = mem11FalsiHolder[8].toString()
+                         falsiNum4Holder = mem11FalsiHolder[9].toString()
+                         lowVal = mem11FalsiHolder[10].toString()
+                         highVal = mem11FalsiHolder[11].toString()
+                         precision = mem11FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -8240,7 +8866,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem11Holder.toString()
                                        .contains("-")) {
@@ -8260,6 +8886,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem11Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem11Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem11Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem11Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem11Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem11Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -8267,10 +8928,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem11FalsiHolder.clear()
-                         mem11Value.value =
-                             mem11FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem11Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -8281,6 +8939,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -8337,7 +9001,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem11Value.value = mem11Holder
           }
           catch (e : Exception) {
@@ -8482,6 +9146,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem12FalsiHolder.clear()
                          
@@ -8492,6 +9157,10 @@ class MainViewModel : ViewModel() {
                          mem12FalsiHolder.add(x2.toString())
                          mem12FalsiHolder.add(secondOperation.toString())
                          mem12FalsiHolder.add(falsiNum3Holder.toString())
+                         mem12FalsiHolder.add(x3.toString())
+                         mem12FalsiHolder.add(thirdOperation.toString())
+                         mem12FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem12FalsiHolder.toString())
                          mem12Value.value =
@@ -8501,6 +9170,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem12Holder = ""
+                         mem12FalsiHolder.add(lowVal.toString())
+                         mem12FalsiHolder.add(highVal.toString())
+                         mem12FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -8513,6 +9185,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem12FalsiHolder[2].toString()
                          falsiNum2Holder = mem12FalsiHolder[3].toString()
                          x2 = mem12FalsiHolder[4].toString()
+                         x3 = mem12FalsiHolder[7].toString()
+                         thirdOperation = mem12FalsiHolder[8].toString()
+                         falsiNum4Holder = mem12FalsiHolder[9].toString()
+                         lowVal = mem12FalsiHolder[10].toString()
+                         highVal = mem12FalsiHolder[11].toString()
+                         precision = mem12FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -8540,7 +9219,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem12Holder.toString()
                                        .contains("-")) {
@@ -8560,6 +9239,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem12Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem12Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem12Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem12Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem12Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem12Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -8567,10 +9281,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem12FalsiHolder.clear()
-                         mem12Value.value =
-                             mem12FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem12Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -8581,6 +9292,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -8637,7 +9354,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem2Value.value = mem12Holder
           }
           catch (e : Exception) {
@@ -8782,6 +9499,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem13FalsiHolder.clear()
                          
@@ -8792,6 +9510,10 @@ class MainViewModel : ViewModel() {
                          mem13FalsiHolder.add(x2.toString())
                          mem13FalsiHolder.add(secondOperation.toString())
                          mem13FalsiHolder.add(falsiNum3Holder.toString())
+                         mem13FalsiHolder.add(x3.toString())
+                         mem13FalsiHolder.add(thirdOperation.toString())
+                         mem13FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem13FalsiHolder.toString())
                          mem13Value.value =
@@ -8801,6 +9523,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem13Holder = ""
+                         mem13FalsiHolder.add(lowVal.toString())
+                         mem13FalsiHolder.add(highVal.toString())
+                         mem13FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -8813,6 +9538,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem13FalsiHolder[2].toString()
                          falsiNum2Holder = mem13FalsiHolder[3].toString()
                          x2 = mem13FalsiHolder[4].toString()
+                         x3 = mem13FalsiHolder[7].toString()
+                         thirdOperation = mem13FalsiHolder[8].toString()
+                         falsiNum4Holder = mem13FalsiHolder[9].toString()
+                         lowVal = mem13FalsiHolder[10].toString()
+                         highVal = mem13FalsiHolder[11].toString()
+                         precision = mem13FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -8840,7 +9572,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem13Holder.toString()
                                        .contains("-")) {
@@ -8860,6 +9592,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem13Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem13Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem13Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem13Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem13Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem13Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -8867,10 +9634,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem13FalsiHolder.clear()
-                         mem13Value.value =
-                             mem13FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem13Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -8881,6 +9645,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -8929,16 +9699,16 @@ class MainViewModel : ViewModel() {
                               result.value = resultHolder
                               proccessResult.value = processHolder
                               memIsClickedCount = 1
-                              
-                              mem13Value.value = mem13Holder
+     
+                              mem2Value.value = mem12Holder
                          }
                     }
                }
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
-               mem13Value.value = mem13Holder
+     
+               mem2Value.value = mem12Holder
           }
           catch (e : Exception) {
                deleteAll()
@@ -9082,6 +9852,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem14FalsiHolder.clear()
                          
@@ -9092,6 +9863,10 @@ class MainViewModel : ViewModel() {
                          mem14FalsiHolder.add(x2.toString())
                          mem14FalsiHolder.add(secondOperation.toString())
                          mem14FalsiHolder.add(falsiNum3Holder.toString())
+                         mem14FalsiHolder.add(x3.toString())
+                         mem14FalsiHolder.add(thirdOperation.toString())
+                         mem14FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem14FalsiHolder.toString())
                          mem14Value.value =
@@ -9101,6 +9876,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem14Holder = ""
+                         mem14FalsiHolder.add(lowVal.toString())
+                         mem14FalsiHolder.add(highVal.toString())
+                         mem14FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -9113,6 +9891,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem14FalsiHolder[2].toString()
                          falsiNum2Holder = mem14FalsiHolder[3].toString()
                          x2 = mem14FalsiHolder[4].toString()
+                         x3 = mem14FalsiHolder[7].toString()
+                         thirdOperation = mem14FalsiHolder[8].toString()
+                         falsiNum4Holder = mem14FalsiHolder[9].toString()
+                         lowVal = mem14FalsiHolder[10].toString()
+                         highVal = mem14FalsiHolder[11].toString()
+                         precision = mem14FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -9140,7 +9925,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem14Holder.toString()
                                        .contains("-")) {
@@ -9160,6 +9945,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem14Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem14Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem14Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem14Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem14Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem14Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -9167,10 +9987,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem14FalsiHolder.clear()
-                         mem14Value.value =
-                             mem14FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem14Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -9181,6 +9998,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -9237,7 +10060,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem14Value.value = mem14Holder
           }
           catch (e : Exception) {
@@ -9382,6 +10205,7 @@ class MainViewModel : ViewModel() {
                     }
                }
                else if (falsiMethodIsClicked) {
+                    
                     if (memRecordIsClicked) {
                          mem15FalsiHolder.clear()
                          
@@ -9392,6 +10216,10 @@ class MainViewModel : ViewModel() {
                          mem15FalsiHolder.add(x2.toString())
                          mem15FalsiHolder.add(secondOperation.toString())
                          mem15FalsiHolder.add(falsiNum3Holder.toString())
+                         mem15FalsiHolder.add(x3.toString())
+                         mem15FalsiHolder.add(thirdOperation.toString())
+                         mem15FalsiHolder.add(falsiNum4Holder.toString())
+                         
                          
                          Log.e("message", mem15FalsiHolder.toString())
                          mem15Value.value =
@@ -9401,6 +10229,9 @@ class MainViewModel : ViewModel() {
                                  .replace(",", "")
                                  .replace(" ", "")
                          mem15Holder = ""
+                         mem15FalsiHolder.add(lowVal.toString())
+                         mem15FalsiHolder.add(highVal.toString())
+                         mem15FalsiHolder.add(precision.toString())
                          memRecordIsClicked = false
                     }
                     
@@ -9413,6 +10244,13 @@ class MainViewModel : ViewModel() {
                          firstOperation = mem15FalsiHolder[2].toString()
                          falsiNum2Holder = mem15FalsiHolder[3].toString()
                          x2 = mem15FalsiHolder[4].toString()
+                         x3 = mem15FalsiHolder[7].toString()
+                         thirdOperation = mem15FalsiHolder[8].toString()
+                         falsiNum4Holder = mem15FalsiHolder[9].toString()
+                         lowVal = mem15FalsiHolder[10].toString()
+                         highVal = mem15FalsiHolder[11].toString()
+                         precision = mem15FalsiHolder[12].toString()
+                         
                     }
                     else {
                          
@@ -9440,7 +10278,7 @@ class MainViewModel : ViewModel() {
                                    firstOperationResult.value = firstOperation
                               }
                          }
-                         else {
+                         else if (secondOperation!!.isEmpty()) {
                               
                               if (mem15Holder.toString()
                                        .contains("-")) {
@@ -9460,6 +10298,41 @@ class MainViewModel : ViewModel() {
                                    secondOperationResult.value = secondOperation
                               }
                          }
+                         else {
+                              if (mem15Holder.toString()
+                                       .contains("-")) {
+                                   
+                                   thirdOperation = "-"
+                                   stringHolder = mem15Holder
+                                   stringHolder = stringHolder.drop(1)
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                                   
+                              }
+                              else {
+                                   thirdOperation = "+"
+                                   stringHolder = mem15Holder
+                                   falsiNum4Holder = stringHolder.toString()
+                                   quadraticNum4Result.value = falsiNum4Holder
+                                   thirdOperationResult.value = thirdOperation
+                              }
+                              
+                              if (falsiMethodIsClickedCount == 1) {
+                                   lowVal = mem15Holder.toString()
+                                   lowValResult.value = lowVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 2) {
+                                   highVal = mem15Holder.toString()
+                                   highValResult.value = highVal
+                                   falsiMethodIsClickedCount += 1
+                              }
+                              else if (falsiMethodIsClickedCount == 3) {
+                                   precision = mem15Holder.toString()
+                                   precissionResult.value = precision
+                              }
+                         }
                     }
                     
                     
@@ -9467,10 +10340,7 @@ class MainViewModel : ViewModel() {
                     
                     if (memCLearIsClicked) {
                          mem15FalsiHolder.clear()
-                         mem15Value.value =
-                             mem15FalsiHolder.toString()
-                                 .dropLast(1)
-                                 .drop(1)
+                         mem15Value.value = ""
                          memCLearIsClicked = false
                     }
                     
@@ -9481,6 +10351,12 @@ class MainViewModel : ViewModel() {
                     x1Result.value = x1
                     x2Result.value = x2
                     quadraticNum3Result.value = falsiNum3Holder
+                    x3Result.value = x3
+                    thirdOperationResult.value = thirdOperation
+                    quadraticNum4Result.value = falsiNum4Holder
+                    lowValResult.value = lowVal
+                    highValResult.value = highVal
+                    precissionResult.value = precision
                     
                }
                else {
@@ -9537,7 +10413,7 @@ class MainViewModel : ViewModel() {
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
-               
+     
                mem15Value.value = mem15Holder
           }
           catch (e : Exception) {
@@ -9554,7 +10430,7 @@ class MainViewModel : ViewModel() {
           var c : Double = 0.0
           var a = a
           var b = b
-          var precision : Double = precision.toDouble()
+          val precision : Double = precision.toDouble()
           
           if (func(a) * func(b) > 0.0f) {
                x1RootResult.postValue("Function has same signs at ends of interval")
@@ -9580,16 +10456,26 @@ class MainViewModel : ViewModel() {
      fun equal() {
           try {
                if (falsiMethodIsClicked) {
-                    if (falsiMethodIsClickedCount == 0) {
-                         falsiMethodIsClickedCount = 1
-                    }
-                    else if (falsiMethodIsClickedCount == 3) {
-                         
-                         var a : Double = lowVal.toDouble()
-                         var b : Double = highVal.toDouble()
+                    if (precision.isNotEmpty()) {
+                         val a : Double = lowVal.toDouble()
+                         val b : Double = highVal.toDouble()
                          
                          CoroutineScope(Dispatchers.Default).launch {
                               x1RootResult.postValue(falsiMethod(a, b).toString())
+                         }
+                    }
+                    else {
+                         if (falsiMethodIsClickedCount == 0) {
+                              falsiMethodIsClickedCount = 1
+                         }
+                         else if (falsiMethodIsClickedCount == 3) {
+                              
+                              val a : Double = lowVal.toDouble()
+                              val b : Double = highVal.toDouble()
+                              
+                              CoroutineScope(Dispatchers.Default).launch {
+                                   x1RootResult.postValue(falsiMethod(a, b).toString())
+                              }
                          }
                     }
                     
@@ -9660,7 +10546,7 @@ class MainViewModel : ViewModel() {
           }
      }
      
-     fun falsiMethod() {
+     fun failsMethod() {
           try {
                click += 1
                
@@ -9684,10 +10570,10 @@ class MainViewModel : ViewModel() {
           var x2x : Double = x
           var x3x : Double = x
           var func : Double = 0.0
-          var a : Double?
-          var b : Double?
-          var c : Double?
-          var d : Double?
+          val a : Double?
+          val b : Double?
+          val c : Double?
+          val d : Double?
           
           if (x1 == "x") {
                x1x = x
@@ -9768,88 +10654,56 @@ class MainViewModel : ViewModel() {
           
           if (falsiNum4Holder != null) {
                
-               if (a != null && b != null && c != null && d != null) {
-                    if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "+") {
-                         func = a * (x1x) + b * (x2x) + c * (x3x) + d
-                    }
-                    if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "+") {
-                         func = a * (x1x) - b * (x2x) + c * (x3x) + d
-                    }
-                    if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "-") {
-                         func = a * (x1x) + b * (x2x) - c * (x3x) - d
-                    }
-                    if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "-") {
-                         func = a * (x1x) - b * (x2x) + c * (x3x) - d
-                    }
-                    if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "+") {
-                         func = a * (x1x) + b * (x2x) - c * (x3x) + d
-                    }
-                    if (firstOperation == "-" && secondOperation == "-" && thirdOperation == "-") {
-                         func = a * (x1x) - b * (x2x) - c * (x3x) - d
-                    }
-                    if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "-") {
-                         func = a * (x1x) + b * (x2x) + c * (x3x) - d
-                    }
+               if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "+") {
+                    func = a * (x1x) + b * (x2x) + c * (x3x) + d
+               }
+               if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "+") {
+                    func = a * (x1x) - b * (x2x) + c * (x3x) + d
+               }
+               if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "-") {
+                    func = a * (x1x) + b * (x2x) - c * (x3x) - d
+               }
+               if (firstOperation == "-" && secondOperation == "+" && thirdOperation == "-") {
+                    func = a * (x1x) - b * (x2x) + c * (x3x) - d
+               }
+               if (firstOperation == "+" && secondOperation == "-" && thirdOperation == "+") {
+                    func = a * (x1x) + b * (x2x) - c * (x3x) + d
+               }
+               if (firstOperation == "-" && secondOperation == "-" && thirdOperation == "-") {
+                    func = a * (x1x) - b * (x2x) - c * (x3x) - d
+               }
+               if (firstOperation == "+" && secondOperation == "+" && thirdOperation == "-") {
+                    func = a * (x1x) + b * (x2x) + c * (x3x) - d
                }
           }
-          else if (falsiNum3Holder!! != null && falsiNum4Holder == null) {
+          else if (falsiNum4Holder == null) {
                
                if (firstOperation == "+" && secondOperation == "+") {
-                    if (a != null && b != null && c != null) {
-                         func = a * (x1x) + b * (x2x) + c * (x3x)
-                    }
-                    
+                    func = a * (x1x) + b * (x2x) + c * (x3x)
                }
                if (firstOperation == "-" && secondOperation == "+") {
-                    if (a != null && b != null && c != null) {
-                         func = a * (x1x) - b * (x2x) + c * (x3x)
-                    }
-                    
+                    func = a * (x1x) - b * (x2x) + c * (x3x)
                }
                if (firstOperation == "+" && secondOperation == "-") {
-                    if (a != null && b != null && c != null) {
-                         func = a * (x1x) + b * (x2x) - c * (x3x)
-                    }
-                    
+                    func = a * (x1x) + b * (x2x) - c * (x3x)
                }
                if (firstOperation == "-" && secondOperation == "-") {
-                    if (a != null && b != null && c != null) {
-                         func = a * (x1x) - b * (x2x) - c * (x3x)
-                    }
-                    
+                    func = a * (x1x) - b * (x2x) - c * (x3x)
                }
           }
           else if (falsiNum3Holder == null && falsiNum2Holder != null) {
                
                if (firstOperation == "+") {
-                    if (a != null && b != null) {
-                         func = a * (x1x) + b * (x2x)
-                    }
+                    func = a * (x1x) + b * (x2x)
                }
                if (firstOperation == "-") {
-                    if (a != null && b != null) {
-                         func = a * (x1x) - b * (x2x)
-                    }
+                    func = a * (x1x) - b * (x2x)
                }
           }
           else {
-               
-               if (a != null) {
-                    func = a * (x1x)
-               }
+               func = a * (x1x)
           }
           
-          Log.e("a value is ", a.toString())
-          Log.e("b value is ", b.toString())
-          Log.e("c value is ", c.toString())
-          Log.e("d value is ", d.toString())
-          Log.e("x1 value is ", x1x.toString())
-          Log.e("x2 value is ", x2x.toString())
-          Log.e("x3 value is ", x3x.toString())
-          Log.e("first operation is ", firstOperation.toString())
-          Log.e("second operation is ", secondOperation.toString())
-          Log.e("third operation is ", thirdOperation.toString())
-          Log.e("Separeta", "______________________________________________________________________________________________")
           return func
      }
      
@@ -9950,7 +10804,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM1() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem1Holder.isEmpty()) {
                value =
                    mem1FalsiHolder.toString()
@@ -9968,7 +10822,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM2() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem2Holder.isEmpty()) {
                value =
                    mem2FalsiHolder.toString()
@@ -9986,7 +10840,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM3() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem3Holder.isEmpty()) {
                value =
                    mem3FalsiHolder.toString()
@@ -10004,7 +10858,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM4() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem4Holder.isEmpty()) {
                value =
                    mem4FalsiHolder.toString()
@@ -10022,7 +10876,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM5() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem5Holder.isEmpty()) {
                value =
                    mem5FalsiHolder.toString()
@@ -10040,7 +10894,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM6() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem6Holder.isEmpty()) {
                value =
                    mem6FalsiHolder.toString()
@@ -10058,7 +10912,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM7() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem7Holder.isEmpty()) {
                value =
                    mem7FalsiHolder.toString()
@@ -10076,7 +10930,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM8() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem8Holder.isEmpty()) {
                value =
                    mem8FalsiHolder.toString()
@@ -10094,7 +10948,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM9() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem9Holder.isEmpty()) {
                value =
                    mem9FalsiHolder.toString()
@@ -10112,7 +10966,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM10() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem10Holder.isEmpty()) {
                value =
                    mem10FalsiHolder.toString()
@@ -10130,7 +10984,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM11() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem11Holder.isEmpty()) {
                value =
                    mem11FalsiHolder.toString()
@@ -10148,7 +11002,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM12() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem12Holder.isEmpty()) {
                value =
                    mem12FalsiHolder.toString()
@@ -10166,7 +11020,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM13() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem13Holder.isEmpty()) {
                value =
                    mem13FalsiHolder.toString()
@@ -10184,7 +11038,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM14() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem14Holder.isEmpty()) {
                value =
                    mem14FalsiHolder.toString()
@@ -10202,7 +11056,7 @@ class MainViewModel : ViewModel() {
      }
      
      fun getM15() : LiveData<String> {
-          var value : String? = null
+          val value : String?
           if (mem15Holder.isEmpty()) {
                value =
                    mem15FalsiHolder.toString()

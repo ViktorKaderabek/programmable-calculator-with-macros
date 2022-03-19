@@ -1,6 +1,5 @@
 package com.example.programovatelna_kalkulacka.presentation
 
-
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
@@ -14,252 +13,183 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import com.example.programovatelna_kalkulacka.R
 import com.example.programovatelna_kalkulacka.databinding.ActivityMainBinding
 import com.example.programovatelna_kalkulacka.presentation.mainScreen_viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 
-
-class MainActivity : AppCompatActivity()
-{
+class MainActivity : AppCompatActivity() {
      
      private var btnFalsi : Boolean = false
      private val mainViewModel : MainViewModel by inject() //Promenna ktera odkazuje na tridu, ktera ma obsahuje vsechny funcke a ma za ucel ridit MainActivitu
-     private lateinit var activityMainBinding : ActivityMainBinding//Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
+     private lateinit var activityMainBinding : ActivityMainBinding //Promenna ktera odkazuje na komponenty(buttony,labely atd..) a umoznuje pristup k nim
      private var count = 0
-     override fun onCreate(savedInstanceState : Bundle?)
-     { //vytvari Activitu
+     override fun onCreate(savedInstanceState : Bundle?) { //vytvari Activitu
           super.onCreate(savedInstanceState)
           
           
-          activityMainBinding =
-              DataBindingUtil.setContentView(
-                   this,
-                   R.layout.activity_main
-              ) //tato promenna nastavuje co bude ridit MainActivita d
+          activityMainBinding = DataBindingUtil.setContentView(
+               this, R.layout.activity_main
+          ) //tato promenna nastavuje co bude ridit MainActivita d
           
           mainViewModel.getMacroContains()
-              .observe(
-                   this,
-                   { activityMainBinding.txtMacroContains?.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMacroContains?.text = it
+              })
           
           mainViewModel.getProcessResult()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtProcess.text = it
-                   })//Pokazde kdyz se vysledek getResult(), ktery je v MainViewModel zmeni, tak se zmeni i tady.
+              .observe(this, {
+                   activityMainBinding.txtProcess.text = it
+              }) //Pokazde kdyz se vysledek getResult(), ktery je v MainViewModel zmeni, tak se zmeni i tady.
           
           mainViewModel.getM6()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem1Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem1Value.text = it
+              })
           
           mainViewModel.getM7()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem2Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem2Value.text = it
+              })
           
           mainViewModel.getM8()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem3Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem3Value.text = it
+              })
           
           mainViewModel.getM9()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem4Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem4Value.text = it
+              })
           
           mainViewModel.getM10()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem5Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem5Value.text = it
+              })
           
           mainViewModel.getM11()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem1Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem1Value.text = it
+              })
           
           mainViewModel.getM12()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem2Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem2Value.text = it
+              })
           
           mainViewModel.getM13()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem3Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem3Value.text = it
+              })
           
           mainViewModel.getM14()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem4Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem4Value.text = it
+              })
           
           mainViewModel.getM15()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem5Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem5Value.text = it
+              })
           
           mainViewModel.getM1()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem1Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem1Value.text = it
+              })
           
           mainViewModel.getM2()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem2Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem2Value.text = it
+              })
           
           mainViewModel.getM3()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem3Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem3Value.text = it
+              })
           
           mainViewModel.getM4()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem4Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem4Value.text = it
+              })
           
           mainViewModel.getM5()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtMem5Value.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtMem5Value.text = it
+              })
           
           
           mainViewModel.getResult()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtResult.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtResult.text = it
+              })
           
           mainViewModel.quadraticResult1()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtFirstNumber.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtFirstNumber.text = it
+              })
           
           mainViewModel.quadraticResult2()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtSecondNumber.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtSecondNumber.text = it
+              })
           
           mainViewModel.quadraticResult3()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtThirdNumber.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtThirdNumber.text = it
+              })
           
           mainViewModel.quadraticResult4()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtFourthNumber?.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtFourthNumber?.text = it
+              })
           
           mainViewModel.firstOperation()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtFirstOperator.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtFirstOperator.text = it
+              })
           
           mainViewModel.secondOperation()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtSecondOperator.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtSecondOperator.text = it
+              })
           
           mainViewModel.thirdOperation()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtThirdOperator?.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtThirdOperator?.text = it
+              })
           
           mainViewModel.getX1Root()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtFuncNumber?.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtFuncNumber?.text = it
+              })
           mainViewModel.x1Result()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.x1!!.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.x1!!.text = it
+              })
           mainViewModel.x2Result()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.x2!!.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.x2!!.text = it
+              })
           
           mainViewModel.x3Result()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtX3!!.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtX3!!.text = it
+              })
           
           mainViewModel.getLowVal()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtANumber!!.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtANumber!!.text = it
+              })
           
           mainViewModel.getHighVal()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtBNumber!!.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtBNumber!!.text = it
+              })
           
           mainViewModel.getPrecission()
-              .observe(
-                   this,
-                   {
-                        activityMainBinding.txtCNumber!!.text = it
-                   })
+              .observe(this, {
+                   activityMainBinding.txtCNumber!!.text = it
+              })
           
           
           
@@ -270,8 +200,7 @@ class MainActivity : AppCompatActivity()
           activityMainBinding.quadraticEqualation.visibility = View.INVISIBLE
           
           
-          if (activityMainBinding.txtResult.text.isEmpty())
-          { //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
+          if (activityMainBinding.txtResult.text.isEmpty()) { //pokud se result label == " " tak nezustane prazdny ale, pokazde kdyz je prazndy, tak tam bude zapsana "0"
                activityMainBinding.txtResult.text = "0"
           }
           
@@ -279,17 +208,12 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnLastResult.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnLastResult.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -301,17 +225,12 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnNumber00.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber00.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -322,21 +241,17 @@ class MainActivity : AppCompatActivity()
           
           activityMainBinding.btnStartRecord?.setOnClickListener {
                
-               
                count += 1
                
-               if (count == 1)
-               {
+               if (count == 1) {
                     mainViewModel.macroRecord()
                     activityMainBinding.btnStartRecord?.setText("Stop Record")
                     activityMainBinding.btnStartRecord?.setBackgroundColor(
-                         Color.parseColor
-                              ("#616596")
+                         Color.parseColor("#616596")
                     )
                     
                     val anim : Animation = AlphaAnimation(
-                         0.0f,
-                         1.0f
+                         0.0f, 1.0f
                     )
                     anim.duration = 500 //You can manage the blinking time with this parameter
                     
@@ -353,10 +268,8 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnNumber8.startAnimation(anim)
                     activityMainBinding.btnNumber9.startAnimation(anim)
                     
-                    
                }
-               else
-               {
+               else {
                     activityMainBinding.btnStartRecord?.setText("Start Record")
                     activityMainBinding.btnStartRecord?.setBackgroundColor(Color.TRANSPARENT)
                     mainViewModel.macroStopRecord()
@@ -370,12 +283,10 @@ class MainActivity : AppCompatActivity()
                val alertadd = AlertDialog.Builder(this)
                val factory = LayoutInflater.from(applicationContext)
                val view : View = factory.inflate(
-                    R.layout.activity_dialog,
-                    null
+                    R.layout.activity_dialog, null
                )
                alertadd.setView(view)
-               alertadd.setNeutralButton("Ok!",
-                    DialogInterface.OnClickListener { dlg, sumthin -> })
+               alertadd.setNeutralButton("Ok!", DialogInterface.OnClickListener { dlg, sumthin -> })
                
                alertadd.show()
                
@@ -390,9 +301,7 @@ class MainActivity : AppCompatActivity()
           
           activityMainBinding.btnFalsiMethod.setOnClickListener {
                
-               
-               if (activityMainBinding.x1RootLayout.visibility == View.INVISIBLE)
-               {
+               if (activityMainBinding.x1RootLayout.visibility == View.INVISIBLE) {
                     btnFalsi = true
                     
                     activityMainBinding.x1RootLayout.visibility = View.VISIBLE
@@ -405,8 +314,7 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnPower3.text = "x²".lowercase()
                     activityMainBinding.btnPercent.text = "x³".lowercase()
                }
-               else
-               {
+               else {
                     btnFalsi = false
                     activityMainBinding.x1RootLayout.visibility = View.INVISIBLE
                     activityMainBinding.x2RootLayout?.visibility = View.INVISIBLE
@@ -421,33 +329,26 @@ class MainActivity : AppCompatActivity()
                     
                }
                
-               if (activityMainBinding.x1RootLayout.visibility == View.VISIBLE)
-               {
+               if (activityMainBinding.x1RootLayout.visibility == View.VISIBLE) {
                     activityMainBinding.btnFalsiMethod.setBackgroundColor(Color.parseColor("#616596"))
                }
-               else
-               {
+               else {
                     activityMainBinding.btnFalsiMethod.setBackgroundColor(Color.TRANSPARENT)
                }
                
-               mainViewModel.falsiMethod()
+               mainViewModel.failsMethod()
           }
           
           activityMainBinding.btnNumber1.setOnClickListener { //Odkazuje na tlacitko btnNumber1 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber1.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber1.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -462,8 +363,7 @@ class MainActivity : AppCompatActivity()
                mainViewModel.macroClear()
                
                val anim : Animation = AlphaAnimation(
-                    0.0f,
-                    1.0f
+                    0.0f, 1.0f
                )
                anim.duration = 500 //You can manage the blinking time with this parameter
                
@@ -481,244 +381,188 @@ class MainActivity : AppCompatActivity()
                activityMainBinding.btnNumber8.startAnimation(anim)
                activityMainBinding.btnNumber9.startAnimation(anim)
                
-               
           }
           
-          activityMainBinding.btnNumber2.setOnClickListener {//Odkazuje na tlacitko btnNumber2 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber2.setOnClickListener { //Odkazuje na tlacitko btnNumber2 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber2.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber2.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber2()//prida do labelu "2"
+               mainViewModel.addNumber2() //prida do labelu "2"
           }
           
-          activityMainBinding.btnNumber3.setOnClickListener {//Odkazuje na tlacitko btnNumber3 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber3.setOnClickListener { //Odkazuje na tlacitko btnNumber3 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber3.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber3.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber3()//prida do labelu "3"
+               mainViewModel.addNumber3() //prida do labelu "3"
           }
           
-          activityMainBinding.btnNumber4.setOnClickListener {//Odkazuje na tlacitko btnNumber4 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber4.setOnClickListener { //Odkazuje na tlacitko btnNumber4 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber4.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber4.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber4()//prida do labelu "4"
+               mainViewModel.addNumber4() //prida do labelu "4"
           }
           
-          activityMainBinding.btnNumber5.setOnClickListener {//Odkazuje na tlacitko btnNumber5 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber5.setOnClickListener { //Odkazuje na tlacitko btnNumber5 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber5.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber5.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber5()//prida do labelu "5"
+               mainViewModel.addNumber5() //prida do labelu "5"
           }
           
-          activityMainBinding.btnNumber6.setOnClickListener {//Odkazuje na tlacitko btnNumber6 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber6.setOnClickListener { //Odkazuje na tlacitko btnNumber6 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber6.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber6.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber6()//prida do labelu "6"
+               mainViewModel.addNumber6() //prida do labelu "6"
           }
           
-          activityMainBinding.btnNumber7.setOnClickListener {//Odkazuje na tlacitko btnNumber7 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber7.setOnClickListener { //Odkazuje na tlacitko btnNumber7 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber7.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber7.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber7()//prida do labelu "7"
+               mainViewModel.addNumber7() //prida do labelu "7"
           }
           
-          activityMainBinding.btnNumber8.setOnClickListener {//Odkazuje na tlacitko btnNumber8 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber8.setOnClickListener { //Odkazuje na tlacitko btnNumber8 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber8.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber8.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber8()//prida do labelu "8"
+               mainViewModel.addNumber8() //prida do labelu "8"
           }
           
-          activityMainBinding.btnNumber9.setOnClickListener {//Odkazuje na tlacitko btnNumber9 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber9.setOnClickListener { //Odkazuje na tlacitko btnNumber9 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber9.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber9.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber9()//prida do labelu "9"
+               mainViewModel.addNumber9() //prida do labelu "9"
           }
           
-          activityMainBinding.btnNumber0.setOnClickListener {//Odkazuje na tlacitko btnNumber0 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnNumber0.setOnClickListener { //Odkazuje na tlacitko btnNumber0 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnNumber0.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnNumber0.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addNumber0()//prida do labelu "0"
+               mainViewModel.addNumber0() //prida do labelu "0"
           }
           
           activityMainBinding.btnDot.setOnClickListener { //Odkazuje na tlacitko btnDot a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnDot.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnDot.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.addDot()//prida do labelu "."
+               mainViewModel.addDot() //prida do labelu "."
           }
           
-          activityMainBinding.btnDeleteAll.setOnClickListener {//Odkazuje na tlacitko btnDot a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnDeleteAll.setOnClickListener { //Odkazuje na tlacitko btnDot a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnDeleteAll.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnDeleteAll.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -728,8 +572,7 @@ class MainActivity : AppCompatActivity()
           
           activityMainBinding.btnArrowFor!!.setOnClickListener {
                
-               if (activityMainBinding.btnMem1.text == "M1")
-               {
+               if (activityMainBinding.btnMem1.text == "M1") {
                     
                     activityMainBinding.btnMem1.text = "M6"
                     activityMainBinding.btnMem2.text = "M7"
@@ -738,43 +581,32 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.text = "M10"
                     
                     mainViewModel.getM6()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem1Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem1Value.text = it
+                        })
                     
                     mainViewModel.getM7()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem2Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem2Value.text = it
+                        })
                     
                     mainViewModel.getM8()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem3Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem3Value.text = it
+                        })
                     
                     mainViewModel.getM9()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem4Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem4Value.text = it
+                        })
                     
                     mainViewModel.getM10()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem5Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem5Value.text = it
+                        })
                     
                }
-               else if (activityMainBinding.btnMem1.text == "M6")
-               {
+               else if (activityMainBinding.btnMem1.text == "M6") {
                     
                     activityMainBinding.btnMem1.text = "M11"
                     activityMainBinding.btnMem2.text = "M12"
@@ -784,44 +616,32 @@ class MainActivity : AppCompatActivity()
                     
                     
                     mainViewModel.getM11()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem1Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem1Value.text = it
+                        })
                     
                     mainViewModel.getM12()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem2Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem2Value.text = it
+                        })
                     
                     mainViewModel.getM13()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem3Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem3Value.text = it
+                        })
                     
                     mainViewModel.getM14()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem4Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem4Value.text = it
+                        })
                     
                     mainViewModel.getM15()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem5Value.text = it
-                             })
-                    
+                        .observe(this, {
+                             activityMainBinding.txtMem5Value.text = it
+                        })
                     
                }
-               else
-               {
+               else {
                     activityMainBinding.btnMem1.text = "M1"
                     activityMainBinding.btnMem2.text = "M2"
                     activityMainBinding.btnMem3.text = "M3"
@@ -829,47 +649,36 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.text = "M5"
                     
                     mainViewModel.getM1()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem1Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem1Value.text = it
+                        })
                     
                     mainViewModel.getM2()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem2Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem2Value.text = it
+                        })
                     
                     mainViewModel.getM3()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem3Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem3Value.text = it
+                        })
                     
                     mainViewModel.getM4()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem4Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem4Value.text = it
+                        })
                     
                     mainViewModel.getM5()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem5Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem5Value.text = it
+                        })
                }
                
           }
           
           activityMainBinding.btnArrowBack!!.setOnClickListener {
                
-               if (activityMainBinding.btnMem1.text == "M1")
-               {
+               if (activityMainBinding.btnMem1.text == "M1") {
                     
                     activityMainBinding.btnMem1.text = "M11"
                     activityMainBinding.btnMem2.text = "M12"
@@ -878,42 +687,31 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.text = "M15"
                     
                     mainViewModel.getM11()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem1Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem1Value.text = it
+                        })
                     
                     mainViewModel.getM12()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem2Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem2Value.text = it
+                        })
                     
                     mainViewModel.getM13()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem3Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem3Value.text = it
+                        })
                     
                     mainViewModel.getM14()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem4Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem4Value.text = it
+                        })
                     
                     mainViewModel.getM15()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem5Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem5Value.text = it
+                        })
                }
-               else if (activityMainBinding.btnMem1.text == "M11")
-               {
+               else if (activityMainBinding.btnMem1.text == "M11") {
                     activityMainBinding.btnMem1.text = "M6"
                     activityMainBinding.btnMem2.text = "M7"
                     activityMainBinding.btnMem3.text = "M8"
@@ -921,43 +719,32 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.text = "M10"
                     
                     mainViewModel.getM6()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem1Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem1Value.text = it
+                        })
                     
                     mainViewModel.getM7()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem2Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem2Value.text = it
+                        })
                     
                     mainViewModel.getM8()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem3Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem3Value.text = it
+                        })
                     
                     mainViewModel.getM9()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem4Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem4Value.text = it
+                        })
                     
                     mainViewModel.getM10()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem5Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem5Value.text = it
+                        })
                     
                }
-               else
-               {
+               else {
                     activityMainBinding.btnMem1.text = "M1"
                     activityMainBinding.btnMem2.text = "M2"
                     activityMainBinding.btnMem3.text = "M3"
@@ -965,59 +752,43 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.text = "M5"
                     
                     mainViewModel.getM1()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem1Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem1Value.text = it
+                        })
                     
                     mainViewModel.getM2()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem2Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem2Value.text = it
+                        })
                     
                     mainViewModel.getM3()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem3Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem3Value.text = it
+                        })
                     
                     mainViewModel.getM4()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem4Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem4Value.text = it
+                        })
                     
                     mainViewModel.getM5()
-                        .observe(
-                             this,
-                             {
-                                  activityMainBinding.txtMem5Value.text = it
-                             })
+                        .observe(this, {
+                             activityMainBinding.txtMem5Value.text = it
+                        })
                }
-               
                
           }
           
-          activityMainBinding.btnDeleteOneObject.setOnClickListener {//Odkazuje na tlacitko btnDeleteOneObject a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnDeleteOneObject.setOnClickListener { //Odkazuje na tlacitko btnDeleteOneObject a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnDeleteOneObject.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnDeleteOneObject.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -1025,43 +796,33 @@ class MainActivity : AppCompatActivity()
                mainViewModel.deleteOneChar() //maze z labelu po jednoum cisle
           }
           
-          activityMainBinding.btnChangeTheSymbol.setOnClickListener {//Odkazuje na tlacitko btnChangeTheSymbol a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnChangeTheSymbol.setOnClickListener { //Odkazuje na tlacitko btnChangeTheSymbol a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnChangeTheSymbol.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnChangeTheSymbol.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.changeSymbol()//meni hodnotu z "+" na "-" a opačně
+               mainViewModel.changeSymbol() //meni hodnotu z "+" na "-" a opačně
           }
           
           activityMainBinding.btnPlus.setOnClickListener { //Odkazuje na tlacitko btnPlus a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnPlus.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnPlus.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -1074,17 +835,12 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnMinus.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMinus.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -1096,17 +852,12 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnMultiply.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMultiply.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -1118,17 +869,12 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnDevided.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnDevided.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
@@ -1140,46 +886,34 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnEqual.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnEqual.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
                //Odkazuje na tlacitko btnEqual a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                mainViewModel.equal() // provede funkci equal, ktera je ve MainViewModelu
-               mainViewModel.equalSend()//provede funkci equalSend, ktera je ve MainViewModelu
+               mainViewModel.equalSend() //provede funkci equalSend, ktera je ve MainViewModelu
                mainViewModel.getResult()
-                   .observe(
-                        this,
-                        {
-                             activityMainBinding.txtResult.text = it
-                        }) // zmeni text v labelu kde je hlavni text
+                   .observe(this, {
+                        activityMainBinding.txtResult.text = it
+                   }) // zmeni text v labelu kde je hlavni text
                mainViewModel.equalSend()
-                   .observe(
-                        this,
-                        {
-                             activityMainBinding.txtLastResult.text = it
-                        }) // zmeni text v labelu kde se zobrazuje lastResult na text, ktery je v hlavnim labelu
+                   .observe(this, {
+                        activityMainBinding.txtLastResult.text = it
+                   }) // zmeni text v labelu kde se zobrazuje lastResult na text, ktery je v hlavnim labelu
                
-               if (btnFalsi)
-               {
+               if (btnFalsi) {
                     mainViewModel.getMessage()
-                        .observe(
-                             this,
-                             {
-                                  Toast.makeText(applicationContext, it, Toast.LENGTH_LONG)
-                                      .show()
-                             })
+                        .observe(this, {
+                             Toast.makeText(applicationContext, it, Toast.LENGTH_LONG)
+                                 .show()
+                        })
                }
           }
           
@@ -1187,100 +921,76 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnPercent.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnPercent.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.percent()//Konvertuje cislo na procento
+               mainViewModel.percent() //Konvertuje cislo na procento
           }
           
-          activityMainBinding.btnPower2.setOnClickListener {//Odkazuje na tlacitko btnPower2 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnPower2.setOnClickListener { //Odkazuje na tlacitko btnPower2 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnPower2.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnPower2.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.power2()//Umocni cislo
+               mainViewModel.power2() //Umocni cislo
           }
           
-          activityMainBinding.btnPower3.setOnClickListener {//Odkazuje na tlacitko btnPower3 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnPower3.setOnClickListener { //Odkazuje na tlacitko btnPower3 a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnPower3.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnPower3.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.power3()//Umocni cislo na treti
+               mainViewModel.power3() //Umocni cislo na treti
           }
           
           activityMainBinding.btnMem1.setOnClickListener {
                
                activityMainBinding.btnMem1.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMem1.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               if (activityMainBinding.btnMem1.text == "M1")
-               {
+               if (activityMainBinding.btnMem1.text == "M1") {
                     mainViewModel.mem1()
                }
-               else if (activityMainBinding.btnMem1.text == "M6")
-               {
+               else if (activityMainBinding.btnMem1.text == "M6") {
                     mainViewModel.mem6()
                }
-               else
-               {
+               else {
                     mainViewModel.mem11()
                }
-               
                
           }
           
@@ -1289,31 +999,23 @@ class MainActivity : AppCompatActivity()
                Log.e("mes", "M2 is clicked")
                activityMainBinding.btnMem2.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMem2.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               if (activityMainBinding.btnMem2.text == "M2")
-               {
+               if (activityMainBinding.btnMem2.text == "M2") {
                     mainViewModel.mem2()
                }
-               else if (activityMainBinding.btnMem2.text == "M7")
-               {
+               else if (activityMainBinding.btnMem2.text == "M7") {
                     mainViewModel.mem7()
                }
-               else
-               {
+               else {
                     mainViewModel.mem12()
                }
           }
@@ -1322,31 +1024,23 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnMem3.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMem3.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               if (activityMainBinding.btnMem3.text == "M3")
-               {
+               if (activityMainBinding.btnMem3.text == "M3") {
                     mainViewModel.mem3()
                }
-               else if (activityMainBinding.btnMem3.text == "M8")
-               {
+               else if (activityMainBinding.btnMem3.text == "M8") {
                     mainViewModel.mem8()
                }
-               else
-               {
+               else {
                     mainViewModel.mem13()
                }
           }
@@ -1355,31 +1049,23 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnMem4.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMem4.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               if (activityMainBinding.btnMem4.text == "M4")
-               {
+               if (activityMainBinding.btnMem4.text == "M4") {
                     mainViewModel.mem4()
                }
-               else if (activityMainBinding.btnMem4.text == "M9")
-               {
+               else if (activityMainBinding.btnMem4.text == "M9") {
                     mainViewModel.mem9()
                }
-               else
-               {
+               else {
                     mainViewModel.mem14()
                }
           }
@@ -1388,31 +1074,23 @@ class MainActivity : AppCompatActivity()
                
                activityMainBinding.btnMem5.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnMem5.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               if (activityMainBinding.btnMem5.text == "M5")
-               {
+               if (activityMainBinding.btnMem5.text == "M5") {
                     mainViewModel.mem5()
                }
-               else if (activityMainBinding.btnMem5.text == "M10")
-               {
+               else if (activityMainBinding.btnMem5.text == "M10") {
                     mainViewModel.mem10()
                }
-               else
-               {
+               else {
                     mainViewModel.mem15()
                }
           }
@@ -1421,12 +1099,10 @@ class MainActivity : AppCompatActivity()
                var isClickedCount = 0
                isClickedCount += 1
                
-               if (isClickedCount == 1)
-               {
+               if (isClickedCount == 1) {
                     
                     val anim : Animation = AlphaAnimation(
-                         0.0f,
-                         1.0f
+                         0.0f, 1.0f
                     )
                     anim.duration = 500 //You can manage the blinking time with this parameter
                     
@@ -1440,10 +1116,7 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.startAnimation(anim)
                     
                     Toast.makeText(
-                         applicationContext,
-                         "Please chose one of those memories to store " +
-                             "yout result",
-                         Toast.LENGTH_LONG
+                         applicationContext, "Please chose one of those memories to store " + "yout result", Toast.LENGTH_LONG
                     )
                         .show()
                     
@@ -1457,12 +1130,10 @@ class MainActivity : AppCompatActivity()
                var isClickedCount = 0
                isClickedCount += 1
                
-               if (isClickedCount == 1)
-               {
+               if (isClickedCount == 1) {
                     
                     val anim : Animation = AlphaAnimation(
-                         0.0f,
-                         1.0f
+                         0.0f, 1.0f
                     )
                     anim.duration = 500 //You can manage the blinking time with this parameter
                     
@@ -1479,7 +1150,6 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnNumber8.startAnimation(anim)
                     activityMainBinding.btnNumber9.startAnimation(anim)
                     
-                    
                }
                mainViewModel.macroRecall()
                
@@ -1490,12 +1160,10 @@ class MainActivity : AppCompatActivity()
                var isClickedCount = 0
                isClickedCount += 1
                
-               if (isClickedCount == 1)
-               {
+               if (isClickedCount == 1) {
                     
                     val anim : Animation = AlphaAnimation(
-                         0.0f,
-                         1.0f
+                         0.0f, 1.0f
                     )
                     anim.duration = 500 //You can manage the blinking time with this parameter
                     
@@ -1509,9 +1177,7 @@ class MainActivity : AppCompatActivity()
                     activityMainBinding.btnMem5.startAnimation(anim)
                     
                     Toast.makeText(
-                         applicationContext,
-                         "Chose one of those memories to be delted",
-                         Toast.LENGTH_LONG
+                         applicationContext, "Chose one of those memories to be delted", Toast.LENGTH_LONG
                     )
                         .show()
                     
@@ -1519,26 +1185,21 @@ class MainActivity : AppCompatActivity()
                mainViewModel.memoryClear()
           }
           
-          activityMainBinding.btnSquareRoot.setOnClickListener {//Odkazuje na tlacitko btnSquareRoot a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
+          activityMainBinding.btnSquareRoot.setOnClickListener { //Odkazuje na tlacitko btnSquareRoot a rika mu ze kdyz se zmackne tak se provede tato funkce, ktera je ulozena ve MainViewModel
                
                activityMainBinding.btnSquareRoot.setBackgroundColor(Color.parseColor("#616596"))
                object : CountDownTimer(
-                    55,
-                    110
-               )
-               {
-                    override fun onTick(arg0 : Long)
-                    {
-                         // TODO Auto-generated method stub
+                    55, 110
+               ) {
+                    override fun onTick(arg0 : Long) { // TODO Auto-generated method stub
                     }
                     
-                    override fun onFinish()
-                    {
+                    override fun onFinish() {
                          activityMainBinding.btnSquareRoot.setBackgroundColor(Color.TRANSPARENT)
                     }
                }.start()
                
-               mainViewModel.squareRoot()//odmocni cislo
+               mainViewModel.squareRoot() //odmocni cislo
           }
           
      }
