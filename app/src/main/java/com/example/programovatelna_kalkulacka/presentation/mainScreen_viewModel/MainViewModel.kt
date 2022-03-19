@@ -125,6 +125,7 @@ class MainViewModel : ViewModel() {
      private val result = MutableLiveData<String>()
      private val message = MutableLiveData<String>()
      
+     
      private val macroContainsResult = MutableLiveData<String>()
      private val mem1Value = MutableLiveData<String>()
      private val mem2Value = MutableLiveData<String>()
@@ -143,6 +144,10 @@ class MainViewModel : ViewModel() {
      private val mem15Value = MutableLiveData<String>()
      
      //---------------------------------------------------\\
+     
+     init {
+          lastResult.value = "0"
+     }
      
      fun addNumber1() {
           try {
