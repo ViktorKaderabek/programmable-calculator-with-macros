@@ -23,6 +23,10 @@ It is a programmable calculator that can do everything a classical calculator ca
 
 # The look of the application
 
+![screenshot-1647888136217](https://user-images.githubusercontent.com/66387359/159342531-18987da2-fda0-4c91-a50e-7cafd22ced23.png)
+![screenshot-1647888154081](https://user-images.githubusercontent.com/66387359/159342537-545d8603-b004-4700-bf0f-ebe84acbfbbe.png)
+![screenshot-1647888161342](https://user-images.githubusercontent.com/66387359/159342543-f97ef0cb-acb6-4991-8abd-45ee002ba4e5.png)
+![screenshot-1647888212553](https://user-images.githubusercontent.com/66387359/159342547-9e303797-64da-47cc-a420-c38fe884e60c.png)
 
 # Used Technologies
 
