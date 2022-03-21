@@ -5475,11 +5475,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
+               if(!falsiMethodIsClicked){
                result.value = resultHolder
                proccessResult.value = processHolder
                memIsClickedCount = 1
      
                mem1Value.value = mem1Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -5825,11 +5827,14 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
      
-               mem2Value.value = mem2Holder
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
+     
+                    mem2Value.value = mem2Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -6178,11 +6183,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem3Value.value = mem3Holder
+                    mem3Value.value = mem3Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -6531,11 +6538,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem4Value.value = mem4Holder
+                    mem4Value.value = mem4Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -6885,11 +6894,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem5Value.value = mem5Holder
+                    mem5Value.value = mem5Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -7238,11 +7249,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem6Value.value = mem6Holder
+                    mem6Value.value = mem6Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -7591,11 +7604,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem7Value.value = mem7Holder
+                    mem7Value.value = mem7Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -7944,11 +7959,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem8Value.value = mem8Holder
+                    mem8Value.value = mem8Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -8297,11 +8314,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem9Value.value = mem9Holder
+                    mem9Value.value = mem9Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -8650,11 +8669,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem10Value.value = mem10Holder
+                    mem10Value.value = mem10Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -9003,11 +9024,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem11Value.value = mem11Holder
+                    mem11Value.value = mem11Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -9356,11 +9379,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem2Value.value = mem12Holder
+                    mem12Value.value = mem12Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -9709,11 +9734,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem2Value.value = mem12Holder
+                    mem13Value.value = mem13Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -10062,11 +10089,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem14Value.value = mem14Holder
+                    mem14Value.value = mem14Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
@@ -10415,11 +10444,13 @@ class MainViewModel : ViewModel() {
                          }
                     }
                }
-               result.value = resultHolder
-               proccessResult.value = processHolder
-               memIsClickedCount = 1
+               if(!falsiMethodIsClicked) {
+                    result.value = resultHolder
+                    proccessResult.value = processHolder
+                    memIsClickedCount = 1
      
-               mem15Value.value = mem15Holder
+                    mem15Value.value = mem15Holder
+               }
           }
           catch (e : Exception) {
                deleteAll()
