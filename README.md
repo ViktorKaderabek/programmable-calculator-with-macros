@@ -1,17 +1,15 @@
 # Introduction 
-This project is part of my seminar work for school. The task was to create a program that will work with memories, can calculate quadratic equations and can record activity. Then all the data is stored in a database which is dumped in one part into recyclerview. Where the user can see what is recorded in the database.
+It is a programmable calculator that can do everything a classical calculator can, but at the same time there are implemented memories into which the user can store arbitrary numbers.In total, 15 memories are implemented in the project. Furthermore, the project implements a method of halving intervals that can find the root of a polynomial function, the user can control the accuracy of this algorithm. The user is allowed to select the point x and point y and then the accuracy with which he wants the algorithm to work. It is also possible to store just polynomial functions or algorithm settings in memory. The last thing in the calculator are macros. They replace the sequence of what the user does. So you can program different calculations. 
+
 
 # What it does
 
-- Solving normal mathematic problems
-- Power and sqrt functions 
-- Storing results into 5 avaliable memories signed as M1...
-- Clearing the memories
-- Recording the what user types
-- Store those records into the numbers where it could be called back
-- Using Falsi method 
+- Normal mathematical operations
+- 15 memories where the user can store values
+- Falsi Method
+- Recording in macros
 
-# To Do List(5/8)
+# To Do List(5/5)
 
 ✔️ - It's done and it works well
 ❌ - Not finished yet and i'm working on it
@@ -25,9 +23,6 @@ This project is part of my seminar work for school. The task was to create a pro
 
 # The look of the application
 
-![kalkulacka_main](https://user-images.githubusercontent.com/66387359/142734293-655b9c41-c031-4977-82ee-627c82e5e67f.png)
-![kalkulacka_qe](https://user-images.githubusercontent.com/66387359/142734294-124ec21e-223c-40a3-863b-df1de64f8605.png)
-![kalkulacka](https://user-images.githubusercontent.com/66387359/142734292-5d0706a2-3b9a-4a31-bc51-9658917e78a0.png)
 
 # Used Technologies
 
@@ -38,6 +33,7 @@ This project is part of my seminar work for school. The task was to create a pro
 - [Stack Overflow - Dialog Box](https://stackoverflow.com/questions/52076779/kotlin-custom-dialog-in-android)
 - [Koin - Koin(Dependency Injcetion)](https://insert-koin.io)
 - [Android Developer - View Binding](https://developer.android.com/topic/libraries/view-binding)
+- [Topal - MVVM architecture](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture)
 
 
 
